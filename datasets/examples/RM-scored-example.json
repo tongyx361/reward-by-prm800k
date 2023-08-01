@@ -1,0 +1,39 @@
+{
+    "problem": "A $90^\\circ$ rotation around the origin in the counter-clockwise direction is applied to $7 + 2i.$  What is the resulting complex number?",
+    "answer": "7i - 2",
+    "is_correct": true,
+    "subject": "Precalculus",
+    "level": 2,
+    "unique_id": "test/precalculus/779.json",
+    "steps": [
+        "I know that a $90^\\circ$ rotation around the origin in the complex plane can be achieved by multiplying the complex number by $i$, since $i$ has a magnitude of 1 and an argument of $90^\\circ$.",
+        "So, I can write the rotation as $(7 + 2i)i = 7i + 2i^2.$",
+        "To simplify this expression, I recall that $i^2 = -1$, so I can substitute that and get $7i - 2.$",
+        "This is the resulting complex number after the rotation.\n\n# Answer\n\n7i - 2"
+    ],
+    "rating_probs": [
+        {
+            "-1": 0.593068042770836,
+            "1": 0.387681464904673,
+            "0": 0.01925049232449113
+        },
+        {
+            "1": 0.9101000509718192,
+            "-1": 0.05710269249567796,
+            "0": 0.0327972565325028
+        },
+        {
+            "1": 0.9291714977657496,
+            "-1": 0.04241488752473914,
+            "0": 0.028413614709511318
+        },
+        {
+            "-1": 0.7507610598005641,
+            "1": 0.1384993425138924,
+            "0": 0.11073959768554346
+        }
+    ],
+    "orm_score": 0.6326445937156677,
+    "prm_score": 0.09157553704097245,
+    "ground_truth_answer": "-2+7i"
+}
