@@ -8,7 +8,7 @@ git+https://github.com/huggingface/peft.git@49a20c16dcd9de5716feee717e8eb742efb9
 bitsandbytes==0.37.2
 evaluate==0.4.0
 tokenizers==0.13.3
-protobuf==3.20.0
+protobuf>=3.20.2
 transformers>=4.28.1
 openai
 tiktoken
