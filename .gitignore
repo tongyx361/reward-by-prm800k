@@ -2,6 +2,7 @@ datasets/*
 !datasets/examples
 models/*
 !models/.gitkeep
+nohup.out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

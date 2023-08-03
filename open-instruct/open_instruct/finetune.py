@@ -191,7 +191,7 @@ def parse_args():
     parser.add_argument(
         "--checkpointing_steps",
         type=str,
-        default=None,
+        default="epoch",
         help="Whether the various states should be saved at the end of every n steps, or 'epoch' for each epoch.",
     )
     parser.add_argument(

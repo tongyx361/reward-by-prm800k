@@ -18,6 +18,7 @@ accelerate launch \
     --use_deepspeed \
     --deepspeed_config_file ds_configs/stage3_no_offloading_accelerate.conf \
     open_instruct/finetune.py \
+    --use_flash_attn \
     --model_name_or_path ${MODEL_NAME} \
     --use_lora \
     --lora_rank 256 \
@@ -37,10 +38,9 @@ accelerate launch \
     --num_train_epochs 2 \
     --output_dir "${OUTPUT_DIR}" \
     --with_tracking \
+    --checkpointing_steps 'epoch' \
     --report_to tensorboard \
     --logging_steps 1 \
-    # --use_flash_attn \
-    # --prm800k
 
 python open_instruct/merge_lora.py \
     --base_model_name_or_path "${MODEL_NAME}" \
