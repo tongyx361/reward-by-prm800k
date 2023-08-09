@@ -240,6 +240,12 @@ def parse_args():
         default=None,
         help=("encoded datasets for direct training"),
     )
+    parser.add_argument(
+        "--debug",
+        type=bool,
+        default=False,
+        help=("debug mode"),
+    )
     args = parser.parse_args()
 
     # Sanity checks
@@ -750,12 +756,19 @@ def main():
         logger.info(f"Sample {index} of the training set: {train_dataset[index]}.")
 
     # DataLoaders creation:
+
+    if args.debug:
+        padding_strategy = transformers.utils.PaddingStrategy.MAX_LENGTH
+    else:
+        padding_strategy = transformers.utils.PaddingStrategy.LONGEST
+
     train_dataloader = DataLoader(
         train_dataset,
         shuffle=True,
         collate_fn=DataCollatorForSeq2Seq(
-            tokenizer=tokenizer, model=model, padding="longest"
+            tokenizer=tokenizer, model=model, padding=padding_strategy
         ),
+        max_length=args.max_seq_length,
         batch_size=args.per_device_train_batch_size,
     )
 

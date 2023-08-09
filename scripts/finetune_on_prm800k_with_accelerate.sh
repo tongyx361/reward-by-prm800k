@@ -12,6 +12,7 @@ OP_DIR="${PROJECT_DIR}/open-instruct"
 ENCODED_DATASETS_PATH="${PROJECT_DIR}/datasets/sft-encoded-datasets"
 OUTPUT_DIR="${PROJECT_DIR}/models"
 MAX_SEQ_LENGTH='1024'
+CHECKPOINTING_STEPS='100' # 'epoch'
 
 nohup \
 accelerate launch \
@@ -37,7 +38,7 @@ accelerate launch \
     --num_train_epochs 3 \
     --output_dir "${OUTPUT_DIR}/${MODEL_NAME}" \
     --with_tracking \
-    --checkpointing_steps 'epoch' \
+    --checkpointing_steps "${CHECKPOINTING_STEPS}" \
     --report_to tensorboard \
     --logging_steps 1 \
     &
