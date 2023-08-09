@@ -39,6 +39,6 @@ accelerate launch \
     --output_dir "${OUTPUT_DIR}/${MODEL_NAME}" \
     --with_tracking \
     --checkpointing_steps "${CHECKPOINTING_STEPS}" \
-    --report_to tensorboard \
+    --report_to wandb \
     --logging_steps 1 \
     &
