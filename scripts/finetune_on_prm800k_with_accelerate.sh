@@ -1,12 +1,15 @@
 export CUDA_VISIBLE_DEVICES='0,1,3,6'
 EXP_NAME="direct-prediction" # 以能继续训练为同一个实验
 DATE="2023-08-14"
-IDX="0"
-LOG_NAME="{DATE}-${IDX}.out"
-DATASETS_NAME="encoded-datasets-pure-prediction"
+IDX=1
+LOG_NAME="${DATE}-${IDX}.out"
+DATASETS_NAME="encoded-datasets-direct-prediction"
 NUM_GPUS=4
 BATCH_SIZE_PER_GPU=2
 TOTAL_BATCH_SIZE=128
+
+WANDB_PROJECT="step-reward"
+WANDB_NAME="${DATE}-${IDX}"
 
 MODEL_NAME='meta-llama/Llama-2-7b-hf'
 GRADIENT_ACC_STEPS=$(($TOTAL_BATCH_SIZE/$NUM_GPUS/$BATCH_SIZE_PER_GPU))
@@ -16,7 +19,9 @@ PROJECT_DIR='/data/users/zhangjunlei/tyx/reward-by-prm800k'
 OP_DIR="${PROJECT_DIR}/open-instruct"
 ENCODED_DATASETS_PATH="${PROJECT_DIR}/datasets/${DATASETS_NAME}"
 OUTPUT_DIR="${PROJECT_DIR}/models/${EXP_NAME}/${MODEL_NAME}"
-LOG_PATH="${PROJECT_DIR}/logs/${EXP_NAME}/${LOG_NAME}"
+LOG_DIR="${PROJECT_DIR}/logs/${EXP_NAME}"
+mkdir -p "${LOG_DIR}"
+LOG_PATH="${LOG_DIR}/${LOG_NAME}"
 MAX_SEQ_LENGTH='4096'
 CHECKPOINTING_STEPS='100' # 'epoch'
 
@@ -48,5 +53,5 @@ accelerate launch \
     --report_to wandb \
     --logging_steps 1 \
     --debug \
-    &> "${LOG_PATH}"
+    &> "${LOG_PATH}" \
     &
