@@ -55,7 +55,7 @@ def main():
     method = args.method  # turn `args`' member into a local variable
 
     n_trials = 400
-    samples_path = "az://openaipublic/process-supervision/scored-test-samples.jsonl"  # ::TODO:: 该文件的内容是什么？
+    samples_path = "az://openaipublic/process-supervision/scored-test-samples.jsonl"
     ns = [10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1860]
     all_trial_pass_rates = []
     num_samples_per_problem = 1860
