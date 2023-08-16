@@ -48,6 +48,9 @@ def _choose_sample_by_score(samples: List[Sample], key: str) -> Optional[Sample]
     return max(samples, key=lambda x: x[key])
 
 
+__DEBUG__ = True
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--method", type=str, default="prm")  # one of ['orm', 'prm']
@@ -55,10 +58,18 @@ def main():
     method = args.method  # turn `args`' member into a local variable
 
     n_trials = 400
-    samples_path = "az://openaipublic/process-supervision/scored-test-samples.jsonl"
     ns = [10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1860]
-    all_trial_pass_rates = []
+
+    if __DEBUG__:
+        n_trials = 1
+        ns = [10]
+
+    # samples_path = "az://openaipublic/process-supervision/scored-test-samples.jsonl"
+    samples_path = (
+        "/data/tongyx361/reward-by-prm800k/datasets/scored-test-samples.jsonl"
+    )
     num_samples_per_problem = 1860
+    all_trial_pass_rates = []
 
     print(f"Reading {samples_path}, this may take a while...")
     samples = _read_jsonl(samples_path)
@@ -77,13 +88,16 @@ def main():
                 problem_samples = problem_samples + nones
                 random.shuffle(problem_samples)
                 subsamples = list(problem_samples[:n])
+                if __DEBUG__:
+                    print("len(subsamples)", subsamples)
                 subsamples = [x for x in subsamples if x is not None]
+                if __DEBUG__:
+                    print("len(subsamples)", subsamples)
                 subsamples = [x for x in subsamples if _get_answer(x) is not None]
-
+                if __DEBUG__:
+                    print("len(subsamples)", subsamples)
                 if method == "prm":
-                    choice = _choose_sample_by_score(
-                        subsamples, "prm_score"
-                    )  # ::TODO:: 好像没有这个字段，需要先加工得到？
+                    choice = _choose_sample_by_score(subsamples, "prm_score")
                 elif method == "orm":
                     choice = _choose_sample_by_score(subsamples, "orm_score")
 
