@@ -914,10 +914,11 @@ def main():
         model.train()
         total_loss = 0
         for step, batch in enumerate(train_dataloader):
-            if accelerator.is_main_process:
-                print(f"batch = train_dataloader[{step}]:")
-                for k, v in batch.items():
-                    print(f"{k}: {v.shape}")
+            if args.debug:
+                if accelerator.is_main_process:
+                    print(f"batch = train_dataloader[{step}]:")
+                    for k, v in batch.items():
+                        print(f"{k}: {v.shape}")
 
             # We need to skip steps until we reach the resumed step
             if args.resume_from_checkpoint and epoch == starting_epoch:

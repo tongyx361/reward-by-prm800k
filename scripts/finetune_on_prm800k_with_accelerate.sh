@@ -1,17 +1,18 @@
-export CUDA_VISIBLE_DEVICES='0,1,3,6'
+export CUDA_VISIBLE_DEVICES='0,1,3,7'
 EXP_NAME="direct-prediction" # 以能继续训练为同一个实验
 DATE="2023-08-14"
-IDX=1
+IDX=2
 LOG_NAME="${DATE}-${IDX}.out"
 DATASETS_NAME="encoded-datasets-direct-prediction"
 NUM_GPUS=4
 BATCH_SIZE_PER_GPU=2
 TOTAL_BATCH_SIZE=128
 
-WANDB_PROJECT="step-reward"
-WANDB_NAME="${DATE}-${IDX}"
+export WANDB_PROJECT="step-reward"
+export WANDB_NAME="${DATE}-${IDX}"
 
 MODEL_NAME='meta-llama/Llama-2-7b-hf'
+MODEL_PATH="/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9"
 GRADIENT_ACC_STEPS=$(($TOTAL_BATCH_SIZE/$NUM_GPUS/$BATCH_SIZE_PER_GPU))
 echo "Training ${MODEL_NAME} using $NUM_GPUS GPUs, $BATCH_SIZE_PER_GPU batch size per GPU, $GRADIENT_ACC_STEPS gradient accumulation steps"
 
@@ -34,8 +35,8 @@ accelerate launch \
     --deepspeed_config_file "${OP_DIR}/ds_configs/stage3_offloading_accelerate.conf" \
     "${OP_DIR}/open_instruct/finetune.py" \
     --use_flash_attn \
-    --model_name_or_path ${MODEL_NAME} \
-    --tokenizer_name ${MODEL_NAME} \
+    --model_name_or_path ${MODEL_PATH} \
+    --tokenizer_name ${MODEL_PATH} \
     --use_slow_tokenizer \
     --max_seq_length ${MAX_SEQ_LENGTH} \
     --encoded_datasets_name_or_path "${ENCODED_DATASETS_PATH}" \
@@ -52,6 +53,5 @@ accelerate launch \
     --checkpointing_steps "${CHECKPOINTING_STEPS}" \
     --report_to wandb \
     --logging_steps 1 \
-    --debug \
     &> "${LOG_PATH}" \
     &
