@@ -1,17 +1,28 @@
-export CUDA_VISIBLE_DEVICES='4,5,6,7'
-
-MODEL_NAME='meta-llama/Llama-2-7b-hf'
+export CUDA_VISIBLE_DEVICES='0,1,3,6'
+EXP_NAME="direct-prediction" # 以能继续训练为同一个实验
+DATE="2023-08-14"
+IDX=1
+LOG_NAME="${DATE}-${IDX}.out"
+DATASETS_NAME="encoded-datasets-direct-prediction"
 NUM_GPUS=4
 BATCH_SIZE_PER_GPU=2
 TOTAL_BATCH_SIZE=128
+
+WANDB_PROJECT="step-reward"
+WANDB_NAME="${DATE}-${IDX}"
+
+MODEL_NAME='meta-llama/Llama-2-7b-hf'
 GRADIENT_ACC_STEPS=$(($TOTAL_BATCH_SIZE/$NUM_GPUS/$BATCH_SIZE_PER_GPU))
 echo "Training ${MODEL_NAME} using $NUM_GPUS GPUs, $BATCH_SIZE_PER_GPU batch size per GPU, $GRADIENT_ACC_STEPS gradient accumulation steps"
 
 PROJECT_DIR='/data/users/zhangjunlei/tyx/reward-by-prm800k'
 OP_DIR="${PROJECT_DIR}/open-instruct"
-ENCODED_DATASETS_PATH="${PROJECT_DIR}/datasets/sft-encoded-datasets"
-OUTPUT_DIR="${PROJECT_DIR}/models"
-MAX_SEQ_LENGTH='1024'
+ENCODED_DATASETS_PATH="${PROJECT_DIR}/datasets/${DATASETS_NAME}"
+OUTPUT_DIR="${PROJECT_DIR}/models/${EXP_NAME}/${MODEL_NAME}"
+LOG_DIR="${PROJECT_DIR}/logs/${EXP_NAME}"
+mkdir -p "${LOG_DIR}"
+LOG_PATH="${LOG_DIR}/${LOG_NAME}"
+MAX_SEQ_LENGTH='4096'
 CHECKPOINTING_STEPS='100' # 'epoch'
 
 nohup \
@@ -36,9 +47,11 @@ accelerate launch \
     --warmup_ratio 0.03 \
     --weight_decay 0. \
     --num_train_epochs 3 \
-    --output_dir "${OUTPUT_DIR}/${MODEL_NAME}" \
+    --output_dir "${OUTPUT_DIR}" \
     --with_tracking \
     --checkpointing_steps "${CHECKPOINTING_STEPS}" \
     --report_to wandb \
     --logging_steps 1 \
+    --debug \
+    &> "${LOG_PATH}" \
     &

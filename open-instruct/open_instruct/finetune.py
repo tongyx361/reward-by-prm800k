@@ -242,8 +242,7 @@ def parse_args():
     )
     parser.add_argument(
         "--debug",
-        type=bool,
-        default=False,
+        action="store_true",
         help=("debug mode"),
     )
     args = parser.parse_args()
@@ -476,6 +475,9 @@ def encode_with_problem_step_ratings_format(
 
 def main():
     args = parse_args()
+
+    if args.debug:
+        args.report_to = None
 
     # A hacky way to make llama work with flash attention
     if args.use_flash_attn:
@@ -766,9 +768,8 @@ def main():
         train_dataset,
         shuffle=True,
         collate_fn=DataCollatorForSeq2Seq(
-            tokenizer=tokenizer, model=model, padding=padding_strategy
+            tokenizer=tokenizer, model=model, padding=padding_strategy, max_length=args.max_seq_length
         ),
-        max_length=args.max_seq_length,
         batch_size=args.per_device_train_batch_size,
     )
 
@@ -913,6 +914,11 @@ def main():
         model.train()
         total_loss = 0
         for step, batch in enumerate(train_dataloader):
+            if accelerator.is_main_process:
+                print(f"batch = train_dataloader[{step}]:")
+                for k, v in batch.items():
+                    print(f"{k}: {v.shape}")
+
             # We need to skip steps until we reach the resumed step
             if args.resume_from_checkpoint and epoch == starting_epoch:
                 if resume_step is not None and completed_steps < resume_step:
