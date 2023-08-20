@@ -25,13 +25,13 @@ def open_jsonl(file: str):
     return bf.BlobFile(file, "r")
 
 
-def _read_jsonl(file: str) -> List[Dict]:
+def read_jsonl(file: str) -> List[Dict]:
     assert bf.exists(file), file
     with open_jsonl(file) as f:
         return [json_loads(l) for l in f.readlines() if l]
 
 
-def _key_by_problem(samples: List[Dict]):
+def key_by_problem(samples: List[Dict]):
     grouped_samples = defaultdict(list)
     for sample in samples:
         grouped_samples[sample["problem"]].append(sample)
@@ -72,9 +72,9 @@ def main():
     all_trial_pass_rates = []
 
     print(f"Reading {samples_path}, this may take a while...")
-    samples = _read_jsonl(samples_path)
+    samples = read_jsonl(samples_path)
     print("Done.")
-    samples_by_problem = _key_by_problem(samples)  # group samples by problem
+    samples_by_problem = key_by_problem(samples)  # group samples by problem
     num_problems = len(samples_by_problem)  # num of problmes
 
     for i in range(n_trials):
