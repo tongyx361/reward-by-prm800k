@@ -3,6 +3,8 @@ datasets/*
 models/*
 !models/.gitkeep
 nohup.out
+eval/rated-samples/*
+tmp/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -38,11 +38,11 @@ def key_by_problem(samples: List[Dict]):
     return grouped_samples
 
 
-def _get_answer(sample: Sample) -> Optional[str]:
+def get_answer(sample: Sample) -> Optional[str]:
     return sample.get("answer", sample.get("given_answer", None))
 
 
-def _choose_sample_by_score(samples: List[Sample], key: str) -> Optional[Sample]:
+def choose_sample_by_score(samples: List[Sample], key: str) -> Optional[Sample]:
     if len(samples) == 0:
         return None
     return max(samples, key=lambda x: x[key])
@@ -93,13 +93,13 @@ def main():
                 subsamples = [x for x in subsamples if x is not None]
                 if __DEBUG__:
                     print("len(subsamples)", subsamples)
-                subsamples = [x for x in subsamples if _get_answer(x) is not None]
+                subsamples = [x for x in subsamples if get_answer(x) is not None]
                 if __DEBUG__:
                     print("len(subsamples)", subsamples)
                 if method == "prm":
-                    choice = _choose_sample_by_score(subsamples, "prm_score")
+                    choice = choose_sample_by_score(subsamples, "prm_score")
                 elif method == "orm":
-                    choice = _choose_sample_by_score(subsamples, "orm_score")
+                    choice = choose_sample_by_score(subsamples, "orm_score")
 
                 if choice is not None and choice["is_correct"]:
                     num_correct += 1

@@ -1,0 +1,127 @@
+{
+    "labeler": "cc88bf76-df08-4041-be67-3464279cb3b1",
+    "timestamp": "2022-11-22T16:51:29.980606",
+    "generation": 6,
+    "is_quality_control_question": false,
+    "is_initial_screening_question": false,
+    "question": {
+        "problem": "A Senate committee has 5 Democrats, 5 Republicans, and 1 Independent.  In how many ways can they sit around a circular table if all the members of each party all sit next to each other?  (Two seatings are considered equivalent if one is a rotation of the other.)",
+        "ground_truth_solution": "Choose any seat in which to place the Independent -- it doesn't matter which seat that we choose, since we can rotate the table. Once the Independent's seat has been chosen, either all the Democrats sit to their left and all the Republicans sit to their right, or the other way around. Either way, there are $5!$ ways to put the Democrats in their seats, and $5!$ ways to put the Republicans in their seats. So, the total number of ways to seat the people around the table is $2\\cdot5!\\cdot5!=2\\cdot120\\cdot120=\\boxed{28800}$.",
+        "ground_truth_answer": "28800",
+        "pre_generated_steps": [
+            "I notice that there are three groups of people: Democrats, Republicans, and Independent.",
+            "I wonder how many ways I can arrange these groups around the circle, ignoring the order within each group for now.",
+            "I recall that the number of ways to arrange n distinct objects around a circle is (n-1)!, since we can fix one object and then permute the rest.",
+            "So, for the three groups, there are (3-1)! = 2! = 2 ways to arrange them around the circle.",
+            "For example, one way is D-R-I, and the other way is R-D-I, where D stands for Democrats, R for Republicans, and I for Independent.",
+            "Now, I need to consider the order within each group.",
+            "For the Democrats, there are 5! ways to order them in a line, but only half of them are distinct around a circle, since reversing the order gives the same seating.",
+            "So, there are 5!/2 = 60 ways to order the Democrats around a circle.",
+            "Similarly, there are 60 ways to order the Republicans around a circle.",
+            "For the Independent, there is only one way to order him or her around a circle.",
+            "So, to get the total number of ways to seat the committee, I need to multiply the number of ways to arrange the groups by the number of ways to order each group.",
+            "That gives me 2 x 60 x 60 x 1 = 7200 ways.",
+            "# Answer\n\n7200"
+        ],
+        "pre_generated_answer": "7200",
+        "pre_generated_verifier_score": 0.0011546110201324836
+    },
+    "label": {
+        "steps": [
+            {
+                "completions": [
+                    {
+                        "text": "I notice that there are three groups of people: Democrats, Republicans, and Independent.",
+                        "rating": 1,
+                        "flagged": null
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": 0
+            },
+            {
+                "completions": [
+                    {
+                        "text": "I wonder how many ways I can arrange these groups around the circle, ignoring the order within each group for now.",
+                        "rating": 0,
+                        "flagged": null
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": 0
+            },
+            {
+                "completions": [
+                    {
+                        "text": "I recall that the number of ways to arrange n distinct objects around a circle is (n-1)!, since we can fix one object and then permute the rest.",
+                        "rating": 1,
+                        "flagged": null
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": 0
+            },
+            {
+                "completions": [
+                    {
+                        "text": "So, for the three groups, there are (3-1)! = 2! = 2 ways to arrange them around the circle.",
+                        "rating": 1,
+                        "flagged": null
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": 0
+            },
+            {
+                "completions": [
+                    {
+                        "text": "For example, one way is D-R-I, and the other way is R-D-I, where D stands for Democrats, R for Republicans, and I for Independent.",
+                        "rating": 1,
+                        "flagged": null
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": 0
+            },
+            {
+                "completions": [
+                    {
+                        "text": "Now, I need to consider the order within each group.",
+                        "rating": 1,
+                        "flagged": null
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": 0
+            },
+            {
+                "completions": [
+                    {
+                        "text": "For the Democrats, there are 5! ways to order them in a line, but only half of them are distinct around a circle, since reversing the order gives the same seating.",
+                        "rating": -1,
+                        "flagged": null
+                    },
+                    {
+                        "text": "For the Democrats, there are 5! ways to arrange them in a line, and the same for the Republicans.",
+                        "rating": 1,
+                        "flagged": false
+                    },
+                    {
+                        "text": "I observe that the Democrats and Republicans have 5 members each, so there are 5! ways to order them within their group.",
+                        "rating": 1,
+                        "flagged": false
+                    },
+                    {
+                        "text": "I see that there are 5! ways to arrange the 5 Democrats in a row, and the same for the 5 Republicans.",
+                        "rating": 1,
+                        "flagged": false
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": null
+            }
+        ],
+        "total_time": 164458,
+        "finish_reason": "found_error"
+    }
+}

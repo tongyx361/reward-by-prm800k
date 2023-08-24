@@ -1,0 +1,128 @@
+{
+    "labeler": "e90a38f3-3135-4465-87af-3e6322e3d772",
+    "timestamp": "2022-07-30T23:23:32.118856",
+    "generation": null,
+    "is_quality_control_question": false,
+    "is_initial_screening_question": false,
+    "question": {
+        "problem": "Three pencils and a jumbo eraser cost $\\$1.24$. Five pencils and a jumbo eraser cost $\\$1.82$. No prices include tax. In cents, what is the cost of a pencil?",
+        "ground_truth_answer": "29"
+    },
+    "label": {
+        "steps": [
+            {
+                "completions": [
+                    {
+                        "text": "Let's call the price of a pencil p and the price of a jumbo eraser e. Then we can write two equations.",
+                        "rating": 1,
+                        "flagged": false
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": 0
+            },
+            {
+                "completions": [
+                    {
+                        "text": "The first equation is 3p + e = 124, and the second equation is 5p + e = 182.",
+                        "rating": -1,
+                        "flagged": false
+                    },
+                    {
+                        "text": "The first equation is 3p+e=124, and the second is 5p+e=182.",
+                        "rating": -1,
+                        "flagged": false
+                    },
+                    {
+                        "text": "The first equation is 3p + e = 124.",
+                        "rating": -1,
+                        "flagged": false
+                    },
+                    {
+                        "text": "The first equation is $3p+e=124$. The second equation is $5p+e=182$.",
+                        "rating": -1,
+                        "flagged": false
+                    },
+                    {
+                        "text": "The first equation is $3p+e=124$.",
+                        "rating": -1,
+                        "flagged": false
+                    }
+                ],
+                "human_completion": {
+                    "text": "We have $3p+e=1.24$ and $5p+e=1.82$.",
+                    "rating": null,
+                    "source": "human",
+                    "flagged": false
+                },
+                "chosen_completion": null
+            },
+            {
+                "completions": [
+                    {
+                        "text": "To solve this system, let's subtract the first equation from the second equation. This will eliminate e.",
+                        "rating": 1,
+                        "flagged": false
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": 0
+            },
+            {
+                "completions": [
+                    {
+                        "text": "$5p+e-3p-e=1.82-1.24$.",
+                        "rating": 1,
+                        "flagged": false
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": 0
+            },
+            {
+                "completions": [
+                    {
+                        "text": "This simplifies to $2p=0.58$. So $p=0.29$.",
+                        "rating": 1,
+                        "flagged": false
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": 0
+            },
+            {
+                "completions": [
+                    {
+                        "text": "We could also solve this system by substitution.",
+                        "rating": 0,
+                        "flagged": false
+                    },
+                    {
+                        "text": "So a pencil costs $0.29.",
+                        "rating": 1,
+                        "flagged": false
+                    },
+                    {
+                        "text": "Right. One pencil costs $\\$0.29$.",
+                        "rating": 1,
+                        "flagged": false
+                    },
+                    {
+                        "text": "So the price of a pencil is 29 cents.\n\n# Answer\n\n29",
+                        "rating": 1,
+                        "flagged": false
+                    },
+                    {
+                        "text": "That means a pencil costs 29 cents.\n\n# Answer\n\n29",
+                        "rating": 1,
+                        "flagged": false
+                    }
+                ],
+                "human_completion": null,
+                "chosen_completion": 4
+            }
+        ],
+        "total_time": 293250,
+        "finish_reason": "solution"
+    }
+}
