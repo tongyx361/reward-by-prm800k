@@ -1,0 +1,503 @@
+nohup: ignoring input
+[2023-08-25 00:20:30,427] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[2023-08-25 00:20:36,327] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-08-25 00:20:36,358] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-08-25 00:20:36,395] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-08-25 00:20:36,415] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-08-25 00:20:37,285] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-08-25 00:20:37,285] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-08-25 00:20:37,355] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-08-25 00:20:37,355] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-08-25 00:20:37,356] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-08-25 00:20:37,356] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-08-25 00:20:37,356] [INFO] [comm.py:643:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2023-08-25 00:20:37,366] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-08-25 00:20:37,366] [INFO] [comm.py:616:init_distributed] cdb=None
+08/25/2023 00:20:37 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 1
+Local process index: 1
+Device: cuda:1
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'optimizer': {'type': 'AdamW', 'params': {'lr': 'auto', 'betas': 'auto', 'eps': 'auto', 'weight_decay': 'auto'}}, 'scheduler': {'type': 'WarmupDecayLR', 'params': {'total_num_steps': 'auto', 'warmup_min_lr': 'auto', 'warmup_max_lr': 'auto', 'warmup_num_steps': 'auto'}}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+08/25/2023 00:20:37 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 3
+Local process index: 3
+Device: cuda:3
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'optimizer': {'type': 'AdamW', 'params': {'lr': 'auto', 'betas': 'auto', 'eps': 'auto', 'weight_decay': 'auto'}}, 'scheduler': {'type': 'WarmupDecayLR', 'params': {'total_num_steps': 'auto', 'warmup_min_lr': 'auto', 'warmup_max_lr': 'auto', 'warmup_num_steps': 'auto'}}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+08/25/2023 00:20:37 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'optimizer': {'type': 'AdamW', 'params': {'lr': 'auto', 'betas': 'auto', 'eps': 'auto', 'weight_decay': 'auto'}}, 'scheduler': {'type': 'WarmupDecayLR', 'params': {'total_num_steps': 'auto', 'warmup_min_lr': 'auto', 'warmup_max_lr': 'auto', 'warmup_num_steps': 'auto'}}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+08/25/2023 00:20:37 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 2
+Local process index: 2
+Device: cuda:2
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'optimizer': {'type': 'AdamW', 'params': {'lr': 'auto', 'betas': 'auto', 'eps': 'auto', 'weight_decay': 'auto'}}, 'scheduler': {'type': 'WarmupDecayLR', 'params': {'total_num_steps': 'auto', 'warmup_min_lr': 'auto', 'warmup_max_lr': 'auto', 'warmup_num_steps': 'auto'}}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+loading configuration file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-hf/snapshots/db6b8eb1feabb38985fdf785a89895959e944936/config.json
+Model config LlamaConfig {
+  "_name_or_path": "/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-hf/snapshots/db6b8eb1feabb38985fdf785a89895959e944936",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 5120,
+  "initializer_range": 0.02,
+  "intermediate_size": 13824,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 40,
+  "num_hidden_layers": 40,
+  "num_key_value_heads": 40,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.31.0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+loading file tokenizer.model
+loading file added_tokens.json
+loading file special_tokens_map.json
+loading file tokenizer_config.json
+loading weights file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-hf/snapshots/db6b8eb1feabb38985fdf785a89895959e944936/model.safetensors.index.json
+Detected DeepSpeed ZeRO-3: activating zero.init() for this model
+Generate config GenerationConfig {
+  "_from_model_config": true,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "pad_token_id": 0,
+  "transformers_version": "4.31.0"
+}
+
+[2023-08-25 00:20:43,326] [INFO] [partition_parameters.py:326:__exit__] finished initializing model with 13.02B parameters
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:05,  2.76s/it]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:05,  2.77s/it]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:05,  2.79s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:05<00:02,  2.58s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:05<00:02,  2.60s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:05<00:02,  2.60s/it]Loading checkpoint shards:  33%|███▎      | 1/3 [00:06<00:13,  6.86s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  3.30s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  3.12s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  3.30s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  3.12s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  3.31s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  3.14s/it]
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:14<00:07,  7.04s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.23s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:19<00:00,  6.43s/it]
+All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+All the weights of LlamaForCausalLM were initialized from the model checkpoint at /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-hf/snapshots/db6b8eb1feabb38985fdf785a89895959e944936.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+Generation config file not found, using a generation config created from the model config.
+Assigning <s> to the bos_token key of the tokenizer
+Assigning </s> to the eos_token key of the tokenizer
+Assigning <unk> to the unk_token key of the tokenizer
+Assigning <pad> to the pad_token key of the tokenizer
+Adding <pad> to the vocabulary
+08/25/2023 00:21:05 - INFO - __main__ - Sample 51354 of the training set: {'input_ids': tensor([    1,   450,  2533,   310,   278, 27497,   310,   278, 17680, 12770,
+          310,   263,  7705,  6825,  3800,   338,   395, 29896, 29946, 29900,
+         1628,   322,   278,  5418,   515,   697, 11155,   310,   278,  3800,
+          304,   278,  2215,   386,   342, 11155,   338,   395, 29906, 29896,
+         1504,  1724,   338,   278,  3001,  7101,  4038,   310,   278,  3800,
+        29973,    13, 12024,   278, 13391,   310,   278,  3800,   367,   395,
+        29916, 29892,   343, 29892,   503,  1628,   988,   395, 29916, 29892,
+          343, 29892,   503,  1405, 29871, 29900,  1504,    13, 11760,   278,
+         2533,   310,   278,  7636, 27497,   338,   395, 29946, 29898, 29916,
+        29974, 29891, 29974, 29920, 29897,   353, 29871, 29896, 29946, 29900,
+         1628,   470,   395, 29916, 29974, 29891, 29974, 29920,   353, 29871,
+        29941, 29945,  1504,    13,  1576,  5418,   515,   697, 11155,   304,
+          278,  2215,   386,   342, 11155,   338,   278, 19640,   310,   278,
+         3800, 29892,   607,   491,   278,   349,  1541,   351,   487,   273,
+         9185,   338,   779,  3676, 29912, 29916, 29985, 29906, 29974, 29891,
+        29985, 29906, 29974, 29920, 29985, 29906, 29913,   353, 29871, 29906,
+        29896,  1504,    13, 29903,   339,  4362,  1716, 11192, 29892,   591,
+          679,   395, 29916, 29985, 29906, 29974, 29891, 29985, 29906, 29974,
+        29920, 29985, 29906,   353, 29871, 29946, 29946, 29896,  1504,    13,
+        10454,   591,   505,  1023, 10693, 21677,   395, 29916, 29892,   343,
+        29892,   503,  1628,   541,   591,   817,   697,   901,   304,  4505,
+          363,   963, 29889,    13,  4806,   508,   671,   278,  2114,   393,
+          278,  7101,  4038,   310,   278,  3800,   338,   395, 29906, 29898,
+         3594, 29974, 29916, 29920, 29974, 12339,  5767,   322,  1018,   304,
+         4653,   372,   297,  4958,   310,   395, 29916, 29974, 29891, 29974,
+        29920, 29938,   322,   395, 29916, 29985, 29906, 29974, 29891, 29985,
+        29906, 29974, 29920, 29985, 29906,  1504,    13,  1762,   437,   445,
+        29892,   591,   508,   671,   278, 10110,  2427, 29916, 29974, 29891,
+        29974, 29920,  4887, 29906,   353,   921, 29985, 29906, 29974, 29891,
+        29985, 29906, 29974, 29920, 29985, 29906, 29974, 29906, 29898,  3594,
+        29974, 29916, 29920, 29974, 12339,  4935,    13, 29934,   799, 29878,
+         9776, 29892,   591,   679,   395,  3594, 29974, 29916, 29920, 29974,
+        12339,   353,   320,  1154,  8001, 29916, 29974, 29891, 29974, 29920,
+         4887, 29906,   448,   313, 29916, 29985, 29906, 29974, 29891, 29985,
+        29906, 29974, 29920, 29985, 29906, 10172, 29906,  4311,    13,  4035,
+          303, 12937,   292,   278,  1819,   310,   395, 29916, 29974, 29891,
+        29974, 29920, 29938,   322,   395, 29916, 29985, 29906, 29974, 29891,
+        29985, 29906, 29974, 29920, 29985, 29906,  1628,   591,   679,   395,
+         3594, 29974, 29916, 29920, 29974, 12339,   353,   320,  1154, 29912,
+        29941, 29945, 29985, 29906,   448, 29871, 29946, 29946, 29896,  1157,
+        29906, 29913,   353, 29871, 29906, 29953, 29929, 29889, 29945,  1504,
+           13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 8178]), 'attention_mask': tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1])}.
+08/25/2023 00:21:05 - INFO - __main__ - Sample 78304 of the training set: {'input_ids': tensor([    1,  4956,   345,   975,   278, 11920, 29901,  2046, 29906, 29985,
+        29874, 29974, 29946, 29985, 29890, 29974, 29947, 29985, 29883, 29922,
+        29941, 29906, 29947, 19470,    13, 29902,  8369,   393,   599,   278,
+         4958,   373,   278,  2175,  2625,   310,   278,  6306,   526, 10801,
+          310, 29871, 29906, 29892,   577,   306,  4997,   565,   306,   508,
+        10683,   278,  6306,   297,  4958,   310,   263,  2323,  2967, 29889,
+           13, 29902, 17386,   393,   395, 29946, 29922, 29906, 29985, 29906,
+        29938,   322,   395, 29947, 29922, 29906, 29985, 29941,  1628,   577,
+          306,   508, 23764,  1906, 12241,   964,   278,  6306,   322,   671,
+          278, 28869,  6865,   304,   679, 29901,  2046, 29906, 29985, 29874,
+        29974, 29906,   998, 29906, 29890,  7517, 29906,   998, 29941, 29883,
+         5369, 29941, 29906, 29947, 19470,    13, 10454,   306,   505,   263,
+         2323,  2967,   373,   278,  2175,  2625, 29892,   541,   278,  1492,
+         2625,   338,   451,   263,  3081,   310, 29871, 29906, 29889,    13,
+        17245, 29892,   306,  1073,   393,  1432,  6374,  6043,   508,   367,
+         3971,   408,   263,  2533,   310,  8359, 10801,   310, 29871, 29906,
+        29892,   577,   306,  1018,   304,  1284,  1316,   263,  8954,   363,
+        29871, 29941, 29906, 29947, 29889,    13, 29902,  1369,   411,   278,
+        10150,  3081,   310, 29871, 29906,   393,   338,  3109,  1135, 29871,
+        29941, 29906, 29947, 29892,   607,   338, 29871, 29906, 29945, 29953,
+        29889,    13, 11760,   306, 23197, 29871, 29906, 29945, 29953,   515,
+        29871, 29941, 29906, 29947,   322,   679, 29871, 29955, 29906, 29889,
+           13, 29902, 12312,   278,  1889,   411, 29871, 29955, 29906,   322,
+         1284,   278,  2446, 10150,  3081,   310, 29871, 29906, 29892,   607,
+          338, 29871, 29953, 29946, 29889,    13,  4035, 29873,  1461,   292,
+        29871, 29953, 29946,   515, 29871, 29955, 29906,  4076,   592, 29871,
+        29947, 29892,   607,   338,   884,   263,  3081,   310, 29871, 29906,
+        29889,    13,  6295,   306,   505,  1476,   393,  2046, 29941, 29906,
+        29947, 29922, 29906, 29945, 29953, 29974, 29953, 29946, 29974, 29947,
+        29922, 29906, 29985, 29947, 29974, 29906, 29985, 29953, 29974, 29906,
+        29985, 29941, 19470,    13, 29902,   508,  1286,  1592,   403,   278,
+         1023, 11192,   310,   278,  6306,   322,   671,   278,  2114,   393,
+          565,   395, 29906, 29985, 29916, 29922, 29906, 29985, 29891,  1628,
+          769,   395, 29916, 29922, 29891, 29938,   304,   679,   263,  1788,
+          310,  2211, 10693, 29901,  6118,   463, 29912, 13671, 29913, 29871,
+        29906, 29985, 29874, 20644, 29906, 29985, 29947,  2474, 29871, 29906,
+          998, 29906, 29890, 15704, 29922, 29906, 29985, 29953,  2474, 29871,
+        29906,   998, 29941, 29883, 15704, 29922, 29906, 29985, 29941,   320,
+          355, 29912, 13671,  9458,    13, 13296,  1747,   363,   395, 29874,
+         1628,   395, 29890,  1628,   322,   395, 29883, 29938,   338,  4780,
+         1286, 29892,   306,   925,   817,   304, 16429,   278,   429,  9340,
+          491,   278, 16127,   310,   278,  3651, 29889,    13, 29902,   679,
+        29901,  6118,   463, 29912, 13671, 29913,   263, 20644, 29947,  2474,
+          289, 20644, 29941,  2474,   274, 20644, 29896,   320,   355, 29912,
+        13671,  9458,    13,    13, 29937,   673,    13,    13, 29947, 29892,
+        29871, 29941, 29892, 29871, 29896,    13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374]), 'attention_mask': tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])}.
+08/25/2023 00:21:05 - INFO - __main__ - Sample 26051 of the training set: {'input_ids': tensor([    1,  3439,   572,  1598, 29901,   395, 29875, 29985, 29900, 29974,
+        29875, 29985, 29896,  3124,  9572, 29974, 29875,   998, 29906, 29900,
+        29900, 29929,  1836, 29938,    13,  4013,  1108, 20789,  4280,  3694,
+          322, 10801,   310,   395, 29875,  1628,   278,  6382,  3821,  5190,
+          393, 17150,   395, 29875, 29985, 29906, 10457, 29896,  1504,    13,
+         1762, 21092,   445,  4603, 29892,   306,   817,   304, 17386,   920,
+        10801,   310,   395, 29875, 29938, 11412,  1549,  3023,  1819, 29901,
+          395, 29875, 29985, 29900, 29922, 29896, 29892,   474, 29985, 29896,
+        29922, 29875, 29892,   474, 29985, 29906, 10457, 29896, 29892,   474,
+        29985, 29941, 10457, 29875, 29892,   474, 29985, 29946, 29922, 29896,
+        29892,   474, 29985, 29945, 29922, 29875,  1628,   322,   577,   373,
+        29889,    13,  4013,  2794,   393,  1432,  3023, 18942, 10801,   310,
+          395, 29875, 29938,   788,   701,   304,  5225, 29901,   395, 29875,
+        29985, 29900, 29974, 29875, 29985, 29896, 29974, 29875, 29985, 29906,
+        29974, 29875, 29985, 29941, 29922, 29896, 29974, 29875, 29899, 29896,
+        29899, 29875, 29922, 29900,  1504,    13,  6295, 29892,   306,   508,
+         2318,   278,  4958,   297,   278,  4603,   491,   285,  2470, 29892,
+         6257,   515,   278,  2175, 29901,  2427, 29875, 29985, 29900, 29974,
+        29875, 29985, 29896, 29974, 29875, 29985, 29906, 29974, 29875, 29985,
+        29941,  7240, 29898, 29875, 29985, 29946, 29974, 29875, 29985, 29945,
+        29974, 29875, 29985, 29953, 29974, 29875, 29985, 29955, 20843,  9572,
+        17108, 29875,   998, 29906, 29900, 29900, 29946,  7517, 29875,   998,
+        29906, 29900, 29900, 29945,  7517, 29875,   998, 29906, 29900, 29900,
+        29953,  7517, 29875,   998, 29906, 29900, 29900, 29955,  1800, 29974,
+        29875,   998, 29906, 29900, 29900, 29947,  7517, 29875,   998, 29906,
+        29900, 29900, 29929,  4311,    13,  9760,  2318,   310,  3023,  4958,
+        12778,   701,   304,  5225, 29892,  5174,   363,   278,  1833,  1023,
+         4958, 29889,    13,  8439,  1079, 29892,   278,  4603,  5466, 11057,
+          304,   395, 29875,   998, 29906, 29900, 29900, 29947,  7517, 29875,
+          998, 29906, 29900, 29900, 29929,  4311,    13, 10454, 29892,   306,
+          817,   304,  1284,   278,  1819,   310,  1438,  1023, 10801,   310,
+          395, 29875,  1504,    13, 29902,   508,   671,   278,  1021,  5094,
+        28746,  4766,   408,  1434, 29892,   541, 16429,   278,   429,  9340,
+          491,  3023,   322,  1106,   472,   278,  3933,  8623, 29889,    13,
+        29938, 29906, 29900, 29900, 29947, 29938, 13931,   491,  3023,  4076,
+          263, 21162,   310,  5225, 29892,   577,   395, 29875,   998, 29906,
+        29900, 29900, 29947,  1042,   756,   278,  1021,   995,   408,   395,
+        29875, 29985, 29900,  1628,   607,   338,   395, 29896,  1504,    13,
+        29938, 29906, 29900, 29900, 29929, 29938, 13931,   491,  3023,  4076,
+          263, 21162,   310,   697, 29892,   577,   395, 29875,   998, 29906,
+        29900, 29900, 29929,  1042,   756,   278,  1021,   995,   408,   395,
+        29875, 29985, 29896,  1628,   607,   338,   395, 29875,  1504,    13,
+         8439,  1079, 29892,   278,  4603,  5466, 11057,   304,   395, 29896,
+        29974, 29875,  1504,    13, 29937,   673,    13,    13, 29896, 29974,
+        29875,    13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, 6374]), 'attention_mask': tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1])}.
+08/25/2023 00:21:05 - INFO - accelerate.accelerator - Updating DeepSpeed's gradient accumulation steps to 16 from 1.
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 1005, in <module>
+    main()
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 825, in main
+    model, optimizer, train_dataloader, lr_scheduler = accelerator.prepare(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1198, in prepare
+    result = self._prepare_deepspeed(*args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1447, in _prepare_deepspeed
+    raise ValueError(
+ValueError: You cannot specify an optimizer in the config file and in the code at the same time. Please remove the optimizer from the config file or create `accelerate.utils.DummyOptim` in the code.
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 1005, in <module>
+    main()
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 825, in main
+    model, optimizer, train_dataloader, lr_scheduler = accelerator.prepare(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1198, in prepare
+    result = self._prepare_deepspeed(*args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1447, in _prepare_deepspeed
+    raise ValueError(
+ValueError: You cannot specify an optimizer in the config file and in the code at the same time. Please remove the optimizer from the config file or create `accelerate.utils.DummyOptim` in the code.
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 1005, in <module>
+    main()
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 825, in main
+    model, optimizer, train_dataloader, lr_scheduler = accelerator.prepare(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1198, in prepare
+    result = self._prepare_deepspeed(*args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1447, in _prepare_deepspeed
+    raise ValueError(
+ValueError: You cannot specify an optimizer in the config file and in the code at the same time. Please remove the optimizer from the config file or create `accelerate.utils.DummyOptim` in the code.
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 1005, in <module>
+    main()
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 825, in main
+    model, optimizer, train_dataloader, lr_scheduler = accelerator.prepare(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1198, in prepare
+    result = self._prepare_deepspeed(*args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1447, in _prepare_deepspeed
+    raise ValueError(
+ValueError: You cannot specify an optimizer in the config file and in the code at the same time. Please remove the optimizer from the config file or create `accelerate.utils.DummyOptim` in the code.
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 1443129) of binary: /data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/python
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 45, in main
+    args.func(args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/commands/launch.py", line 964, in launch_command
+    deepspeed_launcher(args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/commands/launch.py", line 687, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/run.py", line 785, in run
+    elastic_launch(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 250, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2023-08-25_00:21:07
+  host      : a100
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 1443130)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2023-08-25_00:21:07
+  host      : a100
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 1443131)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2023-08-25_00:21:07
+  host      : a100
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 1443132)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-08-25_00:21:07
+  host      : a100
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 1443129)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

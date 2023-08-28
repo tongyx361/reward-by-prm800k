@@ -2,36 +2,6 @@
 # coding=utf-8
 
 import argparse
-import logging
-import math
-import os
-import random
-from functools import partial
-
-import datasets
-import torch
-import transformers
-from accelerate import Accelerator
-from accelerate.logging import get_logger
-from accelerate.utils import set_seed
-from datasets import concatenate_datasets, load_dataset, load_from_disk
-from peft import LoraConfig, TaskType, get_peft_model
-from torch.utils.data import DataLoader
-from tqdm.auto import tqdm
-from transformers import (
-    AutoConfig,
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    DataCollatorForSeq2Seq,
-    GPT2Tokenizer,
-    GPTNeoXTokenizerFast,
-    LlamaTokenizer,
-    OPTForCausalLM,
-    SchedulerType,
-    get_scheduler,
-)
-
-logger = get_logger(__name__)
 
 
 def parse_args():
@@ -96,11 +66,21 @@ def parse_args():
         action="store_true",
         help="If passed, will merge the lora modules and save the entire model.",
     )
+    # parser.add_argument(
+    #     "--use_flash_attn",
+    #     action="store_true",
+    #     help="If passed, will use flash attention to train the model.",
+    # )
+
+    # argument to choose which accelerating library to use
     parser.add_argument(
-        "--use_flash_attn",
-        action="store_true",
-        help="If passed, will use flash attention to train the model.",
+        "--use_accelerate_lib",
+        type=str,
+        default="",
+        choices=["flash-attn-v1", "flash-attn-v2", "xformers", ""],
+        help='"flash-attn-v1", "flash-attn-v2", "xformers"',
     )
+
     parser.add_argument(
         "--tokenizer_name",
         type=str,
@@ -241,6 +221,11 @@ def parse_args():
         help=("encoded datasets for direct training"),
     )
     parser.add_argument(
+        "--sync_cache_flush",
+        action="store_true",
+        help=("sync cache flush"),
+    )
+    parser.add_argument(
         "--debug",
         action="store_true",
         help=("debug mode"),
@@ -262,6 +247,63 @@ def parse_args():
                 "jsonl",
             ], "`train_file` should be a json/jsonl file."
     return args
+
+
+args = parse_args()
+
+# if args.debug:
+#     args.report_to = None
+
+# A hacky way to make llama work with flash attention
+# Note: Need to call this before importing transformers. (FastChat)
+if args.use_accelerate_lib is not None and args.use_accelerate_lib != "":
+    if args.use_accelerate_lib == "flash-attn-v2":
+        print("Using flash attention v2")
+        from llama2_flash_attn_monkey_patch import replace_llama_attn_with_flash_attn
+
+        replace_llama_attn_with_flash_attn()
+    elif args.use_accelerate_lib == "flash-attn-v1":
+        print("Using flash attention v1")
+        from llama_flash_attn_monkey_patch import replace_llama_attn_with_flash_attn
+
+        replace_llama_attn_with_flash_attn()
+    elif args.use_accelerate_lib == "xformers":
+        from llama_xformers_attn_monkey_patch import (
+            replace_llama_attn_with_xformers_attn,
+        )
+
+        replace_llama_attn_with_xformers_attn()
+
+import logging
+import math
+import os
+import random
+from functools import partial
+
+import datasets
+import torch
+import transformers
+from accelerate import Accelerator
+from accelerate.logging import get_logger
+from accelerate.utils import set_seed
+from datasets import concatenate_datasets, load_dataset, load_from_disk
+from peft import LoraConfig, TaskType, get_peft_model
+from torch.utils.data import DataLoader
+from tqdm.auto import tqdm
+from transformers import (
+    AutoConfig,
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    DataCollatorForSeq2Seq,
+    GPT2Tokenizer,
+    GPTNeoXTokenizerFast,
+    LlamaTokenizer,
+    OPTForCausalLM,
+    SchedulerType,
+    get_scheduler,
+)
+
+logger = get_logger(__name__)
 
 
 def encode_with_prompt_completion_format(example, tokenizer, max_seq_length):
@@ -474,17 +516,6 @@ def encode_with_problem_step_ratings_format(
 
 
 def main():
-    args = parse_args()
-
-    if args.debug:
-        args.report_to = None
-
-    # A hacky way to make llama work with flash attention
-    if args.use_flash_attn:
-        from llama_flash_attn_monkey_patch import replace_llama_attn_with_flash_attn
-
-        replace_llama_attn_with_flash_attn()
-
     # Initialize the accelerator. We will let the accelerator handle device placement for us in this example.
     # If we're using tracking, we also need to initialize it here and it will by default pick up all supported trackers
     # in the environment
@@ -768,7 +799,10 @@ def main():
         train_dataset,
         shuffle=True,
         collate_fn=DataCollatorForSeq2Seq(
-            tokenizer=tokenizer, model=model, padding=padding_strategy, max_length=args.max_seq_length
+            tokenizer=tokenizer,
+            model=model,
+            padding=padding_strategy,
+            max_length=args.max_seq_length,
         ),
         batch_size=args.per_device_train_batch_size,
     )
@@ -881,9 +915,11 @@ def main():
     # Potentially load in the weights and states from a previous save
     if args.resume_from_checkpoint:
         if args.resume_from_checkpoint is not None or args.resume_from_checkpoint != "":
-            accelerator.print(f"Resumed from checkpoint: {args.resume_from_checkpoint}")
+            # path = os.path.basename(args.resume_from_checkpoint)
+            accelerator.print(
+                f"Resuming from checkpoint: {args.resume_from_checkpoint}"
+            )
             accelerator.load_state(args.resume_from_checkpoint)
-            path = os.path.basename(args.resume_from_checkpoint)
         else:
             # Get the most recent checkpoint
             dirs = [f.name for f in os.scandir(os.getcwd()) if f.is_dir()]
@@ -891,6 +927,8 @@ def main():
             path = dirs[
                 -1
             ]  # Sorts folders by date modified, most recent checkpoint is the last
+            accelerator.print(f"Resuming from checkpoint: {path}")
+            accelerator.load_state(args.resume_from_checkpoint)
         # Extract `epoch_{i}` or `step_{i}`
         training_difference = os.path.splitext(path)[0]
 
@@ -914,11 +952,13 @@ def main():
         model.train()
         total_loss = 0
         for step, batch in enumerate(train_dataloader):
-            if args.debug:
+            if args.debug == True:
                 if accelerator.is_main_process:
                     print(f"batch = train_dataloader[{step}]:")
+                    logger.debug(f"batch = train_dataloader[{step}]:")
                     for k, v in batch.items():
                         print(f"{k}: {v.shape}")
+                        logger.debug(f"{k}: {v.shape}")
 
             # We need to skip steps until we reach the resumed step
             if args.resume_from_checkpoint and epoch == starting_epoch:
@@ -937,6 +977,10 @@ def main():
                 optimizer.step()
                 optimizer.zero_grad()
                 lr_scheduler.step()
+                if args.sync_cache_flush:
+                    from deepspeed.accelerator import get_accelerator
+
+                    get_accelerator().empty_cache()
 
             # # Checks if the accelerator has performed an optimization step behind the scenes
             if accelerator.sync_gradients:

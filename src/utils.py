@@ -1,6 +1,7 @@
 import csv
 import datetime
 import gzip
+import importlib
 import json
 import os
 import pickle
@@ -100,6 +101,9 @@ class Problem:
 # }
 
 # device
+
+def reload():
+    importlib.reload(vllm)
 
 
 def set_gpu_ids(gpu_ids=[4, 5, 6, 7]):
@@ -451,6 +455,13 @@ def is_zero3_parameters(model_name_or_path):
     return re.match(r".*/(step|epoch)_[0-9]+$", model_name_or_path) is not None
 
 
+def extract_step_or_epoch_num(path):
+    result = re.search(r".*?(?:step|epoch)_([0-9]+)", path)
+    if result is None:
+        return None
+    return int(result.group(1))
+
+
 def rate_n_samples(
     model_name_or_path=model_name_or_path,
     problem_solution_hierarchical_samples_path=gpt4_generated_problem_solution_hierarchical_samples_path_wo_basename
@@ -722,18 +733,20 @@ def complete_four_special_tokens(tokenizer):
         1,
     ], "LlamaTokenizer should only add one special token - the pad_token, or no tokens if pad token present."
 
-    print(tokenizer)
+    print(f"num_added_tokens = {num_added_tokens}")
 
     return tokenizer
 
 
-def get_complete_tokenizer():
+def get_complete_tokenizer(tokenizer_name_or_path=tokenizer_name_or_path):
     global tokenizer
     if tokenizer is None:
         tokenizer = transformers.AutoTokenizer.from_pretrained(
             tokenizer_name_or_path, model_max_length=model_max_length
         )
         tokenizer = complete_four_special_tokens(tokenizer)
+
+    print(tokenizer)
 
     return tokenizer
 

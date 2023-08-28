@@ -4,8 +4,8 @@ from deepspeed.runtime.zero.stage_1_and_2 import (
 )
 from transformers import AutoModel
 
-model_name = "meta-llama/Llama-2-7b-hf"
-model = AutoModel.from_pretrained(model_name)
+model_name = "meta-llama/Llama-2-13b-hf"
+model = AutoModel.from_pretrained(model_name, low_cpu_mem_usage=True)
 
 zero_stage2api = {
     2: estimate_zero2_model_states_mem_needs_all_live,

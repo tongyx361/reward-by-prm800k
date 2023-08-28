@@ -36,7 +36,7 @@ for name in os.listdir(train_models_dirpath):
 
 
 def extract_step_or_epoch_num(path):
-    return int(re.search(r".*?(?:step|epoch)_([0-9]+)", path).group(1))
+    return int(re.search(r".*?(?:step|epoch)_([0-9]+)_?", path).group(1))
 
 
 model_variant_paths.sort(key=extract_step_or_epoch_num, reverse=True)
