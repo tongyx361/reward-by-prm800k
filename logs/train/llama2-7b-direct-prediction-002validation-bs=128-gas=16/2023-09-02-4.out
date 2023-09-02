@@ -1,0 +1,1214 @@
+nohup: ignoring input
+[2023-09-03 01:55:56,424] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[2023-09-03 01:56:01,008] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 01:56:01,023] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 01:56:01,024] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 01:56:01,040] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Using xformers
+Initializing accelerator...
+[2023-09-03 01:56:02,501] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:56:02,501] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-03 01:56:02,501] [INFO] [comm.py:643:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Using xformers
+Initializing accelerator...
+[2023-09-03 01:56:02,614] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:56:02,614] [INFO] [comm.py:616:init_distributed] cdb=None
+Using xformers
+Using xformers
+Initializing accelerator...
+[2023-09-03 01:56:02,645] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:56:02,645] [INFO] [comm.py:616:init_distributed] cdb=None
+Initializing accelerator...
+[2023-09-03 01:56:02,662] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:56:02,662] [INFO] [comm.py:616:init_distributed] cdb=None
+accelerator.state = Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:56:02 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:56:02 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 3
+Local process index: 3
+Device: cuda:3
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:56:02 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 1
+Local process index: 1
+Device: cuda:1
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:56:02 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 2
+Local process index: 2
+Device: cuda:2
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:56:08 - DEBUG - evaluate.loading - Checking /data/users/zhangjunlei/tyx/.cache/huggingface/evaluate/downloads/96cba97f346e44af314163a75259842d567a1e87cf5b208754598a47f8c5f531.cfd6b2fbd44256c2b82392f9e38ab60b0f49c187db643eb761fb625fe8a3303c.py for additional imports.
+09/03/2023 01:56:08 - DEBUG - evaluate.loading - Created importable dataset file at /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--accuracy/f887c0aab52c2d38e1f8a215681126379eca617f96c447638f751434e8e65b14/accuracy.py
+09/03/2023 01:56:10 - DEBUG - evaluate.loading - Checking /data/users/zhangjunlei/tyx/.cache/huggingface/evaluate/downloads/498d31a4e66ca154bf5332fcbc8dd35c18a5ea36090d6be3b2d3aacc7794d5cc.39d17ba2a627a7569cf0b5b78be67e3176df05857da937b236a4ee081bbb92ec.py for additional imports.
+09/03/2023 01:56:10 - DEBUG - evaluate.loading - Created importable dataset file at /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--f1/0ca73f6cf92ef5a268320c697f7b940d1030f8471714bffdb6856c641b818974/f1.py
+09/03/2023 01:56:13 - DEBUG - evaluate.loading - Checking /data/users/zhangjunlei/tyx/.cache/huggingface/evaluate/downloads/3475eb8bf47bed300d80c02f82bb340aa0cb078031fbd39c731005d74d707c24.68cf5e93118a075768a83fb255d6e1e2ed7c1a6a6c2a15efc3bdb64051e98654.py for additional imports.
+09/03/2023 01:56:13 - DEBUG - evaluate.loading - Created importable dataset file at /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--precision/4e7f439a346715f68500ce6f2be82bf3272abd3f20bdafd203a2c4f85b61dd5f/precision.py
+09/03/2023 01:56:15 - DEBUG - evaluate.loading - Checking /data/users/zhangjunlei/tyx/.cache/huggingface/evaluate/downloads/89340037b5d34271e1522e5ad2308e9d050b495fa7ae88b2fa45a58cc24bf20f.e9198607b86fd02007e38b8f5a9af833e8066df08c633f857615896edf80f24d.py for additional imports.
+09/03/2023 01:56:15 - DEBUG - evaluate.loading - Created importable dataset file at /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--recall/e40e6e98d18ff3f210f4d0b26fa721bfaa80704b1fdf890fa551cfabf94fc185/recall.py
+loading configuration file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9/config.json
+Model config LlamaConfig {
+  "_name_or_path": "/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.31.0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+loading file tokenizer.model
+loading file added_tokens.json
+loading file special_tokens_map.json
+loading file tokenizer_config.json
+You are using the legacy behaviour of the <class 'transformers.models.llama.tokenization_llama.LlamaTokenizer'>. This means that tokens that come after special tokens will not be properly handled. We recommend you to read the related pull request available at https://github.com/huggingface/transformers/pull/24565
+Detected PIL version 10.0.0
+loading weights file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9/model.safetensors.index.json
+Detected DeepSpeed ZeRO-3: activating zero.init() for this model
+Generate config GenerationConfig {
+  "_from_model_config": true,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "pad_token_id": 0,
+  "transformers_version": "4.31.0"
+}
+
+[2023-09-03 01:56:16,078] [INFO] [partition_parameters.py:326:__exit__] finished initializing model with 6.74B parameters
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.02s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.04s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.19s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.16s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.19s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.16s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.19s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.96s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.43s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.96s/it]
+All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+All the weights of LlamaForCausalLM were initialized from the model checkpoint at /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+loading configuration file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9/generation_config.json
+Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "do_sample": true,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 0,
+  "temperature": 0.6,
+  "top_p": 0.9,
+  "transformers_version": "4.31.0"
+}
+
+Sun Sep  3 01:56:26 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  Off  | 00000000:12:00.0 Off |                    0 |
+| N/A   32C    P0    79W / 400W |    547MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  Off  | 00000000:18:00.0 Off |                    0 |
+| N/A   30C    P0    71W / 400W |  42207MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  Off  | 00000000:4A:00.0 Off |                    0 |
+| N/A   31C    P0    75W / 400W |  42662MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  Off  | 00000000:4E:00.0 Off |                    0 |
+| N/A   30C    P0    68W / 400W |   6153MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  Off  | 00000000:8A:00.0 Off |                    0 |
+| N/A   35C    P0    95W / 400W |  28503MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  Off  | 00000000:8F:00.0 Off |                    0 |
+| N/A   35C    P0    91W / 400W |  28773MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  Off  | 00000000:C6:00.0 Off |                    0 |
+| N/A   33C    P0    96W / 400W |  28371MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  Off  | 00000000:CA:00.0 Off |                    0 |
+| N/A   34C    P0    84W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A   2661157      C   python3                           545MiB |
+|    1   N/A  N/A   2428060      C   .../diffusion_gan/bin/python    42203MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A   2661157      C   python3                          4789MiB |
+|    3   N/A  N/A    111507      C   .../open-instruct/bin/python     6151MiB |
+|    4   N/A  N/A    111508      C   .../open-instruct/bin/python    28501MiB |
+|    5   N/A  N/A    111509      C   .../open-instruct/bin/python    28771MiB |
+|    6   N/A  N/A    111510      C   .../open-instruct/bin/python    28369MiB |
+|    7   N/A  N/A   2722693      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+Assigning <s> to the bos_token key of the tokenizer
+Assigning </s> to the eos_token key of the tokenizer
+Assigning <unk> to the unk_token key of the tokenizer
+Assigning <pad> to the pad_token key of the tokenizer
+Adding <pad> to the vocabulary
+09/03/2023 01:56:28 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 3
+09/03/2023 01:56:28 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 2
+09/03/2023 01:56:28 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 1
+09/03/2023 01:56:29 - INFO - __main__ - Sample 43981 of the training set: {'input_ids': tensor([    1,   450, 17162,   297,   263, 12529,  7738, 11109, 29879,   322,
+         1058,   359,  1169, 29889,  1152,  1269,  3234, 29892,  5802,   931,
+          338,  4868,   322, 13557,   363,   599, 17162, 29892,   541,   451,
+        12695,  5186,   363,   278,  1023,  9316, 29889,   512,   697,  7234,
+        29892, 29871, 29896, 29900, 29900, 17162,   508,  7738, 29871, 29941,
+        29900, 29900, 11109, 29879,   322, 29871, 29906, 29900, 29900,  1058,
+          359,  1169, 29889,   512,  1023,  6199, 29892, 29871, 29953, 29900,
+        17162,   508,  7738, 29871, 29906, 29946, 29900, 11109, 29879,   322,
+        29871, 29941, 29900, 29900,  1058,   359,  1169, 29889,   512,  2211,
+         6199, 29892, 29871, 29945, 29900, 17162,   508,  7738, 29871, 29896,
+        29945, 29900, 11109, 29879,   322,   395, 29885, 29938,  1058,   359,
+         1169, 29889, 10987,   395, 29885,  1504,    13,  4013,   338,   263,
+         1108,  1048, 19257,   310,   664, 29892,   322,   920,   896,  8839,
+          373,   278,  1353,   310, 17162,   322,   278,   931, 10398,  1985,
+        29889,    13, 29902,   864,   304,  1284,   714,   920,  1784, 11109,
+        29879,   322,  1058,   359,  1169,  1269, 15645,   508,  7738,   297,
+          697,  7234, 29892,   322,   769,   671,   393,   304,  1284,   395,
+        29885,  1504,    13,  1762,   437,   393, 29892,   306,   817,   304,
+          731,   701,   777, 10693,   773,   278,  2472,  2183,   297,   278,
+         1108, 29889,    13, 12024,   395, 29893, 29938,   367,   278,  1353,
+          310, 11109, 29879,  1269, 15645,   508,  7738,   297,   697,  7234,
+        29892,   322,   395, 29882, 29938,   367,   278,  1353,   310,  1058,
+          359,  1169,  1269, 15645,   508,  7738,   297,   697,  7234, 29889,
+           13, 11760, 29892,   363,  1269,   310,   278,  2211, 21846, 29892,
+          306,   505, 29901,    13,    13,  4421, 24893, 29871, 29896, 29901,
+        29871, 29896, 29900, 29900, 17162, 29892, 29871, 29896,  7234, 29892,
+        29871, 29941, 29900, 29900, 11109, 29879, 29892, 29871, 29906, 29900,
+        29900,  1058,   359,  1169,    13, 29905,   463, 29912,  2520,  4044,
+           13, 29896, 29900, 29900, 29893,  7878, 29871, 29941, 29900, 29900,
+         1966,    13, 29896, 29900, 29900, 29882,  7878, 29871, 29906, 29900,
+        29900,    13, 29905,   355, 29912,  2520,  4044,    13,    13,  4421,
+        24893, 29871, 29906, 29901, 29871, 29953, 29900, 17162, 29892, 29871,
+        29906,  6199, 29892, 29871, 29906, 29946, 29900, 11109, 29879, 29892,
+        29871, 29941, 29900, 29900,  1058,   359,  1169,    13, 29905,   463,
+        29912,  2520,  4044,    13, 29953, 29900,   320,  3822, 29871, 29906,
+        29893,  7878, 29871, 29906, 29946, 29900,  1966,    13, 29953, 29900,
+          320,  3822, 29871, 29906, 29882,  7878, 29871, 29941, 29900, 29900,
+           13, 29905,   355, 29912,  2520,  4044,    13,    13,  4421, 24893,
+        29871, 29941, 29901, 29871, 29945, 29900, 17162, 29892, 29871, 29941,
+         6199, 29892, 29871, 29896, 29945, 29900, 11109, 29879, 29892,   395,
+        29885, 29938,  1058,   359,  1169,    13, 29905,   463, 29912,  2520,
+         4044,    13, 29945, 29900,   320,  3822, 29871, 29941, 29893,  7878,
+        29871, 29896, 29945, 29900,  1966,    13, 29945, 29900,   320,  3822,
+        29871, 29941, 29882,  7878,   286,    13, 29905,   355, 29912,  2520,
+         4044,    13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, 8178])}.
+09/03/2023 01:56:29 - INFO - __main__ - Sample 80568 of the training set: {'input_ids': tensor([    1, 10987,   278, 10150,   995,   310,   395, 29883, 29938,  1316,
+          393, 15727, 29906, 29938,   338,   297,   278,  3464,   310, 29871,
+          395, 29888, 29898, 29916,  3892, 29916, 29985, 29906, 29974, 29941,
+        29916, 29974, 29883,  1504,    13, 29902,   817,   304,  1284,   278,
+        10150,   395, 29883, 29938,   393,  3732,   395, 29888, 29898, 29916,
+         3892, 29899, 29906, 29938,  1950,   363,   777,   995,   310,   395,
+        29916,  1504,    13,  7058,  2794,   306,   817,   304,  4505,   278,
+         6306,   395, 29916, 29985, 29906, 29974, 29941, 29916, 29974, 29883,
+        10457, 29906, 29938,   363,   395, 29916, 29938,   322,  1074,   746,
+          372,   756,  1855,  6851, 29889,    13, 29902,   508, 18983,  3881,
+          278,  6306,   408,   395, 29916, 29985, 29906, 29974, 29941, 29916,
+        17108, 29883, 29974, 29906,  3892, 29900, 29938,   322,   671,   278,
+        25904,  7063,   304,  1284,   395, 29916,  1504,    13,  1576, 25904,
+         7063,  4083,   393,   395, 29916,  2013,  1154,  8499, 29890, 29905,
+         3358, 29905,  3676, 29912, 29890, 29985, 29906, 29899, 29946,   562,
+         7585, 29906, 29874,  4429,   988,   395, 29874, 29922, 29896,  1628,
+          395, 29890, 29922, 29941,  1628,   322,   395, 29883, 29922, 29883,
+        29974, 29906,  1504,    13,  1762,   505,  1855,  6851, 29892,   278,
+         2313, 20386,   424,   395, 29890, 29985, 29906, 29899, 29946,   562,
+        29938,  1818,   367,  1661, 29899, 22198, 29892,   577,   306,   817,
+          304,  1284,   278, 10150,   395, 29883, 29938,   393, 17150,   395,
+        29941, 29985, 29906, 29899, 29946, 29898, 29883, 29974, 29906,  2144,
+         6279, 29871, 29900,  1504,    13,  8942,   572,  9215, 29892,   306,
+          679, 15727, 29946, 29883, 29899, 29945, 29905,  6279, 29871, 29900,
+         1628,   470,   395, 29883, 29905,  3797, 11995,  1154, 29912, 29945,
+         1157, 29946,  4311,    13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 8178])}.
+09/03/2023 01:56:29 - INFO - __main__ - Sample 42070 of the training set: {'input_ids': tensor([    1,   450,  5665,  2427, 29874, 29918, 29876,  1262,   338,  3342,
+          491,   395, 29874, 29918, 29900,   353, 29871, 29906,  8209,   395,
+        29874, 29918, 29896,   353, 29871, 29896,  8209,   322,    13, 29905,
+        29961, 29874, 29918, 29876,   353,   263,   648, 29876,   448, 29871,
+        29896, 29913,   320,  3676, 29912, 29941, 29913,   448,   263,   648,
+        29876,   448, 29871, 29906,  1012, 29962,  1454,   599,   395, 29876,
+          320,   479, 29871, 29906,  7449, 29871, 10987,   395, 29874,   648,
+        29896, 29900, 29900,  1836, 29938,    13,  4013,  3430,   763,   263,
+        16732,  5665, 29892,   577,   306,   817,   304,  1284,   263,   982,
+          304,  4653,   395, 29874, 29918, 29876, 29938,   297,  4958,   310,
+          395, 29876, 29938,  1728, 16811,   304,  3517,  4958, 29889,    13,
+        29902,  8369,   393,   278,  5665,  5136,  1078,  1546,  6374,   322,
+         8178,  1819, 29892,   577,   306,  4997,   565,   727,   338,   777,
+         4766, 21677, 10801,   310,  2427, 29899, 29896,  1262,   470, 13879,
+          310,  2427, 29899, 29896,  4935,    13, 29902,   884,  8369,   393,
+          278,  5665, 20789,  6862, 16778,   310, 29871, 29941, 29892,   577,
+          306,  4997,   565,   727,   338,   777,  3957,   304, 16222,   265,
+        14066,  3168, 29892,  1951,   779,  3676, 29912, 29941,  1042,  5692,
+          297,   777,  1819,   310,   269,   457,   322,  6776,   457, 29889,
+           13, 29902,  1018,   304,  2436,   714,   278,   937,  2846,  4958,
+          310,   278,  5665,   304,  1074,   565,   306,   508,  9758,   263,
+         4766, 29901,   395, 29874, 29918, 29900,   353, 29871, 29906,  8209,
+          395, 29874, 29918, 29896,   353, 29871, 29896,  8209,   395, 29874,
+        29918, 29906,   353,   320,  3676, 29912, 29941, 29913,   448, 29871,
+        29906,  8209,   395, 29874, 29918, 29941,   353,   448, 29896,   718,
+          320,  3676, 29912, 29941,  1118, 29938,   395, 29874, 29918, 29946,
+          353, 11995,  3676, 29912, 29941, 29913,   718, 29871, 29896,   448,
+          320,  3676, 29912, 29941, 29913,   353,   448, 29906, 29905,  3676,
+        29912, 29941, 29913,   718, 29871, 29896,  8209,   395, 29874, 29918,
+        29945,   353, 29871, 29906,   448,   320,  3676, 29912, 29941, 29913,
+          448, 29871, 29906, 29905,  3676, 29912, 29941, 29913,   718, 29871,
+        29896,   353,   448, 29941, 29905,  3676, 29912, 29941, 29913,   718,
+        29871, 29941,  8209,   322,   577,   373, 29889,    13]), 'labels': tensor([ -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  6374,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100, 21104,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+        21104,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  8178])}.
+09/03/2023 01:56:29 - INFO - accelerate.accelerator - Since you passed both train and evaluation dataloader, `is_train_batch_min` (here True will decide the `train_batch_size` (2).
+09/03/2023 01:56:29 - INFO - accelerate.accelerator - Updating DeepSpeed's gradient accumulation steps to 16 from 1.
+[2023-09-03 01:56:29,317] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.10.0, git-hash=unknown, git-branch=unknown
+09/03/2023 01:56:29 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 0
+09/03/2023 01:56:29 - INFO - torch.distributed.distributed_c10d - Rank 0: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+09/03/2023 01:56:29 - INFO - torch.distributed.distributed_c10d - Rank 3: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+09/03/2023 01:56:29 - INFO - torch.distributed.distributed_c10d - Rank 1: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+09/03/2023 01:56:29 - INFO - torch.distributed.distributed_c10d - Rank 2: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+[2023-09-03 01:56:29,965] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2023-09-03 01:56:29,967] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the client Optimizer
+[2023-09-03 01:56:29,967] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2023-09-03 01:56:29,977] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2023-09-03 01:56:29,977] [INFO] [utils.py:54:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2023-09-03 01:56:29,977] [INFO] [logging.py:96:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+[2023-09-03 01:56:29,977] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 3 optimizer
+[2023-09-03 01:56:30,137] [INFO] [utils.py:785:see_memory_usage] Stage 3 initialize beginning
+[2023-09-03 01:56:30,138] [INFO] [utils.py:786:see_memory_usage] MA 3.69 GB         Max_MA 4.27 GB         CA 5.62 GB         Max_CA 6 GB 
+[2023-09-03 01:56:30,138] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 75.64 GB, percent = 7.5%
+[2023-09-03 01:56:30,140] [INFO] [stage3.py:117:__init__] Reduce bucket size 16777216
+[2023-09-03 01:56:30,140] [INFO] [stage3.py:118:__init__] Prefetch bucket size 15099494
+[2023-09-03 01:56:30,244] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2023-09-03 01:56:30,244] [INFO] [utils.py:786:see_memory_usage] MA 3.69 GB         Max_MA 3.69 GB         CA 5.62 GB         Max_CA 6 GB 
+[2023-09-03 01:56:30,244] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 75.64 GB, percent = 7.5%
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+[2023-09-03 01:56:30,371] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2023-09-03 01:56:30,371] [INFO] [utils.py:786:see_memory_usage] MA 3.32 GB         Max_MA 3.75 GB         CA 5.62 GB         Max_CA 6 GB 
+[2023-09-03 01:56:30,372] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 75.65 GB, percent = 7.5%
+[2023-09-03 01:56:30,481] [INFO] [utils.py:785:see_memory_usage] Before creating fp16 partitions
+[2023-09-03 01:56:30,482] [INFO] [utils.py:786:see_memory_usage] MA 3.32 GB         Max_MA 3.32 GB         CA 5.62 GB         Max_CA 6 GB 
+[2023-09-03 01:56:30,482] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 75.64 GB, percent = 7.5%
+[2023-09-03 01:56:32,513] [INFO] [utils.py:785:see_memory_usage] After creating fp16 partitions: 2
+[2023-09-03 01:56:32,513] [INFO] [utils.py:786:see_memory_usage] MA 3.32 GB         Max_MA 3.32 GB         CA 3.78 GB         Max_CA 6 GB 
+[2023-09-03 01:56:32,513] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 85.06 GB, percent = 8.4%
+[2023-09-03 01:56:32,634] [INFO] [utils.py:785:see_memory_usage] Before creating fp32 partitions
+[2023-09-03 01:56:32,635] [INFO] [utils.py:786:see_memory_usage] MA 3.32 GB         Max_MA 3.32 GB         CA 3.78 GB         Max_CA 4 GB 
+[2023-09-03 01:56:32,635] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 85.07 GB, percent = 8.4%
+[2023-09-03 01:56:32,775] [INFO] [utils.py:785:see_memory_usage] After creating fp32 partitions
+[2023-09-03 01:56:32,775] [INFO] [utils.py:786:see_memory_usage] MA 9.6 GB         Max_MA 10.87 GB         CA 11.92 GB         Max_CA 12 GB 
+[2023-09-03 01:56:32,775] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 85.07 GB, percent = 8.4%
+[2023-09-03 01:56:33,687] [INFO] [utils.py:785:see_memory_usage] Before initializing optimizer states
+[2023-09-03 01:56:33,688] [INFO] [utils.py:786:see_memory_usage] MA 9.6 GB         Max_MA 9.6 GB         CA 11.92 GB         Max_CA 12 GB 
+[2023-09-03 01:56:33,688] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 75.64 GB, percent = 7.5%
+[2023-09-03 01:56:33,831] [INFO] [utils.py:785:see_memory_usage] After initializing optimizer states
+[2023-09-03 01:56:33,832] [INFO] [utils.py:786:see_memory_usage] MA 22.15 GB         Max_MA 30.97 GB         CA 35.69 GB         Max_CA 36 GB 
+[2023-09-03 01:56:33,832] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 75.64 GB, percent = 7.5%
+[2023-09-03 01:56:33,832] [INFO] [stage3.py:424:_setup_for_real_optimizer] optimizer state initialized
+[2023-09-03 01:56:34,043] [INFO] [utils.py:785:see_memory_usage] After initializing ZeRO optimizer
+[2023-09-03 01:56:34,043] [INFO] [utils.py:786:see_memory_usage] MA 25.32 GB         Max_MA 25.81 GB         CA 35.69 GB         Max_CA 36 GB 
+[2023-09-03 01:56:34,044] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 75.68 GB, percent = 7.5%
+[2023-09-03 01:56:34,044] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2023-09-03 01:56:34,044] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2023-09-03 01:56:34,044] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2023-09-03 01:56:34,044] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0], mom=[(0.9, 0.999)]
+[2023-09-03 01:56:34,044] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   amp_params ................... False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7f6b98127070>
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   dump_state ................... False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2023-09-03 01:56:34,045] [INFO] [config.py:964:print]   global_rank .................. 0
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 16
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   pld_params ................... False
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   steps_per_print .............. inf
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   train_batch_size ............. 128
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   use_node_local_storage ....... False
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   world_size ................... 4
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  True
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=16777216 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=None sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=15099494 param_persistence_threshold=40960 model_persistence_threshold=sys.maxsize max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=True stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2023-09-03 01:56:34,046] [INFO] [config.py:964:print]   zero_optimization_stage ...... 3
+[2023-09-03 01:56:34,046] [INFO] [config.py:950:print_user_config]   json = {
+    "bf16": {
+        "enabled": true
+    }, 
+    "zero_optimization": {
+        "stage": 3, 
+        "overlap_comm": true, 
+        "contiguous_gradients": true, 
+        "sub_group_size": 1.000000e+09, 
+        "reduce_bucket_size": 1.677722e+07, 
+        "stage3_prefetch_bucket_size": 1.509949e+07, 
+        "stage3_param_persistence_threshold": 4.096000e+04, 
+        "stage3_max_live_parameters": 1.000000e+09, 
+        "stage3_max_reuse_distance": 1.000000e+09, 
+        "stage3_gather_16bit_weights_on_model_save": true
+    }, 
+    "gradient_accumulation_steps": 16, 
+    "gradient_clipping": 1.0, 
+    "steps_per_print": inf, 
+    "train_batch_size": 128, 
+    "train_micro_batch_size_per_gpu": 2, 
+    "wall_clock_breakdown": false, 
+    "fp16": {
+        "enabled": false
+    }, 
+    "zero_allow_untested_optimizer": true
+}
+Sun Sep  3 01:56:34 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  Off  | 00000000:12:00.0 Off |                    0 |
+| N/A   32C    P0    68W / 400W |    547MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  Off  | 00000000:18:00.0 Off |                    0 |
+| N/A   30C    P0    70W / 400W |  42207MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  Off  | 00000000:4A:00.0 Off |                    0 |
+| N/A   31C    P0    88W / 400W |  42662MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  Off  | 00000000:4E:00.0 Off |                    0 |
+| N/A   31C    P0    84W / 400W |  38513MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  Off  | 00000000:8A:00.0 Off |                    0 |
+| N/A   35C    P0    92W / 400W |  38801MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  Off  | 00000000:8F:00.0 Off |                    0 |
+| N/A   34C    P0    87W / 400W |  38801MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  Off  | 00000000:C6:00.0 Off |                    0 |
+| N/A   32C    P0    85W / 400W |  38513MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  Off  | 00000000:CA:00.0 Off |                    0 |
+| N/A   34C    P0    73W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A   2661157      C   python3                           545MiB |
+|    1   N/A  N/A   2428060      C   .../diffusion_gan/bin/python    42203MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A   2661157      C   python3                          4789MiB |
+|    3   N/A  N/A    111507      C   .../open-instruct/bin/python    38511MiB |
+|    4   N/A  N/A    111508      C   .../open-instruct/bin/python    38799MiB |
+|    5   N/A  N/A    111509      C   .../open-instruct/bin/python    39085MiB |
+|    6   N/A  N/A    111510      C   .../open-instruct/bin/python    38511MiB |
+|    7   N/A  N/A   2722693      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+wandb: Currently logged in as: kidrain61. Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: Tracking run with wandb version 0.15.9
+wandb: Run data is saved locally in /data/users/zhangjunlei/tyx/wandb/wandb/run-20230903_015641-c7hnqnyi
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run llama2-7b-direct-prediction-002validation-bs=128-gas=16
+wandb: ⭐️ View project at https://wandb.ai/kidrain61/step-reward
+wandb: 🚀 View run at https://wandb.ai/kidrain61/step-reward/runs/c7hnqnyi
+09/03/2023 01:56:47 - INFO - __main__ - ***** Running training *****
+09/03/2023 01:56:47 - INFO - __main__ -   Num examples = 85194
+09/03/2023 01:56:47 - INFO - __main__ -   Num Epochs = 100
+09/03/2023 01:56:47 - INFO - __main__ -   Instantaneous batch size per device = 2
+09/03/2023 01:56:47 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 128
+09/03/2023 01:56:47 - INFO - __main__ -   Gradient Accumulation steps = 16
+09/03/2023 01:56:47 - INFO - __main__ -   Total optimization steps = 66600
+  0%|          | 0/66600 [00:00<?, ?it/s]09/03/2023 01:56:47 - INFO - __main__ - ***** Running Validation *****
+
+Evaluating:   0%|          | 0/228 [00:00<?, ?it/s][Astep: 0
+step: 1
+
+Evaluating:   1%|          | 2/228 [00:01<02:13,  1.70it/s][Astep: 2
+
+Evaluating:   1%|▏         | 3/228 [00:01<01:48,  2.07it/s][Astep: 3
+
+Evaluating:   2%|▏         | 4/228 [00:01<01:25,  2.62it/s][Astep: 4
+
+Evaluating:   2%|▏         | 5/228 [00:01<01:12,  3.10it/s][Astep: 5
+
+Evaluating:   3%|▎         | 6/228 [00:02<01:03,  3.50it/s][Astep: 6
+
+Evaluating:   3%|▎         | 7/228 [00:02<00:57,  3.84it/s][Astep: 7
+
+Evaluating:   4%|▎         | 8/228 [00:02<00:54,  4.07it/s][Astep: 8
+
+Evaluating:   4%|▍         | 9/228 [00:02<00:51,  4.22it/s][Astep: 9
+
+Evaluating:   4%|▍         | 10/228 [00:02<00:50,  4.35it/s][Astep: 10
+
+Evaluating:   5%|▍         | 11/228 [00:03<00:48,  4.48it/s][Astep: 11
+
+Evaluating:   5%|▌         | 12/228 [00:03<00:47,  4.53it/s][Astep: 12
+
+Evaluating:   6%|▌         | 13/228 [00:03<00:46,  4.59it/s][Astep: 13
+
+Evaluating:   6%|▌         | 14/228 [00:03<00:46,  4.59it/s][Astep: 14
+
+Evaluating:   7%|▋         | 15/228 [00:04<00:46,  4.62it/s][Astep: 15
+
+Evaluating:   7%|▋         | 16/228 [00:04<00:45,  4.67it/s][Astep: 16
+
+Evaluating:   7%|▋         | 17/228 [00:04<00:45,  4.67it/s][Astep: 17
+
+Evaluating:   8%|▊         | 18/228 [00:04<00:44,  4.68it/s][Astep: 18
+
+Evaluating:   8%|▊         | 19/228 [00:04<00:44,  4.67it/s][Astep: 19
+
+Evaluating:   9%|▉         | 20/228 [00:05<00:44,  4.67it/s][Astep: 20
+
+Evaluating:   9%|▉         | 21/228 [00:05<00:44,  4.69it/s][Astep: 21
+
+Evaluating:  10%|▉         | 22/228 [00:05<00:43,  4.71it/s][Astep: 22
+
+Evaluating:  10%|█         | 23/228 [00:05<00:43,  4.69it/s][Astep: 23
+
+Evaluating:  11%|█         | 24/228 [00:05<00:43,  4.68it/s][Astep: 24
+
+Evaluating:  11%|█         | 25/228 [00:06<00:43,  4.67it/s][Astep: 25
+
+Evaluating:  11%|█▏        | 26/228 [00:06<00:43,  4.65it/s][Astep: 26
+
+Evaluating:  12%|█▏        | 27/228 [00:06<00:43,  4.66it/s][Astep: 27
+
+Evaluating:  12%|█▏        | 28/228 [00:06<00:42,  4.66it/s][Astep: 28
+
+Evaluating:  13%|█▎        | 29/228 [00:07<00:42,  4.68it/s][Astep: 29
+
+Evaluating:  13%|█▎        | 30/228 [00:07<00:41,  4.72it/s][Astep: 30
+
+Evaluating:  14%|█▎        | 31/228 [00:07<00:41,  4.74it/s][Astep: 31
+
+Evaluating:  14%|█▍        | 32/228 [00:07<00:41,  4.71it/s][Astep: 32
+
+Evaluating:  14%|█▍        | 33/228 [00:07<00:41,  4.69it/s][Astep: 33
+
+Evaluating:  15%|█▍        | 34/228 [00:08<00:41,  4.70it/s][Astep: 34
+
+Evaluating:  15%|█▌        | 35/228 [00:08<00:40,  4.72it/s][Astep: 35
+
+Evaluating:  16%|█▌        | 36/228 [00:08<00:40,  4.71it/s][Astep: 36
+
+Evaluating:  16%|█▌        | 37/228 [00:08<00:40,  4.73it/s][Astep: 37
+
+Evaluating:  17%|█▋        | 38/228 [00:08<00:40,  4.71it/s][Astep: 38
+
+Evaluating:  17%|█▋        | 39/228 [00:09<00:39,  4.73it/s][Astep: 39
+
+Evaluating:  18%|█▊        | 40/228 [00:09<00:39,  4.75it/s][Astep: 40
+
+Evaluating:  18%|█▊        | 41/228 [00:09<00:39,  4.73it/s][Astep: 41
+
+Evaluating:  18%|█▊        | 42/228 [00:09<00:39,  4.71it/s][Astep: 42
+
+Evaluating:  19%|█▉        | 43/228 [00:10<00:39,  4.69it/s][Astep: 43
+
+Evaluating:  19%|█▉        | 44/228 [00:10<00:39,  4.70it/s][Astep: 44
+
+Evaluating:  20%|█▉        | 45/228 [00:10<00:39,  4.68it/s][Astep: 45
+
+Evaluating:  20%|██        | 46/228 [00:10<00:38,  4.72it/s][Astep: 46
+
+Evaluating:  21%|██        | 47/228 [00:10<00:38,  4.69it/s][Astep: 47
+
+Evaluating:  21%|██        | 48/228 [00:11<00:38,  4.67it/s][Astep: 48
+
+Evaluating:  21%|██▏       | 49/228 [00:11<00:38,  4.67it/s][Astep: 49
+
+Evaluating:  22%|██▏       | 50/228 [00:11<00:38,  4.67it/s][Astep: 50
+
+Evaluating:  22%|██▏       | 51/228 [00:11<00:37,  4.68it/s][Astep: 51
+
+Evaluating:  23%|██▎       | 52/228 [00:11<00:37,  4.70it/s][Astep: 52
+
+Evaluating:  23%|██▎       | 53/228 [00:12<00:37,  4.70it/s][Astep: 53
+
+Evaluating:  24%|██▎       | 54/228 [00:12<00:36,  4.73it/s][Astep: 54
+
+Evaluating:  24%|██▍       | 55/228 [00:12<00:36,  4.73it/s][Astep: 55
+
+Evaluating:  25%|██▍       | 56/228 [00:12<00:36,  4.73it/s][Astep: 56
+
+Evaluating:  25%|██▌       | 57/228 [00:12<00:36,  4.73it/s][Astep: 57
+
+Evaluating:  25%|██▌       | 58/228 [00:13<00:36,  4.72it/s][Astep: 58
+
+Evaluating:  26%|██▌       | 59/228 [00:13<00:35,  4.70it/s][Astep: 59
+
+Evaluating:  26%|██▋       | 60/228 [00:13<00:35,  4.70it/s][Astep: 60
+
+Evaluating:  27%|██▋       | 61/228 [00:13<00:35,  4.69it/s][Astep: 61
+
+Evaluating:  27%|██▋       | 62/228 [00:14<00:35,  4.70it/s][Astep: 62
+
+Evaluating:  28%|██▊       | 63/228 [00:14<00:34,  4.73it/s][Astep: 63
+
+Evaluating:  28%|██▊       | 64/228 [00:14<00:34,  4.74it/s][Astep: 64
+
+Evaluating:  29%|██▊       | 65/228 [00:14<00:34,  4.75it/s][Astep: 65
+
+Evaluating:  29%|██▉       | 66/228 [00:14<00:34,  4.74it/s][Astep: 66
+
+Evaluating:  29%|██▉       | 67/228 [00:15<00:33,  4.75it/s][Astep: 67
+
+Evaluating:  30%|██▉       | 68/228 [00:15<00:33,  4.75it/s][Astep: 68
+
+Evaluating:  30%|███       | 69/228 [00:15<00:33,  4.75it/s][Astep: 69
+
+Evaluating:  31%|███       | 70/228 [00:15<00:33,  4.75it/s][Astep: 70
+
+Evaluating:  31%|███       | 71/228 [00:15<00:33,  4.75it/s][Astep: 71
+
+Evaluating:  32%|███▏      | 72/228 [00:16<00:32,  4.76it/s][Astep: 72
+
+Evaluating:  32%|███▏      | 73/228 [00:16<00:32,  4.78it/s][Astep: 73
+
+Evaluating:  32%|███▏      | 74/228 [00:16<00:32,  4.76it/s][Astep: 74
+
+Evaluating:  33%|███▎      | 75/228 [00:16<00:32,  4.75it/s][Astep: 75
+
+Evaluating:  33%|███▎      | 76/228 [00:17<00:32,  4.73it/s][Astep: 76
+
+Evaluating:  34%|███▍      | 77/228 [00:17<00:31,  4.72it/s][Astep: 77
+
+Evaluating:  34%|███▍      | 78/228 [00:17<00:31,  4.74it/s][Astep: 78
+
+Evaluating:  35%|███▍      | 79/228 [00:17<00:31,  4.75it/s][Astep: 79
+
+Evaluating:  35%|███▌      | 80/228 [00:17<00:31,  4.71it/s][Astep: 80
+
+Evaluating:  36%|███▌      | 81/228 [00:18<00:31,  4.71it/s][Astep: 81
+
+Evaluating:  36%|███▌      | 82/228 [00:18<00:30,  4.73it/s][Astep: 82
+
+Evaluating:  36%|███▋      | 83/228 [00:18<00:30,  4.74it/s][Astep: 83
+
+Evaluating:  37%|███▋      | 84/228 [00:18<00:30,  4.70it/s][Astep: 84
+
+Evaluating:  37%|███▋      | 85/228 [00:18<00:30,  4.69it/s][Astep: 85
+
+Evaluating:  38%|███▊      | 86/228 [00:19<00:30,  4.68it/s][Astep: 86
+
+Evaluating:  38%|███▊      | 87/228 [00:19<00:29,  4.71it/s][Astep: 87
+
+Evaluating:  39%|███▊      | 88/228 [00:19<00:29,  4.71it/s][Astep: 88
+
+Evaluating:  39%|███▉      | 89/228 [00:19<00:29,  4.71it/s][Astep: 89
+
+Evaluating:  39%|███▉      | 90/228 [00:19<00:29,  4.68it/s][Astep: 90
+
+Evaluating:  40%|███▉      | 91/228 [00:20<00:29,  4.70it/s][Astep: 91
+
+Evaluating:  40%|████      | 92/228 [00:20<00:28,  4.71it/s][Astep: 92
+
+Evaluating:  41%|████      | 93/228 [00:20<00:28,  4.73it/s][Astep: 93
+
+Evaluating:  41%|████      | 94/228 [00:20<00:28,  4.69it/s][Astep: 94
+
+Evaluating:  42%|████▏     | 95/228 [00:21<00:28,  4.68it/s][Astep: 95
+
+Evaluating:  42%|████▏     | 96/228 [00:21<00:28,  4.69it/s][Astep: 96
+
+Evaluating:  43%|████▎     | 97/228 [00:21<00:27,  4.71it/s][Astep: 97
+
+Evaluating:  43%|████▎     | 98/228 [00:21<00:27,  4.73it/s][Astep: 98
+
+Evaluating:  43%|████▎     | 99/228 [00:21<00:27,  4.72it/s][Astep: 99
+
+Evaluating:  44%|████▍     | 100/228 [00:22<00:27,  4.72it/s][Astep: 100
+
+Evaluating:  44%|████▍     | 101/228 [00:22<00:26,  4.74it/s][Astep: 101
+
+Evaluating:  45%|████▍     | 102/228 [00:22<00:26,  4.74it/s][Astep: 102
+
+Evaluating:  45%|████▌     | 103/228 [00:22<00:26,  4.75it/s][Astep: 103
+
+Evaluating:  46%|████▌     | 104/228 [00:22<00:26,  4.76it/s][Astep: 104
+
+Evaluating:  46%|████▌     | 105/228 [00:23<00:25,  4.75it/s][Astep: 105
+
+Evaluating:  46%|████▋     | 106/228 [00:23<00:25,  4.76it/s][Astep: 106
+
+Evaluating:  47%|████▋     | 107/228 [00:23<00:25,  4.77it/s][Astep: 107
+
+Evaluating:  47%|████▋     | 108/228 [00:23<00:25,  4.75it/s][Astep: 108
+
+Evaluating:  48%|████▊     | 109/228 [00:23<00:25,  4.72it/s][Astep: 109
+
+Evaluating:  48%|████▊     | 110/228 [00:24<00:26,  4.52it/s][Astep: 110
+
+Evaluating:  49%|████▊     | 111/228 [00:24<00:25,  4.59it/s][Astep: 111
+
+Evaluating:  49%|████▉     | 112/228 [00:24<00:24,  4.65it/s][Astep: 112
+
+Evaluating:  50%|████▉     | 113/228 [00:24<00:24,  4.63it/s][Astep: 113
+
+Evaluating:  50%|█████     | 114/228 [00:25<00:24,  4.66it/s][Astep: 114
+
+Evaluating:  50%|█████     | 115/228 [00:25<00:24,  4.70it/s][Astep: 115
+
+Evaluating:  51%|█████     | 116/228 [00:25<00:23,  4.73it/s][Astep: 116
+
+Evaluating:  51%|█████▏    | 117/228 [00:25<00:23,  4.71it/s][Astep: 117
+
+Evaluating:  52%|█████▏    | 118/228 [00:25<00:23,  4.69it/s][Astep: 118
+
+Evaluating:  52%|█████▏    | 119/228 [00:26<00:23,  4.72it/s][Astep: 119
+
+Evaluating:  53%|█████▎    | 120/228 [00:26<00:22,  4.73it/s][Astep: 120
+
+Evaluating:  53%|█████▎    | 121/228 [00:26<00:22,  4.71it/s][Astep: 121
+
+Evaluating:  54%|█████▎    | 122/228 [00:26<00:22,  4.73it/s][Astep: 122
+
+Evaluating:  54%|█████▍    | 123/228 [00:26<00:22,  4.74it/s][Astep: 123
+
+Evaluating:  54%|█████▍    | 124/228 [00:27<00:22,  4.72it/s][Astep: 124
+
+Evaluating:  55%|█████▍    | 125/228 [00:27<00:21,  4.75it/s][Astep: 125
+
+Evaluating:  55%|█████▌    | 126/228 [00:27<00:21,  4.74it/s][Astep: 126
+
+Evaluating:  56%|█████▌    | 127/228 [00:27<00:21,  4.71it/s][Astep: 127
+
+Evaluating:  56%|█████▌    | 128/228 [00:28<00:21,  4.68it/s][Astep: 128
+
+Evaluating:  57%|█████▋    | 129/228 [00:28<00:21,  4.70it/s][Astep: 129
+
+Evaluating:  57%|█████▋    | 130/228 [00:28<00:20,  4.69it/s][Astep: 130
+
+Evaluating:  57%|█████▋    | 131/228 [00:28<00:20,  4.71it/s][Astep: 131
+
+Evaluating:  58%|█████▊    | 132/228 [00:28<00:20,  4.68it/s][Astep: 132
+
+Evaluating:  58%|█████▊    | 133/228 [00:29<00:20,  4.70it/s][Astep: 133
+
+Evaluating:  59%|█████▉    | 134/228 [00:29<00:19,  4.70it/s][Astep: 134
+
+Evaluating:  59%|█████▉    | 135/228 [00:29<00:19,  4.67it/s][Astep: 135
+
+Evaluating:  60%|█████▉    | 136/228 [00:29<00:19,  4.70it/s][Astep: 136
+
+Evaluating:  60%|██████    | 137/228 [00:29<00:19,  4.72it/s][Astep: 137
+
+Evaluating:  61%|██████    | 138/228 [00:30<00:19,  4.73it/s][Astep: 138
+
+Evaluating:  61%|██████    | 139/228 [00:30<00:18,  4.75it/s][Astep: 139
+
+Evaluating:  61%|██████▏   | 140/228 [00:30<00:18,  4.75it/s][Astep: 140
+
+Evaluating:  62%|██████▏   | 141/228 [00:30<00:18,  4.74it/s][Astep: 141
+
+Evaluating:  62%|██████▏   | 142/228 [00:31<00:18,  4.71it/s][Astep: 142
+
+Evaluating:  63%|██████▎   | 143/228 [00:31<00:18,  4.71it/s][Astep: 143
+
+Evaluating:  63%|██████▎   | 144/228 [00:31<00:17,  4.74it/s][Astep: 144
+
+Evaluating:  64%|██████▎   | 145/228 [00:31<00:17,  4.74it/s][Astep: 145
+
+Evaluating:  64%|██████▍   | 146/228 [00:31<00:18,  4.47it/s][Astep: 146
+
+Evaluating:  64%|██████▍   | 147/228 [00:32<00:17,  4.52it/s][Astep: 147
+
+Evaluating:  65%|██████▍   | 148/228 [00:32<00:17,  4.58it/s][Astep: 148
+
+Evaluating:  65%|██████▌   | 149/228 [00:32<00:17,  4.64it/s][Astep: 149
+
+Evaluating:  66%|██████▌   | 150/228 [00:32<00:16,  4.68it/s][Astep: 150
+
+Evaluating:  66%|██████▌   | 151/228 [00:32<00:16,  4.71it/s][Astep: 151
+
+Evaluating:  67%|██████▋   | 152/228 [00:33<00:16,  4.71it/s][Astep: 152
+
+Evaluating:  67%|██████▋   | 153/228 [00:33<00:15,  4.73it/s][Astep: 153
+
+Evaluating:  68%|██████▊   | 154/228 [00:33<00:15,  4.71it/s][Astep: 154
+
+Evaluating:  68%|██████▊   | 155/228 [00:33<00:15,  4.72it/s][Astep: 155
+
+Evaluating:  68%|██████▊   | 156/228 [00:34<00:15,  4.70it/s][Astep: 156
+
+Evaluating:  69%|██████▉   | 157/228 [00:34<00:15,  4.67it/s][Astep: 157
+
+Evaluating:  69%|██████▉   | 158/228 [00:34<00:14,  4.68it/s][Astep: 158
+
+Evaluating:  70%|██████▉   | 159/228 [00:34<00:14,  4.71it/s][Astep: 159
+
+Evaluating:  70%|███████   | 160/228 [00:34<00:14,  4.68it/s][Astep: 160
+
+Evaluating:  71%|███████   | 161/228 [00:35<00:14,  4.69it/s][Astep: 161
+
+Evaluating:  71%|███████   | 162/228 [00:35<00:13,  4.72it/s][Astep: 162
+
+Evaluating:  71%|███████▏  | 163/228 [00:35<00:13,  4.70it/s][Astep: 163
+
+Evaluating:  72%|███████▏  | 164/228 [00:35<00:13,  4.68it/s][Astep: 164
+
+Evaluating:  72%|███████▏  | 165/228 [00:35<00:13,  4.68it/s][Astep: 165
+
+Evaluating:  73%|███████▎  | 166/228 [00:36<00:13,  4.70it/s][Astep: 166
+
+Evaluating:  73%|███████▎  | 167/228 [00:36<00:12,  4.71it/s][Astep: 167
+
+Evaluating:  74%|███████▎  | 168/228 [00:36<00:12,  4.71it/s][Astep: 168
+
+Evaluating:  74%|███████▍  | 169/228 [00:36<00:12,  4.69it/s][Astep: 169
+
+Evaluating:  75%|███████▍  | 170/228 [00:37<00:12,  4.68it/s][Astep: 170
+
+Evaluating:  75%|███████▌  | 171/228 [00:37<00:12,  4.70it/s][Astep: 171
+
+Evaluating:  75%|███████▌  | 172/228 [00:37<00:11,  4.70it/s][Astep: 172
+
+Evaluating:  76%|███████▌  | 173/228 [00:37<00:11,  4.71it/s][Astep: 173
+
+Evaluating:  76%|███████▋  | 174/228 [00:37<00:11,  4.72it/s][Astep: 174
+
+Evaluating:  77%|███████▋  | 175/228 [00:38<00:11,  4.71it/s][Astep: 175
+
+Evaluating:  77%|███████▋  | 176/228 [00:38<00:11,  4.72it/s][Astep: 176
+
+Evaluating:  78%|███████▊  | 177/228 [00:38<00:10,  4.73it/s][Astep: 177
+
+Evaluating:  78%|███████▊  | 178/228 [00:38<00:10,  4.71it/s][Astep: 178
+
+Evaluating:  79%|███████▊  | 179/228 [00:38<00:10,  4.68it/s][Astep: 179
+
+Evaluating:  79%|███████▉  | 180/228 [00:39<00:10,  4.69it/s][Astep: 180
+
+Evaluating:  79%|███████▉  | 181/228 [00:39<00:10,  4.69it/s][Astep: 181
+
+Evaluating:  80%|███████▉  | 182/228 [00:39<00:09,  4.69it/s][Astep: 182
+
+Evaluating:  80%|████████  | 183/228 [00:39<00:09,  4.71it/s][Astep: 183
+
+Evaluating:  81%|████████  | 184/228 [00:39<00:09,  4.70it/s][Astep: 184
+
+Evaluating:  81%|████████  | 185/228 [00:40<00:09,  4.71it/s][Astep: 185
+
+Evaluating:  82%|████████▏ | 186/228 [00:40<00:08,  4.73it/s][Astep: 186
+
+Evaluating:  82%|████████▏ | 187/228 [00:40<00:08,  4.72it/s][Astep: 187
+
+Evaluating:  82%|████████▏ | 188/228 [00:40<00:08,  4.69it/s][Astep: 188
+
+Evaluating:  83%|████████▎ | 189/228 [00:41<00:08,  4.70it/s][Astep: 189
+
+Evaluating:  83%|████████▎ | 190/228 [00:41<00:08,  4.69it/s][Astep: 190
+
+Evaluating:  84%|████████▍ | 191/228 [00:41<00:07,  4.71it/s][Astep: 191
+
+Evaluating:  84%|████████▍ | 192/228 [00:41<00:07,  4.73it/s][Astep: 192
+
+Evaluating:  85%|████████▍ | 193/228 [00:41<00:07,  4.73it/s][Astep: 193
+
+Evaluating:  85%|████████▌ | 194/228 [00:42<00:07,  4.71it/s][Astep: 194
+
+Evaluating:  86%|████████▌ | 195/228 [00:42<00:06,  4.74it/s][Astep: 195
+
+Evaluating:  86%|████████▌ | 196/228 [00:42<00:06,  4.74it/s][Astep: 196
+
+Evaluating:  86%|████████▋ | 197/228 [00:42<00:06,  4.75it/s][Astep: 197
+
+Evaluating:  87%|████████▋ | 198/228 [00:42<00:06,  4.72it/s][Astep: 198
+
+Evaluating:  87%|████████▋ | 199/228 [00:43<00:06,  4.72it/s][Astep: 199
+
+Evaluating:  88%|████████▊ | 200/228 [00:43<00:05,  4.70it/s][Astep: 200
+
+Evaluating:  88%|████████▊ | 201/228 [00:43<00:05,  4.70it/s][Astep: 201
+
+Evaluating:  89%|████████▊ | 202/228 [00:43<00:05,  4.72it/s][Astep: 202
+
+Evaluating:  89%|████████▉ | 203/228 [00:44<00:05,  4.74it/s][Astep: 203
+
+Evaluating:  89%|████████▉ | 204/228 [00:44<00:05,  4.74it/s][Astep: 204
+
+Evaluating:  90%|████████▉ | 205/228 [00:44<00:04,  4.76it/s][Astep: 205
+
+Evaluating:  90%|█████████ | 206/228 [00:44<00:04,  4.75it/s][Astep: 206
+
+Evaluating:  91%|█████████ | 207/228 [00:44<00:04,  4.74it/s][Astep: 207
+
+Evaluating:  91%|█████████ | 208/228 [00:45<00:04,  4.74it/s][Astep: 208
+
+Evaluating:  92%|█████████▏| 209/228 [00:45<00:04,  4.73it/s][Astep: 209
+
+Evaluating:  92%|█████████▏| 210/228 [00:45<00:03,  4.71it/s][Astep: 210
+
+Evaluating:  93%|█████████▎| 211/228 [00:45<00:03,  4.72it/s][Astep: 211
+
+Evaluating:  93%|█████████▎| 212/228 [00:45<00:03,  4.68it/s][Astep: 212
+
+Evaluating:  93%|█████████▎| 213/228 [00:46<00:03,  4.69it/s][Astep: 213
+
+Evaluating:  94%|█████████▍| 214/228 [00:46<00:02,  4.71it/s][Astep: 214
+
+Evaluating:  94%|█████████▍| 215/228 [00:46<00:02,  4.70it/s][Astep: 215
+
+Evaluating:  95%|█████████▍| 216/228 [00:46<00:02,  4.68it/s][Astep: 216
+
+Evaluating:  95%|█████████▌| 217/228 [00:46<00:02,  4.68it/s][Astep: 217
+
+Evaluating:  96%|█████████▌| 218/228 [00:47<00:02,  4.69it/s][Astep: 218
+
+Evaluating:  96%|█████████▌| 219/228 [00:47<00:01,  4.70it/s][Astep: 219
+
+Evaluating:  96%|█████████▋| 220/228 [00:47<00:01,  4.70it/s][Astep: 220
+
+Evaluating:  97%|█████████▋| 221/228 [00:47<00:01,  4.72it/s][Astep: 221
+
+Evaluating:  97%|█████████▋| 222/228 [00:48<00:01,  4.74it/s][Astep: 222
+
+Evaluating:  98%|█████████▊| 223/228 [00:48<00:01,  4.69it/s][Astep: 223
+
+Evaluating:  98%|█████████▊| 224/228 [00:48<00:00,  4.71it/s][Astep: 224
+
+Evaluating:  99%|█████████▊| 225/228 [00:48<00:00,  4.72it/s][Astep: 225
+
+Evaluating:  99%|█████████▉| 226/228 [00:48<00:00,  4.72it/s][Astep: 226
+
+Evaluating: 100%|█████████▉| 227/228 [00:49<00:00,  4.69it/s][Astep: 227
+
+Evaluating: 100%|██████████| 228/228 [00:49<00:00,  4.72it/s][Alen(all_predictions) = 10801
+all_predictions[:10] = [-1, -1, -1, 1, 1, -1, -1, -1, -1, 1]
+all_references[:10] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+09/03/2023 01:57:37 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/accuracy/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/f1/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/f1/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/f1/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/f1/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/precision/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/precision/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/precision/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/precision/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/recall/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/recall/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/recall/default/default_experiment-1-0.arrow
+09/03/2023 01:57:38 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/recall/default/default_experiment-1-0.arrow
+Evaluating: 100%|██████████| 228/228 [00:50<00:00,  4.50it/s]
+09/03/2023 01:57:38 - INFO - __main__ -   Step: 0, Validation Metrics: {'prediction_-1_num': 7650, 'prediction_1_num': 2020, 'prediction_0_num': 1131, 'reference_1_num': 8596, 'reference_0_num': 639, 'reference_-1_num': 1566, 'accuracy': 0.2657161373946857, 'f1_micro': 0.2657161373946857, 'f1_macro': 0.2008566571038232, 'f1_weighted': 0.28479025946748177, 'f1_1': 0.30764883195177095, 'f1_-1': 0.2621527777777778, 'f1_0': 0.0327683615819209, 'precision_micro': 0.2657161373946857, 'precision_macro': 0.3306551213190701, 'precision_weighted': 0.6677911207781126, 'precision_1': 0.8084158415841585, 'precision_-1': 0.15790849673202614, 'precision_0': 0.02564102564102564, 'recall_micro': 0.2657161373946857, 'recall_macro': 0.3355825244515769, 'recall_weighted': 0.2657161373946857, 'recall_1': 0.18997208003722663, 'recall_-1': 0.7713920817369093, 'recall_0': 0.04538341158059468}
+Sun Sep  3 01:57:38 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  Off  | 00000000:12:00.0 Off |                    0 |
+| N/A   31C    P0    82W / 400W |    547MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  Off  | 00000000:18:00.0 Off |                    0 |
+| N/A   29C    P0    68W / 400W |  42207MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  Off  | 00000000:4A:00.0 Off |                    0 |
+| N/A   34C    P0    76W / 400W |  42662MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  Off  | 00000000:4E:00.0 Off |                    0 |
+| N/A   41C    P0    80W / 400W |  42985MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  Off  | 00000000:8A:00.0 Off |                    0 |
+| N/A   47C    P0   101W / 400W |  43751MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  Off  | 00000000:8F:00.0 Off |                    0 |
+| N/A   45C    P0    93W / 400W |  43773MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  Off  | 00000000:C6:00.0 Off |                    0 |
+| N/A   41C    P0    88W / 400W |  43495MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  Off  | 00000000:CA:00.0 Off |                    0 |
+| N/A   38C    P0    73W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A   2661157      C   python3                           545MiB |
+|    1   N/A  N/A   2428060      C   .../diffusion_gan/bin/python    42203MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A   2661157      C   python3                          4789MiB |
+|    3   N/A  N/A    111507      C   .../open-instruct/bin/python    42983MiB |
+|    4   N/A  N/A    111508      C   .../open-instruct/bin/python    43749MiB |
+|    5   N/A  N/A    111509      C   .../open-instruct/bin/python    43771MiB |
+|    6   N/A  N/A    111510      C   .../open-instruct/bin/python    43493MiB |
+|    7   N/A  N/A   2722693      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+  0%|          | 1/66600 [01:06<1229:47:03, 66.48s/it]09/03/2023 01:57:54 - INFO - __main__ -   Step: 1, LR: 1.0013768932281888e-08, Loss: 18.761554718017578
+  0%|          | 2/66600 [01:16<614:19:51, 33.21s/it] 09/03/2023 01:58:04 - INFO - __main__ -   Step: 2, LR: 2.0027537864563777e-08, Loss: 18.372356414794922
+  0%|          | 3/66600 [01:26<417:04:51, 22.55s/it]09/03/2023 01:58:14 - INFO - __main__ -   Step: 3, LR: 3.0041306796845665e-08, Loss: 18.843128204345703
+  0%|          | 4/66600 [01:36<324:15:01, 17.53s/it]09/03/2023 01:58:23 - INFO - __main__ -   Step: 4, LR: 4.0055075729127554e-08, Loss: 18.48246192932129
+  0%|          | 5/66600 [01:45<273:07:48, 14.76s/it]09/03/2023 01:58:33 - INFO - __main__ -   Step: 5, LR: 5.006884466140944e-08, Loss: 18.72780990600586
+  0%|          | 6/66600 [01:55<240:38:42, 13.01s/it]09/03/2023 01:58:43 - INFO - __main__ -   Step: 6, LR: 6.008261359369133e-08, Loss: 18.72650718688965
+  0%|          | 7/66600 [02:05<221:49:01, 11.99s/it]09/03/2023 01:58:53 - INFO - __main__ -   Step: 7, LR: 7.009638252597321e-08, Loss: 18.739585876464844

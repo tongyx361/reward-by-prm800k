@@ -3,6 +3,7 @@ import datetime
 import gzip
 import importlib
 import json
+import logging
 import os
 import pickle
 import random
@@ -11,12 +12,16 @@ import time
 from collections import defaultdict
 from dataclasses import dataclass
 from functools import reduce
+from itertools import product
 from typing import Any, Dict, List, Optional
 
 import blobfile as bf
+import evaluate
 import ipdb
+import matplotlib.pyplot as plt
 import numpy as np
 import orjson
+import prepare_dataset
 import regex as re
 import torch
 import transformers
@@ -24,23 +29,125 @@ import vllm
 
 # global variables
 
+MULTICLASS_AVERAGINGS = ["micro", "macro", "weighted"]
 
-# model_name_or_path = "/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9"
-project_dirpath = "/data/users/zhangjunlei/tyx/reward-by-prm800k"
-model_name_or_path = os.path.join(
-    project_dirpath, "models/direct-prediction/meta-llama/Llama-2-7b-hf"
+CLF_METRIC_NAMES = [
+    "accuracy",
+    "f1",
+    "precision",
+    "recall",
+    # "roc_auc"
+]
+
+MUL_CLF_METRIC_NAMES = [
+    "f1",
+    "precision",
+    "recall",
+]
+
+default_max_seq_len = 1024
+
+# logging
+
+default_log_fmt = "%(asctime)s.%(msecs)03d [%(levelname)s] %(message)s"
+default_log_datefmt = "%Y-%m-%d %H:%M:%S"
+
+
+def init_logging():
+    logging.basicConfig(
+        level=logging.INFO,
+        format=default_log_fmt,
+        datefmt=default_log_datefmt,
+        handlers=[
+            logging.StreamHandler(),
+        ],
+    )
+
+
+def get_logger(
+    name=__name__,
+    fmt=default_log_fmt,
+    datefmt=default_log_datefmt,
+    level=logging.INFO,
+    log_file_path=None,
+):
+    logger = logging.getLogger(name)
+
+    logger.setLevel(level)
+    formatter = logging.Formatter(fmt, datefmt)
+
+    if log_file_path is not None:
+        file = logging.FileHandler(args.log_path, encoding="utf-8")
+        file.setLevel(level)
+        file.setFormatter(formatter)
+        logger.addHandler(file)
+
+    console = logging.StreamHandler()
+    console.setLevel(level)
+    console.setFormatter(formatter)
+    logger.addHandler(console)
+
+
+# environmetn variables
+
+data_root = "/data/users/zhangjunlei/tyx"
+hf_home = os.path.join(data_root, ".cache/huggingface")
+
+os.environ.update(
+    {
+        "DATA_ROOT": data_root,
+        "HF_HOME": hf_home,
+        "TRANSFORMERS_CACHE": os.path.join(hf_home, "transformers"),
+        "HF_DATASETS_CACHE": os.path.join(hf_home, "datasets"),
+        "HF_MODULES_CACHE": os.path.join(hf_home, "modules"),
+        "HF_METRICS_CACHE": os.path.join(hf_home, "metrics"),
+    }
 )
+
+project_root = os.path.join(data_root, "reward-by-prm800k")
+models_root = os.path.join(project_root, "models")
+
+default_model_name = "meta-llama/Llama-2-7b-hf"
+default_model_path = os.path.join(
+    hf_home,
+    "hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9",
+)
+
 tokenizer_name_or_path = "/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--hf-internal-testing--llama-tokenizer/snapshots/99eceeba6e8289bee767f0771166b5917e70e470"
 gpt4_generated_problem_solution_hierarchical_samples_path_wo_basename = os.path.join(
-    project_dirpath, "datasets/problem-solution-hierarchical-samples"
+    project_root, "datasets/problem-solution-hierarchical-samples"
 )
 rated_gpt4_generated_problem_solution_hierarchical_samples_dirpath = os.path.join(
-    project_dirpath, "eval/rated-samples/gpt-4-generatations"
+    project_root, "eval/predictions/gpt-4-generatations"
 )
+
+prm800k_validation_predictions_dirpath = os.path.join(
+    project_root, "eval/predictions/prm800k-validation"
+)
+
 best_of_n_results_jsonl_path = os.path.join(
-    project_dirpath, "eval/best-of-n-results.jsonl"
+    project_root, "eval/best-of-n-results.jsonl"
 )
 num_trials = 10
+
+prm800k_phase_train_jsonl_paths = [
+    "prm800k-main/prm800k/data/phase1_train.jsonl",
+    "prm800k-main/prm800k/data/phase2_train.jsonl",
+]
+prm800k_phase_train_jsonl_paths = [
+    os.path.join(project_root, path) for path in prm800k_phase_train_jsonl_paths
+]
+
+raw_datasets_path = os.path.join(
+    project_root,
+    "datasets/train+validiation-direct-prediction-raw-datasets",
+)
+
+encoded_datasets_path = os.path.join(
+    project_root,
+    "datasets/train+validiation-direct-prediction-encoded-datasets",
+)
+
 
 ## python environment
 
@@ -100,7 +207,23 @@ class Problem:
 #     "ground_truth_answer": "-2+7i"
 # }
 
+# data collate
+
+def get_data_collator(tokenizer, model=None, padding="longest", max_length=default_max_seq_len):
+    return prepare_dataset.DataCollatorForCausalLM(
+        tokenizer=tokenizer,
+        model=model,
+        padding=padding,
+        max_length=max_length,
+    )
+
 # device
+
+def nvidia_smi():
+    ns_result = subprocess.run(["nvidia-smi"], capture_output=True)
+    output = ns_result.stdout.decode("utf-8")
+    return output
+
 
 def reload():
     importlib.reload(vllm)
@@ -201,7 +324,229 @@ def save_csv(data, path):
             writer.writerow(row.values())
 
 
+# metrics
+
+
+def get_mul_clf_metrics(
+    clf_metric_names=CLF_METRIC_NAMES, averages=MULTICLASS_AVERAGINGS
+):
+    # CLF_METRIC_NAMES = [
+    #     "accuracy",
+    #     "f1",
+    #     "precision",
+    #     "recall",
+    #     # "roc_auc"
+    # ]
+    # MULTICLASS_AVERAGINGS = ["micro", "macro", "weighted", "none"]
+
+    combinations = list(product(clf_metric_names, MULTICLASS_AVERAGINGS))
+
+    mul_clf_metrics = evaluate.combine(
+        [evaluate.load(name, average=average) for name, average in combinations]
+    )
+
+    return mul_clf_metrics
+
+
+# visualize
+
+
+def visualize_dict_value_nums_distribuition(data_dict):
+    # Get the lengths of values in the dictionary
+    value_lengths = [len(value) for value in data_dict.values()]
+
+    # Create a histogram to visualize the distribution
+    plt.hist(value_lengths, bins=200, edgecolor="k")
+
+    # Add labels and title
+    plt.xlabel("Length of Values")
+    plt.ylabel("Frequency")
+    plt.title("Distribution of Length of Dictionary Values")
+
+    # Show the plot
+    plt.show()
+
+
+def test_visualize_dict_value_lengths_distribuition():
+    data_dict = {"key1": [1, 2, 3, 4], "key2": [1, 2, 3, 4, 5, 6], "key3": [1, 2]}
+
+    visualize_dict_value_nums_distribuition(data_dict)
+
+
+def visualize_dict_value_lengths(data_dict):
+    # Extract the lengths of values in the dictionary
+    value_lengths = [len(value) for value in data_dict.values()]
+    value_lengths.sort(reverse=True)
+
+    # Extract the keys (corresponding to dictionary items)
+    # short_keys = [key[: min(10, len(value_lengths))] for key in data_dict.keys()]
+    keys = list(range(len(data_dict)))
+
+    # Create a bar plot
+    plt.figure(figsize=(10, 6))  # Optional: adjust figure size
+    plt.bar(keys, value_lengths, color="skyblue")
+
+    # Add labels and title
+    plt.xlabel("Dictionary Keys")
+    plt.ylabel("Length of List Values")
+    plt.title("Lengths of List Values in Dictionary")
+
+    # Rotate x-axis labels for better readability (optional)
+    # plt.xticks(rotation=45, ha="right")
+
+    # Show the plot
+    plt.tight_layout()  # Optional: adjust layout for better display
+    plt.show()
+
+
+def test_visualize_dict_value_lengths():
+    data_dict = {"key1": [1, 2, 3, 4], "key2": [1, 2, 3, 4, 5, 6], "key3": [1, 2]}
+
+    visualize_dict_value_lengths(data_dict)
+
+
 # PRM800K data processing
+
+
+def pick_prm800k_samples(x):
+    return (not x["is_quality_control_question"]) and (
+        x["label"]["finish_reason"] in ["found_error", "solution"]
+    )
+
+
+def reformat_prm800k_sample(sample: dict) -> dict:
+    problem = sample["question"]["problem"]
+    step_ratings = []
+
+    if sample["is_quality_control_question"]:
+        raise RuntimeError("is_quality_control_question is True")
+
+    label = sample["label"]
+    finish_reason = label["finish_reason"]
+    if finish_reason not in ["found_error", "solution"]:
+        raise RuntimeError(f"finish_reason is {finish_reason}")
+
+    steps = label["steps"]
+    for step in steps:
+        chosen_completion = step["chosen_completion"]
+        if step["human_completion"] is not None:
+            completion = step["human_completion"]
+            rating = 1
+        else:
+            completions = step["completions"]
+            if chosen_completion is not None:
+                completion = completions[chosen_completion]
+            else:
+                for completion in completions:
+                    if completion["rating"] == -1:
+                        break
+            rating = completion["rating"]
+
+        step_text = completion["text"]
+
+        if completion["flagged"] not in [None, False]:
+            print(f"{sample['timestamp']} flagged: ", completion["flagged"])
+            print(sample)
+        step_ratings.append({"step": step_text, "rating": rating})
+
+    reformatted_sample = {"problem": problem, "step_ratings": step_ratings}
+
+    if finish_reason == "found_error":
+        last_rating = reformatted_sample["step_ratings"][-1]["rating"]
+        assert last_rating == -1, f"last step should be -1 but {last_rating}"
+
+    return reformatted_sample
+
+
+def encode_with_problem_step_ratings_format(
+    reformatted_sample, tokenizer, split="train", test=False
+):
+    """
+    Here we assume each sample has a 'step_ratings' field. Each step_rating is a dict.
+    """
+
+    step_ratings = reformatted_sample["step_ratings"]
+    if len(step_ratings) == 0:
+        raise ValueError("step_ratings field is empty.")
+
+    rating2word = {1: "positive", -1: "negative", 0: "neutral"}
+    rating2token_id = {
+        rating: tokenizer.convert_tokens_to_ids(tokenizer.tokenize(word))[0]
+        for rating, word in rating2word.items()
+    }
+
+    problem = reformatted_sample["problem"].strip()
+    problem_step_ratings_text = problem + "\n"
+    sample_input_ids = tokenizer(
+        problem + "\n",
+        return_tensors="pt",
+        padding=False,
+        truncation=False,
+        add_special_tokens=True,
+        return_attention_mask=False,
+    )["input_ids"]
+    ignore_index = -100
+
+    if split == "train":
+        sample_labels = torch.ones_like(sample_input_ids) * ignore_index
+    elif split == "validation":
+        sample_labels = []
+    else:
+        raise ValueError(f"split should be train or validation but {split}")
+
+    for step_rating in step_ratings:
+        step = step_rating["step"].strip()
+
+        problem_step_ratings_text += step + "\n"
+
+        step_input_ids = tokenizer(
+            "\n" + step + "\n",
+            return_tensors="pt",
+            padding=False,
+            truncation=False,
+            # add_special_tokens=True,
+            add_special_tokens=False,
+            return_attention_mask=False,
+        )["input_ids"]
+        step_input_ids = step_input_ids[:, 2:]  # remove "\n"
+        sample_input_ids = torch.cat((sample_input_ids, step_input_ids), dim=1)
+
+        step_rating_token_id = rating2token_id[step_rating["rating"]]
+        if split == "train":
+            step_labels = torch.ones_like(step_input_ids) * ignore_index
+            step_labels[
+                :, -1
+            ] = step_rating_token_id  # set the label for the last token_id before "\n"
+            sample_labels = torch.cat((sample_labels, step_labels), dim=1)
+            # keep the last token for hugging face to align input_ids and labels
+        elif split == "validation":
+            sample_labels.append(step_rating_token_id)
+        else:
+            raise ValueError(f"split should be train or validation but {split}")
+
+    if split == "validation":
+        sample_labels = torch.tensor(sample_labels)
+
+    if test:
+        sample_input_ids_from_simple_call = tokenizer(
+            problem_step_ratings_text,
+            return_tensors="pt",
+            padding=False,
+            truncation=False,
+            add_special_tokens=True,
+            return_attention_mask=False,
+        )["input_ids"]
+        assert torch.equal(sample_input_ids, sample_input_ids_from_simple_call), (
+            sample_input_ids != sample_input_ids_from_simple_call
+        )
+
+    # attention_mask = torch.ones_like(sample_input_ids)
+    encoded_sample = {
+        "input_ids": sample_input_ids.flatten(),
+        "labels": sample_labels.flatten(),
+        # "attention_mask": attention_mask.flatten(),
+    }
+    return encoded_sample
 
 
 def key_by_problem(samples: List[Dict]):
@@ -276,7 +621,7 @@ def eval_best_of_n_on_rated_problem_solution_samples(
         "non_negative_probs_minimum",
     ],
     best_of_n_results_jsonl_path=best_of_n_results_jsonl_path,
-    model_name_or_path=model_name_or_path,
+    model_name_or_path=model_path,
     verbose=False,
     debug_for={},
 ):
@@ -463,7 +808,7 @@ def extract_step_or_epoch_num(path):
 
 
 def rate_n_samples(
-    model_name_or_path=model_name_or_path,
+    model_name_or_path=model_path,
     problem_solution_hierarchical_samples_path=gpt4_generated_problem_solution_hierarchical_samples_path_wo_basename
     + ".pkl",
     num_solution_samples_to_rate_per_problem=num_solution_samples_to_rate_per_problem,
@@ -499,7 +844,7 @@ def rate_n_samples(
                         model_name_or_path,
                         pytorch_model_filepath,
                     ],
-                    cwd=model_name_or_path,
+                    cwd=model_path,
                 )
                 if zero_to_fp32_result.returncode != 0:
                     raise RuntimeError(
@@ -543,7 +888,7 @@ def rate_n_samples(
         return rated_problem_solution_hierarchical_samples
 
     if lib == "vllm":
-        vllm_outputs_path = os.path.join(project_dirpath, "tmp/vllm-outputs.pkl")
+        vllm_outputs_path = os.path.join(project_root, "tmp/vllm-outputs.pkl")
         if not debug_for.get("resume_vllm_outputs"):
             # load problem_solution_hierarchical_samples
             print(f"Loading {problem_solution_hierarchical_samples_path}...")
@@ -572,13 +917,13 @@ def rate_n_samples(
             if debug_for.get("prompts"):
                 print(prompts[0])
 
-            llm = get_vllm(model_name_or_path=model_name_or_path)
+            llm = get_vllm(model_name_or_path=model_path)
             outputs = prm800k_vllm_inference(
                 llm, generation_config=generation_config, prompts=prompts
             )  # 13:28
         else:
             problem_solution_hierarchical_samples_path = os.path.join(
-                project_dirpath, "tmp/problem_solution_hierarchical_samples.pkl"
+                project_root, "tmp/problem_solution_hierarchical_samples.pkl"
             )
             print(f"Loading {problem_solution_hierarchical_samples_path}...")
             problem_solution_hierarchical_samples = load_pickle(
@@ -639,7 +984,7 @@ def rate_n_samples(
 
 
 def eval_model_with_best_of_n(
-    model_name_or_path=model_name_or_path,
+    model_name_or_path=model_path,
     problem_solution_hierarchical_samples_path=gpt4_generated_problem_solution_hierarchical_samples_path_wo_basename
     + ".pkl",
     num_solution_samples_to_rate_per_problem=num_solution_samples_to_rate_per_problem,
@@ -651,7 +996,7 @@ def eval_model_with_best_of_n(
     # eval
 
     rated_problem_solution_hierarchical_samples = rate_n_samples(
-        model_name_or_path=model_name_or_path,
+        model_name_or_path=model_path,
         problem_solution_hierarchical_samples_path=problem_solution_hierarchical_samples_path,
         num_solution_samples_to_rate_per_problem=num_solution_samples_to_rate_per_problem,
         rated_problem_solution_hierarchical_samples_path="default",
@@ -666,7 +1011,7 @@ def eval_model_with_best_of_n(
         ns=None,
         metrics=metrics,
         best_of_n_results_jsonl_path=best_of_n_results_jsonl_path,
-        model_name_or_path=model_name_or_path,
+        model_name_or_path=model_path,
         verbose=False,
         debug_for=debug_for,
     )
@@ -703,7 +1048,7 @@ def get_rating_objs(tokenizer, rating2word=rating2word, verbose=False):
 # LLaMA
 
 
-def get_hf_model(model_name_or_path=model_name_or_path, **kwargs):
+def get_hf_model(model_name_or_path=model_path, **kwargs):
     """fp16, low_cpu_mem_usage"""
     model = transformers.AutoModelForCausalLM.from_pretrained(
         model_name_or_path,
@@ -717,9 +1062,23 @@ def get_hf_model(model_name_or_path=model_name_or_path, **kwargs):
     return model
 
 
+def check_tokenizer(tokenizer, head=5):
+    # if "accelerator" in globals():
+    #     print = accelerator.print
+    # else:
+    #     print = print
+    head_tokens = tokenizer.decode(list(range(head)))
+    print(f"head_tokens = {head_tokens}")
+    print(f"tokenizer.vocab_size = {tokenizer.vocab_size}")
+    print(f"len(tokenizer.vocab) = {len(tokenizer.vocab)}")
+    print(f"tokenizer.special_tokens_map = {tokenizer.special_tokens_map}")
+
+
 # no default pad token for llama!
 # here we add all special tokens again, because the default ones are not in the special_tokens_map
 def complete_four_special_tokens(tokenizer):
+    check_tokenizer(tokenizer)
+
     num_added_tokens = tokenizer.add_special_tokens(
         {
             "bos_token": "<s>",
@@ -733,7 +1092,10 @@ def complete_four_special_tokens(tokenizer):
         1,
     ], "LlamaTokenizer should only add one special token - the pad_token, or no tokens if pad token present."
 
+    # tokenizer.vocab_size += num_added_tokens # AttributeError: can't set attribute 'vocab_size'
+
     print(f"num_added_tokens = {num_added_tokens}")
+    check_tokenizer(tokenizer)
 
     return tokenizer
 
@@ -826,12 +1188,12 @@ def problem_solution2input_ids_list(tokenizer, problem, steps):
 # vllm
 
 
-def get_vllm(model_name_or_path=model_name_or_path):
+def get_vllm(model_name_or_path=model_path):
     # global llm
 
     # if llm is None:
     llm = vllm.LLM(
-        model=model_name_or_path,
+        model=model_path,
         tokenizer=tokenizer_name_or_path,
         tokenizer_mode="auto",
         trust_remote_code=True,

@@ -1,0 +1,810 @@
+nohup: ignoring input
+[2023-09-03 01:40:38,020] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[2023-09-03 01:40:42,266] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 01:40:42,305] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 01:40:42,427] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 01:40:42,436] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Using xformers
+Using xformers
+Initializing accelerator...
+Initializing accelerator...
+[2023-09-03 01:40:43,855] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:40:43,855] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:40:43,855] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-03 01:40:43,855] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-03 01:40:43,855] [INFO] [comm.py:643:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Using xformers
+Initializing accelerator...
+Using xformers
+[2023-09-03 01:40:43,951] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:40:43,951] [INFO] [comm.py:616:init_distributed] cdb=None
+Initializing accelerator...
+[2023-09-03 01:40:43,969] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:40:43,969] [INFO] [comm.py:616:init_distributed] cdb=None
+09/03/2023 01:40:44 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 2
+Local process index: 2
+Device: cuda:2
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:40:44 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 1
+Local process index: 1
+Device: cuda:1
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:40:44 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 3
+Local process index: 3
+Device: cuda:3
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+accelerator.state = Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:40:44 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:40:46 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-metric/accuracy/resolve/v0.4.0/accuracy.py timed out, retrying... [1.0]
+09/03/2023 01:40:47 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-comparison/accuracy/resolve/v0.4.0/accuracy.py timed out, retrying... [1.0]
+09/03/2023 01:40:47 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-measurement/accuracy/resolve/v0.4.0/accuracy.py timed out, retrying... [1.0]
+09/03/2023 01:40:48 - WARNING - evaluate.loading - Using the latest cached version of the module from /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--accuracy/f887c0aab52c2d38e1f8a215681126379eca617f96c447638f751434e8e65b14 (last modified on Thu Aug 31 02:45:36 2023) since it couldn't be found locally at evaluate-metric--accuracy, or remotely on the Hugging Face Hub.
+09/03/2023 01:40:48 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-metric/f1/resolve/v0.4.0/f1.py timed out, retrying... [1.0]
+09/03/2023 01:40:48 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-comparison/f1/resolve/v0.4.0/f1.py timed out, retrying... [1.0]
+09/03/2023 01:40:49 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-measurement/f1/resolve/v0.4.0/f1.py timed out, retrying... [1.0]
+09/03/2023 01:40:49 - WARNING - evaluate.loading - Using the latest cached version of the module from /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--f1/0ca73f6cf92ef5a268320c697f7b940d1030f8471714bffdb6856c641b818974 (last modified on Thu Aug 31 02:45:39 2023) since it couldn't be found locally at evaluate-metric--f1, or remotely on the Hugging Face Hub.
+09/03/2023 01:40:49 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-metric/precision/resolve/v0.4.0/precision.py timed out, retrying... [1.0]
+09/03/2023 01:40:50 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-comparison/precision/resolve/v0.4.0/precision.py timed out, retrying... [1.0]
+09/03/2023 01:40:50 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-measurement/precision/resolve/v0.4.0/precision.py timed out, retrying... [1.0]
+09/03/2023 01:40:51 - WARNING - evaluate.loading - Using the latest cached version of the module from /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--precision/4e7f439a346715f68500ce6f2be82bf3272abd3f20bdafd203a2c4f85b61dd5f (last modified on Thu Aug 31 02:45:42 2023) since it couldn't be found locally at evaluate-metric--precision, or remotely on the Hugging Face Hub.
+09/03/2023 01:40:51 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-metric/recall/resolve/v0.4.0/recall.py timed out, retrying... [1.0]
+09/03/2023 01:40:51 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-comparison/recall/resolve/v0.4.0/recall.py timed out, retrying... [1.0]
+09/03/2023 01:40:52 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-measurement/recall/resolve/v0.4.0/recall.py timed out, retrying... [1.0]
+09/03/2023 01:40:52 - WARNING - evaluate.loading - Using the latest cached version of the module from /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--recall/e40e6e98d18ff3f210f4d0b26fa721bfaa80704b1fdf890fa551cfabf94fc185 (last modified on Thu Aug 31 02:45:45 2023) since it couldn't be found locally at evaluate-metric--recall, or remotely on the Hugging Face Hub.
+loading configuration file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9/config.json
+Model config LlamaConfig {
+  "_name_or_path": "/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.31.0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+loading file tokenizer.model
+loading file added_tokens.json
+loading file special_tokens_map.json
+loading file tokenizer_config.json
+You are using the legacy behaviour of the <class 'transformers.models.llama.tokenization_llama.LlamaTokenizer'>. This means that tokens that come after special tokens will not be properly handled. We recommend you to read the related pull request available at https://github.com/huggingface/transformers/pull/24565
+Detected PIL version 10.0.0
+loading weights file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9/model.safetensors.index.json
+Detected DeepSpeed ZeRO-3: activating zero.init() for this model
+Generate config GenerationConfig {
+  "_from_model_config": true,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "pad_token_id": 0,
+  "transformers_version": "4.31.0"
+}
+
+[2023-09-03 01:40:53,041] [INFO] [partition_parameters.py:326:__exit__] finished initializing model with 6.74B parameters
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.22s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.22s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.23s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.08s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.10s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.10s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.12s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.11s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.12s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.09s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.26s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.68s/it]
+All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+All the weights of LlamaForCausalLM were initialized from the model checkpoint at /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+loading configuration file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9/generation_config.json
+Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "do_sample": true,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 0,
+  "temperature": 0.6,
+  "top_p": 0.9,
+  "transformers_version": "4.31.0"
+}
+
+Sun Sep  3 01:41:02 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  Off  | 00000000:12:00.0 Off |                    0 |
+| N/A   32C    P0    69W / 400W |   6612MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  Off  | 00000000:18:00.0 Off |                    0 |
+| N/A   30C    P0    68W / 400W |  42207MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  Off  | 00000000:4A:00.0 Off |                    0 |
+| N/A   30C    P0    71W / 400W |  42662MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  Off  | 00000000:4E:00.0 Off |                    0 |
+| N/A   31C    P0    87W / 400W |  29033MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  Off  | 00000000:8A:00.0 Off |                    0 |
+| N/A   33C    P0    94W / 400W |  28021MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  Off  | 00000000:8F:00.0 Off |                    0 |
+| N/A   33C    P0    92W / 400W |  27943MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  Off  | 00000000:C6:00.0 Off |                    0 |
+| N/A   30C    P0    75W / 400W |      2MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  Off  | 00000000:CA:00.0 Off |                    0 |
+| N/A   32C    P0    75W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A     93793      C   .../open-instruct/bin/python     6065MiB |
+|    0   N/A  N/A   2661157      C   python3                           545MiB |
+|    1   N/A  N/A   2428060      C   .../diffusion_gan/bin/python    42203MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A   2661157      C   python3                          4789MiB |
+|    3   N/A  N/A     93794      C   .../open-instruct/bin/python    29031MiB |
+|    4   N/A  N/A     93795      C   .../open-instruct/bin/python    28019MiB |
+|    5   N/A  N/A     93796      C   .../open-instruct/bin/python    27941MiB |
+|    7   N/A  N/A   2722693      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+Assigning <s> to the bos_token key of the tokenizer
+Assigning </s> to the eos_token key of the tokenizer
+Assigning <unk> to the unk_token key of the tokenizer
+Assigning <pad> to the pad_token key of the tokenizer
+Adding <pad> to the vocabulary
+09/03/2023 01:41:05 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 3
+09/03/2023 01:41:05 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 1
+09/03/2023 01:41:05 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 2
+09/03/2023 01:41:05 - INFO - __main__ - Sample 72605 of the training set: {'input_ids': tensor([    1,   960,   395, 29906,   998, 29896, 29900, 29913,   320,  3822,
+        29871, 29906,   998, 29896, 29945,  1042,   338, 13384,   408,   777,
+         6043,   304,   278, 18615,  3081, 29892,   825,   338,   393,  6043,
+        29973,    13,  6295,   591,   505,   395, 29906,   998, 29896, 29900,
+        29913,   334, 29871, 29906,   998, 29896, 29945,  4311,    13,  3644,
+          591,   788,   278,   429,  9340,  4208, 29892,   591,   679,   395,
+        29906,   998, 29906, 29945,  4311,    13,  7341, 29892,   577,   395,
+        29906,   998, 29896, 29900, 29913,   334, 29871, 29906,   998, 29896,
+        29945, 29913,   353, 29871, 29906,   998, 29906, 29945,  4311,    13,
+         6246,   591,   864,   304,  4653,   395, 29906,   998, 29906, 29945,
+         1042,   408,   777,  6043,   304,   278, 18615,  3081, 29889,    13,
+         6295,   591,   864,   304,  1284,   777,  6043,   395, 29916, 29938,
+         1316,   393,   395, 29916, 29985, 29945,   353, 29871, 29906,   998,
+        29906, 29945,  4311,    13,  7341, 29889,  1105,   591,   508,  2436,
+          395, 29916, 29985, 29945, 29938,   408,   395, 29906,   998, 29945,
+        29916,  1042,    13]), 'labels': tensor([ -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100, 21104,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  6374,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100, 21104,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100, 21104,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  6374,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  8178])}.
+09/03/2023 01:41:05 - INFO - __main__ - Sample 20955 of the training set: {'input_ids': tensor([    1,   960,   395, 29874,  1628, 29938, 29890,  1628,   322,   395,
+        29883, 29938,   526,  6374,  1855,  3694,  1316,   393,   395, 29874,
+        29898, 29890, 29974, 29883, 29897,   353, 29871, 29896, 29945, 29906,
+         1628,   395, 29890, 29898, 29883, 29974, 29874, 29897,   353, 29871,
+        29896, 29953, 29906,  1628,   322,   395, 29883, 29898, 29874, 29974,
+        29890, 29897,   353, 29871, 29896, 29955, 29900,  1628,   769,  1284,
+          395, 10736,  7449,    13,  4013,  1108, 20789,  2211, 10693,   411,
+         2211,  9815, 29879, 29892,   577,   306,   674,  1018,   304, 27399,
+          697,   310,   963,   322,  4505,   363,   278,   916,  1023, 29889,
+           13, 29902,  8369,   393,   599,  2211, 10693,   505,   263,  2788,
+          883, 29901,   896,   526,   278,  3234,   310,  1023, 13879,   393,
+          526,   278,  2533,   310,  1023,  3651, 29889,    13,  4013,  3732,
+          592,  1348,   310,  7985,   292,   278,  3234,   773,   278, 22965,
+        11067,  2875, 29892,   322,   769, 17420,   278, 16127,   310,  1269,
+         1840, 29889,    13,  2831,  1342, 29892,  7985,   292,   278,   937,
+         6306,  4076,   395,   370,   718,  1274,   353, 29871, 29896, 29945,
+        29906,  1504,    13, 29777,   292,   278,  1473,  6306,  4076,   395,
+        12328,   718,  9922,   353, 29871, 29896, 29953, 29906,  1504,    13,
+        29777,   292,   278,  4654,  6306,  4076,   395,  1113,   718, 26324,
+          353, 29871, 29896, 29955, 29900,  1504,    13, 10454, 29892,   565,
+          306,  7252,   278, 16127,   310,   395,   370,  1628,   306,  1074,
+          393,   896,   526,  5186,   297,   278,   937,   322,  1473, 10693,
+        29889,    13,  4013,  2794,   393,   395,   370,   353, 29871, 29896,
+        29945, 29906,   448,  1274,   353, 29871, 29896, 29953, 29906,   448,
+          289, 29883,  1504,    13,  8942,  2327,   368, 29892, 17420,   278,
+        16127,   310,   395,   562,  1628,   306,  1074,   393,   896,   526,
+         5186,   297,   278,   937,   322,  4654, 10693, 29889,    13,  4013,
+         2794,   393,   395,   562,   353, 29871, 29896, 29945, 29906,   448,
+          633,   353, 29871, 29896, 29955, 29900,   448, 26324,  1504,    13,
+         2855,  7146, 29892, 17420,   278, 16127,   310,   395, 12328,  1628,
+          306,  1074,   393,   896,   526,  5186,   297,   278,  1473,   322,
+         4654, 10693, 29889,    13,  4013,  2794,   393,   395, 12328,   353,
+        29871, 29896, 29953, 29906,   448,  9922,   353, 29871, 29896, 29955,
+        29900,   448,  5777,  1504,    13,  6295,   306,   505,  2211, 10693,
+          411,  2211,  9815, 29879, 29892,   541,   896,   526,   599,  5608,
+          322,   508,   367,  5948,  7484,   491, 23697, 29889,    13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 8178])}.
+09/03/2023 01:41:05 - INFO - __main__ - Sample 27825 of the training set: {'input_ids': tensor([    1,  7803,   432,   554,   414,   526,  2715,   304,   263,   395,
+        29945, 29906, 29938,  5881, 19810,   322,   278,  4152,  5096,   310,
+          395, 29945, 29946, 29938, 15889,   338,   528,  3096,   839, 20459,
+        29889, 29871,  1724,   338,   278,  3806,  1353,   310, 15889,   393,
+          674,   367, 18719,  1546,   278,  1023,   432,   554,   414, 29973,
+           13,  1762,  1284,   278,  3806,   995, 29892,   306,   817,   304,
+        22932,   278,  1950,   714, 26807,   491,  1009, 18067,  2070, 11614,
+          322,   788,   963,   701, 29889,    13,  1576,  1950,   714, 26807,
+          526,   395, 29900, 29892, 29871, 29896, 29892, 29871, 29906, 29892,
+         2023, 29892, 29871, 29945, 29906, 29938, 15889,  1546,   278,   432,
+          554,   414, 29892,  8679,   373,   920,   896,   526,  2602,   287,
+          297,   278, 19810, 29889,    13,  1762,  1284,   278,  6976,   310,
+         1269, 21957, 29892,   306,   817,   304,  2302,   278,  1353,   310,
+         5837,   304,   564,  3881,   278, 15889,  1316,   393,   727,   526,
+         3721,   395, 29895, 29938, 15889,  1546,   278,   432,   554,   414,
+        29892,   988,   395, 29895, 29938, 20238,   515,   395, 29900, 29938,
+          304,   395, 29945, 29906,  1504,    13,  6716,   982,   304,   437,
+          445,   338,   304, 14034,   278,   432,   554,   414,   408,  2058,
+         8948,   414, 29892,   322,   769,  6755,   395, 29895, 29938, 15889,
+          515,   278,  9886,   395, 29945, 29906, 29938,   304,   748,  1546,
+          963, 29892,   322,   769,   564,  3881,   278,   916,   395, 29945,
+        29906,   448,   413, 29938, 15889,   373,  2845,  2625,   310,   963,
+        29889,    13,  4013,  4076,   592,  6435, 29945, 29906,   320, 21803,
+          413, 29913,   320,  3822,   313, 29945, 29906,   448,   413, 20198,
+        29938,  5837,   304,   564,  3881,   278, 15889,   363,   263,  2183,
+          395, 29895,  1504,    13, 17245, 29892,   445,   975,  2798, 29879,
+          491,   263,  7329,   310,   395, 29906,  1628,  1363,   306,  1033,
+         4607,   278, 11909,   310,   278,   432,   554,   414,   322,   679,
+          278,  1021, 21957, 29889,    13,  6295,   306,   817,   304, 16429,
+          491,   395, 29906, 29938,   304,   679,   278,  1959,  2302, 29889,
+           13,  8439,  1079, 29892,   278,  6976,   310,  2534,  3721,   395,
+        29895, 29938, 15889,  1546,   278,   432,   554,   414,   338,   779,
+         1154,  6224, 29945, 29906,   320, 21803,   413, 29913,   320,  3822,
+          313, 29945, 29906,   448,   413, 20198,  1157, 29906,   320,  3822,
+        29871, 29945, 29946, 29991,  4429,   988,   395, 29945, 29946, 29991,
+        29938,   338,   278,  3001,  1353,   310,  5837,   304,   564,  3881,
+          278, 15889,  1728,   738, 25091, 29889,    13, 10454,   306,   508,
+        18665,   297,   278,  1819,   310,   395, 29895, 29938,   322,  2533,
+          701,   278,  9316,   310,   278,   714, 26807,   322,  2070, 11614,
+        29889,    13, 29902,   508,   671,   263,  3408,  1061,   470,   263,
+         9677,  9855,   304,  1371,   592,   411,   278, 17203, 29889,    13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 8178])}.
+09/03/2023 01:41:05 - INFO - accelerate.accelerator - Since you passed both train and evaluation dataloader, `is_train_batch_min` (here True will decide the `train_batch_size` (2).
+09/03/2023 01:41:05 - INFO - accelerate.accelerator - Updating DeepSpeed's gradient accumulation steps to 16 from 1.
+[2023-09-03 01:41:05,817] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.10.0, git-hash=unknown, git-branch=unknown
+09/03/2023 01:41:05 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 0
+09/03/2023 01:41:05 - INFO - torch.distributed.distributed_c10d - Rank 0: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+09/03/2023 01:41:05 - INFO - torch.distributed.distributed_c10d - Rank 2: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+09/03/2023 01:41:05 - INFO - torch.distributed.distributed_c10d - Rank 1: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+09/03/2023 01:41:05 - INFO - torch.distributed.distributed_c10d - Rank 3: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+[2023-09-03 01:41:06,561] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2023-09-03 01:41:06,562] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the client Optimizer
+[2023-09-03 01:41:06,562] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2023-09-03 01:41:06,573] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2023-09-03 01:41:06,573] [INFO] [utils.py:54:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2023-09-03 01:41:06,573] [INFO] [logging.py:96:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+[2023-09-03 01:41:06,573] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 3 optimizer
+[2023-09-03 01:41:06,686] [INFO] [utils.py:785:see_memory_usage] Stage 3 initialize beginning
+[2023-09-03 01:41:06,687] [INFO] [utils.py:786:see_memory_usage] MA 3.69 GB         Max_MA 4.27 GB         CA 5.53 GB         Max_CA 6 GB 
+[2023-09-03 01:41:06,687] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 78.12 GB, percent = 7.8%
+[2023-09-03 01:41:06,688] [INFO] [stage3.py:117:__init__] Reduce bucket size 16777216
+[2023-09-03 01:41:06,688] [INFO] [stage3.py:118:__init__] Prefetch bucket size 15099494
+[2023-09-03 01:41:06,789] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2023-09-03 01:41:06,790] [INFO] [utils.py:786:see_memory_usage] MA 3.69 GB         Max_MA 3.69 GB         CA 5.53 GB         Max_CA 6 GB 
+[2023-09-03 01:41:06,790] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 78.13 GB, percent = 7.8%
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+[2023-09-03 01:41:06,913] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2023-09-03 01:41:06,913] [INFO] [utils.py:786:see_memory_usage] MA 3.33 GB         Max_MA 3.75 GB         CA 5.53 GB         Max_CA 6 GB 
+[2023-09-03 01:41:06,913] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 78.12 GB, percent = 7.8%
+[2023-09-03 01:41:07,017] [INFO] [utils.py:785:see_memory_usage] Before creating fp16 partitions
+[2023-09-03 01:41:07,017] [INFO] [utils.py:786:see_memory_usage] MA 3.33 GB         Max_MA 3.33 GB         CA 5.53 GB         Max_CA 6 GB 
+[2023-09-03 01:41:07,018] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 78.11 GB, percent = 7.8%
+[2023-09-03 01:41:09,252] [INFO] [utils.py:785:see_memory_usage] After creating fp16 partitions: 2
+[2023-09-03 01:41:09,253] [INFO] [utils.py:786:see_memory_usage] MA 3.32 GB         Max_MA 3.33 GB         CA 3.78 GB         Max_CA 6 GB 
+[2023-09-03 01:41:09,253] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 87.54 GB, percent = 8.7%
+[2023-09-03 01:41:09,365] [INFO] [utils.py:785:see_memory_usage] Before creating fp32 partitions
+[2023-09-03 01:41:09,366] [INFO] [utils.py:786:see_memory_usage] MA 3.32 GB         Max_MA 3.32 GB         CA 3.78 GB         Max_CA 4 GB 
+[2023-09-03 01:41:09,366] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 87.54 GB, percent = 8.7%
+[2023-09-03 01:41:09,509] [INFO] [utils.py:785:see_memory_usage] After creating fp32 partitions
+[2023-09-03 01:41:09,510] [INFO] [utils.py:786:see_memory_usage] MA 9.6 GB         Max_MA 10.87 GB         CA 11.92 GB         Max_CA 12 GB 
+[2023-09-03 01:41:09,510] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 87.54 GB, percent = 8.7%
+[2023-09-03 01:41:10,159] [INFO] [utils.py:785:see_memory_usage] Before initializing optimizer states
+[2023-09-03 01:41:10,160] [INFO] [utils.py:786:see_memory_usage] MA 9.6 GB         Max_MA 9.6 GB         CA 11.92 GB         Max_CA 12 GB 
+[2023-09-03 01:41:10,160] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 78.13 GB, percent = 7.8%
+[2023-09-03 01:41:10,295] [INFO] [utils.py:785:see_memory_usage] After initializing optimizer states
+[2023-09-03 01:41:10,295] [INFO] [utils.py:786:see_memory_usage] MA 22.15 GB         Max_MA 30.97 GB         CA 35.69 GB         Max_CA 36 GB 
+[2023-09-03 01:41:10,295] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 78.12 GB, percent = 7.8%
+[2023-09-03 01:41:10,296] [INFO] [stage3.py:424:_setup_for_real_optimizer] optimizer state initialized
+[2023-09-03 01:41:10,498] [INFO] [utils.py:785:see_memory_usage] After initializing ZeRO optimizer
+[2023-09-03 01:41:10,499] [INFO] [utils.py:786:see_memory_usage] MA 25.32 GB         Max_MA 25.81 GB         CA 35.69 GB         Max_CA 36 GB 
+[2023-09-03 01:41:10,499] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 78.16 GB, percent = 7.8%
+[2023-09-03 01:41:10,499] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2023-09-03 01:41:10,499] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2023-09-03 01:41:10,499] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2023-09-03 01:41:10,499] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0], mom=[(0.9, 0.999)]
+[2023-09-03 01:41:10,500] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   amp_params ................... False
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7fefade66ad0>
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2023-09-03 01:41:10,500] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   dump_state ................... False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   global_rank .................. 0
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 16
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   pld_params ................... False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   steps_per_print .............. inf
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   train_batch_size ............. 128
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   use_node_local_storage ....... False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   world_size ................... 4
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  True
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=16777216 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=None sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=15099494 param_persistence_threshold=40960 model_persistence_threshold=sys.maxsize max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=True stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2023-09-03 01:41:10,501] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2023-09-03 01:41:10,502] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2023-09-03 01:41:10,502] [INFO] [config.py:964:print]   zero_optimization_stage ...... 3
+[2023-09-03 01:41:10,502] [INFO] [config.py:950:print_user_config]   json = {
+    "bf16": {
+        "enabled": true
+    }, 
+    "zero_optimization": {
+        "stage": 3, 
+        "overlap_comm": true, 
+        "contiguous_gradients": true, 
+        "sub_group_size": 1.000000e+09, 
+        "reduce_bucket_size": 1.677722e+07, 
+        "stage3_prefetch_bucket_size": 1.509949e+07, 
+        "stage3_param_persistence_threshold": 4.096000e+04, 
+        "stage3_max_live_parameters": 1.000000e+09, 
+        "stage3_max_reuse_distance": 1.000000e+09, 
+        "stage3_gather_16bit_weights_on_model_save": true
+    }, 
+    "gradient_accumulation_steps": 16, 
+    "gradient_clipping": 1.0, 
+    "steps_per_print": inf, 
+    "train_batch_size": 128, 
+    "train_micro_batch_size_per_gpu": 2, 
+    "wall_clock_breakdown": false, 
+    "fp16": {
+        "enabled": false
+    }, 
+    "zero_allow_untested_optimizer": true
+}
+Sun Sep  3 01:41:10 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  Off  | 00000000:12:00.0 Off |                    0 |
+| N/A   33C    P0    84W / 400W |  39058MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  Off  | 00000000:18:00.0 Off |                    0 |
+| N/A   29C    P0    70W / 400W |  42207MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  Off  | 00000000:4A:00.0 Off |                    0 |
+| N/A   30C    P0    73W / 400W |  42662MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  Off  | 00000000:4E:00.0 Off |                    0 |
+| N/A   31C    P0    84W / 400W |  38801MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  Off  | 00000000:8A:00.0 Off |                    0 |
+| N/A   33C    P0    90W / 400W |  38801MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  Off  | 00000000:8F:00.0 Off |                    0 |
+| N/A   33C    P0    86W / 400W |  38513MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  Off  | 00000000:C6:00.0 Off |                    0 |
+| N/A   30C    P0    71W / 400W |      2MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  Off  | 00000000:CA:00.0 Off |                    0 |
+| N/A   32C    P0    87W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A     93793      C   .../open-instruct/bin/python    38511MiB |
+|    0   N/A  N/A   2661157      C   python3                           545MiB |
+|    1   N/A  N/A   2428060      C   .../diffusion_gan/bin/python    42203MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A   2661157      C   python3                          4789MiB |
+|    3   N/A  N/A     93794      C   .../open-instruct/bin/python    38799MiB |
+|    4   N/A  N/A     93795      C   .../open-instruct/bin/python    38799MiB |
+|    5   N/A  N/A     93796      C   .../open-instruct/bin/python    38511MiB |
+|    7   N/A  N/A   2722693      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+09/03/2023 01:41:20 - INFO - wandb.sdk.lib.retry - Retry attempt failed:
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/urllib3/connectionpool.py", line 711, in urlopen
+    self._prepare_proxy(conn)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1007, in _prepare_proxy
+    conn.connect()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fef222414b0>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fef222414b0>: Failed to establish a new connection: [Errno 111] Connection refused')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 323, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/lib/gql_request.py", line 55, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/requests/adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fef222414b0>: Failed to establish a new connection: [Errno 111] Connection refused')))
+wandb: Network error (ProxyError), entering retry loop.
+wandb: W&B API key is configured. Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: Network error (ProxyError), entering retry loop.
+wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...09/03/2023 01:42:22 - WARNING - urllib3.connectionpool - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fef22240d00>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/store/
+09/03/2023 01:42:22 - WARNING - urllib3.connectionpool - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fef22241420>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/store/
+09/03/2023 01:42:22 - WARNING - urllib3.connectionpool - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fef22241240>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/store/
+09/03/2023 01:42:22 - WARNING - urllib3.connectionpool - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fef22226950>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/envelope/
+09/03/2023 01:42:22 - WARNING - urllib3.connectionpool - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fef22226860>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/envelope/
+09/03/2023 01:42:22 - WARNING - urllib3.connectionpool - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fef222266b0>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/envelope/
+Problem at: /data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/tracking.py 296 __init__
+wandb: ERROR Run initialization has timed out after 60.0 sec. 
+wandb: ERROR Please refer to the documentation for additional information: https://docs.wandb.ai/guides/track/tracking-faq#initstarterror-error-communicating-with-wandb-process-
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 1307, in <module>
+    train(config, args)
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 997, in train
+    accelerator.init_trackers(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 602, in _inner
+    return PartialState().on_main_process(function)(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 2202, in init_trackers
+    self.trackers.append(tracker_init(project_name, **init_kwargs.get(str(tracker), {})))
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/tracking.py", line 86, in execute_on_main_process
+    return function(self, *args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/tracking.py", line 296, in __init__
+    self.run = wandb.init(project=self.run_name, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1183, in init
+    raise e
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1164, in init
+    run = wi.init()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 779, in init
+    raise error
+wandb.errors.CommError: Run initialization has timed out after 60.0 sec. 
+Please refer to the documentation for additional information: https://docs.wandb.ai/guides/track/tracking-faq#initstarterror-error-communicating-with-wandb-process-
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 1307, in <module>
+    train(config, args)
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/open-instruct/open_instruct/finetune.py", line 997, in train
+    accelerator.init_trackers(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 602, in _inner
+    return PartialState().on_main_process(function)(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 2202, in init_trackers
+    self.trackers.append(tracker_init(project_name, **init_kwargs.get(str(tracker), {})))
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/tracking.py", line 86, in execute_on_main_process
+    return function(self, *args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/tracking.py", line 296, in __init__
+    self.run = wandb.init(project=self.run_name, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1183, in init
+    raise e
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1164, in init
+    run = wi.init()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 779, in init
+    raise error
+wandb.errors.CommError: Run initialization has timed out after 60.0 sec. 
+Please refer to the documentation for additional information: https://docs.wandb.ai/guides/track/tracking-faq#initstarterror-error-communicating-with-wandb-process-
+09/03/2023 01:42:24 - WARNING - urllib3.connectionpool - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ff179ce8640>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/envelope/
+09/03/2023 01:42:24 - WARNING - urllib3.connectionpool - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ff179ce86d0>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/envelope/
+09/03/2023 01:42:24 - WARNING - urllib3.connectionpool - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ff179ce87f0>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/envelope/
+09/03/2023 01:42:24 - WARNING - urllib3.connectionpool - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ff179cea4d0>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/envelope/
+09/03/2023 01:42:24 - WARNING - urllib3.connectionpool - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ff179cea560>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/envelope/
+09/03/2023 01:42:24 - WARNING - urllib3.connectionpool - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7ff179cea680>: Failed to establish a new connection: [Errno 111] Connection refused'))': /api/4504800232407040/envelope/
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 93794 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 93795 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 93796 closing signal SIGTERM
+WARNING:torch.distributed.elastic.agent.server.api:Received 1 death signal, shutting down workers
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 93794 closing signal SIGHUP
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 93795 closing signal SIGHUP
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 93796 closing signal SIGHUP
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 45, in main
+    args.func(args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/commands/launch.py", line 964, in launch_command
+    deepspeed_launcher(args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/commands/launch.py", line 687, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/run.py", line 785, in run
+    elastic_launch(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 241, in launch_agent
+    result = agent.run()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 129, in wrapper
+    result = f(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 723, in run
+    result = self._invoke_run(role)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 865, in _invoke_run
+    run_result = self._monitor_workers(self._worker_group)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 129, in wrapper
+    result = f(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/local_elastic_agent.py", line 306, in _monitor_workers
+    result = self._pcontext.wait(0)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 288, in wait
+    return self._poll()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 664, in _poll
+    self.close()  # terminate all running procs
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 331, in close
+    self._close(death_sig=death_sig, timeout=timeout)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 708, in _close
+    handler.proc.wait(time_to_wait)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/subprocess.py", line 1209, in wait
+    return self._wait(timeout=timeout)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/subprocess.py", line 1953, in _wait
+    time.sleep(delay)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 62, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 93641 got signal: 1

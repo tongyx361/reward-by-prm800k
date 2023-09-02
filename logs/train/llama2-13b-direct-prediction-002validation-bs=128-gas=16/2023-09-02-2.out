@@ -1,0 +1,81 @@
+nohup: ignoring input
+[2023-09-03 01:44:33,670] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[2023-09-03 01:44:38,263] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 01:44:38,287] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 01:44:38,318] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 01:44:38,335] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Using xformers
+Initializing accelerator...
+[2023-09-03 01:44:39,780] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:44:39,780] [INFO] [comm.py:616:init_distributed] cdb=None
+Using xformers
+Initializing accelerator...
+[2023-09-03 01:44:39,833] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:44:39,833] [INFO] [comm.py:616:init_distributed] cdb=None
+Using xformers
+Initializing accelerator...
+[2023-09-03 01:44:39,859] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:44:39,860] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-03 01:44:39,860] [INFO] [comm.py:643:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Using xformers
+Initializing accelerator...
+[2023-09-03 01:44:39,904] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 01:44:39,904] [INFO] [comm.py:616:init_distributed] cdb=None
+09/03/2023 01:44:40 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 2
+Local process index: 2
+Device: cuda:2
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+accelerator.state = Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:44:40 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:44:40 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 3
+Local process index: 3
+Device: cuda:3
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:44:40 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 1
+Local process index: 1
+Device: cuda:1
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 01:44:56 - DEBUG - evaluate.loading - Checking /data/users/zhangjunlei/tyx/.cache/huggingface/evaluate/downloads/96cba97f346e44af314163a75259842d567a1e87cf5b208754598a47f8c5f531.cfd6b2fbd44256c2b82392f9e38ab60b0f49c187db643eb761fb625fe8a3303c.py for additional imports.
+09/03/2023 01:44:56 - DEBUG - evaluate.loading - Created importable dataset file at /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--accuracy/f887c0aab52c2d38e1f8a215681126379eca617f96c447638f751434e8e65b14/accuracy.py
+09/03/2023 01:44:59 - DEBUG - evaluate.loading - Checking /data/users/zhangjunlei/tyx/.cache/huggingface/evaluate/downloads/498d31a4e66ca154bf5332fcbc8dd35c18a5ea36090d6be3b2d3aacc7794d5cc.39d17ba2a627a7569cf0b5b78be67e3176df05857da937b236a4ee081bbb92ec.py for additional imports.
+09/03/2023 01:44:59 - DEBUG - evaluate.loading - Created importable dataset file at /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--f1/0ca73f6cf92ef5a268320c697f7b940d1030f8471714bffdb6856c641b818974/f1.py
