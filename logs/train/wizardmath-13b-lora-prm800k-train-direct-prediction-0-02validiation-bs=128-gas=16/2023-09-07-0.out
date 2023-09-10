@@ -1,0 +1,14 @@
+nohup: ignoring input
+[2023-09-07 03:55:12,781] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-07 03:55:14,275] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected CUDA_VISIBLE_DEVICES=0,1,3,4: setting --include=localhost:0,1,3,4
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/deepspeed", line 6, in <module>
+    main()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/launcher/runner.py", line 420, in main
+    active_resources = parse_inclusion_exclusion(resource_pool, args.include, args.exclude)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/launcher/runner.py", line 344, in parse_inclusion_exclusion
+    return parse_resource_filter(active_resources, include_str=inclusion, exclude_str=exclusion)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/launcher/runner.py", line 296, in parse_resource_filter
+    raise ValueError(f"No slot '{slot}' specified on host '{hostname}'")
+ValueError: No slot '4' specified on host 'localhost'

@@ -2,6 +2,7 @@ import argparse
 import logging
 import os
 import subprocess
+import time
 
 import utils
 
@@ -18,6 +19,7 @@ parser.add_argument(
 )
 parser.add_argument("--log_path", type=str, default=None, help="log path")
 parser.add_argument("--max_trials", type=int, default=10, help="max trials")
+parser.add_argument("--trial_interval", type=int, default=60, help="trial interval")
 args = parser.parse_args()
 
 utils.init_logging()
@@ -51,6 +53,6 @@ for arg_val in process_wise_arg_vals:
         else:
             trial_cnt += 1
             logger.warning(f"Failed to run the script for {trial_cnt} times.")
-
+            time.sleep(args.trial_interval)
             if trial_cnt >= args.max_trials:
                 raise Exception(f"Failed to run for {args.max_trials} times.")

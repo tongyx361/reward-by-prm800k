@@ -1,2 +1,1 @@
-WizardLM/WizardMath-13B-V1.0
-WizardLM/WizardMath-70B-V1.0
+WizardLM/WizardMath-7B-V1.0

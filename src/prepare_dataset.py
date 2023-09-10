@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, NewType, Optional, Tuple, Union
 
+import torch
 from transformers.tokenization_utils_base import PreTrainedTokenizerBase
 from transformers.utils import PaddingStrategy
 
@@ -192,7 +193,7 @@ def encode_with_problem_step_ratings_format(
         example_text, return_tensors="pt", max_length=max_seq_length, truncation=True
     )
 
-    if test == True:
+    if test is True:
         print("tokenized_example: ", tokenized_example, sep="\n")
 
     input_ids = tokenized_example.input_ids

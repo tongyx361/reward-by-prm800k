@@ -1,0 +1,208 @@
+nohup: ignoring input
+[2023-09-10 01:49:15,712] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:49:17,025] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2023-09-10 01:49:17,025] [INFO] [runner.py:555:main] cmd = /data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMSwgMywgNCwgNl19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_qlora_flash_attn_2.py --model_name_or_path /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-70B-V1.0/snapshots/e089c3f9d2ad9d1acb62425aec3f4126f498f4c5 --encoded_datasets_path /data/users/zhangjunlei/tyx/reward-by-prm800k/datasets/prm800k-train-direct-prediction-0-02validiation-encoded-datasets --output_dir /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-70b-qlora-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16 --model_max_length 1024 --per_device_train_batch_size 2 --per_device_eval_batch_size 4 --gradient_checkpointing True --gradient_accumulation_steps 16 --num_train_epochs 100 --evaluation_strategy steps --eval_steps 100 --eval_first False --save_strategy steps --save_steps 100 --load_best_model_at_end True --metric_for_best_model f1_-1 --greater_is_better True --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type linear --lora_r 16 --lora_alpha 16 --lora_dropout 0.05 --lora_target_modules all_linear --q_lora True --bf16 True --tf32 True --use_accelerate_lib flash-attn-v2 --deepspeed /data/users/zhangjunlei/tyx/reward-by-prm800k/ds_configs/stage0.conf --logging_strategy steps --logging_steps 1 --custom_debug True
+[2023-09-10 01:49:18,628] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:49:19,773] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [1, 3, 4, 6]}
+[2023-09-10 01:49:19,773] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=4, node_rank=0
+[2023-09-10 01:49:19,773] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2023-09-10 01:49:19,773] [INFO] [launch.py:163:main] dist_world_size=4
+[2023-09-10 01:49:19,773] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=1,3,4,6
+[2023-09-10 01:49:24,129] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:49:24,163] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:49:24,222] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:49:24,238] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:49:25,847] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-10 01:49:25,847] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-10 01:49:25,847] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-10 01:49:25,847] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-10 01:49:25,853] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-10 01:49:25,853] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-10 01:49:25,853] [INFO] [comm.py:643:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2023-09-10 01:49:25,939] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-10 01:49:25,939] [INFO] [comm.py:616:init_distributed] cdb=None
+Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Sun Sep 10 01:49:27 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  On   | 00000000:12:00.0 Off |                    0 |
+| N/A   33C    P0    69W / 400W |   1114MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  On   | 00000000:18:00.0 Off |                    0 |
+| N/A   31C    P0    68W / 400W |     40MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  On   | 00000000:4A:00.0 Off |                    0 |
+| N/A   31C    P0    77W / 400W |  42836MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  On   | 00000000:4E:00.0 Off |                    0 |
+| N/A   30C    P0    64W / 400W |     40MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  On   | 00000000:8A:00.0 Off |                    0 |
+| N/A   35C    P0    75W / 400W |     40MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  On   | 00000000:8F:00.0 Off |                    0 |
+| N/A   35C    P0    73W / 400W |   2785MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  On   | 00000000:C6:00.0 Off |                    0 |
+| N/A   33C    P0    72W / 400W |     40MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  On   | 00000000:CA:00.0 Off |                    0 |
+| N/A   35C    P0    81W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    242938      C   python3                           555MiB |
+|    0   N/A  N/A   2724011      C   python3                           555MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A    242938      C   python3                          4963MiB |
+|    5   N/A  N/A   2724011      C   python3                          2783MiB |
+|    7   N/A  N/A   1004856      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:06<02:59,  6.40s/it]Loading checkpoint shards:   3%|▎         | 1/29 [00:06<02:48,  6.00s/it]Loading checkpoint shards:   3%|▎         | 1/29 [00:06<03:06,  6.68s/it]Loading checkpoint shards:   3%|▎         | 1/29 [00:06<03:07,  6.69s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:11<02:40,  5.93s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:10<02:15,  5.01s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:11<02:30,  5.56s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:11<02:30,  5.59s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:18<02:38,  6.10s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:14<02:04,  4.79s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:16<02:17,  5.30s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:16<02:17,  5.29s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:19<01:56,  4.68s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:23<02:24,  5.78s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:22<02:18,  5.54s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:22<02:17,  5.52s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:23<01:46,  4.43s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:29<02:18,  5.79s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:26<02:02,  5.11s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:26<02:02,  5.12s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:27<01:38,  4.29s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:34<02:07,  5.52s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:31<01:30,  4.13s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:31<01:57,  5.11s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:31<01:57,  5.13s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:39<01:55,  5.27s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:35<01:28,  4.21s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:37<01:56,  5.29s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:37<01:57,  5.33s/it]Loading checkpoint shards:  31%|███       | 9/29 [00:40<01:29,  4.45s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:45<01:55,  5.52s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:42<01:50,  5.28s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:42<01:51,  5.32s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [00:45<01:27,  4.61s/it]Loading checkpoint shards:  31%|███       | 9/29 [00:50<01:46,  5.31s/it]Loading checkpoint shards:  31%|███       | 9/29 [00:48<01:50,  5.51s/it]Loading checkpoint shards:  31%|███       | 9/29 [00:48<01:50,  5.54s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [00:49<01:19,  4.42s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [00:54<01:36,  5.09s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [00:53<01:13,  4.30s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [00:53<01:41,  5.34s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [00:53<01:41,  5.36s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [01:00<01:36,  5.37s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [00:57<01:08,  4.30s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [00:58<01:32,  5.13s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [00:58<01:33,  5.17s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [01:05<01:28,  5.21s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:01<01:04,  4.27s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [01:03<01:26,  5.11s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [01:04<01:30,  5.34s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:05<00:58,  4.17s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [01:10<01:22,  5.15s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [01:08<01:22,  5.15s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:09<00:52,  4.06s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [01:09<01:26,  5.38s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:16<01:21,  5.40s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:13<00:48,  4.02s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:13<01:16,  5.08s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:15<01:23,  5.56s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:20<01:11,  5.09s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:18<01:08,  4.88s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [01:18<00:48,  4.37s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:20<01:13,  5.22s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:25<01:04,  4.94s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:23<01:07,  5.17s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [01:24<00:46,  4.63s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:24<01:05,  5.04s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:30<01:00,  5.01s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [01:28<00:40,  4.46s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:28<00:59,  4.98s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:29<00:59,  4.94s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [01:35<00:55,  5.05s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [01:31<00:33,  4.23s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [01:33<00:56,  5.12s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [01:35<00:57,  5.23s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [01:35<00:29,  4.14s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [01:40<00:49,  4.94s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [01:38<00:51,  5.11s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [01:40<00:25,  4.21s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [01:40<00:51,  5.16s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [01:45<00:45,  5.03s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [01:43<00:43,  4.87s/it]Loading checkpoint shards:  83%|████████▎ | 24/29 [01:44<00:20,  4.18s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [01:44<00:44,  4.92s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [01:50<00:40,  5.02s/it]Loading checkpoint shards:  86%|████████▌ | 25/29 [01:47<00:16,  4.03s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [01:47<00:38,  4.80s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [01:50<00:40,  5.03s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [01:55<00:34,  4.91s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [01:51<00:11,  3.94s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [01:52<00:34,  4.86s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [01:54<00:33,  4.84s/it]Loading checkpoint shards:  93%|█████████▎| 27/29 [01:55<00:07,  3.88s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [02:00<00:29,  4.91s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [01:58<00:29,  4.98s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [01:59<00:29,  4.88s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [01:59<00:03,  3.97s/it]Loading checkpoint shards:  83%|████████▎ | 24/29 [02:05<00:25,  5.13s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:02<00:00,  3.63s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:02<00:00,  4.22s/it]
+Loading checkpoint shards:  83%|████████▎ | 24/29 [02:03<00:24,  4.94s/it]Loading checkpoint shards:  83%|████████▎ | 24/29 [02:05<00:25,  5.10s/it]Loading checkpoint shards:  86%|████████▌ | 25/29 [02:11<00:20,  5.23s/it]Loading checkpoint shards:  86%|████████▌ | 25/29 [02:07<00:19,  4.90s/it]Loading checkpoint shards:  86%|████████▌ | 25/29 [02:10<00:20,  5.13s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [02:15<00:14,  4.98s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [02:12<00:14,  4.86s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [02:14<00:14,  4.97s/it]Loading checkpoint shards:  93%|█████████▎| 27/29 [02:20<00:09,  4.79s/it]Loading checkpoint shards:  93%|█████████▎| 27/29 [02:18<00:10,  5.10s/it]Loading checkpoint shards:  93%|█████████▎| 27/29 [02:19<00:09,  4.80s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [02:24<00:04,  4.75s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [02:23<00:05,  5.01s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [02:24<00:04,  4.88s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:28<00:00,  4.48s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:28<00:00,  5.13s/it]
+Loading checkpoint shards: 100%|██████████| 29/29 [02:26<00:00,  4.48s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:26<00:00,  5.04s/it]
+Loading checkpoint shards: 100%|██████████| 29/29 [02:28<00:00,  4.57s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:28<00:00,  5.11s/it]
+Sun Sep 10 01:52:05 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  On   | 00000000:12:00.0 Off |                    0 |
+| N/A   33C    P0    72W / 400W |   1114MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  On   | 00000000:18:00.0 Off |                    0 |
+| N/A   31C    P0    69W / 400W |  35495MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  On   | 00000000:4A:00.0 Off |                    0 |
+| N/A   32C    P0    81W / 400W |  42836MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  On   | 00000000:4E:00.0 Off |                    0 |
+| N/A   31C    P0    66W / 400W |  35495MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  On   | 00000000:8A:00.0 Off |                    0 |
+| N/A   35C    P0    75W / 400W |  37529MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  On   | 00000000:8F:00.0 Off |                    0 |
+| N/A   35C    P0    71W / 400W |   2785MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  On   | 00000000:C6:00.0 Off |                    0 |
+| N/A   34C    P0    91W / 400W |  37507MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  On   | 00000000:CA:00.0 Off |                    0 |
+| N/A   36C    P0    90W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    242938      C   python3                           555MiB |
+|    0   N/A  N/A   2724011      C   python3                           555MiB |
+|    1   N/A  N/A   2251513      C   .../open-instruct/bin/python    35455MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A    242938      C   python3                          4963MiB |
+|    3   N/A  N/A   2251514      C   .../open-instruct/bin/python    37463MiB |
+|    4   N/A  N/A   2251515      C   .../open-instruct/bin/python    37489MiB |
+|    5   N/A  N/A   2724011      C   python3                          2783MiB |
+|    6   N/A  N/A   2251516      C   .../open-instruct/bin/python    37467MiB |
+|    7   N/A  N/A   1004856      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+get_peft_model() took 371.68922567367554 s
+Sun Sep 10 01:58:22 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  On   | 00000000:12:00.0 Off |                    0 |
+| N/A   33C    P0    68W / 400W |   1114MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  On   | 00000000:18:00.0 Off |                    0 |
+| N/A   32C    P0    86W / 400W |  37873MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  On   | 00000000:4A:00.0 Off |                    0 |
+| N/A   31C    P0    76W / 400W |  42836MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  On   | 00000000:4E:00.0 Off |                    0 |
+| N/A   31C    P0    68W / 400W |  37873MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  On   | 00000000:8A:00.0 Off |                    0 |
+| N/A   35C    P0    75W / 400W |  37907MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  On   | 00000000:8F:00.0 Off |                    0 |
+| N/A   35C    P0    73W / 400W |   2785MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  On   | 00000000:C6:00.0 Off |                    0 |
+| N/A   34C    P0    87W / 400W |  37909MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  On   | 00000000:CA:00.0 Off |                    0 |
+| N/A   35C    P0    74W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    242938      C   python3                           555MiB |
+|    0   N/A  N/A   2724011      C   python3                           555MiB |
+|    1   N/A  N/A   2251513      C   .../open-instruct/bin/python    37833MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A    242938      C   python3                          4963MiB |
+|    3   N/A  N/A   2251514      C   .../open-instruct/bin/python    37833MiB |
+|    4   N/A  N/A   2251515      C   .../open-instruct/bin/python    37867MiB |
+|    5   N/A  N/A   2724011      C   python3                          2783MiB |
+|    6   N/A  N/A   2251516      C   .../open-instruct/bin/python    37869MiB |
+|    7   N/A  N/A   1004856      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+trainable params: 207,093,760 || all params: 69,183,774,720 || trainable%: 0.2993386250434414
+wandb: Currently logged in as: kidrain61. Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: Tracking run with wandb version 0.15.10
+wandb: Run data is saved locally in /data/users/zhangjunlei/tyx/wandb/wandb/run-20230910_015832-1i51d5oz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run 2023-09-09-3-wizardmath-70b-qlora-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16
+wandb: ⭐️ View project at https://wandb.ai/kidrain61/step-reward
+wandb: 🚀 View run at https://wandb.ai/kidrain61/step-reward/runs/1i51d5oz
+  0%|          | 0/66500 [00:00<?, ?it/s]  0%|          | 1/66500 [01:43<1910:43:49, 103.44s/it]                                                       {'loss': 21.3993, 'learning_rate': 1.0025062656641605e-08, 'epoch': 0.0}
+  0%|          | 1/66500 [01:43<1910:43:49, 103.44s/it]

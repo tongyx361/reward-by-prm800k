@@ -1,0 +1,1408 @@
+nohup: ignoring input
+[2023-09-08 15:35:49,599] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[2023-09-08 15:35:54,183] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-08 15:35:54,211] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-08 15:35:54,230] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-08 15:35:54,236] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Using xformers
+[2023-09-08 15:35:55,505] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-08 15:35:55,505] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-08 15:35:55,509] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-08 15:35:55,509] [INFO] [comm.py:616:init_distributed] cdb=None
+Initializing accelerator...
+[2023-09-08 15:35:55,528] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-08 15:35:55,528] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-08 15:35:55,528] [INFO] [comm.py:643:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2023-09-08 15:35:55,537] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-08 15:35:55,537] [INFO] [comm.py:616:init_distributed] cdb=None
+09/08/2023 15:35:55 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 3
+Local process index: 3
+Device: cuda:3
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+accelerator.state = Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/08/2023 15:35:55 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/08/2023 15:35:55 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 2
+Local process index: 2
+Device: cuda:2
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/08/2023 15:35:55 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 1
+Local process index: 1
+Device: cuda:1
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/08/2023 15:36:09 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-metric/f1/resolve/v0.4.0/f1.py timed out, retrying... [1.0]
+09/08/2023 15:36:19 - INFO - evaluate.utils.file_utils - HEAD request to https://huggingface.co/spaces/evaluate-metric/precision/resolve/v0.4.0/precision.py timed out, retrying... [1.0]
+loading configuration file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-13B-V1.0/snapshots/7ef412d2c680ef0fbdcd88d0df31b396d8d3049c/config.json
+Model config LlamaConfig {
+  "_name_or_path": "/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-13B-V1.0/snapshots/7ef412d2c680ef0fbdcd88d0df31b396d8d3049c",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 5120,
+  "initializer_range": 0.02,
+  "intermediate_size": 13824,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 40,
+  "num_hidden_layers": 40,
+  "num_key_value_heads": 40,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.31.0",
+  "use_cache": false,
+  "vocab_size": 32001
+}
+
+loading file tokenizer.model
+loading file added_tokens.json
+loading file special_tokens_map.json
+loading file tokenizer_config.json
+You are using the legacy behaviour of the <class 'transformers.models.llama.tokenization_llama.LlamaTokenizer'>. This means that tokens that come after special tokens will not be properly handled. We recommend you to read the related pull request available at https://github.com/huggingface/transformers/pull/24565
+loading weights file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-13B-V1.0/snapshots/7ef412d2c680ef0fbdcd88d0df31b396d8d3049c/pytorch_model.bin.index.json
+Detected DeepSpeed ZeRO-3: activating zero.init() for this model
+Generate config GenerationConfig {
+  "_from_model_config": true,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "pad_token_id": 0,
+  "transformers_version": "4.31.0",
+  "use_cache": false
+}
+
+[2023-09-08 15:36:32,644] [INFO] [partition_parameters.py:326:__exit__] finished initializing model with 13.02B parameters
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:07<00:39,  7.97s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:08<00:40,  8.00s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:08<00:40,  8.03s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:08<00:40,  8.05s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:15<00:31,  7.80s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:15<00:31,  7.81s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:15<00:31,  7.81s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:15<00:31,  7.81s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:23<00:23,  7.98s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:23<00:23,  7.98s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:23<00:23,  7.98s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:23<00:23,  8.00s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:32<00:16,  8.06s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:32<00:16,  8.06s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:32<00:16,  8.06s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:32<00:16,  8.06s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:40<00:08,  8.06s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:40<00:08,  8.07s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:40<00:08,  8.08s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:40<00:08,  8.08s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:41<00:00,  5.84s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:41<00:00,  6.94s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:41<00:00,  5.85s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:41<00:00,  6.94s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:41<00:00,  5.84s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:41<00:00,  6.94s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:41<00:00,  5.85s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:41<00:00,  6.94s/it]
+All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+All the weights of LlamaForCausalLM were initialized from the model checkpoint at /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-13B-V1.0/snapshots/7ef412d2c680ef0fbdcd88d0df31b396d8d3049c.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+loading configuration file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-13B-V1.0/snapshots/7ef412d2c680ef0fbdcd88d0df31b396d8d3049c/generation_config.json
+Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 0,
+  "temperature": 0.9,
+  "top_p": 0.6,
+  "transformers_version": "4.31.0"
+}
+
+Assigning <s> to the bos_token key of the tokenizer
+Assigning </s> to the eos_token key of the tokenizer
+Assigning <unk> to the unk_token key of the tokenizer
+Assigning <pad> to the pad_token key of the tokenizer
+Adding <pad> to the vocabulary
+09/08/2023 15:37:14 - INFO - __main__ - Sample 16548 of the training set: {'input_ids': tensor([    1,  2803,   395, 29888, 29898, 29916,  1262,   322,   395, 29887,
+        29898, 29916,  1262,   367,  1661,  9171, 24655,  1316,   393,    13,
+        29905, 29961, 29888, 29898, 29887, 29898, 29916,   876,   353,   285,
+        29898, 29916, 29897,   330, 29898, 29916,   467, 18899,  3644,   395,
+        29887, 29898, 29906, 29897,   353, 29871, 29941, 29955,  8209,  1284,
+          395, 29887, 29898, 29916,   467, 29938,    13, 29902,  8369,   393,
+          445,  6306, 20789,  1023, 24655, 29892,   322,   306,  4997,   565,
+          306,   508,   671,   777, 17099,  1048, 10159, 14496,   322,  8572,
+         4127,   304, 21092,   372, 29889,    13,  6730, 29892,   306, 14111,
+          393,   278,  7426,   310,   278,  2175, 29899,  3179,  2625,   338,
+          278,  7426,   310,   395, 29888, 29938,  3064,   278,  7426,   310,
+          395, 29887,  8209,   322,   278,  7426,   310,   278,  1492, 29899,
+         3179,  2625,   338,   278,  2533,   310,   278, 14496,   310,   395,
+        29888, 29938,   322,   395, 29887,  7449,    13,  4013,  2794,   393,
+          278,  7426,   310,   395, 29888, 29938,  1818,   367,  5186,   304,
+          278,  7426,   310,   395, 29887,  8209,  1951,  6467,   278,  6306,
+          723,   451,  4808,   363,   599,  1819,   310,   395, 29916,  7449,
+           13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 8178])}.
+09/08/2023 15:37:14 - INFO - __main__ - Sample 67098 of the training set: {'input_ids': tensor([    1, 13727,   273,   756,  5714,   383,   271,  2946, 29915, 29879,
+         9008,  1353, 29889, 13727,   273,  9906,   393,   278,   937,  2211,
+        13340,   526,  2845, 29871, 29906, 29929, 29953,   470, 29871, 29906,
+        29929, 29929, 29889,   450,  9886,  3023, 13340,   526, 29871, 29900,
+        29892, 29871, 29896, 29892, 29871, 29953,   322, 29871, 29955, 29892,
+          541,  1183,  3508, 29915, 29873,  1854,   310,   278,  1797,   310,
+         1438, 13340, 29889,   960, 13727,   273, 20459,   270,   616, 29879,
+          263,  9881, 29899, 26204,  1353,   393, 28103,  1438,  5855, 29892,
+          825,   338,   278,  6976,   393,  1183,   270,   616, 29879,   383,
+          271,  2946, 29915, 29879,  1959,  1353, 29973, 14657,   596,  1234,
+          408,   263,  3619, 15958, 29889,    13, 12024, 29915, 29879,  1369,
+          491,  9138,   278,  6976,   393,   278,   937,  2211, 13340,   526,
+         1959, 29889,    13,  1576,   937,  2211, 13340,   508,   367,  2845,
+        29871, 29906, 29929, 29929,   470, 29871, 29906, 29929, 29953, 29892,
+          577,   727,   526, 29871, 29906,  1950, 19995,   363,  1438, 13340,
+        29889,    13,  7058, 29915, 29879,  1492, 29889,  2567, 29892,  1235,
+        29915, 29879,  1284,   278,  6976,   393,   278,  1833,  3023, 13340,
+          526,  1959, 29889,    13,  8439,   526, 29871, 29946, 19216, 29906,
+        29946,  1950,  1797,   886,   310,   278, 13340, 29871, 29900, 29892,
+        29871, 29896, 29892, 29871, 29953, 29892,   322, 29871, 29955, 29889,
+           13,  7058, 29915, 29879,  1959, 29889,  4001,   727,   526, 29871,
+        29906, 29946,  1950,  1797,   886, 29892,   278,  6976,   310, 20680,
+          278,  1959, 20520,   338, 29871, 29896, 29914, 29906, 29946, 29889,
+           13,  6295,   278,  6976,   310, 20680,   278,  1959,  1353,   338,
+        29871, 29906, 29930, 29896, 29914, 29906, 29946,   353, 29871, 29896,
+        29914, 29896, 29906, 29889,    13,    13, 29937,   673,    13,    13,
+        29896, 29914, 29896, 29906,    13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        6374])}.
+09/08/2023 15:37:14 - INFO - __main__ - Sample 54087 of the training set: {'input_ids': tensor([    1,  8168,  6478,   260,  5475,   526,  1353,   287, 29871, 29896,
+         1549, 29871, 29906, 29900,   322,   526,  7180,   964,  3800,   395,
+        29909,  1504,  8168,  6478,   916,   260,  5475,  1353,   287, 29871,
+        29896, 29896,  1549, 29871, 29941, 29900,   526,  7180,   964,  3800,
+          395, 29933,  1504,  3118, 25900,   338, 20459, 12061,   515,  1269,
+         3800, 29889,  1724,   338,   278,  6976,   393,   278, 25900,   515,
+         3800,   395, 29909, 29938,   338,  3109,  1135, 29871, 29896, 29945,
+          322,   278, 25900,   515,  3800,   395, 29933, 29938,   338,  2845,
+         1584,   470,  7621,  1135, 29871, 29906, 29945, 29973, 14657,   596,
+         1234,   408,   263,  3619, 15958, 29889,    13,  1762,  1284,   278,
+         6976,   310,  1023,  7417,  4959, 13920,   292, 29892,   306,   508,
+        22932,   278,  2070, 11614,   310,  1269,  1741, 29889,    13,  6295,
+          306,   817,   304,  1284,   278,  6976,   310, 11580,   263, 25900,
+         3109,  1135, 29871, 29896, 29945,   515,  3800,   395, 29909, 29938,
+          322,   278,  6976,   310, 11580,   263, 25900,   393,   338,  2845,
+         1584,   470,  7621,  1135, 29871, 29906, 29945,   515,  3800,   395,
+        29933,  1504,    13,  2831,  3800,   395, 29909,  1628,   727,   526,
+        29871, 29896, 29946,   260,  5475,   393,   526,  3109,  1135, 29871,
+        29896, 29945, 29892,   714,   310, 29871, 29906, 29900,  3001,   260,
+         5475, 29889,    13,  6295,   278,  6976,   310, 11580,   697,   310,
+          963,   338,   779,  1154, 29912, 29896, 29946,  1157, 29906, 29900,
+        29913,   353,   320,  1154, 29912, 29955,  1157, 29896, 29900,  4311,
+           13,  2831,  3800,   395, 29933,  1628,   727,   526, 29871, 29896,
+        29900,   260,  5475,   393,   526,  1584, 29892,   322, 29871, 29945,
+          260,  5475,   393,   526,  7621,  1135, 29871, 29906, 29945, 29892,
+          541,   697,   310,   963,   313, 29873,   488, 29871, 29906, 29953,
+        29897,   338,  1716,  1584,   322,  7621,  1135, 29871, 29906, 29945,
+        29889,    13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 8178])}.
+09/08/2023 15:37:14 - INFO - accelerate.accelerator - Since you passed both train and evaluation dataloader, `is_train_batch_min` (here True will decide the `train_batch_size` (2).
+09/08/2023 15:37:14 - INFO - accelerate.accelerator - Updating DeepSpeed's gradient accumulation steps to 16 from 1.
+[2023-09-08 15:37:14,550] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.10.0, git-hash=unknown, git-branch=unknown
+09/08/2023 15:37:14 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 0
+09/08/2023 15:37:14 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 1
+09/08/2023 15:37:14 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 3
+09/08/2023 15:37:14 - INFO - torch.distributed.distributed_c10d - Rank 3: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+09/08/2023 15:37:14 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 2
+09/08/2023 15:37:14 - INFO - torch.distributed.distributed_c10d - Rank 2: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+09/08/2023 15:37:14 - INFO - torch.distributed.distributed_c10d - Rank 0: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+[2023-09-08 15:37:14,667] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2023-09-08 15:37:14,668] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the client Optimizer
+[2023-09-08 15:37:14,668] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+09/08/2023 15:37:14 - INFO - torch.distributed.distributed_c10d - Rank 1: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+[2023-09-08 15:37:14,683] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2023-09-08 15:37:14,683] [INFO] [utils.py:54:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2023-09-08 15:37:14,683] [INFO] [logging.py:96:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+[2023-09-08 15:37:14,683] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 3 optimizer
+[2023-09-08 15:37:14,796] [INFO] [utils.py:785:see_memory_usage] Stage 3 initialize beginning
+[2023-09-08 15:37:14,796] [INFO] [utils.py:786:see_memory_usage] MA 6.14 GB         Max_MA 7.06 GB         CA 8.03 GB         Max_CA 8 GB 
+[2023-09-08 15:37:14,796] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 114.77 GB, percent = 11.4%
+[2023-09-08 15:37:14,798] [INFO] [stage3.py:117:__init__] Reduce bucket size 26214400
+[2023-09-08 15:37:14,798] [INFO] [stage3.py:118:__init__] Prefetch bucket size 23592960
+[2023-09-08 15:37:14,901] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2023-09-08 15:37:14,902] [INFO] [utils.py:786:see_memory_usage] MA 6.14 GB         Max_MA 6.14 GB         CA 8.03 GB         Max_CA 8 GB 
+[2023-09-08 15:37:14,902] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 114.77 GB, percent = 11.4%
+Parameter Offload: Total persistent parameters: 414720 in 81 params
+[2023-09-08 15:37:15,026] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2023-09-08 15:37:15,027] [INFO] [utils.py:786:see_memory_usage] MA 6.14 GB         Max_MA 6.14 GB         CA 8.03 GB         Max_CA 8 GB 
+[2023-09-08 15:37:15,027] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 114.76 GB, percent = 11.4%
+[2023-09-08 15:37:15,132] [INFO] [utils.py:785:see_memory_usage] Before creating fp16 partitions
+[2023-09-08 15:37:15,133] [INFO] [utils.py:786:see_memory_usage] MA 6.14 GB         Max_MA 6.14 GB         CA 8.03 GB         Max_CA 8 GB 
+[2023-09-08 15:37:15,133] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 114.76 GB, percent = 11.4%
+[2023-09-08 15:37:18,474] [INFO] [utils.py:785:see_memory_usage] After creating fp16 partitions: 4
+[2023-09-08 15:37:18,475] [INFO] [utils.py:786:see_memory_usage] MA 6.14 GB         Max_MA 6.14 GB         CA 6.14 GB         Max_CA 8 GB 
+[2023-09-08 15:37:18,475] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 114.78 GB, percent = 11.4%
+[2023-09-08 15:37:18,582] [INFO] [utils.py:785:see_memory_usage] Before creating fp32 partitions
+[2023-09-08 15:37:18,582] [INFO] [utils.py:786:see_memory_usage] MA 6.14 GB         Max_MA 6.14 GB         CA 6.14 GB         Max_CA 6 GB 
+[2023-09-08 15:37:18,583] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 114.77 GB, percent = 11.4%
+[2023-09-08 15:37:18,711] [INFO] [utils.py:785:see_memory_usage] After creating fp32 partitions
+[2023-09-08 15:37:18,711] [INFO] [utils.py:786:see_memory_usage] MA 18.26 GB         Max_MA 19.27 GB         CA 21.16 GB         Max_CA 21 GB 
+[2023-09-08 15:37:18,711] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 114.77 GB, percent = 11.4%
+[2023-09-08 15:37:18,846] [INFO] [utils.py:785:see_memory_usage] Before initializing optimizer states
+[2023-09-08 15:37:18,847] [INFO] [utils.py:786:see_memory_usage] MA 18.26 GB         Max_MA 18.26 GB         CA 21.16 GB         Max_CA 21 GB 
+[2023-09-08 15:37:18,847] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 114.77 GB, percent = 11.4%
+[2023-09-08 15:37:19,017] [INFO] [utils.py:785:see_memory_usage] After initializing optimizer states
+[2023-09-08 15:37:19,017] [INFO] [utils.py:786:see_memory_usage] MA 42.51 GB         Max_MA 52.08 GB         CA 62.48 GB         Max_CA 62 GB 
+[2023-09-08 15:37:19,017] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 114.77 GB, percent = 11.4%
+[2023-09-08 15:37:19,055] [INFO] [stage3.py:424:_setup_for_real_optimizer] optimizer state initialized
+[2023-09-08 15:37:19,413] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_3_mp_rank_00_model_states.pt...
+[2023-09-08 15:37:19,413] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_2_mp_rank_00_model_states.pt...
+[2023-09-08 15:37:19,413] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_1_mp_rank_00_model_states.pt...
+[2023-09-08 15:37:19,422] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_2_mp_rank_00_model_states.pt.
+[2023-09-08 15:37:19,422] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_2_mp_rank_00_model_states.pt...
+[2023-09-08 15:37:19,423] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_1_mp_rank_00_model_states.pt.
+[2023-09-08 15:37:19,423] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_3_mp_rank_00_model_states.pt.
+[2023-09-08 15:37:19,423] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_1_mp_rank_00_model_states.pt...
+[2023-09-08 15:37:19,423] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_3_mp_rank_00_model_states.pt...
+[2023-09-08 15:37:19,430] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_2_mp_rank_00_model_states.pt.
+[2023-09-08 15:37:19,430] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_3_mp_rank_00_model_states.pt.
+[2023-09-08 15:37:19,431] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_1_mp_rank_00_model_states.pt.
+[2023-09-08 15:37:19,439] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt...
+[2023-09-08 15:37:19,439] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt...
+[2023-09-08 15:37:19,439] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2023-09-08 15:37:19,540] [INFO] [utils.py:785:see_memory_usage] After initializing ZeRO optimizer
+[2023-09-08 15:37:19,541] [INFO] [utils.py:786:see_memory_usage] MA 48.62 GB         Max_MA 49.23 GB         CA 68.54 GB         Max_CA 69 GB 
+[2023-09-08 15:37:19,541] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 115.13 GB, percent = 11.4%
+[2023-09-08 15:37:19,541] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2023-09-08 15:37:19,541] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2023-09-08 15:37:19,541] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2023-09-08 15:37:19,541] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0], mom=[(0.9, 0.999)]
+[2023-09-08 15:37:19,542] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   amp_params ................... False
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7fd3f563d6f0>
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2023-09-08 15:37:19,542] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   dump_state ................... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   global_rank .................. 0
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 16
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   pld_params ................... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   steps_per_print .............. inf
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   train_batch_size ............. 128
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   use_node_local_storage ....... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   world_size ................... 4
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  True
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=26214400 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=None sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=23592960 param_persistence_threshold=51200 model_persistence_threshold=sys.maxsize max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=True stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2023-09-08 15:37:19,543] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2023-09-08 15:37:19,544] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2023-09-08 15:37:19,544] [INFO] [config.py:964:print]   zero_optimization_stage ...... 3
+[2023-09-08 15:37:19,544] [INFO] [config.py:950:print_user_config]   json = {
+    "bf16": {
+        "enabled": true
+    }, 
+    "zero_optimization": {
+        "stage": 3, 
+        "overlap_comm": true, 
+        "contiguous_gradients": true, 
+        "sub_group_size": 1.000000e+09, 
+        "reduce_bucket_size": 2.621440e+07, 
+        "stage3_prefetch_bucket_size": 2.359296e+07, 
+        "stage3_param_persistence_threshold": 5.120000e+04, 
+        "stage3_max_live_parameters": 1.000000e+09, 
+        "stage3_max_reuse_distance": 1.000000e+09, 
+        "stage3_gather_16bit_weights_on_model_save": true
+    }, 
+    "gradient_accumulation_steps": 16, 
+    "gradient_clipping": 1.0, 
+    "steps_per_print": inf, 
+    "train_batch_size": 128, 
+    "train_micro_batch_size_per_gpu": 2, 
+    "wall_clock_breakdown": false, 
+    "fp16": {
+        "enabled": false
+    }, 
+    "zero_allow_untested_optimizer": true
+}
+wandb: Currently logged in as: kidrain61. Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: Tracking run with wandb version 0.15.10
+wandb: Run data is saved locally in /data/users/zhangjunlei/tyx/wandb/wandb/run-20230908_153722-1j0avs34
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16-2023-09-08-0
+wandb: ⭐️ View project at https://wandb.ai/kidrain61/step-reward
+wandb: 🚀 View run at https://wandb.ai/kidrain61/step-reward/runs/1j0avs34
+09/08/2023 15:37:29 - INFO - __main__ - ***** Running training *****
+09/08/2023 15:37:29 - INFO - __main__ -   Num examples = 85194
+09/08/2023 15:37:29 - INFO - __main__ -   Num Epochs = 100
+09/08/2023 15:37:29 - INFO - __main__ -   Instantaneous batch size per device = 2
+09/08/2023 15:37:29 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 128
+09/08/2023 15:37:29 - INFO - __main__ -   Gradient Accumulation steps = 16
+09/08/2023 15:37:29 - INFO - __main__ -   Total optimization steps = 66600
+09/08/2023 15:37:29 - INFO - __main__ - Resuming from checkpoint: /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1
+09/08/2023 15:37:29 - INFO - accelerate.accelerator - Loading states from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1
+09/08/2023 15:37:29 - INFO - accelerate.accelerator - Loading DeepSpeed Model and Optimizer
+[2023-09-08 15:37:29,315] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_0_mp_rank_00_model_states.pt...
+[2023-09-08 15:37:29,323] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_0_mp_rank_00_model_states.pt.
+[2023-09-08 15:37:29,324] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_0_mp_rank_00_model_states.pt...
+[2023-09-08 15:37:29,332] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/zero_pp_rank_0_mp_rank_00_model_states.pt.
+[2023-09-08 15:37:29,341] [INFO] [torch_checkpoint_engine.py:27:load] [Torch] Loading checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2023-09-08 15:38:03,410] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt.
+[2023-09-08 15:38:03,410] [INFO] [engine.py:2865:_get_all_zero_checkpoint_state_dicts] successfully read 4 ZeRO state_dicts for rank 3
+[2023-09-08 15:38:03,411] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt.
+[2023-09-08 15:38:03,411] [INFO] [engine.py:2865:_get_all_zero_checkpoint_state_dicts] successfully read 4 ZeRO state_dicts for rank 2
+[2023-09-08 15:38:03,421] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2023-09-08 15:38:03,421] [INFO] [engine.py:2865:_get_all_zero_checkpoint_state_dicts] successfully read 4 ZeRO state_dicts for rank 1
+[2023-09-08 15:38:09,037] [INFO] [torch_checkpoint_engine.py:29:load] [Torch] Loaded checkpoint from /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2023-09-08 15:38:09,038] [INFO] [engine.py:2865:_get_all_zero_checkpoint_state_dicts] successfully read 4 ZeRO state_dicts for rank 0
+[2023-09-08 15:38:24,380] [INFO] [engine.py:2815:_load_zero_checkpoint] loading 4 zero partition checkpoints for rank 0
+[2023-09-08 15:38:24,380] [INFO] [engine.py:2815:_load_zero_checkpoint] loading 4 zero partition checkpoints for rank 2
+[2023-09-08 15:38:24,380] [INFO] [engine.py:2815:_load_zero_checkpoint] loading 4 zero partition checkpoints for rank 3
+[2023-09-08 15:38:24,380] [INFO] [engine.py:2815:_load_zero_checkpoint] loading 4 zero partition checkpoints for rank 1
+09/08/2023 15:38:26 - INFO - accelerate.accelerator - DeepSpeed Model and Optimizer loaded from input dir /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16/epoch_1/pytorch_model
+09/08/2023 15:38:26 - INFO - accelerate.checkpointing - All model weights loaded successfully
+09/08/2023 15:38:26 - INFO - accelerate.checkpointing - All optimizer states loaded successfully
+09/08/2023 15:38:26 - INFO - accelerate.checkpointing - All scheduler states loaded successfully
+09/08/2023 15:38:26 - INFO - accelerate.checkpointing - All random states loaded successfully
+09/08/2023 15:38:26 - INFO - accelerate.accelerator - Loading in 0 custom states
+09/08/2023 15:38:26 - INFO - __main__ - Resuming from epoch 2
+09/08/2023 15:38:26 - INFO - __main__ - ***** Running Validation *****
+Evaluating:   0%|          | 0/228 [00:00<?, ?it/s]step: 0
+extend+tolist() time: 0.0021212100982666016
+Evaluating:   0%|          | 1/228 [00:00<03:20,  1.13it/s]step: 1
+extend+tolist() time: 0.0014200210571289062
+Evaluating:   1%|          | 2/228 [00:01<02:33,  1.47it/s]step: 2
+extend+tolist() time: 0.0021123886108398438
+Evaluating:   1%|▏         | 3/228 [00:01<02:08,  1.75it/s]step: 3
+extend+tolist() time: 0.001802682876586914
+Evaluating:   2%|▏         | 4/228 [00:02<01:54,  1.96it/s]step: 4
+extend+tolist() time: 0.0010361671447753906
+Evaluating:   2%|▏         | 5/228 [00:02<01:44,  2.13it/s]step: 5
+extend+tolist() time: 0.002154827117919922
+Evaluating:   3%|▎         | 6/228 [00:03<01:43,  2.14it/s]step: 6
+extend+tolist() time: 0.002158641815185547
+Evaluating:   3%|▎         | 7/228 [00:03<01:39,  2.21it/s]step: 7
+extend+tolist() time: 0.001417398452758789
+Evaluating:   4%|▎         | 8/228 [00:03<01:38,  2.24it/s]step: 8
+extend+tolist() time: 0.0008780956268310547
+Evaluating:   4%|▍         | 9/228 [00:04<01:35,  2.30it/s]step: 9
+extend+tolist() time: 0.0013208389282226562
+Evaluating:   4%|▍         | 10/228 [00:04<01:34,  2.31it/s]step: 10
+extend+tolist() time: 0.0009715557098388672
+Evaluating:   5%|▍         | 11/228 [00:05<01:34,  2.29it/s]step: 11
+extend+tolist() time: 0.0010271072387695312
+Evaluating:   5%|▌         | 12/228 [00:05<01:30,  2.40it/s]step: 12
+extend+tolist() time: 0.00080108642578125
+Evaluating:   6%|▌         | 13/228 [00:06<01:29,  2.39it/s]step: 13
+extend+tolist() time: 0.0006690025329589844
+Evaluating:   6%|▌         | 14/228 [00:06<01:27,  2.44it/s]step: 14
+extend+tolist() time: 0.0010361671447753906
+Evaluating:   7%|▋         | 15/228 [00:06<01:28,  2.41it/s]step: 15
+extend+tolist() time: 0.0007073879241943359
+Evaluating:   7%|▋         | 16/228 [00:07<01:26,  2.44it/s]step: 16
+extend+tolist() time: 0.0007066726684570312
+Evaluating:   7%|▋         | 17/228 [00:07<01:24,  2.50it/s]step: 17
+extend+tolist() time: 0.0014629364013671875
+Evaluating:   8%|▊         | 18/228 [00:08<01:25,  2.45it/s]step: 18
+extend+tolist() time: 0.0016522407531738281
+Evaluating:   8%|▊         | 19/228 [00:08<01:25,  2.45it/s]step: 19
+extend+tolist() time: 0.0011017322540283203
+Evaluating:   9%|▉         | 20/228 [00:08<01:26,  2.40it/s]step: 20
+extend+tolist() time: 0.0013446807861328125
+Evaluating:   9%|▉         | 21/228 [00:09<01:25,  2.44it/s]step: 21
+extend+tolist() time: 0.0007774829864501953
+Evaluating:  10%|▉         | 22/228 [00:09<01:23,  2.47it/s]step: 22
+extend+tolist() time: 0.0013556480407714844
+Evaluating:  10%|█         | 23/228 [00:10<01:25,  2.41it/s]step: 23
+extend+tolist() time: 0.0007910728454589844
+Evaluating:  11%|█         | 24/228 [00:10<01:24,  2.42it/s]step: 24
+extend+tolist() time: 0.18968701362609863
+Evaluating:  11%|█         | 25/228 [00:11<01:37,  2.07it/s]step: 25
+extend+tolist() time: 0.0020868778228759766
+Evaluating:  11%|█▏        | 26/228 [00:11<01:34,  2.14it/s]step: 26
+extend+tolist() time: 0.001123189926147461
+Evaluating:  12%|█▏        | 27/228 [00:12<01:32,  2.18it/s]step: 27
+extend+tolist() time: 0.0014963150024414062
+Evaluating:  12%|█▏        | 28/228 [00:12<01:29,  2.24it/s]step: 28
+extend+tolist() time: 0.0007557868957519531
+Evaluating:  13%|█▎        | 29/228 [00:12<01:25,  2.32it/s]step: 29
+extend+tolist() time: 0.0008294582366943359
+Evaluating:  13%|█▎        | 30/228 [00:13<01:25,  2.31it/s]step: 30
+extend+tolist() time: 0.0016362667083740234
+Evaluating:  14%|█▎        | 31/228 [00:13<01:23,  2.35it/s]step: 31
+extend+tolist() time: 0.0006442070007324219
+Evaluating:  14%|█▍        | 32/228 [00:14<01:24,  2.32it/s]step: 32
+extend+tolist() time: 0.0015501976013183594
+Evaluating:  14%|█▍        | 33/228 [00:14<01:22,  2.35it/s]step: 33
+extend+tolist() time: 0.0018467903137207031
+Evaluating:  15%|█▍        | 34/228 [00:15<01:24,  2.31it/s]step: 34
+extend+tolist() time: 0.0010077953338623047
+Evaluating:  15%|█▌        | 35/228 [00:15<01:22,  2.35it/s]step: 35
+extend+tolist() time: 0.0011327266693115234
+Evaluating:  16%|█▌        | 36/228 [00:15<01:19,  2.40it/s]step: 36
+extend+tolist() time: 0.0010640621185302734
+Evaluating:  16%|█▌        | 37/228 [00:16<01:22,  2.32it/s]step: 37
+extend+tolist() time: 0.0018889904022216797
+Evaluating:  17%|█▋        | 38/228 [00:16<01:20,  2.37it/s]step: 38
+extend+tolist() time: 0.0009014606475830078
+Evaluating:  17%|█▋        | 39/228 [00:17<01:20,  2.35it/s]step: 39
+extend+tolist() time: 0.0011899471282958984
+Evaluating:  18%|█▊        | 40/228 [00:17<01:18,  2.40it/s]step: 40
+extend+tolist() time: 0.0007216930389404297
+Evaluating:  18%|█▊        | 41/228 [00:17<01:15,  2.46it/s]step: 41
+extend+tolist() time: 0.0014171600341796875
+Evaluating:  18%|█▊        | 42/228 [00:18<01:18,  2.38it/s]step: 42
+extend+tolist() time: 0.0017406940460205078
+Evaluating:  19%|█▉        | 43/228 [00:18<01:16,  2.41it/s]step: 43
+extend+tolist() time: 0.002135038375854492
+Evaluating:  19%|█▉        | 44/228 [00:19<01:18,  2.35it/s]step: 44
+extend+tolist() time: 0.0008497238159179688
+Evaluating:  20%|█▉        | 45/228 [00:19<01:16,  2.40it/s]step: 45
+extend+tolist() time: 0.0019228458404541016
+Evaluating:  20%|██        | 46/228 [00:20<01:15,  2.40it/s]step: 46
+extend+tolist() time: 0.0018079280853271484
+Evaluating:  21%|██        | 47/228 [00:20<01:15,  2.38it/s]step: 47
+extend+tolist() time: 0.0013072490692138672
+Evaluating:  21%|██        | 48/228 [00:20<01:14,  2.43it/s]step: 48
+extend+tolist() time: 0.0019192695617675781
+Evaluating:  21%|██▏       | 49/228 [00:21<01:15,  2.38it/s]step: 49
+extend+tolist() time: 0.0014417171478271484
+Evaluating:  22%|██▏       | 50/228 [00:21<01:13,  2.41it/s]step: 50
+extend+tolist() time: 0.001796722412109375
+Evaluating:  22%|██▏       | 51/228 [00:22<01:14,  2.37it/s]step: 51
+extend+tolist() time: 0.00141143798828125
+Evaluating:  23%|██▎       | 52/228 [00:22<01:14,  2.35it/s]step: 52
+extend+tolist() time: 0.0015609264373779297
+Evaluating:  23%|██▎       | 53/228 [00:22<01:12,  2.41it/s]step: 53
+extend+tolist() time: 0.001882314682006836
+Evaluating:  24%|██▎       | 54/228 [00:23<01:13,  2.36it/s]step: 54
+extend+tolist() time: 0.000986337661743164
+Evaluating:  24%|██▍       | 55/228 [00:24<01:22,  2.10it/s]step: 55
+extend+tolist() time: 0.2010817527770996
+Evaluating:  25%|██▍       | 56/228 [00:24<01:30,  1.91it/s]step: 56
+extend+tolist() time: 0.0017750263214111328
+Evaluating:  25%|██▌       | 57/228 [00:25<01:23,  2.06it/s]step: 57
+extend+tolist() time: 0.0007853507995605469
+Evaluating:  25%|██▌       | 58/228 [00:25<01:19,  2.15it/s]step: 58
+extend+tolist() time: 0.0013403892517089844
+Evaluating:  26%|██▌       | 59/228 [00:25<01:14,  2.26it/s]step: 59
+extend+tolist() time: 0.0014142990112304688
+Evaluating:  26%|██▋       | 60/228 [00:26<01:14,  2.26it/s]step: 60
+extend+tolist() time: 0.0008132457733154297
+Evaluating:  27%|██▋       | 61/228 [00:26<01:11,  2.33it/s]step: 61
+extend+tolist() time: 0.0013453960418701172
+Evaluating:  27%|██▋       | 62/228 [00:27<01:09,  2.39it/s]step: 62
+extend+tolist() time: 0.0009000301361083984
+Evaluating:  28%|██▊       | 63/228 [00:27<01:10,  2.35it/s]step: 63
+extend+tolist() time: 0.001332998275756836
+Evaluating:  28%|██▊       | 64/228 [00:27<01:07,  2.41it/s]step: 64
+extend+tolist() time: 0.0009562969207763672
+Evaluating:  29%|██▊       | 65/228 [00:28<01:08,  2.36it/s]step: 65
+extend+tolist() time: 0.0013899803161621094
+Evaluating:  29%|██▉       | 66/228 [00:28<01:07,  2.40it/s]step: 66
+extend+tolist() time: 0.0008585453033447266
+Evaluating:  29%|██▉       | 67/228 [00:29<01:06,  2.41it/s]step: 67
+extend+tolist() time: 0.0014858245849609375
+Evaluating:  30%|██▉       | 68/228 [00:29<01:08,  2.35it/s]step: 68
+extend+tolist() time: 0.0007970333099365234
+Evaluating:  30%|███       | 69/228 [00:30<01:06,  2.40it/s]step: 69
+extend+tolist() time: 0.001802206039428711
+Evaluating:  31%|███       | 70/228 [00:30<01:07,  2.33it/s]step: 70
+extend+tolist() time: 0.0016446113586425781
+Evaluating:  31%|███       | 71/228 [00:30<01:06,  2.35it/s]step: 71
+extend+tolist() time: 0.0011932849884033203
+Evaluating:  32%|███▏      | 72/228 [00:31<01:07,  2.32it/s]step: 72
+extend+tolist() time: 0.0013475418090820312
+Evaluating:  32%|███▏      | 73/228 [00:31<01:05,  2.36it/s]step: 73
+extend+tolist() time: 0.0006477832794189453
+Evaluating:  32%|███▏      | 74/228 [00:32<01:03,  2.41it/s]step: 74
+extend+tolist() time: 0.0015189647674560547
+Evaluating:  33%|███▎      | 75/228 [00:32<01:04,  2.36it/s]step: 75
+extend+tolist() time: 0.0014715194702148438
+Evaluating:  33%|███▎      | 76/228 [00:32<01:03,  2.39it/s]step: 76
+extend+tolist() time: 0.0012145042419433594
+Evaluating:  34%|███▍      | 77/228 [00:33<01:04,  2.35it/s]step: 77
+extend+tolist() time: 0.002166748046875
+Evaluating:  34%|███▍      | 78/228 [00:33<01:04,  2.32it/s]step: 78
+extend+tolist() time: 0.0010461807250976562
+Evaluating:  35%|███▍      | 79/228 [00:34<01:04,  2.32it/s]step: 79
+extend+tolist() time: 0.0015034675598144531
+Evaluating:  35%|███▌      | 80/228 [00:34<01:03,  2.32it/s]step: 80
+extend+tolist() time: 0.0014524459838867188
+Evaluating:  36%|███▌      | 81/228 [00:35<01:02,  2.35it/s]step: 81
+extend+tolist() time: 0.001024484634399414
+Evaluating:  36%|███▌      | 82/228 [00:35<01:03,  2.31it/s]step: 82
+extend+tolist() time: 0.0013930797576904297
+Evaluating:  36%|███▋      | 83/228 [00:36<01:02,  2.33it/s]step: 83
+extend+tolist() time: 0.0008249282836914062
+Evaluating:  37%|███▋      | 84/228 [00:36<01:02,  2.30it/s]step: 84
+extend+tolist() time: 0.0016129016876220703
+Evaluating:  37%|███▋      | 85/228 [00:36<01:01,  2.32it/s]step: 85
+extend+tolist() time: 0.0011124610900878906
+Evaluating:  38%|███▊      | 86/228 [00:37<01:00,  2.33it/s]step: 86
+extend+tolist() time: 0.0014972686767578125
+Evaluating:  38%|███▊      | 87/228 [00:37<01:01,  2.30it/s]step: 87
+extend+tolist() time: 0.0010454654693603516
+Evaluating:  39%|███▊      | 88/228 [00:38<00:59,  2.35it/s]step: 88
+extend+tolist() time: 0.001277923583984375
+Evaluating:  39%|███▉      | 89/228 [00:38<00:59,  2.34it/s]step: 89
+extend+tolist() time: 0.0008780956268310547
+Evaluating:  39%|███▉      | 90/228 [00:39<00:58,  2.38it/s]step: 90
+extend+tolist() time: 0.001524209976196289
+Evaluating:  40%|███▉      | 91/228 [00:39<00:57,  2.37it/s]step: 91
+extend+tolist() time: 0.0009076595306396484
+Evaluating:  40%|████      | 92/228 [00:39<00:56,  2.39it/s]step: 92
+extend+tolist() time: 0.0017986297607421875
+Evaluating:  41%|████      | 93/228 [00:40<00:54,  2.46it/s]step: 93
+extend+tolist() time: 0.0014672279357910156
+Evaluating:  41%|████      | 94/228 [00:40<00:55,  2.43it/s]step: 94
+extend+tolist() time: 0.0008413791656494141
+Evaluating:  42%|████▏     | 95/228 [00:41<00:54,  2.45it/s]step: 95
+extend+tolist() time: 0.0017750263214111328
+Evaluating:  42%|████▏     | 96/228 [00:41<00:54,  2.40it/s]step: 96
+extend+tolist() time: 0.0011358261108398438
+Evaluating:  43%|████▎     | 97/228 [00:42<01:03,  2.07it/s]step: 97
+extend+tolist() time: 0.23381805419921875
+Evaluating:  43%|████▎     | 98/228 [00:42<01:09,  1.88it/s]step: 98
+extend+tolist() time: 0.0014238357543945312
+Evaluating:  43%|████▎     | 99/228 [00:43<01:03,  2.04it/s]step: 99
+extend+tolist() time: 0.0010569095611572266
+Evaluating:  44%|████▍     | 100/228 [00:43<00:59,  2.15it/s]step: 100
+extend+tolist() time: 0.0012106895446777344
+Evaluating:  44%|████▍     | 101/228 [00:43<00:57,  2.22it/s]step: 101
+extend+tolist() time: 0.0009241104125976562
+Evaluating:  45%|████▍     | 102/228 [00:44<00:54,  2.32it/s]step: 102
+extend+tolist() time: 0.0014407634735107422
+Evaluating:  45%|████▌     | 103/228 [00:44<00:53,  2.34it/s]step: 103
+extend+tolist() time: 0.0008981227874755859
+Evaluating:  46%|████▌     | 104/228 [00:45<00:51,  2.40it/s]step: 104
+extend+tolist() time: 0.0011703968048095703
+Evaluating:  46%|████▌     | 105/228 [00:45<00:51,  2.40it/s]step: 105
+extend+tolist() time: 0.0009739398956298828
+Evaluating:  46%|████▋     | 106/228 [00:45<00:50,  2.43it/s]step: 106
+extend+tolist() time: 0.0020520687103271484
+Evaluating:  47%|████▋     | 107/228 [00:46<00:49,  2.45it/s]step: 107
+extend+tolist() time: 0.0014369487762451172
+Evaluating:  47%|████▋     | 108/228 [00:46<00:49,  2.42it/s]step: 108
+extend+tolist() time: 0.000934600830078125
+Evaluating:  48%|████▊     | 109/228 [00:47<00:47,  2.48it/s]step: 109
+extend+tolist() time: 0.0013997554779052734
+Evaluating:  48%|████▊     | 110/228 [00:47<00:48,  2.44it/s]step: 110
+extend+tolist() time: 0.0007355213165283203
+Evaluating:  49%|████▊     | 111/228 [00:48<00:47,  2.46it/s]step: 111
+extend+tolist() time: 0.0020804405212402344
+Evaluating:  49%|████▉     | 112/228 [00:48<00:47,  2.46it/s]step: 112
+extend+tolist() time: 0.0006208419799804688
+Evaluating:  50%|████▉     | 113/228 [00:48<00:47,  2.40it/s]step: 113
+extend+tolist() time: 0.0011935234069824219
+Evaluating:  50%|█████     | 114/228 [00:49<00:46,  2.46it/s]step: 114
+extend+tolist() time: 0.0013015270233154297
+Evaluating:  50%|█████     | 115/228 [00:49<00:46,  2.41it/s]step: 115
+extend+tolist() time: 0.0007700920104980469
+Evaluating:  51%|█████     | 116/228 [00:50<00:46,  2.42it/s]step: 116
+extend+tolist() time: 0.0009799003601074219
+Evaluating:  51%|█████▏    | 117/228 [00:50<00:45,  2.44it/s]step: 117
+extend+tolist() time: 0.0014138221740722656
+Evaluating:  52%|█████▏    | 118/228 [00:50<00:45,  2.41it/s]step: 118
+extend+tolist() time: 0.0006327629089355469
+Evaluating:  52%|█████▏    | 119/228 [00:51<00:44,  2.47it/s]step: 119
+extend+tolist() time: 0.0015091896057128906
+Evaluating:  53%|█████▎    | 120/228 [00:51<00:44,  2.43it/s]step: 120
+extend+tolist() time: 0.0007085800170898438
+Evaluating:  53%|█████▎    | 121/228 [00:52<00:44,  2.42it/s]step: 121
+extend+tolist() time: 0.0011487007141113281
+Evaluating:  54%|█████▎    | 122/228 [00:52<00:43,  2.41it/s]step: 122
+extend+tolist() time: 0.0008118152618408203
+Evaluating:  54%|█████▍    | 123/228 [00:52<00:43,  2.40it/s]step: 123
+extend+tolist() time: 0.0007064342498779297
+Evaluating:  54%|█████▍    | 124/228 [00:53<00:42,  2.46it/s]step: 124
+extend+tolist() time: 0.0014193058013916016
+Evaluating:  55%|█████▍    | 125/228 [00:53<00:42,  2.42it/s]step: 125
+extend+tolist() time: 0.00046944618225097656
+Evaluating:  55%|█████▌    | 126/228 [00:54<00:41,  2.46it/s]step: 126
+extend+tolist() time: 0.001941680908203125
+Evaluating:  56%|█████▌    | 127/228 [00:54<00:42,  2.40it/s]step: 127
+extend+tolist() time: 0.0019221305847167969
+Evaluating:  56%|█████▌    | 128/228 [00:55<00:41,  2.39it/s]step: 128
+extend+tolist() time: 0.0008771419525146484
+Evaluating:  57%|█████▋    | 129/228 [00:55<00:40,  2.44it/s]step: 129
+extend+tolist() time: 0.0013365745544433594
+Evaluating:  57%|█████▋    | 130/228 [00:55<00:40,  2.40it/s]step: 130
+extend+tolist() time: 0.0010979175567626953
+Evaluating:  57%|█████▋    | 131/228 [00:56<00:40,  2.41it/s]step: 131
+extend+tolist() time: 0.0009224414825439453
+Evaluating:  58%|█████▊    | 132/228 [00:56<00:40,  2.39it/s]step: 132
+extend+tolist() time: 0.0012712478637695312
+Evaluating:  58%|█████▊    | 133/228 [00:57<00:40,  2.37it/s]step: 133
+extend+tolist() time: 0.0009083747863769531
+Evaluating:  59%|█████▉    | 134/228 [00:57<00:38,  2.43it/s]step: 134
+extend+tolist() time: 0.0011115074157714844
+Evaluating:  59%|█████▉    | 135/228 [00:57<00:38,  2.40it/s]step: 135
+extend+tolist() time: 0.0005102157592773438
+Evaluating:  60%|█████▉    | 136/228 [00:58<00:37,  2.45it/s]step: 136
+extend+tolist() time: 0.0014047622680664062
+Evaluating:  60%|██████    | 137/228 [00:58<00:37,  2.41it/s]step: 137
+extend+tolist() time: 0.0004267692565917969
+Evaluating:  61%|██████    | 138/228 [00:59<00:36,  2.46it/s]step: 138
+extend+tolist() time: 0.0012257099151611328
+Evaluating:  61%|██████    | 139/228 [00:59<00:35,  2.52it/s]step: 139
+extend+tolist() time: 0.0005257129669189453
+Evaluating:  61%|██████▏   | 140/228 [00:59<00:35,  2.49it/s]step: 140
+extend+tolist() time: 0.0008628368377685547
+Evaluating:  62%|██████▏   | 141/228 [01:00<00:34,  2.51it/s]step: 141
+extend+tolist() time: 0.0013279914855957031
+Evaluating:  62%|██████▏   | 142/228 [01:00<00:34,  2.48it/s]step: 142
+extend+tolist() time: 0.0006399154663085938
+Evaluating:  63%|██████▎   | 143/228 [01:01<00:33,  2.50it/s]step: 143
+extend+tolist() time: 0.0003762245178222656
+Evaluating:  63%|██████▎   | 144/228 [01:01<00:32,  2.56it/s]step: 144
+extend+tolist() time: 0.0012271404266357422
+Evaluating:  64%|██████▎   | 145/228 [01:01<00:32,  2.54it/s]step: 145
+extend+tolist() time: 0.0005092620849609375
+Evaluating:  64%|██████▍   | 146/228 [01:02<00:32,  2.55it/s]step: 146
+extend+tolist() time: 0.0004200935363769531
+Evaluating:  64%|██████▍   | 147/228 [01:02<00:31,  2.55it/s]step: 147
+extend+tolist() time: 0.0012333393096923828
+Evaluating:  65%|██████▍   | 148/228 [01:03<00:31,  2.54it/s]step: 148
+extend+tolist() time: 0.0007522106170654297
+Evaluating:  65%|██████▌   | 149/228 [01:03<00:31,  2.54it/s]step: 149
+extend+tolist() time: 0.0004048347473144531
+Evaluating:  66%|██████▌   | 150/228 [01:03<00:31,  2.50it/s]step: 150
+extend+tolist() time: 0.0013566017150878906
+Evaluating:  66%|██████▌   | 151/228 [01:04<00:30,  2.51it/s]step: 151
+extend+tolist() time: 0.0006275177001953125
+Evaluating:  67%|██████▋   | 152/228 [01:04<00:29,  2.57it/s]step: 152
+extend+tolist() time: 0.0013141632080078125
+Evaluating:  67%|██████▋   | 153/228 [01:05<00:29,  2.51it/s]step: 153
+extend+tolist() time: 0.0010399818420410156
+Evaluating:  68%|██████▊   | 154/228 [01:05<00:30,  2.46it/s]step: 154
+extend+tolist() time: 0.0021314620971679688
+Evaluating:  68%|██████▊   | 155/228 [01:05<00:30,  2.43it/s]step: 155
+extend+tolist() time: 0.0007212162017822266
+Evaluating:  68%|██████▊   | 156/228 [01:06<00:29,  2.48it/s]step: 156
+extend+tolist() time: 0.0009620189666748047
+Evaluating:  69%|██████▉   | 157/228 [01:06<00:27,  2.54it/s]step: 157
+extend+tolist() time: 0.0007624626159667969
+Evaluating:  69%|██████▉   | 158/228 [01:07<00:28,  2.50it/s]step: 158
+extend+tolist() time: 0.0005140304565429688
+Evaluating:  70%|██████▉   | 159/228 [01:07<00:27,  2.51it/s]step: 159
+extend+tolist() time: 0.0011620521545410156
+Evaluating:  70%|███████   | 160/228 [01:08<00:32,  2.08it/s]step: 160
+extend+tolist() time: 0.0004048347473144531
+Evaluating:  71%|███████   | 161/228 [01:08<00:30,  2.21it/s]step: 161
+extend+tolist() time: 0.0008382797241210938
+Evaluating:  71%|███████   | 162/228 [01:08<00:29,  2.27it/s]step: 162
+extend+tolist() time: 0.2610163688659668
+Evaluating:  71%|███████▏  | 163/228 [01:09<00:32,  1.99it/s]step: 163
+extend+tolist() time: 0.0004162788391113281
+Evaluating:  72%|███████▏  | 164/228 [01:10<00:30,  2.12it/s]step: 164
+extend+tolist() time: 0.0005631446838378906
+Evaluating:  72%|███████▏  | 165/228 [01:10<00:27,  2.26it/s]step: 165
+extend+tolist() time: 0.0007874965667724609
+Evaluating:  73%|███████▎  | 166/228 [01:10<00:26,  2.34it/s]step: 166
+extend+tolist() time: 0.0003833770751953125
+Evaluating:  73%|███████▎  | 167/228 [01:11<00:25,  2.38it/s]step: 167
+extend+tolist() time: 0.0005831718444824219
+Evaluating:  74%|███████▎  | 168/228 [01:11<00:24,  2.40it/s]step: 168
+extend+tolist() time: 0.0015947818756103516
+Evaluating:  74%|███████▍  | 169/228 [01:12<00:25,  2.36it/s]step: 169
+extend+tolist() time: 0.00035834312438964844
+Evaluating:  75%|███████▍  | 170/228 [01:12<00:24,  2.39it/s]step: 170
+extend+tolist() time: 0.0012824535369873047
+Evaluating:  75%|███████▌  | 171/228 [01:12<00:23,  2.38it/s]step: 171
+extend+tolist() time: 0.00029850006103515625
+Evaluating:  75%|███████▌  | 172/228 [01:13<00:23,  2.40it/s]step: 172
+extend+tolist() time: 0.0008435249328613281
+Evaluating:  76%|███████▌  | 173/228 [01:13<00:23,  2.38it/s]step: 173
+extend+tolist() time: 0.001556396484375
+Evaluating:  76%|███████▋  | 174/228 [01:14<00:23,  2.34it/s]step: 174
+extend+tolist() time: 0.0018117427825927734
+Evaluating:  77%|███████▋  | 175/228 [01:14<00:22,  2.34it/s]step: 175
+extend+tolist() time: 0.0008168220520019531
+Evaluating:  77%|███████▋  | 176/228 [01:15<00:22,  2.32it/s]step: 176
+extend+tolist() time: 0.0006413459777832031
+Evaluating:  78%|███████▊  | 177/228 [01:15<00:21,  2.38it/s]step: 177
+extend+tolist() time: 0.0010106563568115234
+Evaluating:  78%|███████▊  | 178/228 [01:15<00:20,  2.46it/s]step: 178
+extend+tolist() time: 0.0012347698211669922
+Evaluating:  79%|███████▊  | 179/228 [01:16<00:20,  2.41it/s]step: 179
+extend+tolist() time: 0.0008242130279541016
+Evaluating:  79%|███████▉  | 180/228 [01:16<00:19,  2.45it/s]step: 180
+extend+tolist() time: 0.0003933906555175781
+Evaluating:  79%|███████▉  | 181/228 [01:17<00:19,  2.44it/s]step: 181
+extend+tolist() time: 0.0006053447723388672
+Evaluating:  80%|███████▉  | 182/228 [01:17<00:18,  2.48it/s]step: 182
+extend+tolist() time: 0.001177072525024414
+Evaluating:  80%|████████  | 183/228 [01:17<00:17,  2.54it/s]step: 183
+extend+tolist() time: 0.0006692409515380859
+Evaluating:  81%|████████  | 184/228 [01:18<00:17,  2.51it/s]step: 184
+extend+tolist() time: 0.0004417896270751953
+Evaluating:  81%|████████  | 185/228 [01:18<00:17,  2.53it/s]step: 185
+extend+tolist() time: 0.00159454345703125
+Evaluating:  82%|████████▏ | 186/228 [01:18<00:16,  2.54it/s]step: 186
+extend+tolist() time: 0.0010237693786621094
+Evaluating:  82%|████████▏ | 187/228 [01:19<00:16,  2.50it/s]step: 187
+extend+tolist() time: 0.0008559226989746094
+Evaluating:  82%|████████▏ | 188/228 [01:19<00:15,  2.52it/s]step: 188
+extend+tolist() time: 0.0007035732269287109
+Evaluating:  83%|████████▎ | 189/228 [01:20<00:15,  2.49it/s]step: 189
+extend+tolist() time: 0.00037217140197753906
+Evaluating:  83%|████████▎ | 190/228 [01:20<00:15,  2.51it/s]step: 190
+extend+tolist() time: 0.001607656478881836
+Evaluating:  84%|████████▍ | 191/228 [01:20<00:14,  2.54it/s]step: 191
+extend+tolist() time: 0.0007150173187255859
+Evaluating:  84%|████████▍ | 192/228 [01:21<00:14,  2.51it/s]step: 192
+extend+tolist() time: 0.0004611015319824219
+Evaluating:  85%|████████▍ | 193/228 [01:21<00:13,  2.54it/s]step: 193
+extend+tolist() time: 0.0015180110931396484
+Evaluating:  85%|████████▌ | 194/228 [01:22<00:13,  2.48it/s]step: 194
+extend+tolist() time: 0.0006287097930908203
+Evaluating:  86%|████████▌ | 195/228 [01:22<00:13,  2.50it/s]step: 195
+extend+tolist() time: 0.0009036064147949219
+Evaluating:  86%|████████▌ | 196/228 [01:22<00:12,  2.55it/s]step: 196
+extend+tolist() time: 0.0006382465362548828
+Evaluating:  86%|████████▋ | 197/228 [01:23<00:12,  2.51it/s]step: 197
+extend+tolist() time: 0.0006690025329589844
+Evaluating:  87%|████████▋ | 198/228 [01:23<00:11,  2.52it/s]step: 198
+extend+tolist() time: 0.0013659000396728516
+Evaluating:  87%|████████▋ | 199/228 [01:24<00:11,  2.49it/s]step: 199
+extend+tolist() time: 0.0014834403991699219
+Evaluating:  88%|████████▊ | 200/228 [01:24<00:11,  2.46it/s]step: 200
+extend+tolist() time: 0.0011589527130126953
+Evaluating:  88%|████████▊ | 201/228 [01:24<00:10,  2.50it/s]step: 201
+extend+tolist() time: 0.0005867481231689453
+Evaluating:  89%|████████▊ | 202/228 [01:25<00:10,  2.45it/s]step: 202
+extend+tolist() time: 0.0003962516784667969
+Evaluating:  89%|████████▉ | 203/228 [01:25<00:10,  2.47it/s]step: 203
+extend+tolist() time: 0.000926971435546875
+Evaluating:  89%|████████▉ | 204/228 [01:26<00:09,  2.43it/s]step: 204
+extend+tolist() time: 0.0004029273986816406
+Evaluating:  90%|████████▉ | 205/228 [01:26<00:09,  2.46it/s]step: 205
+extend+tolist() time: 0.0003101825714111328
+Evaluating:  90%|█████████ | 206/228 [01:26<00:08,  2.52it/s]step: 206
+extend+tolist() time: 0.0006191730499267578
+Evaluating:  91%|█████████ | 207/228 [01:27<00:08,  2.48it/s]step: 207
+extend+tolist() time: 0.0006155967712402344
+Evaluating:  91%|█████████ | 208/228 [01:27<00:08,  2.49it/s]step: 208
+extend+tolist() time: 0.0011568069458007812
+Evaluating:  92%|█████████▏| 209/228 [01:28<00:07,  2.45it/s]step: 209
+extend+tolist() time: 0.0006234645843505859
+Evaluating:  92%|█████████▏| 210/228 [01:28<00:07,  2.47it/s]step: 210
+extend+tolist() time: 0.0006020069122314453
+Evaluating:  93%|█████████▎| 211/228 [01:29<00:06,  2.52it/s]step: 211
+extend+tolist() time: 0.0011088848114013672
+Evaluating:  93%|█████████▎| 212/228 [01:29<00:06,  2.46it/s]step: 212
+extend+tolist() time: 0.0013527870178222656
+Evaluating:  93%|█████████▎| 213/228 [01:29<00:06,  2.46it/s]step: 213
+extend+tolist() time: 0.0007781982421875
+Evaluating:  94%|█████████▍| 214/228 [01:30<00:05,  2.43it/s]step: 214
+extend+tolist() time: 0.0012676715850830078
+Evaluating:  94%|█████████▍| 215/228 [01:30<00:05,  2.44it/s]step: 215
+extend+tolist() time: 0.0006740093231201172
+Evaluating:  95%|█████████▍| 216/228 [01:31<00:04,  2.49it/s]step: 216
+extend+tolist() time: 0.0006139278411865234
+Evaluating:  95%|█████████▌| 217/228 [01:31<00:04,  2.46it/s]step: 217
+extend+tolist() time: 0.0005576610565185547
+Evaluating:  96%|█████████▌| 218/228 [01:31<00:04,  2.48it/s]step: 218
+extend+tolist() time: 0.0015578269958496094
+Evaluating:  96%|█████████▌| 219/228 [01:32<00:03,  2.40it/s]step: 219
+extend+tolist() time: 0.0004839897155761719
+Evaluating:  96%|█████████▋| 220/228 [01:32<00:03,  2.43it/s]step: 220
+extend+tolist() time: 0.0007550716400146484
+Evaluating:  97%|█████████▋| 221/228 [01:33<00:02,  2.48it/s]step: 221
+extend+tolist() time: 0.0007114410400390625
+Evaluating:  97%|█████████▋| 222/228 [01:33<00:02,  2.43it/s]step: 222
+extend+tolist() time: 0.0004673004150390625
+Evaluating:  98%|█████████▊| 223/228 [01:33<00:02,  2.44it/s]step: 223
+extend+tolist() time: 0.0003879070281982422
+Evaluating:  98%|█████████▊| 224/228 [01:34<00:01,  2.39it/s]step: 224
+extend+tolist() time: 0.00039005279541015625
+Evaluating:  99%|█████████▊| 225/228 [01:34<00:01,  2.43it/s]step: 225
+extend+tolist() time: 0.0009171962738037109
+Evaluating:  99%|█████████▉| 226/228 [01:35<00:00,  2.48it/s]step: 226
+extend+tolist() time: 0.0005357265472412109
+Evaluating: 100%|█████████▉| 227/228 [01:35<00:00,  2.43it/s]step: 227
+extend+tolist() time: 0.0004951953887939453
+Evaluating: 100%|██████████| 228/228 [01:36<00:00,  2.41it/s]09/08/2023 15:40:02 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/accuracy/default/default_experiment-1-0.arrow
+09/08/2023 15:40:02 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/f1/default/default_experiment-1-0.arrow
+09/08/2023 15:40:02 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/f1/default/default_experiment-1-0.arrow
+09/08/2023 15:40:02 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/f1/default/default_experiment-1-0.arrow
+09/08/2023 15:40:02 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/f1/default/default_experiment-1-0.arrow
+09/08/2023 15:40:02 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/precision/default/default_experiment-1-0.arrow
+09/08/2023 15:40:02 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/precision/default/default_experiment-1-0.arrow
+09/08/2023 15:40:02 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/precision/default/default_experiment-1-0.arrow
+09/08/2023 15:40:02 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/precision/default/default_experiment-1-0.arrow
+09/08/2023 15:40:02 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/recall/default/default_experiment-1-0.arrow
+09/08/2023 15:40:03 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/recall/default/default_experiment-1-0.arrow
+09/08/2023 15:40:03 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/recall/default/default_experiment-1-0.arrow
+09/08/2023 15:40:03 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/recall/default/default_experiment-1-0.arrow
+09/08/2023 15:40:03 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/rocauc/multiclass/default_experiment-1-0.arrow
+09/08/2023 15:40:03 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/rocauc/multiclass/default_experiment-1-0.arrow
+09/08/2023 15:40:03 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/rocauc/multiclass/default_experiment-1-0.arrow
+09/08/2023 15:40:03 - INFO - evaluate.module - Removing /data/users/zhangjunlei/tyx/.cache/huggingface/metrics/rocauc/multiclass/default_experiment-1-0.arrow
+Evaluating: 100%|██████████| 228/228 [01:37<00:00,  2.33it/s]
+09/08/2023 15:40:03 - INFO - __main__ -   Step: 1332, Validation Metrics: {'pred_1_num': 10067, 'pred_-1_num': 723, 'pred_0_num': 11, 'ref_1_num': 8596, 'ref_0_num': 639, 'ref_-1_num': 1566, 'accuracy': 0.8020553652439589, 'f1_micro': 0.8020553652439589, 'f1_macro': 0.41520753769682744, 'f1_weighted': 0.7553973712769106, 'f1_-1': 0.33114897335080823, 'f1_0': 0.027692307692307693, 'f1_1': 0.8867813320473664, 'precision_micro': 0.8020553652439589, 'precision_macro': 0.7214597233532607, 'precision_weighted': 0.7785919414023468, 'precision_-1': 0.5242047026279392, 'precision_0': 0.8181818181818182, 'precision_1': 0.8219926492500248, 'recall_micro': 0.8020553652439589, 'recall_macro': 0.4062531455939227, 'recall_weighted': 0.8020553652439589, 'recall_-1': 0.24201787994891444, 'recall_0': 0.014084507042253521, 'recall_1': 0.9626570497906003, 'roc_auc_micro': 0.9304946192192236, 'roc_auc_macro': 0.7859904676375832, 'roc_auc_weighted': 0.7853904782040491, 'roc_auc_-1': 0.8479985493026211, 'roc_auc_0': 0.7320208398590717, 'roc_auc_1': 0.7779520137510565}
+  0%|          | 0/66600 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/src/finetune.py", line 1438, in <module>
+    train(config, args)
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/src/finetune.py", line 1285, in train
+    accelerator.backward(loss)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1847, in backward
+    self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 167, in backward
+    self.engine.backward(loss, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1895, in backward
+    self.optimizer.backward(loss, retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 2041, in backward
+    self.loss_scaler.backward(loss.float(), retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 63, in backward
+    scaled_loss.backward(retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1044, in reduce_partition_and_remove_grads
+    self.reduce_ready_partitions_and_remove_grads(param, i)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1332, in reduce_ready_partitions_and_remove_grads
+    self.reduce_independent_p_g_buckets_and_remove_grads(param, i)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1079, in reduce_independent_p_g_buckets_and_remove_grads
+    self.__reduce_and_partition_ipg_grads()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1127, in __reduce_and_partition_ipg_grads
+    grad_partitions = self.__avg_scatter_grads(self.params_in_ipg_bucket)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1195, in __avg_scatter_grads
+    grad_partitions_for_rank = reduce_scatter_coalesced(full_grads_for_rank, self.dp_process_group)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/comm/coalesced_collectives.py", line 119, in reduce_scatter_coalesced
+    _torch_reduce_scatter_fn(tensor_partition_flat_buffer,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/comm/coalesced_collectives.py", line 23, in _torch_reduce_scatter_fn
+    return instrument_w_nvtx(dist.reduce_scatter_fn)(output_tensor, input_tensor, group=group, async_op=False)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 249, in reduce_scatter_fn
+    return reduce_scatter_tensor(output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 116, in log_wrapper
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 281, in reduce_scatter_tensor
+    return cdb.reduce_scatter_tensor(output_tensor=output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/torch.py", line 247, in reduce_scatter_tensor
+    return self.reduce_scatter_function(output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 1451, in wrapper
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 3002, in reduce_scatter_tensor
+    work = group._reduce_scatter_base(output, input, opts)
+torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1275, internal error, NCCL version 2.14.3
+ncclInternalError: Internal check failed.
+Last error:
+Proxy Call to rank 0 failed (Setup)
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/src/finetune.py", line 1438, in <module>
+    train(config, args)
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/src/finetune.py", line 1285, in train
+    accelerator.backward(loss)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1847, in backward
+    self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 167, in backward
+    self.engine.backward(loss, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1895, in backward
+    self.optimizer.backward(loss, retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 2041, in backward
+    self.loss_scaler.backward(loss.float(), retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 63, in backward
+    scaled_loss.backward(retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1044, in reduce_partition_and_remove_grads
+    self.reduce_ready_partitions_and_remove_grads(param, i)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1332, in reduce_ready_partitions_and_remove_grads
+    self.reduce_independent_p_g_buckets_and_remove_grads(param, i)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1079, in reduce_independent_p_g_buckets_and_remove_grads
+    self.__reduce_and_partition_ipg_grads()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1127, in __reduce_and_partition_ipg_grads
+    grad_partitions = self.__avg_scatter_grads(self.params_in_ipg_bucket)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1195, in __avg_scatter_grads
+    grad_partitions_for_rank = reduce_scatter_coalesced(full_grads_for_rank, self.dp_process_group)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/comm/coalesced_collectives.py", line 119, in reduce_scatter_coalesced
+    _torch_reduce_scatter_fn(tensor_partition_flat_buffer,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/comm/coalesced_collectives.py", line 23, in _torch_reduce_scatter_fn
+    return instrument_w_nvtx(dist.reduce_scatter_fn)(output_tensor, input_tensor, group=group, async_op=False)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 249, in reduce_scatter_fn
+    return reduce_scatter_tensor(output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 116, in log_wrapper
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 281, in reduce_scatter_tensor
+    return cdb.reduce_scatter_tensor(output_tensor=output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/torch.py", line 247, in reduce_scatter_tensor
+    return self.reduce_scatter_function(output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 1451, in wrapper
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 3002, in reduce_scatter_tensor
+    work = group._reduce_scatter_base(output, input, opts)
+torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1275, internal error, NCCL version 2.14.3
+ncclInternalError: Internal check failed.
+Last error:
+Proxy Call to rank 0 failed (Setup)
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/src/finetune.py", line 1438, in <module>
+    train(config, args)
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/src/finetune.py", line 1285, in train
+    accelerator.backward(loss)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1847, in backward
+    self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 167, in backward
+    self.engine.backward(loss, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1895, in backward
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/src/finetune.py", line 1438, in <module>
+    self.optimizer.backward(loss, retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 2041, in backward
+    self.loss_scaler.backward(loss.float(), retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 63, in backward
+    scaled_loss.backward(retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/_tensor.py", line 487, in backward
+    train(config, args)
+  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/src/finetune.py", line 1285, in train
+    torch.autograd.backward(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1044, in reduce_partition_and_remove_grads
+    accelerator.backward(loss)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1847, in backward
+    self.reduce_ready_partitions_and_remove_grads(param, i)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1332, in reduce_ready_partitions_and_remove_grads
+    self.reduce_independent_p_g_buckets_and_remove_grads(param, i)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1079, in reduce_independent_p_g_buckets_and_remove_grads
+    self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/deepspeed.py", line 167, in backward
+    self.engine.backward(loss, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1895, in backward
+    self.__reduce_and_partition_ipg_grads()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1127, in __reduce_and_partition_ipg_grads
+    grad_partitions = self.__avg_scatter_grads(self.params_in_ipg_bucket)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+      File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1195, in __avg_scatter_grads
+self.optimizer.backward(loss, retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 2041, in backward
+    grad_partitions_for_rank = reduce_scatter_coalesced(full_grads_for_rank, self.dp_process_group)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/comm/coalesced_collectives.py", line 119, in reduce_scatter_coalesced
+    _torch_reduce_scatter_fn(tensor_partition_flat_buffer,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/comm/coalesced_collectives.py", line 23, in _torch_reduce_scatter_fn
+    return instrument_w_nvtx(dist.reduce_scatter_fn)(output_tensor, input_tensor, group=group, async_op=False)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 249, in reduce_scatter_fn
+    self.loss_scaler.backward(loss.float(), retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 63, in backward
+    scaled_loss.backward(retain_graph=retain_graph)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/_tensor.py", line 487, in backward
+    return reduce_scatter_tensor(output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 116, in log_wrapper
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 281, in reduce_scatter_tensor
+    torch.autograd.backward(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
+    return cdb.reduce_scatter_tensor(output_tensor=output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/torch.py", line 247, in reduce_scatter_tensor
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1044, in reduce_partition_and_remove_grads
+    return self.reduce_scatter_function(output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 1451, in wrapper
+    self.reduce_ready_partitions_and_remove_grads(param, i)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1332, in reduce_ready_partitions_and_remove_grads
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 3002, in reduce_scatter_tensor
+    self.reduce_independent_p_g_buckets_and_remove_grads(param, i)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1079, in reduce_independent_p_g_buckets_and_remove_grads
+    self.__reduce_and_partition_ipg_grads()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1127, in __reduce_and_partition_ipg_grads
+    work = group._reduce_scatter_base(output, input, opts)
+torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1275, internal error, NCCL version 2.14.3
+ncclInternalError: Internal check failed.
+Last error:
+Net : Call to recv from 172.16.75.141<51879> failed : Connection refused
+    grad_partitions = self.__avg_scatter_grads(self.params_in_ipg_bucket)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/zero/stage3.py", line 1195, in __avg_scatter_grads
+    grad_partitions_for_rank = reduce_scatter_coalesced(full_grads_for_rank, self.dp_process_group)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/comm/coalesced_collectives.py", line 119, in reduce_scatter_coalesced
+    _torch_reduce_scatter_fn(tensor_partition_flat_buffer,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/runtime/comm/coalesced_collectives.py", line 23, in _torch_reduce_scatter_fn
+    return instrument_w_nvtx(dist.reduce_scatter_fn)(output_tensor, input_tensor, group=group, async_op=False)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 249, in reduce_scatter_fn
+    return reduce_scatter_tensor(output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 116, in log_wrapper
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/comm.py", line 281, in reduce_scatter_tensor
+    return cdb.reduce_scatter_tensor(output_tensor=output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/deepspeed/comm/torch.py", line 247, in reduce_scatter_tensor
+    return self.reduce_scatter_function(output_tensor,
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 1451, in wrapper
+    return func(*args, **kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 3002, in reduce_scatter_tensor
+    work = group._reduce_scatter_base(output, input, opts)
+torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1275, internal error, NCCL version 2.14.3
+ncclInternalError: Internal check failed.
+Last error:
+Net : Call to recv from 172.16.75.141<51879> failed : Connection refused
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 48265 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 48267 closing signal SIGTERM
+Exception ignored in atexit callback: <function _Manager._atexit_setup.<locals>.<lambda> at 0x7fd368145090>
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_manager.py", line 155, in <lambda>
+    self._atexit_lambda = lambda: self._atexit_teardown()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_manager.py", line 164, in _atexit_teardown
+    self._teardown(exit_code)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_manager.py", line 175, in _teardown
+    result = self._service.join()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/service/service.py", line 258, in join
+    ret = self._internal_proc.wait()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/subprocess.py", line 1209, in wait
+    return self._wait(timeout=timeout)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/subprocess.py", line 1959, in _wait
+    (pid, sts) = self._try_wait(0)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/subprocess.py", line 1917, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/ray/_private/worker.py", line 1723, in sigterm_handler
+    sys.exit(signum)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/lib/exit_hooks.py", line 36, in exit
+    self._orig_exit(orig_code)  # type: ignore
+SystemExit: 15
+09/08/2023 15:40:12 - WARNING - urllib3.connectionpool - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)'))': /api/4504800232407040/envelope/
+wandb: 
+wandb: Run history:
+wandb:           accuracy ▁
+wandb:              f1_-1 ▁
+wandb:               f1_0 ▁
+wandb:               f1_1 ▁
+wandb:           f1_macro ▁
+wandb:           f1_micro ▁
+wandb:        f1_weighted ▁
+wandb:       precision_-1 ▁
+wandb:        precision_0 ▁
+wandb:        precision_1 ▁
+wandb:    precision_macro ▁
+wandb:    precision_micro ▁
+wandb: precision_weighted ▁
+wandb:        pred_-1_num ▁
+wandb:         pred_0_num ▁
+wandb:         pred_1_num ▁
+wandb:          recall_-1 ▁
+wandb:           recall_0 ▁
+wandb:           recall_1 ▁
+wandb:       recall_macro ▁
+wandb:       recall_micro ▁
+wandb:    recall_weighted ▁
+wandb:         ref_-1_num ▁
+wandb:          ref_0_num ▁
+wandb:          ref_1_num ▁
+wandb:         roc_auc_-1 ▁
+wandb:          roc_auc_0 ▁
+wandb:          roc_auc_1 ▁
+wandb:      roc_auc_macro ▁
+wandb:      roc_auc_micro ▁
+wandb:   roc_auc_weighted ▁
+wandb:  train/global_step ▁
+wandb: 
+wandb: Run summary:
+wandb:           accuracy 0.80206
+wandb:              f1_-1 0.33115
+wandb:               f1_0 0.02769
+wandb:               f1_1 0.88678
+wandb:           f1_macro 0.41521
+wandb:           f1_micro 0.80206
+wandb:        f1_weighted 0.7554
+wandb:       precision_-1 0.5242
+wandb:        precision_0 0.81818
+wandb:        precision_1 0.82199
+wandb:    precision_macro 0.72146
+wandb:    precision_micro 0.80206
+wandb: precision_weighted 0.77859
+wandb:        pred_-1_num 723
+wandb:         pred_0_num 11
+wandb:         pred_1_num 10067
+wandb:          recall_-1 0.24202
+wandb:           recall_0 0.01408
+wandb:           recall_1 0.96266
+wandb:       recall_macro 0.40625
+wandb:       recall_micro 0.80206
+wandb:    recall_weighted 0.80206
+wandb:         ref_-1_num 1566
+wandb:          ref_0_num 639
+wandb:          ref_1_num 8596
+wandb:         roc_auc_-1 0.848
+wandb:          roc_auc_0 0.73202
+wandb:          roc_auc_1 0.77795
+wandb:      roc_auc_macro 0.78599
+wandb:      roc_auc_micro 0.93049
+wandb:   roc_auc_weighted 0.78539
+wandb:  train/global_step 1332
+wandb: 
+wandb: 🚀 View run wizardmath-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16-2023-09-08-0 at: https://wandb.ai/kidrain61/step-reward/runs/1j0avs34
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/wandb/run-20230908_153722-1j0avs34/logs
+WARNING:torch.distributed.elastic.multiprocessing.api:Unable to shutdown process 48267 via 15, forcefully exiting via 9
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 1 (pid: 48266) of binary: /data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/python
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 45, in main
+    args.func(args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/commands/launch.py", line 964, in launch_command
+    deepspeed_launcher(args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/commands/launch.py", line 687, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/run.py", line 785, in run
+    elastic_launch(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 250, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/users/zhangjunlei/tyx/reward-by-prm800k/src/finetune.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2023-09-08_15:40:11
+  host      : a100
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 48268)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-09-08_15:40:11
+  host      : a100
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 48266)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

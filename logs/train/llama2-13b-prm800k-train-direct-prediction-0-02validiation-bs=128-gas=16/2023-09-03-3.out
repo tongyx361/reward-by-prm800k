@@ -1,0 +1,1646 @@
+nohup: ignoring input
+[2023-09-03 23:39:47,977] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[2023-09-03 23:39:52,390] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 23:39:52,390] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 23:39:52,548] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-03 23:39:52,587] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Using xformers
+Initializing accelerator...
+Using xformers
+[2023-09-03 23:39:53,915] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 23:39:53,915] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-03 23:39:53,915] [INFO] [comm.py:643:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Initializing accelerator...
+[2023-09-03 23:39:53,940] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 23:39:53,940] [INFO] [comm.py:616:init_distributed] cdb=None
+Using xformers
+Initializing accelerator...
+[2023-09-03 23:39:54,075] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 23:39:54,075] [INFO] [comm.py:616:init_distributed] cdb=None
+Using xformers
+Initializing accelerator...
+[2023-09-03 23:39:54,201] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-03 23:39:54,201] [INFO] [comm.py:616:init_distributed] cdb=None
+09/03/2023 23:39:54 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 3
+Local process index: 3
+Device: cuda:3
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 23:39:54 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 2
+Local process index: 2
+Device: cuda:2
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 23:39:54 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 1
+Local process index: 1
+Device: cuda:1
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+accelerator.state = Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 23:39:54 - INFO - __main__ - Distributed environment: DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'bf16': {'enabled': True}, 'zero_optimization': {'stage': 3, 'overlap_comm': True, 'contiguous_gradients': True, 'sub_group_size': 1000000000.0, 'reduce_bucket_size': 'auto', 'stage3_prefetch_bucket_size': 'auto', 'stage3_param_persistence_threshold': 'auto', 'stage3_max_live_parameters': 1000000000.0, 'stage3_max_reuse_distance': 1000000000.0, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_accumulation_steps': 1, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'wall_clock_breakdown': False, 'fp16': {'enabled': False}}
+
+09/03/2023 23:40:03 - DEBUG - evaluate.loading - Checking /data/users/zhangjunlei/tyx/.cache/huggingface/evaluate/downloads/96cba97f346e44af314163a75259842d567a1e87cf5b208754598a47f8c5f531.cfd6b2fbd44256c2b82392f9e38ab60b0f49c187db643eb761fb625fe8a3303c.py for additional imports.
+09/03/2023 23:40:03 - DEBUG - evaluate.loading - Created importable dataset file at /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--accuracy/f887c0aab52c2d38e1f8a215681126379eca617f96c447638f751434e8e65b14/accuracy.py
+09/03/2023 23:40:12 - DEBUG - evaluate.loading - Checking /data/users/zhangjunlei/tyx/.cache/huggingface/evaluate/downloads/498d31a4e66ca154bf5332fcbc8dd35c18a5ea36090d6be3b2d3aacc7794d5cc.39d17ba2a627a7569cf0b5b78be67e3176df05857da937b236a4ee081bbb92ec.py for additional imports.
+09/03/2023 23:40:12 - DEBUG - evaluate.loading - Created importable dataset file at /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--f1/0ca73f6cf92ef5a268320c697f7b940d1030f8471714bffdb6856c641b818974/f1.py
+09/03/2023 23:40:27 - DEBUG - evaluate.loading - Checking /data/users/zhangjunlei/tyx/.cache/huggingface/evaluate/downloads/3475eb8bf47bed300d80c02f82bb340aa0cb078031fbd39c731005d74d707c24.68cf5e93118a075768a83fb255d6e1e2ed7c1a6a6c2a15efc3bdb64051e98654.py for additional imports.
+09/03/2023 23:40:27 - DEBUG - evaluate.loading - Created importable dataset file at /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--precision/4e7f439a346715f68500ce6f2be82bf3272abd3f20bdafd203a2c4f85b61dd5f/precision.py
+09/03/2023 23:40:40 - DEBUG - evaluate.loading - Checking /data/users/zhangjunlei/tyx/.cache/huggingface/evaluate/downloads/89340037b5d34271e1522e5ad2308e9d050b495fa7ae88b2fa45a58cc24bf20f.e9198607b86fd02007e38b8f5a9af833e8066df08c633f857615896edf80f24d.py for additional imports.
+09/03/2023 23:40:40 - DEBUG - evaluate.loading - Created importable dataset file at /data/users/zhangjunlei/tyx/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--recall/e40e6e98d18ff3f210f4d0b26fa721bfaa80704b1fdf890fa551cfabf94fc185/recall.py
+loading configuration file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-hf/snapshots/db6b8eb1feabb38985fdf785a89895959e944936/config.json
+Model config LlamaConfig {
+  "_name_or_path": "/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-hf/snapshots/db6b8eb1feabb38985fdf785a89895959e944936",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 5120,
+  "initializer_range": 0.02,
+  "intermediate_size": 13824,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 40,
+  "num_hidden_layers": 40,
+  "num_key_value_heads": 40,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.31.0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+loading file tokenizer.model
+loading file added_tokens.json
+loading file special_tokens_map.json
+loading file tokenizer_config.json
+You are using the legacy behaviour of the <class 'transformers.models.llama.tokenization_llama.LlamaTokenizer'>. This means that tokens that come after special tokens will not be properly handled. We recommend you to read the related pull request available at https://github.com/huggingface/transformers/pull/24565
+Detected PIL version 10.0.0
+loading weights file /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-hf/snapshots/db6b8eb1feabb38985fdf785a89895959e944936/model.safetensors.index.json
+Detected DeepSpeed ZeRO-3: activating zero.init() for this model
+Generate config GenerationConfig {
+  "_from_model_config": true,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "pad_token_id": 0,
+  "transformers_version": "4.31.0"
+}
+
+[2023-09-03 23:40:40,976] [INFO] [partition_parameters.py:326:__exit__] finished initializing model with 13.02B parameters
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.76it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.58it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.49it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.31s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.34s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:02,  2.35s/it]Loading checkpoint shards:  33%|███▎      | 1/3 [00:05<00:11,  5.67s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.91s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.58s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.91s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.59s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.91s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:07<00:00,  2.59s/it]
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:11<00:05,  5.50s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:14<00:00,  4.54s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:14<00:00,  4.82s/it]
+All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+All the weights of LlamaForCausalLM were initialized from the model checkpoint at /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-hf/snapshots/db6b8eb1feabb38985fdf785a89895959e944936.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+Generation config file not found, using a generation config created from the model config.
+Sun Sep  3 23:40:55 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  Off  | 00000000:12:00.0 Off |                    0 |
+| N/A   43C    P0    87W / 400W |  11939MiB / 81920MiB |     54%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  Off  | 00000000:18:00.0 Off |                    0 |
+| N/A   63C    P0   394W / 400W |  78989MiB / 81920MiB |     95%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  Off  | 00000000:4A:00.0 Off |                    0 |
+| N/A   43C    P0    77W / 400W |  42680MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  Off  | 00000000:4E:00.0 Off |                    0 |
+| N/A   43C    P0    88W / 400W |  14525MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  Off  | 00000000:8A:00.0 Off |                    0 |
+| N/A   39C    P0    97W / 400W |  44321MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  Off  | 00000000:8F:00.0 Off |                    0 |
+| N/A   39C    P0    93W / 400W |  44941MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  Off  | 00000000:C6:00.0 Off |                    0 |
+| N/A   37C    P0    96W / 400W |  44189MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  Off  | 00000000:CA:00.0 Off |                    0 |
+| N/A   37C    P0    74W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    463024      C   python3                          1465MiB |
+|    0   N/A  N/A   1519640      C   .../open-instruct/bin/python     9917MiB |
+|    0   N/A  N/A   2661157      C   python3                           555MiB |
+|    1   N/A  N/A   1494865      C   python                          78985MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A   2661157      C   python3                          5679MiB |
+|    3   N/A  N/A    463024      C   python3                         14523MiB |
+|    4   N/A  N/A   1519641      C   .../open-instruct/bin/python    44319MiB |
+|    5   N/A  N/A   1519642      C   .../open-instruct/bin/python    44939MiB |
+|    6   N/A  N/A   1519643      C   .../open-instruct/bin/python    44187MiB |
+|    7   N/A  N/A   1004856      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+Assigning <s> to the bos_token key of the tokenizer
+Assigning </s> to the eos_token key of the tokenizer
+Assigning <unk> to the unk_token key of the tokenizer
+Assigning <pad> to the pad_token key of the tokenizer
+Adding <pad> to the vocabulary
+09/03/2023 23:40:58 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 1
+09/03/2023 23:40:58 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 2
+09/03/2023 23:40:58 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 3
+09/03/2023 23:40:59 - INFO - __main__ - Sample 60988 of the training set: {'input_ids': tensor([    1,  5122,   338,  1048,   304,   679,   263,  3058,  5253,   310,
+         1735,  3109,  1135,   697, 11232,   279,   515,   278,   274,  1161,
+         6036, 29889,   960,   540,  4947,   278,  1556,   439, 13868,  1950,
+          322,   278,  1791,   297,   282,  2108,   583, 29892,   540,   723,
+          817,   304,  7150, 29871, 29941,   282,  2108,   583,   304,  5870,
+          278,  5253, 29889,   960,   540,  4947,   278,  1556,   270,  1355,
+         1950,   322,   278,  1791,   297,   282,  2108,   583, 29892,   540,
+          723,   817,   304,  7150, 29871, 29947,   282,  2108,   583,   304,
+         5870,   278,  5253, 29889,  1724,   338,   278,  2533, 29892,   297,
+          274,  1237, 29892,   310,   278,  1950, 26999,   310,  1735,   393,
+          540,   338,  1811,   304,   679, 29973,    13, 29902,   817,   304,
+         1284,   278,  1950, 26999,   310,  1735,   393,  5122,   338,  1811,
+          304,   679, 29892,  2183,   278, 11938,   373,   278,  1353,   310,
+          282,  2108,   583,   540,  4225,   746,   540,  4947,   439, 13868,
+          470,   270,  1355, 29889,    13, 12024, 29915, 29879,  1369,   411,
+          278,  1206,   746,   540,  4947,   439, 13868, 29889,    13,  3868,
+         4225, 29871, 29941,   282,  2108,   583, 29892,   577,   278,  5253,
+          310,  1735,  1818,   367,   263,  2999,   310, 29871, 29906, 29945,
+         2298, 29871, 29941, 29892,  1316,   408, 29871, 29906, 29947, 29892,
+        29871, 29945, 29941, 29892, 29871, 29955, 29947, 29892,  2992, 29889,
+           13,  1576, 10150,  1950,  5253,   540,   508,   679,   411,   439,
+        13868,   338, 29871, 29955, 29947, 29892,  1363,   565,   540,  4947,
+          697,   901, 12616, 29892,   540,   723,   817, 29871, 29941,   901,
+          282,  2108,   583, 29892,   607,   723, 13461,   697, 11232,   279,
+        29889,    13,  6295,   278,  1950, 26999,   411,   439, 13868,   526,
+        29871, 29906, 29947, 29892, 29871, 29945, 29941, 29892,   322, 29871,
+        29955, 29947, 29889,    13, 10454,  1235, 29915, 29879,  1106,   472,
+          278,  1206,   746,   540,  4947,   270,  1355, 29889,    13,  3868,
+         4225, 29871, 29947,   282,  2108,   583, 29892,   577,   278,  5253,
+          310,  1735,  1818,   367,   263,  2999,   310, 29871, 29896, 29900,
+         2298, 29871, 29947, 29892,  1316,   408, 29871, 29896, 29947, 29892,
+        29871, 29906, 29947, 29892, 29871, 29941, 29947, 29892,  2992, 29889,
+           13,  1576, 10150,  1950,  5253,   540,   508,   679,   411,   270,
+         1355,   338, 29871, 29929, 29947, 29892,  1363,   565,   540,  4947,
+          697,   901,   270,   603, 29892,   540,   723,   817, 29871, 29947,
+          901,   282,  2108,   583, 29892,   607,   723, 13461,   697, 11232,
+          279, 29889,    13,  6295,   278,  1950, 26999,   411,   270,  1355,
+          526, 29871, 29896, 29947, 29892, 29871, 29906, 29947, 29892, 29871,
+        29941, 29947, 29892, 29871, 29946, 29947, 29892, 29871, 29945, 29947,
+        29892, 29871, 29953, 29947, 29892, 29871, 29955, 29947, 29892, 29871,
+        29947, 29947, 29892,   322, 29871, 29929, 29947, 29889,    13,  3664,
+          625,   393,   777,   310,   278, 26999,   526,   278,  1021,   297,
+         1716,  4251, 29892,  1316,   408, 29871, 29906, 29947,   322, 29871,
+        29955, 29947, 29889,    13,  1349,   968,   526,   278, 26999,   393,
+          540,   508,   679,   411,  2845,   439, 13868,   470,   270,  1355,
+        29892,  8679,   373,   920,   278,   274,  1161,   631,  4076,  1075,
+          278,  1735, 29889,    13,  1576,  1108, 19514,   363,   278,  2533,
+          310,   278,  1950, 26999, 29892,   577,   306,   817,   304,   788,
+          701,   599,   278,  8359,  1819,   393,  2615,   297,  2845,  1206,
+        29889,    13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 8178])}.
+09/03/2023 23:40:59 - INFO - __main__ - Sample 49701 of the training set: {'input_ids': tensor([    1,   319, 26561, 11982, 16416, 11624,   310,   697,  1134,   310,
+        18423, 29892,   697,  1134,   310, 27654, 29892,   322,   697,  1134,
+          310, 12507,   346, 29889,   450, 26561, 16688, 21266,   271, 29892,
+          364,  4099, 29892,   322,  4796, 18423, 29936, 16366, 29892,  7013,
+         1989, 29892,   696,   579,   367,  1389, 29892,   322,   260,  4347,
+        29936,  6350,   305,   322,  7062,  5933, 29830,   327,   280, 12507,
+          346, 29889,   435, 18852,   338,   599, 15064,   293,   304,   364,
+         4099, 18423, 29892,   260,  4347, 29892,   322,  7062,  5933, 29830,
+          327,   280, 12507,   346, 29889,   940, 10603,   278,  1923,   304,
+        24940,   263,  4036, 26561, 11982, 16416, 29889,  1724,   338,   278,
+         6976,   393,   435, 18852,   674,  8812,   385,   599, 15064,   293,
+        19848, 29973,    13,  1762,  1284,   278,  6976,   393,   435, 18852,
+          674,  8812,   385,   599, 15064,   293, 19848, 29892,   306,   817,
+          304,  1284,   278, 15958,   310,   599,  1950, 11982, 16416,   267,
+          393,  1712,   472,  3203,   697,   310,   670,   599, 15064,   575,
+        29889,    13,  8439,   526,  2211,  4072,   310, 18423, 29892,  3023,
+         4072,   310, 27654, 29892,   322,  1023,  4072,   310, 12507,   346,
+        29892,   577,   727,   526, 29871, 29941,   334, 29871, 29946,   334,
+        29871, 29906,   353, 29871, 29906, 29946,  1950, 11982, 16416,   267,
+          297,  3001, 29889,    13,  5328,  1784,   310,  1438, 11982, 16416,
+          267,  1712,   364,  4099, 18423, 29973,    13, 11284, 29892,   727,
+          526,  3023,  4072,   310, 27654,   322,  1023,  4072,   310, 12507,
+          346, 29892,   577,   727,   526, 29871, 29946,   334, 29871, 29906,
+          353, 29871, 29947, 11982, 16416,   267,   411,   364,  4099, 18423,
+        29889,    13,  5328,  1784,   310,  1438, 11982, 16416,   267,  1712,
+          260,  4347, 29973,    13,  8942,  2327,   368, 29892,   727,   526,
+         2211,  4072,   310, 18423,   322,  1023,  4072,   310, 12507,   346,
+        29892,   577,   727,   526, 29871, 29941,   334, 29871, 29906,   353,
+        29871, 29953, 11982, 16416,   267,   411,   260,  4347, 29889,    13,
+         5328,  1784,   310,  1438, 11982, 16416,   267,  1712,  7062,  5933,
+        29830,   327,   280, 12507,   346, 29973,    13,  8439,   526,  2211,
+         4072,   310, 18423,   322,  3023,  4072,   310, 27654, 29892,   577,
+          727,   526, 29871, 29941,   334, 29871, 29946,   353, 29871, 29896,
+        29906, 11982, 16416,   267,   411,  7062,  5933, 29830,   327,   280,
+        12507,   346, 29889,    13,  6246,  4480, 29892,   306,   508, 29915,
+        29873,   925,   788,   701,  1438,  3694, 29892,  1363,   777, 11982,
+        16416,   267,  1795,  1712,   901,  1135,   697, 16454,  1885, 29889,
+           13,  2831,  1342, 29892,   263, 11982, 16416,   411,   364,  4099,
+        18423, 29892,   260,  4347, 29892,   322,  7062,  5933, 29830,   327,
+          280, 12507,   346,   723,   367, 29115,  2211,  3064,   297,   278,
+         3517, 17203, 29892,   541,   372,   881,   871,   367, 29115,  2748,
+        29889,    13,  1762,  4772,   975,  2798,   292, 29892,   306,   817,
+          304, 23197,   278,  1353,   310, 11982, 16416,   267,   393,  1712,
+         1023,   470,  2211,   599, 15064,   575, 29889,    13,  4013,   338,
+          385,  2280,   310,   278, 28694, 29899,   735, 10085, 12502, 29892,
+          607,  4083,   393,   278,  1353,   310,  3161,   297,   278,  9833,
+          310,   777,  6166,   338,  5186,   304,   278,  2533,   310,   278,
+         3694,   310,  3161,   297,  1269,   731, 26134,   278,  2533,   310,
+          278,  3694,   310,  3161,   297,  1269, 17686,   310,  1023,  6166,
+         2298,   278,  2533,   310,   278,  3694,   310,  3161,   297,  1269,
+        17686,   310,  2211,  6166, 29892,   322,   577,   373, 29889,    13,
+         5328,  1784, 11982, 16416,   267,  1712,  1716,   364,  4099, 18423,
+          322,   260,  4347, 29973,    13, 11284, 29892,   727,   338,   871,
+          697,  1134,   310, 12507,   346,  2175, 29892,   577,   727,   526,
+        29871, 29896,   334, 29871, 29896,   353, 29871, 29896, 11982, 16416,
+          267,   411,  1716,   364,  4099, 18423,   322,   260,  4347, 29889,
+           13]), 'labels': tensor([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, 6374, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, 6374, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100,
+        -100, -100, -100, -100, -100, -100, -100, -100, 8178])}.
+09/03/2023 23:40:59 - INFO - __main__ - Sample 10455 of the training set: {'input_ids': tensor([    1, 11796, 29872,   278, 10362,  2533,   395, 29903,  8209,   988,
+           13, 29905, 29961, 29903,   353,   320,  1154, 29912, 29896,  1157,
+        29906, 29913,   448,   320,  1154, 29912, 29906,  1157, 29946, 29913,
+          718,   320,  1154, 29912, 29941,  1157, 29947, 29913,   448,   320,
+         1154, 29912, 29946,  1157, 29896, 29953, 29913,   718,   320,  1154,
+        29912, 29945,  1157, 29941, 29906, 29913,   448,   320,  7778,   718,
+          320,  1154, 29912, 29876,  1157, 29906, 29985, 29876, 29913,  8521,
+        29896,  8940, 29876,   718, 29871, 29896, 29913,   718,   320,  7778,
+        29890,  7790, 29962,    13,  1762, 10272,   385, 10362,  2533, 29892,
+          306,   817,   304,  1284,   263,  7063,   363,   278,  7687, 25470,
+          395, 29903, 29918, 29876, 29938,   322,   769,  2125,   278,  4046,
+          408,   395, 29876, 29938,  5771,   304, 27971, 29889,    13, 29909,
+         7687,  2533,   338,   278,  2533,   310,   278,   937,   395, 29876,
+        29938,  4958,   310,   278,  3652, 29889,    13,  6295, 29892,   395,
+        29903, 29918, 29876,   353,   320,  2083,   648, 29895,   353, 29871,
+        29896,  2137, 29876,   320,  1154, 29912, 29895,  1157, 29906, 29985,
+        29895, 29913,  8521, 29896,  8940, 29895,   718, 29871, 29896,  1836,
+        29938,    13, 29902,  8369,   393,   445,   338,   385,  5136,  1218,
+         3652, 29892,   988,   278, 18906,  4607,  1546,  6374,   322,  8178,
+        29889,    13,  7058,  2794,   306,   508,   671,   278, 12440,  1218,
+        10488,  4321,   304,  1423,   565,   372, 24144, 29889,    13,  1762,
+          671,   278,  1243, 29892,   306,   817,   304,  1423,  1023,  2712,
+        29901,   393,   278,  4958, 23806,   297,  8380,   995, 29892,   322,
+          393,   896,  2948,  5225,   408,   395, 29876, 29938, 16415, 29889,
+           13,  1576,  8380,   995,   310,   278,  4958,   338,   779,  1154,
+        29912, 29895,  1157, 29906, 29985, 29895,  1836, 29938,    13, 29902,
+          508,  1074,   393,   445,  9263,  2129,   408,   395, 29895, 29938,
+        16415, 29892,  1951,   278, 14267,  1061, 25088,  8473,  1135,   278,
+         4825,  1061, 29889,    13, 29902,   508,   884,  1074,   393,   445,
+        13501,  5225,   408,   395, 29895, 29938,  5771,   304, 27971, 29892,
+         1951,   278, 14267,  1061,   338, 25658,   322,   278,  4825,  1061,
+          338,  5608, 29889,    13,  6295, 29892,   278, 12440,  1218, 10488,
+         4321, 10603,   592,   393,   278,  3652, 24144,   304,   777,  8093,
+          995, 29889,    13,  7058,  2794,   306,   508,  1284,   393,   995,
+          491,  5622,   278,  4046,   310,   278,  7687, 25470, 29889,    13,
+        10454, 29892,   306,   817,   304,  1284,   263,  7063,   363,   278,
+         7687, 25470, 29889,    13, 29902,  8369,   393,   278,  7687,  2533,
+          395, 29903, 29918, 29876, 29938,   338,   263,  2533,   310,  4958,
+          310,   278,   883,   779,  1154, 29912, 29895,  1157, 29906, 29985,
+        29895, 29913,  8521, 29896,  8940, 29895,   718, 29871, 29896,  1118,
+        29938,   607,   526,   763, 25748,   310, 10801,   310,   395,  2612,
+         1154, 29912, 29896,  1157, 29906,  1836, 29938,    13,  7058,  3732,
+          592,  1348,   310,   773,   278,  7063,   363,   278,  2533,   310,
+          263, 26224,  3652, 29892,   607,   338,   779,  1154, 29912, 29874,
+        29898, 29896,   448,   364, 29985, 29876, 10172, 29896,   448,   364,
+         1118, 29938,   988,   395, 29874, 29938,   338,   278,   937,  1840,
+          322,   395, 29878, 29938,   338,   278,  3619, 11959, 29889,    13,
+        22762,   306,   508, 10683,   395, 29903, 29918, 29876, 29938,   408,
+          263, 26224,  3652, 29892,   470,   263,  2533,   310, 26224,  3652,
+        29889,    13,  1762,   437,   393, 29892,   306,   817,   304,  7329,
+          714,  1554,   515,  1269,  1840, 29889,    13, 29902,  1074,   393,
+          306,   508,  7329,   714,   395,  2612,  1154, 29912, 29896,  1157,
+        29906,  1042,   515,  1432,  1840, 29892,   322,   679,   395, 29903,
+        29918, 29876,   353, 11995,  1154, 29912, 29896,  1157, 29906, 29913,
+          320,  2083,   648, 29895,   353, 29871, 29896,  2137, 29876,   413,
+        29898,  2612,  1154, 29912, 29896,  1157, 29906,  1800,   998, 29895,
+          448, 29871, 29896,  1836, 29938,    13, 10454, 29892,   306,   505,
+          263,  2533,   310,  4958,   310,   278,   883,   395, 29895, 29898,
+         2612,  1154, 29912, 29896,  1157, 29906,  1800,   998, 29895,   448,
+        29871, 29896,  1118, 29938,   607,   526,   763,   278, 25748,   310,
+         2427,  2612,  1154, 29912, 29896,  1157, 29906, 28813, 29895,  7449,
+           13,  7058,  2794,   306,   508,   671,   278,  7063,   363,   278,
+         2533,   310,   263, 26224,  3652,   322,   967, 16291, 29892,   607,
+          338,   779,  1154, 29912, 29874, 29898, 29896,   448,   364, 29985,
+        29876, 10172, 29896,   448,   364, 29913,   718,   320,  1154, 29912,
+        22230, 29985, 29876, 19048, 29896,   448,   364,  4887, 29906,  1118,
+        29938,   988,   395, 29874, 29938,   338,   278,   937,  1840,   322,
+          395, 29878, 29938,   338,   278,  3619, 11959, 29889,    13,   797,
+          445,  1206, 29892,   395, 29874,   353, 29871, 29896, 29938,   322,
+          395, 29878,   353, 11995,  1154, 29912, 29896,  1157, 29906,  1836,
+        29938,    13,  6295, 29892,   306,   679,   395, 29903, 29918, 29876,
+          353, 11995,  1154, 29912, 29896,  1157, 29906, 29913,  3441,  1154,
+        29912, 29896, 29898, 29896,   448,   313,  2612,  1154, 29912, 29896,
+         1157, 29906, 28813, 29876, 10172, 29896,   448,   313,  2612,  1154,
+        29912, 29896,  1157, 29906,  1800, 29913,   718,   320,  1154, 29912,
+        29876, 29898,  2612,  1154, 29912, 29896,  1157, 29906, 28813, 29876,
+        19048, 29896,   448,   313,  2612,  1154, 29912, 29896,  1157, 29906,
+        20073, 29985, 29906,  7690, 29938,    13]), 'labels': tensor([ -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  6374,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  6374,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  6374,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  6374,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  6374,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         6374,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  6374,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  6374,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  6374,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  6374,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  6374,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  6374,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  6374,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100, 21104,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100, 21104,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100, 21104,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100, 21104,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+        21104,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100, 21104,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100, 21104,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,  -100,
+         -100,  -100,  -100,  -100,  -100,  8178])}.
+09/03/2023 23:40:59 - INFO - accelerate.accelerator - Since you passed both train and evaluation dataloader, `is_train_batch_min` (here True will decide the `train_batch_size` (2).
+09/03/2023 23:40:59 - INFO - accelerate.accelerator - Updating DeepSpeed's gradient accumulation steps to 16 from 1.
+[2023-09-03 23:40:59,216] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.10.0, git-hash=unknown, git-branch=unknown
+09/03/2023 23:40:59 - INFO - torch.distributed.distributed_c10d - Added key: store_based_barrier_key:2 to store for rank: 0
+09/03/2023 23:40:59 - INFO - torch.distributed.distributed_c10d - Rank 0: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+09/03/2023 23:40:59 - INFO - torch.distributed.distributed_c10d - Rank 1: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+09/03/2023 23:40:59 - INFO - torch.distributed.distributed_c10d - Rank 3: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+09/03/2023 23:40:59 - INFO - torch.distributed.distributed_c10d - Rank 2: Completed store-based barrier for key:store_based_barrier_key:2 with 4 nodes.
+[2023-09-03 23:40:59,914] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2023-09-03 23:40:59,916] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the client Optimizer
+[2023-09-03 23:40:59,916] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2023-09-03 23:40:59,930] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2023-09-03 23:40:59,931] [INFO] [utils.py:54:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2023-09-03 23:40:59,931] [INFO] [logging.py:96:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+[2023-09-03 23:40:59,931] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 3 optimizer
+[2023-09-03 23:41:00,081] [INFO] [utils.py:785:see_memory_usage] Stage 3 initialize beginning
+[2023-09-03 23:41:00,081] [INFO] [utils.py:786:see_memory_usage] MA 6.75 GB         Max_MA 7.45 GB         CA 9.25 GB         Max_CA 9 GB 
+[2023-09-03 23:41:00,081] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 119.7 GB, percent = 11.9%
+[2023-09-03 23:41:00,083] [INFO] [stage3.py:117:__init__] Reduce bucket size 26214400
+[2023-09-03 23:41:00,083] [INFO] [stage3.py:118:__init__] Prefetch bucket size 23592960
+[2023-09-03 23:41:00,195] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2023-09-03 23:41:00,195] [INFO] [utils.py:786:see_memory_usage] MA 6.75 GB         Max_MA 6.75 GB         CA 9.25 GB         Max_CA 9 GB 
+[2023-09-03 23:41:00,195] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 119.71 GB, percent = 11.9%
+Parameter Offload: Total persistent parameters: 414720 in 81 params
+[2023-09-03 23:41:00,333] [INFO] [utils.py:785:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2023-09-03 23:41:00,334] [INFO] [utils.py:786:see_memory_usage] MA 6.29 GB         Max_MA 6.83 GB         CA 9.25 GB         Max_CA 9 GB 
+[2023-09-03 23:41:00,334] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 119.7 GB, percent = 11.9%
+[2023-09-03 23:41:00,453] [INFO] [utils.py:785:see_memory_usage] Before creating fp16 partitions
+[2023-09-03 23:41:00,454] [INFO] [utils.py:786:see_memory_usage] MA 6.29 GB         Max_MA 6.29 GB         CA 9.25 GB         Max_CA 9 GB 
+[2023-09-03 23:41:00,454] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 119.7 GB, percent = 11.9%
+[2023-09-03 23:41:04,715] [INFO] [utils.py:785:see_memory_usage] After creating fp16 partitions: 4
+[2023-09-03 23:41:04,716] [INFO] [utils.py:786:see_memory_usage] MA 6.29 GB         Max_MA 6.29 GB         CA 6.89 GB         Max_CA 9 GB 
+[2023-09-03 23:41:04,716] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 138.05 GB, percent = 13.7%
+[2023-09-03 23:41:04,849] [INFO] [utils.py:785:see_memory_usage] Before creating fp32 partitions
+[2023-09-03 23:41:04,850] [INFO] [utils.py:786:see_memory_usage] MA 6.29 GB         Max_MA 6.29 GB         CA 6.89 GB         Max_CA 7 GB 
+[2023-09-03 23:41:04,850] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 137.89 GB, percent = 13.7%
+[2023-09-03 23:41:05,031] [INFO] [utils.py:785:see_memory_usage] After creating fp32 partitions
+[2023-09-03 23:41:05,032] [INFO] [utils.py:786:see_memory_usage] MA 18.42 GB         Max_MA 19.43 GB         CA 21.9 GB         Max_CA 22 GB 
+[2023-09-03 23:41:05,032] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 136.64 GB, percent = 13.6%
+[2023-09-03 23:41:05,764] [INFO] [utils.py:785:see_memory_usage] Before initializing optimizer states
+[2023-09-03 23:41:05,765] [INFO] [utils.py:786:see_memory_usage] MA 18.42 GB         Max_MA 18.42 GB         CA 21.9 GB         Max_CA 22 GB 
+[2023-09-03 23:41:05,765] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 119.69 GB, percent = 11.9%
+[2023-09-03 23:41:05,945] [INFO] [utils.py:785:see_memory_usage] After initializing optimizer states
+[2023-09-03 23:41:05,946] [INFO] [utils.py:786:see_memory_usage] MA 42.66 GB         Max_MA 52.24 GB         CA 63.22 GB         Max_CA 63 GB 
+[2023-09-03 23:41:05,946] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 119.7 GB, percent = 11.9%
+[2023-09-03 23:41:05,974] [INFO] [stage3.py:424:_setup_for_real_optimizer] optimizer state initialized
+[2023-09-03 23:41:06,250] [INFO] [utils.py:785:see_memory_usage] After initializing ZeRO optimizer
+[2023-09-03 23:41:06,251] [INFO] [utils.py:786:see_memory_usage] MA 48.77 GB         Max_MA 49.38 GB         CA 70.12 GB         Max_CA 70 GB 
+[2023-09-03 23:41:06,251] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 119.71 GB, percent = 11.9%
+[2023-09-03 23:41:06,251] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2023-09-03 23:41:06,251] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2023-09-03 23:41:06,251] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2023-09-03 23:41:06,251] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0], mom=[(0.9, 0.999)]
+[2023-09-03 23:41:06,252] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
+[2023-09-03 23:41:06,252] [INFO] [config.py:964:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2023-09-03 23:41:06,252] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2023-09-03 23:41:06,252] [INFO] [config.py:964:print]   amp_enabled .................. False
+[2023-09-03 23:41:06,252] [INFO] [config.py:964:print]   amp_params ................... False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   bfloat16_enabled ............. True
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7f34c80b4580>
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   communication_data_type ...... None
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   disable_allgather ............ False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   dump_state ................... False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... None
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   elasticity_enabled ........... False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   fp16_auto_cast ............... None
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   fp16_enabled ................. False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   global_rank .................. 0
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 16
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   gradient_clipping ............ 1.0
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 1
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   loss_scale ................... 1.0
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   memory_breakdown ............. False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   mics_shard_size .............. -1
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   optimizer_name ............... None
+[2023-09-03 23:41:06,253] [INFO] [config.py:964:print]   optimizer_params ............. None
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   pld_enabled .................. False
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   pld_params ................... False
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   prescale_gradients ........... False
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   scheduler_name ............... None
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   scheduler_params ............. None
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   sparse_attention ............. None
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   steps_per_print .............. inf
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   train_batch_size ............. 128
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  2
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   use_node_local_storage ....... False
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   world_size ................... 4
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  True
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=26214400 allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=None sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=23592960 param_persistence_threshold=51200 model_persistence_threshold=sys.maxsize max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=True stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   zero_enabled ................. True
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
+[2023-09-03 23:41:06,254] [INFO] [config.py:964:print]   zero_optimization_stage ...... 3
+[2023-09-03 23:41:06,254] [INFO] [config.py:950:print_user_config]   json = {
+    "bf16": {
+        "enabled": true
+    }, 
+    "zero_optimization": {
+        "stage": 3, 
+        "overlap_comm": true, 
+        "contiguous_gradients": true, 
+        "sub_group_size": 1.000000e+09, 
+        "reduce_bucket_size": 2.621440e+07, 
+        "stage3_prefetch_bucket_size": 2.359296e+07, 
+        "stage3_param_persistence_threshold": 5.120000e+04, 
+        "stage3_max_live_parameters": 1.000000e+09, 
+        "stage3_max_reuse_distance": 1.000000e+09, 
+        "stage3_gather_16bit_weights_on_model_save": true
+    }, 
+    "gradient_accumulation_steps": 16, 
+    "gradient_clipping": 1.0, 
+    "steps_per_print": inf, 
+    "train_batch_size": 128, 
+    "train_micro_batch_size_per_gpu": 2, 
+    "wall_clock_breakdown": false, 
+    "fp16": {
+        "enabled": false
+    }, 
+    "zero_allow_untested_optimizer": true
+}
+Sun Sep  3 23:41:06 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  Off  | 00000000:12:00.0 Off |                    0 |
+| N/A   43C    P0    87W / 400W |  75791MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  Off  | 00000000:18:00.0 Off |                    0 |
+| N/A   65C    P0   376W / 400W |  78989MiB / 81920MiB |     99%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  Off  | 00000000:4A:00.0 Off |                    0 |
+| N/A   54C    P0   395W / 400W |  77914MiB / 81920MiB |    100%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  Off  | 00000000:4E:00.0 Off |                    0 |
+| N/A   60C    P0   407W / 400W |   9963MiB / 81920MiB |     99%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  Off  | 00000000:8A:00.0 Off |                    0 |
+| N/A   38C    P0    77W / 400W |  74371MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  Off  | 00000000:8F:00.0 Off |                    0 |
+| N/A   38C    P0    74W / 400W |  74781MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  Off  | 00000000:C6:00.0 Off |                    0 |
+| N/A   36C    P0    79W / 400W |  74179MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  Off  | 00000000:CA:00.0 Off |                    0 |
+| N/A   38C    P0    90W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    463024      C   python3                           555MiB |
+|    0   N/A  N/A   1519640      C   .../open-instruct/bin/python    73769MiB |
+|    0   N/A  N/A   2661157      C   python3                           555MiB |
+|    1   N/A  N/A   1494865      C   python                          78985MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A   2661157      C   python3                         11425MiB |
+|    3   N/A  N/A    463024      C   python3                          9961MiB |
+|    4   N/A  N/A   1519641      C   .../open-instruct/bin/python    74369MiB |
+|    5   N/A  N/A   1519642      C   .../open-instruct/bin/python    74779MiB |
+|    6   N/A  N/A   1519643      C   .../open-instruct/bin/python    74543MiB |
+|    7   N/A  N/A   1004856      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+wandb: W&B API key is configured. Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: Tracking run with wandb version 0.15.9
+wandb: Run data is saved locally in /data/users/zhangjunlei/tyx/wandb/wandb/run-20230903_234119-w2g0uy3p
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run llama2-13b-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16-2023-09-03-3
+wandb: ⭐️ View project at https://wandb.ai/kidrain61/step-reward
+wandb: 🚀 View run at https://wandb.ai/kidrain61/step-reward/runs/w2g0uy3p
+09/03/2023 23:41:35 - INFO - __main__ - ***** Running training *****
+09/03/2023 23:41:35 - INFO - __main__ -   Num examples = 85194
+09/03/2023 23:41:35 - INFO - __main__ -   Num Epochs = 100
+09/03/2023 23:41:35 - INFO - __main__ -   Instantaneous batch size per device = 2
+09/03/2023 23:41:35 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 128
+09/03/2023 23:41:35 - INFO - __main__ -   Gradient Accumulation steps = 16
+09/03/2023 23:41:35 - INFO - __main__ -   Total optimization steps = 66600
+09/03/2023 23:41:35 - INFO - __main__ - ***** Running Validation *****
+Evaluating:   0%|          | 0/228 [00:00<?, ?it/s]step: 0
+inputs = {'input_ids': tensor([[    1,   960,   395,  ..., 32000, 32000, 32000],
+        [    1, 10987,   278,  ..., 32000, 32000, 32000],
+        [    1,  5011,   756,  ..., 32000, 32000, 32000],
+        ...,
+        [    1,   450, 10159,  ..., 29918, 29926,   448],
+        [    1,   319,  4402,  ..., 32000, 32000, 32000],
+        [    1,   450,   740,  ..., 32000, 32000, 32000]], device='cuda:0'), 'labels': tensor([[-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        ...,
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100]], device='cuda:0'), 'attention_mask': tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 1, 1, 1],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]], device='cuda:0')}
+logits = tensor([[[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-8.0625e+00, -8.3750e+00,  1.6484e+00,  ..., -2.9531e+00,
+          -3.5312e+00,  2.5938e+00],
+         [-8.6250e+00, -8.8750e+00,  7.6294e-03,  ..., -4.1250e+00,
+          -3.5156e+00, -1.7422e+00],
+         ...,
+         [-2.7969e+00, -5.9062e+00,  3.5000e+00,  ..., -2.8281e+00,
+          -1.8047e+00,  3.6719e-01],
+         [-2.7031e+00, -5.8750e+00,  3.3750e+00,  ..., -3.0156e+00,
+          -1.7188e+00,  3.7695e-01],
+         [-2.7188e+00, -5.8125e+00,  3.4375e+00,  ..., -2.8281e+00,
+          -1.8203e+00,  2.7930e-01]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-7.4062e+00, -7.3750e+00,  1.9297e+00,  ..., -1.9375e+00,
+          -3.7344e+00,  1.3984e+00],
+         [-7.1875e+00, -6.9062e+00,  1.2969e+00,  ..., -1.6953e+00,
+          -3.4062e+00,  1.5137e-01],
+         ...,
+         [-6.4062e+00, -8.8125e+00,  3.8594e+00,  ..., -5.4062e+00,
+          -2.2656e+00,  1.7812e+00],
+         [-6.4375e+00, -8.7500e+00,  3.8750e+00,  ..., -5.3125e+00,
+          -2.2969e+00,  1.8828e+00],
+         [-6.4375e+00, -8.8125e+00,  3.9219e+00,  ..., -5.3438e+00,
+          -2.2656e+00,  1.8125e+00]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-9.1250e+00, -1.0250e+01,  2.5156e+00,  ..., -5.7188e+00,
+          -3.7969e+00,  1.0938e+00],
+         [-8.2500e+00, -9.2500e+00,  2.6562e+00,  ..., -3.9531e+00,
+          -2.9531e+00,  3.1719e+00],
+         ...,
+         [-6.2812e+00, -8.8125e+00,  3.5000e+00,  ..., -5.1562e+00,
+          -2.4062e+00,  2.2500e+00],
+         [-6.2500e+00, -8.8750e+00,  3.5625e+00,  ..., -5.0938e+00,
+          -2.3750e+00,  2.3906e+00],
+         [-6.2812e+00, -8.8750e+00,  3.5625e+00,  ..., -5.0938e+00,
+          -2.3594e+00,  2.3438e+00]],
+
+        ...,
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-8.1250e+00, -8.0625e+00,  8.8281e-01,  ..., -3.0312e+00,
+          -3.9219e+00,  1.8984e+00],
+         [-8.8125e+00, -1.0062e+01,  3.5469e+00,  ..., -5.4375e+00,
+          -3.3438e+00,  1.1875e+00],
+         ...,
+         [-6.9062e+00, -8.2500e+00,  1.8203e+00,  ..., -4.5625e+00,
+          -2.1094e+00,  4.9805e-01],
+         [-6.7500e+00, -9.6875e+00,  2.3594e+00,  ..., -1.9766e+00,
+          -2.5156e+00,  2.4707e-01],
+         [-9.8125e+00, -1.2312e+01,  5.6875e+00,  ..., -5.0625e+00,
+          -6.2812e+00,  7.2656e-01]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-7.3750e+00, -7.3125e+00,  8.3984e-01,  ..., -3.1406e+00,
+          -3.6875e+00,  1.3984e+00],
+         [-7.0938e+00, -6.9375e+00,  1.7266e+00,  ..., -2.9688e+00,
+          -4.4375e+00,  3.6406e+00],
+         ...,
+         [-5.7188e+00, -8.5000e+00,  3.8906e+00,  ..., -4.8438e+00,
+          -2.4688e+00,  2.1875e+00],
+         [-5.7188e+00, -8.5000e+00,  3.9531e+00,  ..., -4.5000e+00,
+          -2.4531e+00,  2.1406e+00],
+         [-5.7500e+00, -8.5000e+00,  3.9062e+00,  ..., -4.6562e+00,
+          -2.4375e+00,  2.1562e+00]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-8.1250e+00, -8.0625e+00,  8.8281e-01,  ..., -3.0312e+00,
+          -3.9219e+00,  1.8984e+00],
+         [-8.2500e+00, -8.4375e+00,  1.8203e+00,  ..., -5.7812e+00,
+          -2.9062e+00,  1.7500e+00],
+         ...,
+         [-6.0000e+00, -8.3125e+00,  3.7500e+00,  ..., -4.7500e+00,
+          -2.7344e+00,  2.2656e+00],
+         [-5.9062e+00, -8.1875e+00,  3.7812e+00,  ..., -4.5312e+00,
+          -2.7188e+00,  2.2500e+00],
+         [-5.9688e+00, -8.2500e+00,  3.7500e+00,  ..., -4.5625e+00,
+          -2.7031e+00,  2.2344e+00]]], device='cuda:0')
+step: 1
+Evaluating:   1%|          | 2/228 [00:09<18:00,  4.78s/it]inputs = {'input_ids': tensor([[    1,   512,   278,  ..., 32000, 32000, 32000],
+        [    1,   306,   285,  ..., 32000, 32000, 32000],
+        [    1, 12142,   393,  ..., 32000, 32000, 32000],
+        ...,
+        [    1, 10987,   278,  ..., 32000, 32000, 32000],
+        [    1,  2259,   756,  ..., 32000, 32000, 32000],
+        [    1,  1932,   278,  ..., 32000, 32000, 32000]], device='cuda:0'), 'labels': tensor([[-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        ...,
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100]], device='cuda:0'), 'attention_mask': tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]], device='cuda:0')}
+logits = tensor([[[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.1875,  -7.1875,   1.5391,  ...,  -4.6875,  -3.4531,   2.2344],
+         [ -7.5000,  -7.7188,   1.2969,  ...,  -4.2188,  -1.3359,   2.1250],
+         ...,
+         [ -5.8750,  -8.2500,   3.3594,  ...,  -4.4688,  -2.4375,   2.1562],
+         [ -5.8125,  -8.1875,   3.3750,  ...,  -4.2500,  -2.4219,   2.1250],
+         [ -5.8438,  -8.2500,   3.4062,  ...,  -4.3125,  -2.3906,   2.1250]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.4375,  -9.8125,   2.5156,  ...,  -3.5625,  -3.5469,   2.0469],
+         [ -7.4062,  -8.7500,   2.2188,  ...,  -2.8438,  -2.5469,   2.8281],
+         ...,
+         [ -5.8438,  -8.5625,   3.6094,  ...,  -4.6250,  -2.4062,   2.2656],
+         [ -5.7500,  -8.3750,   3.5625,  ...,  -4.4375,  -2.3125,   2.2656],
+         [ -5.7812,  -8.4375,   3.5469,  ...,  -4.5000,  -2.3125,   2.2344]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.9062, -10.5000,   3.5781,  ...,  -4.3750,  -3.1094,   1.9766],
+         [ -9.1875, -11.0625,   3.1094,  ...,  -4.7188,  -2.7656,   0.9336],
+         ...,
+         [ -5.4375,  -8.1250,   3.9531,  ...,  -4.5000,  -2.4531,   2.1562],
+         [ -5.3750,  -8.1250,   4.0000,  ...,  -4.2500,  -2.4062,   2.0469],
+         [ -5.4375,  -8.1875,   4.0312,  ...,  -4.3125,  -2.4062,   2.0625]],
+
+        ...,
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.4062,  -7.3750,   1.9297,  ...,  -1.9375,  -3.7344,   1.3984],
+         [ -7.1875,  -6.9062,   1.2969,  ...,  -1.6953,  -3.4062,   0.1514],
+         ...,
+         [ -0.3496,   7.6562,   1.2031,  ...,  -0.7695,  -0.6523,   0.6758],
+         [ -0.3027,   7.6250,   1.1719,  ...,  -0.7109,  -0.6094,   0.6602],
+         [ -0.3184,   7.5938,   1.1797,  ...,  -0.7266,  -0.6211,   0.6562]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -9.5000, -10.9375,   3.4062,  ...,  -4.3125,  -4.8750,   3.5781],
+         [ -8.1875,  -9.1250,   2.6875,  ...,  -4.0312,  -2.9062,   3.3125],
+         ...,
+         [ -6.2812,  -9.3750,   3.5000,  ...,  -5.2812,  -2.6562,   2.2812],
+         [ -6.2500,  -9.2500,   3.4531,  ...,  -5.2188,  -2.6094,   2.3750],
+         [ -6.2812,  -9.3125,   3.4531,  ...,  -5.1875,  -2.6250,   2.2812]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.5312,  -8.2500,   1.5547,  ...,  -3.9844,  -3.4844,   1.9453],
+         [ -7.5312,  -7.8125,   0.9102,  ...,  -3.7031,  -4.3125,   1.1562],
+         ...,
+         [ -5.9688,  -8.4375,   4.2812,  ...,  -5.0312,  -2.6719,   2.5000],
+         [ -5.8750,  -8.3125,   4.2188,  ...,  -4.7812,  -2.6250,   2.4531],
+         [ -5.9062,  -8.3750,   4.2500,  ...,  -4.8438,  -2.6250,   2.4531]]],
+       device='cuda:0')
+step: 2
+Evaluating:   1%|▏         | 3/228 [00:20<27:11,  7.25s/it]inputs = {'input_ids': tensor([[    1, 10987,   278,  ..., 32000, 32000, 32000],
+        [    1,   382,  4387,  ..., 32000, 32000, 32000],
+        [    1, 10987,   278,  ...,  8401,   278,  4958],
+        ...,
+        [    1, 10987,   278,  ..., 32000, 32000, 32000],
+        [    1,   960,  2211,  ..., 32000, 32000, 32000],
+        [    1,  1551, 27822,  ..., 32000, 32000, 32000]], device='cuda:0'), 'labels': tensor([[-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        ...,
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100]], device='cuda:0'), 'attention_mask': tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 1, 1, 1],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]], device='cuda:0')}
+logits = tensor([[[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.4062,  -7.3750,   1.9297,  ...,  -1.9375,  -3.7344,   1.3984],
+         [ -7.1875,  -6.9062,   1.2969,  ...,  -1.6953,  -3.4062,   0.1514],
+         ...,
+         [ -5.3750,  -8.3750,   3.6719,  ...,  -4.5938,  -2.0781,   1.7109],
+         [ -5.2500,  -8.2500,   3.5781,  ...,  -4.3750,  -2.0156,   1.6797],
+         [ -5.2812,  -8.2500,   3.6094,  ...,  -4.4688,  -2.0469,   1.7266]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -6.8125,  -7.0938,   1.7734,  ...,  -4.3750,  -2.0000,  -0.1660],
+         [ -4.7188,  -5.4375,   1.7734,  ...,  -1.3984,  -2.1406,   0.6484],
+         ...,
+         [ -3.6250,  -6.8750,   2.6250,  ...,  -4.8750,  -1.3906,   0.8398],
+         [ -3.6719,  -6.9688,   2.7188,  ...,  -4.8438,  -1.3438,   0.7500],
+         [ -3.6406,  -6.9062,   2.7188,  ...,  -4.8438,  -1.3828,   0.8164]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.4062,  -7.3750,   1.9297,  ...,  -1.9375,  -3.7344,   1.3984],
+         [ -7.1875,  -6.9062,   1.2969,  ...,  -1.6953,  -3.4062,   0.1514],
+         ...,
+         [ -6.7500,  -6.3125,   3.8438,  ...,  -4.9375,  -4.0312,  -0.4277],
+         [ -6.8438,  -6.7500,   2.3125,  ...,  -3.3594,  -1.0625,  -1.6641],
+         [ -6.0000,  -6.2188,   4.6250,  ...,  -5.5312,  -2.3281,  -0.6680]],
+
+        ...,
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.4062,  -7.3750,   1.9297,  ...,  -1.9375,  -3.7344,   1.3984],
+         [ -7.1875,  -6.9062,   1.2969,  ...,  -1.6953,  -3.4062,   0.1514],
+         ...,
+         [ -0.4785,   7.8750,   2.0625,  ...,  -1.7266,  -1.1953,   1.2578],
+         [ -0.4902,   7.8750,   2.0156,  ...,  -1.6719,  -1.1875,   1.2109],
+         [ -0.4883,   7.9062,   2.0312,  ...,  -1.6875,  -1.2031,   1.2266]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.0625,  -8.3750,   1.6484,  ...,  -2.9531,  -3.5312,   2.5938],
+         [ -8.5000,  -9.4375,   2.4688,  ...,  -3.0938,  -4.3125,   1.4844],
+         ...,
+         [  0.1216,   8.7500,   1.1094,  ...,  -0.6055,  -0.5859,   0.7188],
+         [  0.1035,   8.8125,   1.1172,  ...,  -0.6094,  -0.5977,   0.7148],
+         [  0.1055,   8.8125,   1.1016,  ...,  -0.6055,  -0.5938,   0.7070]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.8750,  -8.6250,   1.6953,  ...,  -4.6875,  -3.5312,   2.8125],
+         [ -8.9375, -10.6875,   3.1875,  ...,  -4.4688,  -5.4062,   3.3906],
+         ...,
+         [ -6.7812,  -9.6250,   4.5938,  ...,  -4.4375,  -2.5781,   1.7344],
+         [ -6.8750,  -9.6250,   4.7812,  ...,  -4.5625,  -2.7188,   1.8203],
+         [ -6.8438,  -9.6250,   4.6875,  ...,  -4.4688,  -2.6562,   1.7656]]],
+       device='cuda:0')
+step: 3
+Evaluating:   2%|▏         | 4/228 [00:29<29:37,  7.94s/it]inputs = {'input_ids': tensor([[    1, 11796, 29872,  ..., 32000, 32000, 32000],
+        [    1, 10987,   278,  ..., 32000, 32000, 32000],
+        [    1,  5953,   837,  ..., 32000, 32000, 32000],
+        ...,
+        [    1,  2803,  5539,  ..., 32000, 32000, 32000],
+        [    1,   382,  4387,  ..., 32000, 32000, 32000],
+        [    1,  2803,   395,  ..., 32000, 32000, 32000]], device='cuda:0'), 'labels': tensor([[-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        ...,
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100]], device='cuda:0'), 'attention_mask': tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]], device='cuda:0')}
+logits = tensor([[[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -4.4688,  -7.1875,   2.3438,  ...,   0.4004,  -2.1094,   0.4316],
+         [ -8.3125,  -8.5000,   2.2969,  ...,  -5.1875,  -5.1875,  -0.7344],
+         ...,
+         [ -6.4375,  -9.5625,   4.1875,  ...,  -5.0625,  -2.7344,   2.1250],
+         [ -6.4375,  -9.5000,   4.2500,  ...,  -5.0938,  -2.7188,   2.2344],
+         [ -6.4375,  -9.5625,   4.2188,  ...,  -5.0625,  -2.7344,   2.1719]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.4062,  -7.3750,   1.9297,  ...,  -1.9375,  -3.7344,   1.3984],
+         [ -7.1875,  -6.9062,   1.2969,  ...,  -1.6953,  -3.4062,   0.1514],
+         ...,
+         [ -5.2188,  -9.5625,   3.4062,  ...,  -4.2188,  -2.4844,   1.6484],
+         [ -5.2500,  -9.3750,   3.4531,  ...,  -3.9688,  -2.4688,   1.6641],
+         [ -5.2500,  -9.4375,   3.4062,  ...,  -4.0625,  -2.4688,   1.6641]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -6.0000,  -8.1875,   1.2969,  ...,  -3.3438,  -3.3750,   0.8359],
+         [ -4.0312,  -5.1250,   3.0938,  ...,  -1.1641,  -1.4688,   0.5469],
+         ...,
+         [ -4.3125, -14.1250,   1.2500,  ...,  -2.3125,  -1.2109,   0.1904],
+         [ -6.0312, -14.3125,   1.9766,  ...,  -2.9688,  -0.9922,  -0.2812],
+         [ -5.9375, -14.3750,   1.9219,  ...,  -2.9375,  -1.0078,  -0.2715]],
+
+        ...,
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.2500,  -9.6875,   1.7344,  ...,  -3.0625,  -3.5312,   0.2480],
+         [ -9.1875, -12.0000,   1.3281,  ...,  -3.8281,  -3.0469,  -2.4531],
+         ...,
+         [ -0.7383,   7.1250,   1.7656,  ...,  -1.8672,  -1.1641,   1.1875],
+         [ -0.7031,   7.2188,   1.6953,  ...,  -1.7578,  -1.1094,   1.1562],
+         [ -0.6836,   7.2188,   1.6875,  ...,  -1.7422,  -1.1016,   1.1406]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -6.8125,  -7.0938,   1.7734,  ...,  -4.3750,  -2.0000,  -0.1660],
+         [ -4.7188,  -5.4375,   1.7734,  ...,  -1.3984,  -2.1406,   0.6484],
+         ...,
+         [ -6.1875,  -9.3125,   3.8438,  ...,  -4.9062,  -2.3906,   1.9219],
+         [ -6.2500,  -9.3750,   3.8906,  ...,  -4.8750,  -2.4219,   2.0938],
+         [ -6.2812,  -9.3750,   3.9062,  ...,  -4.8750,  -2.4219,   2.0156]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.2500,  -9.6875,   1.7344,  ...,  -3.0625,  -3.5312,   0.2480],
+         [ -9.4375, -10.6250,  -0.0422,  ...,  -5.0000,  -3.8750,  -2.1250],
+         ...,
+         [ -4.3750, -15.8750,   1.1094,  ...,  -2.7031,  -1.8594,   0.3711],
+         [ -4.2500, -15.6250,   1.0547,  ...,  -2.6094,  -1.7578,   0.3535],
+         [ -4.2812, -15.7500,   1.0859,  ...,  -2.6250,  -1.7734,   0.3691]]],
+       device='cuda:0')
+step: 4
+Evaluating:   2%|▏         | 5/228 [00:38<31:08,  8.38s/it]inputs = {'input_ids': tensor([[    1,   512,   278,  ..., 32000, 32000, 32000],
+        [    1,  2803,   395,  ..., 32000, 32000, 32000],
+        [    1,  9937,  6860,  ..., 32000, 32000, 32000],
+        ...,
+        [    1, 10987,   278,  ..., 32000, 32000, 32000],
+        [    1,  1670,  1863,  ..., 32000, 32000, 32000],
+        [    1,   382,  4387,  ..., 32000, 32000, 32000]], device='cuda:0'), 'labels': tensor([[-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        ...,
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100]], device='cuda:0'), 'attention_mask': tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]], device='cuda:0')}
+logits = tensor([[[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.1875,  -7.1875,   1.5391,  ...,  -4.6875,  -3.4531,   2.2344],
+         [ -7.5000,  -7.7188,   1.2969,  ...,  -4.2188,  -1.3359,   2.1250],
+         ...,
+         [ -2.8750,  -5.2188,   3.3281,  ...,  -3.0000,  -1.8672,   0.3242],
+         [ -2.7344,  -5.0938,   3.2969,  ...,  -3.2656,  -1.7109,   0.3086],
+         [ -2.7500,  -5.0625,   3.3281,  ...,  -3.1250,  -1.8281,   0.1943]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.2500,  -9.6875,   1.7344,  ...,  -3.0625,  -3.5312,   0.2480],
+         [ -9.4375, -10.6250,  -0.0422,  ...,  -5.0000,  -3.8750,  -2.1250],
+         ...,
+         [ -4.2500, -15.6875,   1.2031,  ...,  -2.3906,  -1.5078,   0.4336],
+         [ -4.1250, -15.3125,   1.1484,  ...,  -2.2812,  -1.3906,   0.3750],
+         [ -4.1250, -15.1875,   1.1406,  ...,  -2.2500,  -1.3828,   0.3691]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.8750,  -9.2500,   3.2500,  ...,  -3.8594,  -3.9062,   2.1406],
+         [ -7.6562, -10.2500,   4.6562,  ...,  -4.3438,  -2.8594,   1.7969],
+         ...,
+         [ -5.8750,  -8.6250,   4.2188,  ...,  -5.4375,  -2.8281,   2.3594],
+         [ -5.8438,  -8.6250,   4.1875,  ...,  -5.1250,  -2.8281,   2.3438],
+         [ -5.8750,  -8.5625,   4.1875,  ...,  -5.2812,  -2.8125,   2.3594]],
+
+        ...,
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.4062,  -7.3750,   1.9297,  ...,  -1.9375,  -3.7344,   1.3984],
+         [ -7.1875,  -6.9062,   1.2969,  ...,  -1.6953,  -3.4062,   0.1514],
+         ...,
+         [ -1.0938,   5.8750,   1.6953,  ...,  -1.9609,  -1.6406,   1.0859],
+         [ -1.0391,   5.9375,   1.7031,  ...,  -1.9219,  -1.5547,   1.0703],
+         [ -1.0312,   6.0000,   1.7031,  ...,  -1.9141,  -1.5469,   1.0781]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.1250, -10.5000,   4.6250,  ...,  -4.8125,  -4.5625,   2.5000],
+         [ -8.1875,  -9.5000,   3.3594,  ...,  -4.5625,  -3.9375,   2.6719],
+         ...,
+         [ -7.8750, -11.1250,   6.2812,  ...,  -4.5625,  -3.0781,   2.3594],
+         [ -7.7188, -11.1250,   5.9062,  ...,  -4.8125,  -3.2188,   2.1094],
+         [ -7.7188, -11.0000,   5.8125,  ...,  -4.6875,  -3.1562,   2.1094]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -6.8125,  -7.0938,   1.7734,  ...,  -4.3750,  -2.0000,  -0.1660],
+         [ -4.7188,  -5.4375,   1.7734,  ...,  -1.3984,  -2.1406,   0.6484],
+         ...,
+         [ -5.1875, -11.2500,   3.5781,  ...,  -5.0000,  -3.0469,   0.6836],
+         [ -5.0312, -11.3750,   3.4375,  ...,  -4.8438,  -2.9531,   0.6250],
+         [ -4.9375, -11.5000,   3.3281,  ...,  -4.7188,  -2.8750,   0.5898]]],
+       device='cuda:0')
+step: 5
+Evaluating:   3%|▎         | 6/228 [00:47<32:10,  8.69s/it]inputs = {'input_ids': tensor([[    1, 10987,   278,  ..., 32000, 32000, 32000],
+        [    1,  1128,  1784,  ..., 32000, 32000, 32000],
+        [    1,   319,  1353,  ..., 32000, 32000, 32000],
+        ...,
+        [    1, 12753,  1855,  ..., 32000, 32000, 32000],
+        [    1, 10987,   278,  ..., 32000, 32000, 32000],
+        [    1,  1128,  1784,  ..., 32000, 32000, 32000]], device='cuda:0'), 'labels': tensor([[-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        ...,
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100]], device='cuda:0'), 'attention_mask': tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]], device='cuda:0')}
+logits = tensor([[[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.4062,  -7.3750,   1.9297,  ...,  -1.9375,  -3.7344,   1.3984],
+         [ -7.1875,  -6.9062,   1.2969,  ...,  -1.6953,  -3.4062,   0.1514],
+         ...,
+         [ -2.4531,  -8.5625,   4.3750,  ...,  -2.4531,  -1.1719,   1.2188],
+         [ -2.3438,  -8.3125,   4.4375,  ...,  -2.4219,  -1.1250,   1.2422],
+         [ -2.3750,  -8.3125,   4.3750,  ...,  -2.4219,  -1.1484,   1.2109]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.9375,  -8.1875,   1.8438,  ...,  -3.0156,  -4.3125,   1.5078],
+         [ -7.4375,  -8.1250,   1.5234,  ...,  -2.9375,  -3.6406,   1.9922],
+         ...,
+         [ -5.8438,  -8.3125,   4.0000,  ...,  -5.1875,  -2.3438,   2.3594],
+         [ -5.7812,  -8.2500,   3.9375,  ...,  -5.0000,  -2.3281,   2.4062],
+         [ -5.8438,  -8.3125,   3.9844,  ...,  -5.0312,  -2.3125,   2.3906]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.3750,  -7.3125,   0.8398,  ...,  -3.1406,  -3.6875,   1.3984],
+         [ -7.7188, -10.0625,   4.5000,  ...,  -2.3594,  -4.3125,   2.7344],
+         ...,
+         [ -5.0000, -11.5625,   4.3438,  ...,  -5.5000,  -3.0781,   0.6719],
+         [ -5.1562, -10.6875,   4.5312,  ...,  -5.7812,  -3.2969,   0.8242],
+         [ -5.1250, -11.0000,   4.4688,  ...,  -5.7188,  -3.2812,   0.7773]],
+
+        ...,
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.3750,  -9.3125,   1.9219,  ...,  -2.8438,  -3.8438,   1.5859],
+         [ -8.0625,  -9.1250,   2.5000,  ...,  -2.7812,  -4.7812,   0.8086],
+         ...,
+         [ -6.5625,  -9.3125,   3.5000,  ...,  -5.0938,  -2.3594,   1.9688],
+         [ -6.5938,  -9.1875,   3.5625,  ...,  -5.0938,  -2.3125,   2.0312],
+         [ -6.5938,  -9.2500,   3.5781,  ...,  -5.1250,  -2.2812,   1.9922]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.4062,  -7.3750,   1.9297,  ...,  -1.9375,  -3.7344,   1.3984],
+         [ -7.1875,  -6.9062,   1.2969,  ...,  -1.6953,  -3.4062,   0.1514],
+         ...,
+         [ -4.1250, -12.0000,   3.0469,  ...,  -3.6562,  -2.5781,   0.2578],
+         [ -4.1250, -11.4375,   3.1250,  ...,  -3.8281,  -2.6719,   0.2441],
+         [ -4.1562, -11.6250,   3.0781,  ...,  -3.7656,  -2.6562,   0.2266]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.9375,  -8.1875,   1.8438,  ...,  -3.0156,  -4.3125,   1.5078],
+         [ -7.4375,  -8.1250,   1.5234,  ...,  -2.9375,  -3.6406,   1.9922],
+         ...,
+         [ -5.5000,  -8.9375,   4.2188,  ...,  -5.1875,  -2.1406,   1.9062],
+         [ -5.4375,  -8.8125,   4.3125,  ...,  -4.8750,  -2.1406,   1.7891],
+         [ -5.4688,  -8.8125,   4.2812,  ...,  -5.0312,  -2.1562,   1.8594]]],
+       device='cuda:0')
+step: 6
+Evaluating:   3%|▎         | 7/228 [00:57<32:55,  8.94s/it]inputs = {'input_ids': tensor([[    1,   960,   395,  ..., 29905, 28871, 29871],
+        [    1,  1724,   338,  ..., 32000, 32000, 32000],
+        [    1, 11796, 29872,  ..., 32000, 32000, 32000],
+        ...,
+        [    1,  2803,  2427,  ..., 32000, 32000, 32000],
+        [    1, 10987,   278,  ..., 32000, 32000, 32000],
+        [    1, 10987,   278,  ..., 32000, 32000, 32000]], device='cuda:0'), 'labels': tensor([[-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        ...,
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100]], device='cuda:0'), 'attention_mask': tensor([[1, 1, 1,  ..., 1, 1, 1],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]], device='cuda:0')}
+logits = tensor([[[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-8.0625e+00, -8.3750e+00,  1.6484e+00,  ..., -2.9531e+00,
+          -3.5312e+00,  2.5938e+00],
+         [-8.6250e+00, -8.8750e+00,  7.6294e-03,  ..., -4.1250e+00,
+          -3.5156e+00, -1.7422e+00],
+         ...,
+         [-2.0625e+00, -1.7812e+00,  3.7656e+00,  ..., -4.4531e-01,
+          -1.9141e+00, -2.5391e-01],
+         [-8.0625e+00, -1.1188e+01,  6.1250e+00,  ..., -3.9375e+00,
+          -2.0156e+00, -3.7500e-01],
+         [-5.5000e+00, -8.3125e+00,  8.0625e+00,  ..., -3.5000e+00,
+          -1.3984e+00,  7.9688e-01]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-8.3750e+00, -9.8750e+00,  2.4219e+00,  ..., -3.8594e+00,
+          -5.3750e+00,  9.9609e-01],
+         [-7.6562e+00, -6.1250e+00,  6.9141e-01,  ..., -3.1719e+00,
+          -3.0625e+00,  2.4688e+00],
+         ...,
+         [-7.3125e+00, -1.0625e+01,  3.2188e+00,  ..., -4.3750e+00,
+          -3.9219e+00,  1.9766e+00],
+         [-7.1875e+00, -1.0562e+01,  3.2500e+00,  ..., -4.3125e+00,
+          -3.9062e+00,  2.0312e+00],
+         [-7.2188e+00, -1.0562e+01,  3.1719e+00,  ..., -4.2188e+00,
+          -3.9375e+00,  2.0000e+00]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-4.4688e+00, -7.1875e+00,  2.3438e+00,  ...,  4.0039e-01,
+          -2.1094e+00,  4.3164e-01],
+         [-8.3125e+00, -8.5000e+00,  2.2969e+00,  ..., -5.1875e+00,
+          -5.1875e+00, -7.3438e-01],
+         ...,
+         [-4.2812e+00, -1.5625e+01,  1.0938e+00,  ..., -2.4219e+00,
+          -1.5625e+00,  5.0781e-01],
+         [-4.2500e+00, -1.4688e+01,  1.1484e+00,  ..., -2.3906e+00,
+          -1.4219e+00,  3.2227e-01],
+         [-4.3125e+00, -1.4938e+01,  1.1641e+00,  ..., -2.4219e+00,
+          -1.4609e+00,  3.6328e-01]],
+
+        ...,
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-8.2500e+00, -9.6875e+00,  1.7344e+00,  ..., -3.0625e+00,
+          -3.5312e+00,  2.4805e-01],
+         [-8.8125e+00, -1.1125e+01,  4.5898e-01,  ..., -3.5625e+00,
+          -3.4375e+00, -1.0078e+00],
+         ...,
+         [-5.9375e-01,  7.5312e+00,  1.6172e+00,  ..., -1.6094e+00,
+          -1.0859e+00,  6.9922e-01],
+         [-5.6641e-01,  7.5938e+00,  1.5859e+00,  ..., -1.5469e+00,
+          -1.0625e+00,  6.8359e-01],
+         [-5.7031e-01,  7.5625e+00,  1.5859e+00,  ..., -1.5547e+00,
+          -1.0625e+00,  6.8359e-01]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-7.4062e+00, -7.3750e+00,  1.9297e+00,  ..., -1.9375e+00,
+          -3.7344e+00,  1.3984e+00],
+         [-7.1875e+00, -6.9062e+00,  1.2969e+00,  ..., -1.6953e+00,
+          -3.4062e+00,  1.5137e-01],
+         ...,
+         [-4.1562e+00, -1.2562e+01,  2.8125e+00,  ..., -3.9688e+00,
+          -2.2656e+00,  4.2578e-01],
+         [-4.1875e+00, -1.2562e+01,  2.8438e+00,  ..., -4.0000e+00,
+          -2.2656e+00,  4.2578e-01],
+         [-4.1562e+00, -1.2562e+01,  2.8281e+00,  ..., -4.0000e+00,
+          -2.2500e+00,  4.1797e-01]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-7.4062e+00, -7.3750e+00,  1.9297e+00,  ..., -1.9375e+00,
+          -3.7344e+00,  1.3984e+00],
+         [-7.1875e+00, -6.9062e+00,  1.2969e+00,  ..., -1.6953e+00,
+          -3.4062e+00,  1.5137e-01],
+         ...,
+         [-4.1562e+00, -1.2562e+01,  2.8125e+00,  ..., -3.9688e+00,
+          -2.2656e+00,  4.2578e-01],
+         [-4.1875e+00, -1.2562e+01,  2.8438e+00,  ..., -4.0000e+00,
+          -2.2656e+00,  4.2578e-01],
+         [-4.1562e+00, -1.2562e+01,  2.8281e+00,  ..., -4.0000e+00,
+          -2.2500e+00,  4.1797e-01]]], device='cuda:0')
+step: 7
+Evaluating:   4%|▎         | 8/228 [01:06<33:00,  9.00s/it]inputs = {'input_ids': tensor([[    1,  2803,   395,  ..., 32000, 32000, 32000],
+        [    1,  2803,   779,  ..., 32000, 32000, 32000],
+        [    1,  2803,   779,  ..., 32000, 32000, 32000],
+        ...,
+        [    1,  2803,   395,  ..., 32000, 32000, 32000],
+        [    1,  2803,   395,  ..., 32000, 32000, 32000],
+        [    1,  4124,  1611,  ..., 32000, 32000, 32000]], device='cuda:0'), 'labels': tensor([[-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        ...,
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100]], device='cuda:0'), 'attention_mask': tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]], device='cuda:0')}
+logits = tensor([[[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.2500,  -9.6875,   1.7344,  ...,  -3.0625,  -3.5312,   0.2480],
+         [ -9.4375, -10.6250,  -0.0422,  ...,  -5.0000,  -3.8750,  -2.1250],
+         ...,
+         [ -2.5000,   2.5469,   3.1094,  ...,  -3.3125,  -2.7656,   1.1562],
+         [ -1.8359,   4.4062,   2.6719,  ...,  -2.7500,  -2.2656,   1.0312],
+         [ -2.0625,   3.9219,   2.8281,  ...,  -2.9219,  -2.4219,   1.0703]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.2500,  -9.6875,   1.7344,  ...,  -3.0625,  -3.5312,   0.2480],
+         [ -5.3438,  -5.3125,  -0.1055,  ...,  -1.9297,  -1.7891,  -1.1250],
+         ...,
+         [ -0.5352,   7.0938,   1.6094,  ...,  -0.9883,  -1.3125,   0.7109],
+         [ -0.5508,   7.0625,   1.6328,  ...,  -1.0156,  -1.3438,   0.7344],
+         [ -0.4766,   7.2812,   1.5625,  ...,  -0.9375,  -1.2500,   0.7148]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.2500,  -9.6875,   1.7344,  ...,  -3.0625,  -3.5312,   0.2480],
+         [ -5.3438,  -5.3125,  -0.1055,  ...,  -1.9297,  -1.7891,  -1.1250],
+         ...,
+         [ -0.5352,   7.0938,   1.6094,  ...,  -0.9883,  -1.3125,   0.7109],
+         [ -0.5508,   7.0625,   1.6328,  ...,  -1.0156,  -1.3438,   0.7344],
+         [ -0.4766,   7.2812,   1.5625,  ...,  -0.9375,  -1.2500,   0.7148]],
+
+        ...,
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.2500,  -9.6875,   1.7344,  ...,  -3.0625,  -3.5312,   0.2480],
+         [ -9.4375, -10.6250,  -0.0422,  ...,  -5.0000,  -3.8750,  -2.1250],
+         ...,
+         [ -4.1875, -13.7500,   2.0312,  ...,  -2.9844,  -1.8203,   0.1079],
+         [ -4.1250, -13.5000,   2.0469,  ...,  -2.9688,  -1.8047,   0.1187],
+         [ -4.1562, -14.0000,   1.8047,  ...,  -2.8750,  -1.7891,   0.1152]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.2500,  -9.6875,   1.7344,  ...,  -3.0625,  -3.5312,   0.2480],
+         [ -9.4375, -10.6250,  -0.0422,  ...,  -5.0000,  -3.8750,  -2.1250],
+         ...,
+         [ -4.1875, -13.7500,   2.0312,  ...,  -2.9844,  -1.8203,   0.1079],
+         [ -4.1250, -13.5000,   2.0469,  ...,  -2.9688,  -1.8047,   0.1187],
+         [ -4.1562, -14.0000,   1.8047,  ...,  -2.8750,  -1.7891,   0.1152]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -5.9062,  -6.1250,   1.8203,  ...,  -4.4688,  -5.2500,   0.3711],
+         [ -8.0000,  -8.3125,   3.1094,  ...,  -5.5312,  -5.3125,   0.2930],
+         ...,
+         [ -6.4375,  -9.6875,   3.7500,  ...,  -3.8750,  -3.8281,   2.3594],
+         [ -6.2188,  -9.2500,   3.8750,  ...,  -3.9531,  -3.7188,   2.1875],
+         [ -6.3438,  -9.4375,   4.0312,  ...,  -4.0000,  -3.7969,   2.2812]]],
+       device='cuda:0')
+step: 8
+Evaluating:   4%|▍         | 9/228 [01:16<33:46,  9.26s/it]inputs = {'input_ids': tensor([[    1,  1724,   338,  ..., 32000, 32000, 32000],
+        [    1,  1152,   920,  ..., 32000, 32000, 32000],
+        [    1,  2803,   395,  ..., 32000, 32000, 32000],
+        ...,
+        [    1,   960,   395,  ..., 32000, 32000, 32000],
+        [    1,  6498, 17096,  ..., 32000, 32000, 32000],
+        [    1,  1724,   338,  ..., 32000, 32000, 32000]], device='cuda:0'), 'labels': tensor([[-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        ...,
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100]], device='cuda:0'), 'attention_mask': tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]], device='cuda:0')}
+logits = tensor([[[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-8.3750e+00, -9.8750e+00,  2.4219e+00,  ..., -3.8594e+00,
+          -5.3750e+00,  9.9609e-01],
+         [-7.6562e+00, -6.1250e+00,  6.9141e-01,  ..., -3.1719e+00,
+          -3.0625e+00,  2.4688e+00],
+         ...,
+         [-4.4062e+00, -1.5938e+01,  1.4844e+00,  ..., -2.6562e+00,
+          -1.5938e+00,  4.6094e-01],
+         [-4.3125e+00, -1.5688e+01,  1.4297e+00,  ..., -2.5156e+00,
+          -1.4375e+00,  4.1211e-01],
+         [-4.3438e+00, -1.5750e+01,  1.4453e+00,  ..., -2.5469e+00,
+          -1.4688e+00,  4.1992e-01]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-7.6250e+00, -8.1250e+00,  1.6250e+00,  ..., -2.8906e+00,
+          -2.8438e+00,  1.9375e+00],
+         [-7.5938e+00, -9.0000e+00,  3.0000e+00,  ..., -3.4219e+00,
+          -4.6250e+00,  1.9766e+00],
+         ...,
+         [-4.1562e+00, -1.4438e+01,  1.3672e+00,  ..., -2.8281e+00,
+          -1.8516e+00,  1.6797e-01],
+         [-4.1250e+00, -1.4500e+01,  1.3047e+00,  ..., -2.7812e+00,
+          -1.8047e+00,  1.7871e-01],
+         [-4.1562e+00, -1.4500e+01,  1.3438e+00,  ..., -2.8125e+00,
+          -1.8281e+00,  1.9043e-01]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-8.2500e+00, -9.6875e+00,  1.7344e+00,  ..., -3.0625e+00,
+          -3.5312e+00,  2.4805e-01],
+         [-9.4375e+00, -1.0625e+01, -4.2236e-02,  ..., -5.0000e+00,
+          -3.8750e+00, -2.1250e+00],
+         ...,
+         [-4.4688e+00, -1.2875e+01,  2.1250e+00,  ..., -3.4531e+00,
+          -2.3281e+00,  2.6367e-01],
+         [-4.5312e+00, -1.3312e+01,  2.0312e+00,  ..., -3.3906e+00,
+          -2.3281e+00,  2.1875e-01],
+         [-4.5625e+00, -1.3312e+01,  2.0938e+00,  ..., -3.4219e+00,
+          -2.3281e+00,  2.3340e-01]],
+
+        ...,
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-8.0625e+00, -8.3750e+00,  1.6484e+00,  ..., -2.9531e+00,
+          -3.5312e+00,  2.5938e+00],
+         [-8.6250e+00, -8.8750e+00,  7.6294e-03,  ..., -4.1250e+00,
+          -3.5156e+00, -1.7422e+00],
+         ...,
+         [-4.1875e+00, -1.4875e+01,  1.3281e+00,  ..., -2.9062e+00,
+          -1.9219e+00,  1.7676e-01],
+         [-4.1562e+00, -1.4812e+01,  1.3125e+00,  ..., -2.8906e+00,
+          -1.9062e+00,  1.7773e-01],
+         [-4.1875e+00, -1.4938e+01,  1.2812e+00,  ..., -2.8906e+00,
+          -1.9062e+00,  1.7773e-01]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-8.0625e+00, -9.0625e+00,  4.0625e+00,  ..., -5.6250e+00,
+          -4.1250e+00,  2.4219e+00],
+         [-9.0000e+00, -1.0125e+01,  3.2344e+00,  ..., -4.9375e+00,
+          -3.8125e+00,  2.4531e+00],
+         ...,
+         [-4.4688e+00, -1.6000e+01,  1.2500e+00,  ..., -2.4531e+00,
+          -1.4844e+00,  4.3750e-01],
+         [-4.4062e+00, -1.5125e+01,  1.2422e+00,  ..., -2.4062e+00,
+          -1.3281e+00,  2.9688e-01],
+         [-4.4375e+00, -1.5562e+01,  1.2656e+00,  ..., -2.4219e+00,
+          -1.4141e+00,  3.8672e-01]],
+
+        [[-8.3125e+00, -8.6875e+00,  2.5781e+00,  ..., -3.7969e+00,
+          -3.2812e+00,  2.2168e-01],
+         [-8.3750e+00, -9.8750e+00,  2.4219e+00,  ..., -3.8594e+00,
+          -5.3750e+00,  9.9609e-01],
+         [-7.6562e+00, -6.1250e+00,  6.9141e-01,  ..., -3.1719e+00,
+          -3.0625e+00,  2.4688e+00],
+         ...,
+         [-5.7188e+00, -8.5000e+00,  3.6719e+00,  ..., -4.5312e+00,
+          -2.7656e+00,  2.1875e+00],
+         [-5.6250e+00, -8.3750e+00,  3.6250e+00,  ..., -4.3438e+00,
+          -2.7656e+00,  2.1562e+00],
+         [-5.6562e+00, -8.4375e+00,  3.6094e+00,  ..., -4.4062e+00,
+          -2.7500e+00,  2.1250e+00]]], device='cuda:0')
+step: 9
+Evaluating:   4%|▍         | 10/228 [01:27<35:39,  9.81s/it]inputs = {'input_ids': tensor([[    1,  1724,   338,  ..., 32000, 32000, 32000],
+        [    1,  1724,   338,  ..., 32000, 32000, 32000],
+        [    1,   319,  5844,  ..., 32000, 32000, 32000],
+        ...,
+        [    1,  1724,   338,  ..., 32000, 32000, 32000],
+        [    1,   450,   995,  ..., 32000, 32000, 32000],
+        [    1,  1128,  1784,  ..., 32000, 32000, 32000]], device='cuda:0'), 'labels': tensor([[-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        ...,
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100],
+        [-100, -100, -100,  ..., -100, -100, -100]], device='cuda:0'), 'attention_mask': tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        ...,
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]], device='cuda:0')}
+logits = tensor([[[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.3750,  -9.8750,   2.4219,  ...,  -3.8594,  -5.3750,   0.9961],
+         [ -7.6562,  -6.1250,   0.6914,  ...,  -3.1719,  -3.0625,   2.4688],
+         ...,
+         [ -6.2188,  -9.3750,   4.0938,  ...,  -5.2188,  -2.7344,   2.3906],
+         [ -6.1875,  -9.2500,   4.0312,  ...,  -5.0625,  -2.7812,   2.4844],
+         [ -6.2188,  -9.3125,   4.0000,  ...,  -5.0938,  -2.7812,   2.4062]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.3750,  -9.8750,   2.4219,  ...,  -3.8594,  -5.3750,   0.9961],
+         [ -7.6562,  -6.1250,   0.6914,  ...,  -3.1719,  -3.0625,   2.4688],
+         ...,
+         [ -4.5625, -15.8125,   1.0469,  ...,  -3.0469,  -2.0312,   0.3047],
+         [ -4.5312, -15.8125,   1.0469,  ...,  -3.0000,  -2.0000,   0.2852],
+         [ -4.5312, -15.8125,   1.0312,  ...,  -2.9688,  -1.9688,   0.3066]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.3750,  -7.3125,   0.8398,  ...,  -3.1406,  -3.6875,   1.3984],
+         [ -7.8438,  -9.0625,   1.8672,  ...,  -4.6250,  -3.9062,   1.8281],
+         ...,
+         [ -5.8438, -10.9375,   5.3438,  ...,  -5.9062,  -3.7656,   1.3203],
+         [ -4.8438, -12.0625,   3.9688,  ...,  -4.7188,  -2.9062,   0.8438],
+         [ -4.7188, -12.6250,   3.7031,  ...,  -4.4688,  -2.7656,   0.7148]],
+
+        ...,
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.3750,  -9.8750,   2.4219,  ...,  -3.8594,  -5.3750,   0.9961],
+         [ -7.6562,  -6.1250,   0.6914,  ...,  -3.1719,  -3.0625,   2.4688],
+         ...,
+         [ -6.3125,  -9.0625,   4.0312,  ...,  -5.3438,  -2.0625,   1.8125],
+         [ -6.2500,  -8.9375,   4.0312,  ...,  -5.2188,  -2.0625,   1.9375],
+         [ -6.2188,  -8.9375,   3.9688,  ...,  -5.2188,  -2.0469,   1.8672]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -8.1250,  -8.0625,   0.8828,  ...,  -3.0312,  -3.9219,   1.8984],
+         [ -7.6875,  -8.0625,   1.6719,  ...,  -4.6250,  -2.3125,   1.7031],
+         ...,
+         [ -6.7188,  -9.2500,   4.1250,  ...,  -5.0000,  -2.2969,   1.7734],
+         [ -6.6562,  -9.3125,   4.1875,  ...,  -4.9062,  -2.2031,   1.8984],
+         [ -6.6875,  -9.3125,   4.1562,  ...,  -4.9375,  -2.2344,   1.8516]],
+
+        [[ -8.3125,  -8.6875,   2.5781,  ...,  -3.7969,  -3.2812,   0.2217],
+         [ -7.9375,  -8.1875,   1.8438,  ...,  -3.0156,  -4.3125,   1.5078],
+         [ -7.4375,  -8.1250,   1.5234,  ...,  -2.9375,  -3.6406,   1.9922],
+         ...,
+         [ -8.6875, -14.1875,   5.5625,  ...,  -3.4844,  -3.9375,   1.5234],
+         [ -8.8125, -13.6250,   5.9688,  ...,  -3.6094,  -3.8906,   1.5781],
+         [ -8.9375, -13.6250,   6.0938,  ...,  -3.6719,  -3.9688,   1.7656]]],
+       device='cuda:0')
+Exception in thread Thread-11 (_thread_body):
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/filesync/step_upload.py", line 172, in _thread_body
+    self._handle_event(event)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/filesync/step_upload.py", line 236, in _handle_event
+    self._start_upload_job(event)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/filesync/step_upload.py", line 257, in _start_upload_job
+    self._spawn_upload_sync(event)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/filesync/step_upload.py", line 292, in _spawn_upload_sync
+    self._pool.submit(run_and_notify)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/concurrent/futures/thread.py", line 167, in submit
+    raise RuntimeError('cannot schedule new futures after shutdown')
+RuntimeError: cannot schedule new futures after shutdown

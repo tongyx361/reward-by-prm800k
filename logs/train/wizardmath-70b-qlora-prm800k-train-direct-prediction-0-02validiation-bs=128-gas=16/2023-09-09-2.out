@@ -1,0 +1,155 @@
+nohup: ignoring input
+[2023-09-10 01:19:28,433] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:19:29,570] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2023-09-10 01:19:29,570] [INFO] [runner.py:555:main] cmd = /data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMSwgMywgNCwgNl19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_qlora_flash_attn_2.py --model_name_or_path /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-70B-V1.0/snapshots/e089c3f9d2ad9d1acb62425aec3f4126f498f4c5 --encoded_datasets_path /data/users/zhangjunlei/tyx/reward-by-prm800k/datasets/prm800k-train-direct-prediction-0-02validiation-encoded-datasets --output_dir /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-70b-qlora-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16 --model_max_length 1024 --per_device_train_batch_size 2 --per_device_eval_batch_size 4 --gradient_checkpointing True --gradient_accumulation_steps 16 --num_train_epochs 100 --evaluation_strategy steps --eval_steps 100 --eval_first False --save_strategy steps --save_steps 100 --load_best_model_at_end True --metric_for_best_model f1_-1 --greater_is_better True --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type linear --lora_r 16 --lora_alpha 16 --lora_dropout 0.05 --lora_target_modules all_linear --q_lora True --bf16 True --tf32 True --use_accelerate_lib flash-attn-v2 --deepspeed /data/users/zhangjunlei/tyx/reward-by-prm800k/ds_configs/stage0.conf --logging_strategy steps --logging_steps 1 --debug
+[2023-09-10 01:19:31,020] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:19:32,502] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [1, 3, 4, 6]}
+[2023-09-10 01:19:32,502] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=4, node_rank=0
+[2023-09-10 01:19:32,502] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2023-09-10 01:19:32,502] [INFO] [launch.py:163:main] dist_world_size=4
+[2023-09-10 01:19:32,502] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=1,3,4,6
+[2023-09-10 01:19:35,909] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:19:35,909] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:19:35,942] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:19:35,946] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2023-09-10 01:19:37,557] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-10 01:19:37,557] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-10 01:19:37,557] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-10 01:19:37,557] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-10 01:19:37,613] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-10 01:19:37,613] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-10 01:19:37,663] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
+[2023-09-10 01:19:37,664] [INFO] [comm.py:616:init_distributed] cdb=None
+[2023-09-10 01:19:37,664] [INFO] [comm.py:643:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Sun Sep 10 01:19:38 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  On   | 00000000:12:00.0 Off |                    0 |
+| N/A   31C    P0    68W / 400W |   1114MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  On   | 00000000:18:00.0 Off |                    0 |
+| N/A   29C    P0    66W / 400W |      2MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  On   | 00000000:4A:00.0 Off |                    0 |
+| N/A   30C    P0    73W / 400W |  42836MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  On   | 00000000:4E:00.0 Off |                    0 |
+| N/A   29C    P0    64W / 400W |      2MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  On   | 00000000:8A:00.0 Off |                    0 |
+| N/A   33C    P0    78W / 400W |      2MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  On   | 00000000:8F:00.0 Off |                    0 |
+| N/A   33C    P0    86W / 400W |   2785MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  On   | 00000000:C6:00.0 Off |                    0 |
+| N/A   31C    P0    71W / 400W |      2MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  On   | 00000000:CA:00.0 Off |                    0 |
+| N/A   33C    P0    85W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    242938      C   python3                           555MiB |
+|    0   N/A  N/A   2724011      C   python3                           555MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A    242938      C   python3                          4963MiB |
+|    5   N/A  N/A   2724011      C   python3                          2783MiB |
+|    7   N/A  N/A   1004856      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:06<02:54,  6.24s/it]Loading checkpoint shards:   3%|▎         | 1/29 [00:05<02:32,  5.46s/it]Loading checkpoint shards:   3%|▎         | 1/29 [00:06<03:02,  6.51s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:11<02:28,  5.50s/it]Loading checkpoint shards:   3%|▎         | 1/29 [00:07<03:33,  7.61s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:10<02:14,  4.99s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:14<02:02,  4.72s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:11<02:38,  5.88s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:14<03:08,  6.97s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:18<02:41,  6.20s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:20<02:09,  5.19s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:18<02:35,  5.97s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:23<02:26,  5.85s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:19<02:47,  6.45s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:24<01:54,  4.79s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:22<02:18,  5.54s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:29<02:19,  5.83s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:25<02:35,  6.23s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:29<01:48,  4.70s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:28<02:09,  5.39s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:34<02:09,  5.64s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:33<01:39,  4.53s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:31<02:22,  5.95s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:33<02:01,  5.29s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:40<02:04,  5.64s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:39<01:43,  4.93s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:37<02:16,  5.93s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:38<01:54,  5.19s/it]Loading checkpoint shards:  31%|███       | 9/29 [00:43<01:37,  4.86s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:45<01:55,  5.52s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:42<02:03,  5.61s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:44<01:56,  5.56s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [00:48<01:29,  4.71s/it]Loading checkpoint shards:  31%|███       | 9/29 [00:50<01:44,  5.22s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:47<01:58,  5.63s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [00:52<01:20,  4.49s/it]Loading checkpoint shards:  31%|███       | 9/29 [00:50<01:51,  5.58s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [00:56<01:44,  5.51s/it]Loading checkpoint shards:  31%|███       | 9/29 [00:52<01:45,  5.29s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [00:56<01:14,  4.41s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [00:55<01:46,  5.60s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [00:56<01:33,  4.93s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [01:01<01:36,  5.37s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [01:01<01:12,  4.53s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [01:00<01:24,  4.67s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [01:00<01:36,  5.36s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [01:07<01:34,  5.55s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:05<01:09,  4.62s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [01:04<01:17,  4.58s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [01:05<01:27,  5.15s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:09<01:01,  4.40s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [01:12<01:27,  5.46s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [01:09<01:11,  4.46s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [01:11<01:26,  5.39s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:13<00:55,  4.29s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:14<01:11,  4.76s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:18<01:24,  5.65s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:18<00:52,  4.33s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:16<01:19,  5.30s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:18<01:05,  4.65s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:23<01:15,  5.38s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [01:22<00:48,  4.39s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:22<01:16,  5.45s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:23<00:58,  4.49s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:28<01:07,  5.17s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [01:27<00:44,  4.42s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:26<01:08,  5.29s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:27<00:52,  4.36s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [01:32<00:41,  4.64s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:33<01:04,  5.39s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [01:31<00:48,  4.39s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:31<01:01,  5.17s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [01:36<00:35,  4.44s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [01:39<00:58,  5.33s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [01:35<00:43,  4.33s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [01:40<00:29,  4.28s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [01:37<00:59,  5.41s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [01:45<00:55,  5.58s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [01:41<00:43,  4.81s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [01:44<00:25,  4.20s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [01:42<00:53,  5.33s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [01:50<00:48,  5.37s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [01:46<00:38,  4.79s/it]Loading checkpoint shards:  83%|████████▎ | 24/29 [01:49<00:21,  4.40s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [01:49<00:49,  5.56s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [01:51<00:33,  4.73s/it]Loading checkpoint shards:  86%|████████▌ | 25/29 [01:53<00:17,  4.40s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [01:55<00:42,  5.29s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [01:53<00:42,  5.31s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [01:59<00:14,  4.79s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [02:00<00:37,  5.40s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [01:57<00:30,  5.11s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [01:58<00:36,  5.14s/it]Loading checkpoint shards:  93%|█████████▎| 27/29 [02:03<00:09,  4.73s/it]Loading checkpoint shards:  83%|████████▎ | 24/29 [02:01<00:25,  5.05s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [02:06<00:32,  5.37s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [02:04<00:32,  5.41s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [02:08<00:04,  4.72s/it]Loading checkpoint shards:  86%|████████▌ | 25/29 [02:06<00:19,  4.88s/it]Loading checkpoint shards:  83%|████████▎ | 24/29 [02:12<00:27,  5.52s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:11<00:00,  4.22s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:11<00:00,  4.54s/it]
+Loading checkpoint shards:  83%|████████▎ | 24/29 [02:09<00:26,  5.31s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [02:10<00:13,  4.55s/it]Loading checkpoint shards:  86%|████████▌ | 25/29 [02:17<00:21,  5.47s/it]Loading checkpoint shards:  93%|█████████▎| 27/29 [02:13<00:08,  4.21s/it]Loading checkpoint shards:  86%|████████▌ | 25/29 [02:14<00:20,  5.24s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [02:17<00:04,  4.08s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [02:22<00:15,  5.21s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [02:19<00:15,  5.07s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:21<00:00,  3.94s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:21<00:00,  4.86s/it]
+Sun Sep 10 01:22:10 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 515.48.07    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  On   | 00000000:12:00.0 Off |                    0 |
+| N/A   32C    P0    66W / 400W |   1114MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  On   | 00000000:18:00.0 Off |                    0 |
+| N/A   31C    P0    72W / 400W |  35457MiB / 81920MiB |      2%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA A100-SXM...  On   | 00000000:4A:00.0 Off |                    0 |
+| N/A   31C    P0    79W / 400W |  42836MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA A100-SXM...  On   | 00000000:4E:00.0 Off |                    0 |
+| N/A   30C    P0    66W / 400W |  32393MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA A100-SXM...  On   | 00000000:8A:00.0 Off |                    0 |
+| N/A   34C    P0    79W / 400W |  32393MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA A100-SXM...  On   | 00000000:8F:00.0 Off |                    0 |
+| N/A   34C    P0    74W / 400W |   2785MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA A100-SXM...  On   | 00000000:C6:00.0 Off |                    0 |
+| N/A   33C    P0    77W / 400W |  37477MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA A100-SXM...  On   | 00000000:CA:00.0 Off |                    0 |
+| N/A   34C    P0    79W / 400W |  23751MiB / 81920MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    242938      C   python3                           555MiB |
+|    0   N/A  N/A   2724011      C   python3                           555MiB |
+|    1   N/A  N/A   2217197      C   .../open-instruct/bin/python    35455MiB |
+|    2   N/A  N/A    187985      C   python                          37871MiB |
+|    2   N/A  N/A    242938      C   python3                          4963MiB |
+|    3   N/A  N/A   2217198      C   .../open-instruct/bin/python    32391MiB |
+|    4   N/A  N/A   2217199      C   .../open-instruct/bin/python    32393MiB |
+|    5   N/A  N/A   2724011      C   python3                          2783MiB |
+|    6   N/A  N/A   2217200      C   .../open-instruct/bin/python    37475MiB |
+|    7   N/A  N/A   1004856      C   python                          23747MiB |
++-----------------------------------------------------------------------------+
+
+Loading checkpoint shards:  93%|█████████▎| 27/29 [02:27<00:10,  5.31s/it]Loading checkpoint shards:  93%|█████████▎| 27/29 [02:25<00:10,  5.41s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [02:33<00:05,  5.39s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [02:30<00:05,  5.33s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:37<00:00,  5.08s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:37<00:00,  5.43s/it]
+Loading checkpoint shards: 100%|██████████| 29/29 [02:35<00:00,  5.03s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:35<00:00,  5.35s/it]
+Traceback (most recent call last):
+  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_qlora_flash_attn_2.py", line 13, in <module>
+    train()
+  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_qlora.py", line 261, in train
+    trainer.train(resume_from_checkpoint=True)
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1600, in _inner_training_loop
+    if DebugOption.UNDERFLOW_OVERFLOW in self.args.debug:
+TypeError: argument of type 'bool' is not iterable
+get_peft_model() took 365.6565339565277 s
+[2023-09-10 01:28:20,043] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2217197
+[2023-09-10 01:28:21,171] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2217198
+[2023-09-10 01:28:23,593] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2217199
+[2023-09-10 01:28:25,561] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2217200
+[2023-09-10 01:28:25,561] [ERROR] [launch.py:321:sigkill_handler] ['/data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/python', '-u', '/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_qlora_flash_attn_2.py', '--local_rank=3', '--model_name_or_path', '/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-70B-V1.0/snapshots/e089c3f9d2ad9d1acb62425aec3f4126f498f4c5', '--encoded_datasets_path', '/data/users/zhangjunlei/tyx/reward-by-prm800k/datasets/prm800k-train-direct-prediction-0-02validiation-encoded-datasets', '--output_dir', '/data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-70b-qlora-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16', '--model_max_length', '1024', '--per_device_train_batch_size', '2', '--per_device_eval_batch_size', '4', '--gradient_checkpointing', 'True', '--gradient_accumulation_steps', '16', '--num_train_epochs', '100', '--evaluation_strategy', 'steps', '--eval_steps', '100', '--eval_first', 'False', '--save_strategy', 'steps', '--save_steps', '100', '--load_best_model_at_end', 'True', '--metric_for_best_model', 'f1_-1', '--greater_is_better', 'True', '--learning_rate', '2e-5', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'linear', '--lora_r', '16', '--lora_alpha', '16', '--lora_dropout', '0.05', '--lora_target_modules', 'all_linear', '--q_lora', 'True', '--bf16', 'True', '--tf32', 'True', '--use_accelerate_lib', 'flash-attn-v2', '--deepspeed', '/data/users/zhangjunlei/tyx/reward-by-prm800k/ds_configs/stage0.conf', '--logging_strategy', 'steps', '--logging_steps', '1', '--debug'] exits with return code = 1

@@ -13,19 +13,25 @@ from collections import defaultdict
 from dataclasses import dataclass
 from functools import reduce
 from itertools import product
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, List, NewType, Optional, Tuple, Union
 
+import bitsandbytes as bnb
 import blobfile as bf
+import datasets
 import evaluate
 import ipdb
 import matplotlib.pyplot as plt
 import numpy as np
 import orjson
-import prepare_dataset
+# import prepare_dataset
 import regex as re
 import torch
 import transformers
 import vllm
+from transformers.tokenization_utils_base import PreTrainedTokenizerBase
+from transformers.utils import PaddingStrategy
+
+import wandb
 
 # global variables
 
@@ -43,9 +49,20 @@ MUL_CLF_METRIC_NAMES = [
     "f1",
     "precision",
     "recall",
+    # "roc_auc",
 ]
 
 default_max_seq_len = 1024
+
+# print
+
+
+def local_main_print(*args, verbose: bool = False, **kwargs):
+    if verbose:
+        print(f"[DEBUG] os.environ['LOCAL_RANK'] = {os.environ['LOCAL_RANK']}")
+    if os.environ["LOCAL_RANK"] == "0":
+        print(*args, **kwargs)
+
 
 # logging
 
@@ -77,7 +94,7 @@ def get_logger(
     formatter = logging.Formatter(fmt, datefmt)
 
     if log_file_path is not None:
-        file = logging.FileHandler(args.log_path, encoding="utf-8")
+        file = logging.FileHandler(log_file_path, encoding="utf-8")
         file.setLevel(level)
         file.setFormatter(formatter)
         logger.addHandler(file)
@@ -90,14 +107,18 @@ def get_logger(
 
 # environmetn variables
 
-data_root = "/data/users/zhangjunlei/tyx"
+data_root = (
+    os.environ["DATA_ROOT"]
+    if os.environ.get("DATA_ROOT")
+    else "/data/users/zhangjunlei/tyx"
+)
 hf_home = os.path.join(data_root, ".cache/huggingface")
 
 os.environ.update(
     {
         "DATA_ROOT": data_root,
         "HF_HOME": hf_home,
-        "TRANSFORMERS_CACHE": os.path.join(hf_home, "transformers"),
+        "TRANSFORMERS_CACHE": os.path.join(hf_home, "hub"),
         "HF_DATASETS_CACHE": os.path.join(hf_home, "datasets"),
         "HF_MODULES_CACHE": os.path.join(hf_home, "modules"),
         "HF_METRICS_CACHE": os.path.join(hf_home, "metrics"),
@@ -108,9 +129,14 @@ project_root = os.path.join(data_root, "reward-by-prm800k")
 models_root = os.path.join(project_root, "models")
 
 default_model_name = "meta-llama/Llama-2-7b-hf"
-default_model_path = os.path.join(
+default_7b_model_path = os.path.join(
     hf_home,
     "hub/models--meta-llama--Llama-2-7b-hf/snapshots/6fdf2e60f86ff2481f2241aaee459f85b5b0bbb9",
+)
+
+default_13b_model_path = os.path.join(
+    hf_home,
+    "hub/models--meta-llama--Llama-2-13b-hf/snapshots/db6b8eb1feabb38985fdf785a89895959e944936",
 )
 
 tokenizer_name_or_path = "/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--hf-internal-testing--llama-tokenizer/snapshots/99eceeba6e8289bee767f0771166b5917e70e470"
@@ -149,12 +175,12 @@ encoded_datasets_path = os.path.join(
 )
 
 
-## python environment
+# python environment
 
 conda_env_path = "/data/users/zhangjunlei/anaconda3/envs/open-instruct"
 python_path = os.path.join(conda_env_path, "bin/python")
 
-## PRM800K
+# PRM800K
 
 num_total_solution_samples_per_problem = 1860
 num_solution_samples_to_rate_per_problem = 16
@@ -168,12 +194,29 @@ all_metrics = [
     "non_negative_probs_minimum",
 ]
 
-## singelton
+
+def get_prm800k_all_train_samples(
+    prm800k_phase_train_jsonl_paths=prm800k_phase_train_jsonl_paths,
+):
+    prm800k_all_train_samples = []
+    for idx, data_files_train in enumerate(prm800k_phase_train_jsonl_paths):
+        prm800k_phase_train = load_jsonl(data_files_train)
+        prm800k_all_train_samples.extend(prm800k_phase_train)
+    prm800k_all_train_samples = list(
+        filter(pick_prm800k_samples, prm800k_all_train_samples)
+    )
+    print(f"len(prm800k_all_train_samples) = {len(prm800k_all_train_samples)}")
+    print(f"example: {random.choice(prm800k_all_train_samples)}")
+
+    return prm800k_all_train_samples
+
+
+# singelton
 
 llm = None
 tokenizer = None
 
-## model
+# model
 
 model_max_length = 4096
 top_k = 5
@@ -209,19 +252,310 @@ class Problem:
 
 # data collate
 
-def get_data_collator(tokenizer, model=None, padding="longest", max_length=default_max_seq_len):
-    return prepare_dataset.DataCollatorForCausalLM(
+
+def get_data_module_from_encoded_datasets(encoded_datasets_path):
+    encoded_datasets = datasets.load_from_disk(encoded_datasets_path)
+    data_module = {
+        "train_dataset": encoded_datasets["train"],
+        "eval_dataset": encoded_datasets["validation"],
+    }
+    return data_module
+
+
+def encode_with_prompt_completion_format(example, tokenizer, max_seq_length):
+    """
+    Here we assume each example has 'prompt' and 'completion' fields.
+    We concatenate prompt and completion and tokenize them together because otherwise prompt will be padded/trancated
+    and it doesn't make sense to follow directly with the completion.
+    """
+    # if prompt doesn't end with space and completion doesn't start with space, add space
+    if not example["prompt"].endswith((" ", "\n", "\t")) and not example[
+        "completion"
+    ].startswith((" ", "\n", "\t")):
+        example_text = example["prompt"] + " " + example["completion"]
+    else:
+        example_text = example["prompt"] + example["completion"]
+    example_text = example_text + tokenizer.eos_token
+    tokenized_example = tokenizer(
+        example_text, return_tensors="pt", max_length=max_seq_length, truncation=True
+    )
+    input_ids = tokenized_example.input_ids
+    labels = input_ids.clone()
+    tokenized_prompt = tokenizer(
+        example["prompt"],
+        return_tensors="pt",
+        max_length=max_seq_length,
+        truncation=True,
+    )
+    # mask the prompt part for avoiding loss
+    labels[
+        :, : tokenized_prompt.input_ids.shape[1]
+    ] = -100  # tokenized_prompt.input_ids 的形状是 (batch_size, sequence_length)
+    attention_mask = torch.ones_like(input_ids)
+    return {
+        "input_ids": input_ids.flatten(),
+        "labels": labels.flatten(),
+        "attention_mask": attention_mask.flatten(),
+    }
+
+
+def encode_with_messages_format(example, tokenizer, max_seq_length):
+    """
+    Here we assume each example has a 'messages' field Each message is a dict with 'role' and 'content' fields.
+    We concatenate all messages with the roles as delimiters and tokenize them together.
+    """
+    messages = example["messages"]
+    if len(messages) == 0:
+        raise ValueError("messages field is empty.")
+
+    def _concat_messages(messages):
+        message_text = ""
+        for message in messages:
+            if message["role"] == "system":
+                message_text += "<|system|>\n" + message["content"].strip() + "\n"
+            elif message["role"] == "user":
+                message_text += "<|user|>\n" + message["content"].strip() + "\n"
+            elif message["role"] == "assistant":
+                message_text += (
+                    "<|assistant|>\n"
+                    + message["content"].strip()
+                    + tokenizer.eos_token
+                    + "\n"
+                )
+            else:
+                raise ValueError("Invalid role: {}".format(message["role"]))
+        return message_text
+
+    example_text = _concat_messages(messages).strip()
+    tokenized_example = tokenizer(
+        example_text, return_tensors="pt", max_length=max_seq_length, truncation=True
+    )
+    input_ids = tokenized_example.input_ids
+    labels = input_ids.clone()
+
+    # mask the non-assistant part for avoiding loss
+    for message_idx, message in enumerate(messages):
+        if message["role"] != "assistant":
+            if message_idx == 0:
+                message_start_idx = 0
+            else:
+                message_start_idx = tokenizer(
+                    _concat_messages(messages[:message_idx]),
+                    return_tensors="pt",
+                    max_length=max_seq_length,
+                    truncation=True,
+                ).input_ids.shape[1]
+            if (
+                message_idx < len(messages) - 1
+                and messages[message_idx + 1]["role"] == "assistant"
+            ):
+                # here we also ignore the role of the assistant
+                messages_so_far = (
+                    _concat_messages(messages[: message_idx + 1]) + "<|assistant|>\n"
+                )
+            else:
+                messages_so_far = _concat_messages(messages[: message_idx + 1])
+            message_end_idx = tokenizer(
+                messages_so_far,
+                return_tensors="pt",
+                max_length=max_seq_length,
+                truncation=True,
+            ).input_ids.shape[1]
+            labels[:, message_start_idx:message_end_idx] = -100
+
+            if message_end_idx >= max_seq_length:
+                break
+
+    attention_mask = torch.ones_like(input_ids)
+    return {
+        "input_ids": input_ids.flatten(),
+        "labels": labels.flatten(),
+        "attention_mask": attention_mask.flatten(),
+    }
+
+
+def encode_with_problem_step_ratings_format(
+    reformatted_sample, tokenizer, max_seq_length, test=False
+):
+    """
+    Here we assume each example has a 'step_ratings' field. Each step_rating is a dict.
+    """
+    # reformatted_sample = reformat_prm800k_sample(sample)
+    step_ratings = reformatted_sample["step_ratings"]
+    if len(step_ratings) == 0:
+        raise ValueError("step_ratings field is empty.")
+
+    # rating2token = {1: "<pos>", -1: "<neg>", 0: "<neu>"}
+    rating2token = {1: "positive", -1: "negative", 0: "neutral"}
+
+    def _concat_step_ratings(step_ratings):
+        step_ratings_text = reformatted_sample["problem"] + "\n"
+        for step_rating in step_ratings:
+            step_ratings_text += (
+                step_rating["step"].strip()
+                + tokenizer.cls_token
+                + rating2token[step_rating["rating"]]
+                + "\n"
+            )
+
+        return step_ratings_text
+
+    example_text = _concat_step_ratings(step_ratings).strip()  # remove the last \n
+    tokenized_example = tokenizer(
+        example_text, return_tensors="pt", max_length=max_seq_length, truncation=True
+    )
+
+    if test is True:
+        print("tokenized_example: ", tokenized_example, sep="\n")
+
+    input_ids = tokenized_example.input_ids
+    labels = torch.ones_like(input_ids).mul(
+        -100
+    )  # mask the non-rating part for avoiding loss
+
+    # mask the non-rating part for avoiding loss
+    for idx, input_id in enumerate(input_ids[0]):
+        if input_id == tokenizer.cls_token_id:
+            rating_idx = idx + 1
+            labels[0][rating_idx] = input_ids[0][rating_idx]
+
+    attention_mask = torch.ones_like(input_ids)
+    return {
+        "input_ids": input_ids.flatten(),
+        "labels": labels.flatten(),
+        "attention_mask": attention_mask.flatten(),
+    }
+
+
+@dataclass
+class DataCollatorForCausalLM:
+    """
+    Data collator that will dynamically pad the inputs received, as well as the labels.
+
+    Args:
+        tokenizer ([`PreTrainedTokenizer`] or [`PreTrainedTokenizerFast`]):
+            The tokenizer used for encoding the data.
+        model ([`PreTrainedModel`]):
+            The model that is being trained. If set and has the *prepare_decoder_input_ids_from_labels*, use it to
+            prepare the *decoder_input_ids*
+
+            This is useful when using *label_smoothing* to avoid calculating loss twice.
+        padding (`bool`, `str` or [`~utils.PaddingStrategy`], *optional*, defaults to `True`):
+            Select a strategy to pad the returned sequences (according to the model's padding side and padding index)
+            among:
+
+            - `True` or `'longest'` (default): Pad to the longest sequence in the batch (or no padding if only a single
+              sequence is provided).
+            - `'max_length'`: Pad to a maximum length specified with the argument `max_length` or to the maximum
+              acceptable input length for the model if that argument is not provided.
+            - `False` or `'do_not_pad'`: No padding (i.e., can output a batch with sequences of different lengths).
+        max_length (`int`, *optional*):
+            Maximum length of the returned list and optionally padding length (see above).
+        pad_to_multiple_of (`int`, *optional*):
+            If set will pad the sequence to a multiple of the provided value.
+
+            This is especially useful to enable the use of Tensor Cores on NVIDIA hardware with compute capability >=
+            7.5 (Volta).
+        label_pad_token_id (`int`, *optional*, defaults to -100):
+            The id to use when padding the labels (-100 will be automatically ignored by PyTorch loss functions).
+        return_tensors (`str`):
+            The type of Tensor to return. Allowable values are "np", "pt" and "tf".
+    """
+
+    tokenizer: PreTrainedTokenizerBase
+    model: Optional[Any] = None
+    padding: Union[bool, str, PaddingStrategy] = PaddingStrategy.LONGEST
+    max_length: Optional[int] = None
+    pad_to_multiple_of: Optional[int] = None
+    label_pad_token_id: int = -100
+    return_tensors: str = "pt"
+
+    def __call__(self, features, return_tensors=None):
+        if return_tensors is None:
+            return_tensors = self.return_tensors
+        labels = (
+            [feature["labels"] for feature in features]
+            if "labels" in features[0].keys()
+            else None
+        )
+        # # We have to pad the labels before calling `tokenizer.pad` as this method won't pad them and needs them of the
+        # # same length to return tensors.
+        # if labels is not None:
+        #     max_label_length = max(len(l) for l in labels)
+        #     if self.pad_to_multiple_of is not None:
+        #         max_label_length = (
+        #             (max_label_length + self.pad_to_multiple_of - 1)
+        #             * self.pad_to_multiple_of
+        #         )
+
+        #     padding_side = self.tokenizer.padding_side
+        #     for feature in features:
+        #         remainder = [self.label_pad_token_id] * (max_label_length - len(feature["labels"]))
+        #         if isinstance(feature["labels"], list):
+        #             feature["labels"] = (
+        #                 feature["labels"] + remainder if padding_side == "right" else remainder + feature["labels"]
+        #             )
+        #         elif padding_side == "right":
+        #             feature["labels"] = np.concatenate([feature["labels"], remainder]).astype(np.int64)
+        #         else:
+        #             feature["labels"] = np.concatenate([remainder, feature["labels"]]).astype(np.int64)
+
+        # added
+        # truncate
+        # batch_max_length = max(len(f["input_ids"]) for f in features)
+        if self.max_length is not None:
+            for feature in features:
+                for k, v in feature.items():
+                    if len(v) > self.max_length:
+                        feature[k] = v[: self.max_length]
+
+        features = self.tokenizer.pad(
+            features,
+            padding=self.padding,
+            max_length=self.max_length,
+            pad_to_multiple_of=self.pad_to_multiple_of,
+            return_attention_mask=True,
+            return_tensors=return_tensors,
+        )
+
+        # features = self.tokenizer.prepare_for_model(
+        #     features,
+        #     max_length=self.max_length,
+        # )
+
+        # prepare decoder_input_ids
+        if (
+            labels is not None
+            and self.model is not None
+            and hasattr(self.model, "prepare_decoder_input_ids_from_labels")
+        ):
+            decoder_input_ids = self.model.prepare_decoder_input_ids_from_labels(
+                labels=features["labels"]
+            )
+            features["decoder_input_ids"] = decoder_input_ids
+
+        return features
+
+
+def get_data_collator(
+    tokenizer, model=None, padding="longest", max_length=default_max_seq_len
+):
+    return DataCollatorForCausalLM(
         tokenizer=tokenizer,
         model=model,
         padding=padding,
         max_length=max_length,
     )
 
+
 # device
 
-def nvidia_smi():
+
+def nvidia_smi(verbose=True):
     ns_result = subprocess.run(["nvidia-smi"], capture_output=True)
     output = ns_result.stdout.decode("utf-8")
+    if verbose:
+        local_main_print(output)
     return output
 
 
@@ -261,7 +595,7 @@ def open_jsonl(file: str):
 def load_jsonl(file: str) -> List[Dict]:
     assert bf.exists(file), file
     with open_jsonl(file) as f:
-        return [json_loads(l) for l in f.readlines() if l]
+        return [json_loads(line) for line in f.readlines() if line]
 
 
 # def dump_save(module, data, path, **kwargs):
@@ -272,7 +606,7 @@ def load_json(path, data_type=dict):
         f = open(path)
         data = json.load(f)
         f.close()
-        if data == None:
+        if data is None:
             data = data_type()
         return data
     else:
@@ -294,7 +628,7 @@ def load_pickle(path, data_type=dict):
         f = open(path, "rb")
         data = pickle.load(f)
         f.close()
-        if data == None:
+        if data is None:
             data = data_type()
         return data
     else:
@@ -324,6 +658,22 @@ def save_csv(data, path):
             writer.writerow(row.values())
 
 
+# debug
+
+
+def check_time_cost(code_list):
+    total_start_time = time.time()
+    for code in code_list:
+        start_time = time.time()
+        exec(code)
+        end_time = time.time()
+        time_cost = end_time - start_time
+        print(f"{time_cost} seconds to execute `{code}`")
+    total_end_time = time.time()
+    total_time_cost = total_end_time - total_start_time
+    print(f"{total_time_cost} seconds to execute all codes")
+
+
 # metrics
 
 
@@ -346,6 +696,28 @@ def get_mul_clf_metrics(
     )
 
     return mul_clf_metrics
+
+
+# lora
+
+
+def find_all_linear_names(bits: int, model):
+    assert bits in [4, 8], "bits must be 4 or 8"
+
+    cls = (
+        bnb.nn.Linear4bit
+        if bits == 4
+        else (bnb.nn.Linear8bitLt if bits == 8 else torch.nn.Linear)
+    )
+    lora_module_names = set()
+    for name, module in model.named_modules():
+        if isinstance(module, cls):
+            names = name.split(".")
+            lora_module_names.add(names[0] if len(names) == 1 else names[-1])
+
+    if "lm_head" in lora_module_names:  # needed for 16-bit
+        lora_module_names.remove("lm_head")
+    return list(lora_module_names)
 
 
 # visualize
@@ -405,6 +777,139 @@ def test_visualize_dict_value_lengths():
     visualize_dict_value_lengths(data_dict)
 
 
+# PRM800K evalution
+
+rating_token_id2label = {8178: -1, 21104: 0, 6374: 1}
+rating_token_ids = list(rating_token_id2label.keys())
+rating_labels = list(rating_token_id2label.values())
+
+
+def prm800k_preprocess_logits_for_metrics(logits, labels):
+    rating_logits = logits[:, :, rating_token_ids]
+
+    # eval_prediction = {
+    #     "predictions": rating_logits,
+    #     "label_ids": labels,
+    # }
+
+    return rating_logits
+
+
+def prm800k_compute_metrics(eval_prediction):
+    metric_results = {}
+    IGNORE_IDX = -100
+
+    # Load metrics
+    clf_metrics = [evaluate.load(name) for name in CLF_METRIC_NAMES] + [
+        evaluate.load("roc_auc", "multiclass")
+    ]
+
+    # Load data
+    raw_seq_rating_logits_list, raw_seq_label_ids = (
+        eval_prediction.predictions,
+        eval_prediction.label_ids,
+    )
+
+    local_main_print(raw_seq_rating_logits_list.shape)
+
+    # left shift labels by 1
+    shifted_seq_rating_logits_list = raw_seq_rating_logits_list[:, :-1, :]
+    shifted_seq_label_ids = raw_seq_label_ids[:, 1:]
+
+    token_rating_logits_list = []
+    flat_label_ids = []
+
+    for seq_rating_logits_list, seq_label_ids in zip(
+        shifted_seq_rating_logits_list, shifted_seq_label_ids
+    ):
+        for token_rating_logits, label_id in zip(seq_rating_logits_list, seq_label_ids):
+            if label_id != IGNORE_IDX:
+                token_rating_logits_list.append(token_rating_logits)
+                flat_label_ids.append(label_id)
+
+    # token_rating_logits_list = torch.tensor(token_rating_logits_list)
+    token_rating_logits_list = torch.tensor(np.array(token_rating_logits_list))
+    flat_preds = []
+    flat_refs = []
+
+    token_rating_probs_list = torch.softmax(token_rating_logits_list, dim=-1)
+    rating_pred_idxs = token_rating_logits_list.argmax(dim=-1)  # greedy
+
+    for pred_idx, label_id in zip(rating_pred_idxs, flat_label_ids):
+        flat_preds.append(rating_labels[pred_idx])
+        flat_refs.append(rating_token_id2label[label_id])
+
+    # nums
+    pred_nums = defaultdict(int)
+    ref_nums = defaultdict(int)
+    for pred, ref in zip(flat_preds, flat_refs):
+        pred_nums[pred] += 1
+        ref_nums[ref] += 1
+
+    # ::DONE:: shorten the following keys
+    for key, value in pred_nums.items():
+        metric_results[f"pred_{key}_num"] = value
+
+    for key, value in ref_nums.items():
+        metric_results[f"ref_{key}_num"] = value
+
+    for metric in clf_metrics:
+        if metric.name == "rocauc":  # not roc_auc!
+            for average in MULTICLASS_AVERAGINGS:
+                average_roc_auc = metric.compute(
+                    references=flat_refs,
+                    prediction_scores=token_rating_probs_list,
+                    average=average,
+                    multi_class="ovr",
+                )[
+                    "roc_auc"
+                ]  # not metric.name!
+                metric_results[f"roc_auc_{average}"] = average_roc_auc
+            class_roc_aucs = metric.compute(
+                references=flat_refs,
+                prediction_scores=token_rating_probs_list,
+                labels=rating_labels,
+                average=None,
+                multi_class="ovr",
+            )["roc_auc"]
+            metric_results.update(
+                {
+                    f"roc_auc_{rating_labels[idx]}": value
+                    for idx, value in enumerate(class_roc_aucs)
+                }
+            )
+            continue
+
+        if metric.name not in MUL_CLF_METRIC_NAMES:
+            metric_results.update(
+                metric.compute(predictions=flat_preds, references=flat_refs)
+            )
+        else:  # metric.name in utils.MUL_CLF_METRIC_NAMES:
+            for average in MULTICLASS_AVERAGINGS:
+                metric_results.update(
+                    {
+                        f"{metric.name}_{average}": metric.compute(
+                            predictions=flat_preds,
+                            references=flat_refs,
+                            average=average,
+                        )[metric.name]
+                    }
+                )
+            class_metrics = metric.compute(
+                predictions=flat_preds,
+                references=flat_refs,
+                average=None,
+                labels=rating_labels,
+            )[metric.name]
+            metric_results.update(
+                {
+                    f"{metric.name}_{rating_labels[idx]}": value
+                    for idx, value in enumerate(class_metrics)
+                }
+            )
+    return metric_results
+
+
 # PRM800K data processing
 
 
@@ -456,97 +961,6 @@ def reformat_prm800k_sample(sample: dict) -> dict:
         assert last_rating == -1, f"last step should be -1 but {last_rating}"
 
     return reformatted_sample
-
-
-def encode_with_problem_step_ratings_format(
-    reformatted_sample, tokenizer, split="train", test=False
-):
-    """
-    Here we assume each sample has a 'step_ratings' field. Each step_rating is a dict.
-    """
-
-    step_ratings = reformatted_sample["step_ratings"]
-    if len(step_ratings) == 0:
-        raise ValueError("step_ratings field is empty.")
-
-    rating2word = {1: "positive", -1: "negative", 0: "neutral"}
-    rating2token_id = {
-        rating: tokenizer.convert_tokens_to_ids(tokenizer.tokenize(word))[0]
-        for rating, word in rating2word.items()
-    }
-
-    problem = reformatted_sample["problem"].strip()
-    problem_step_ratings_text = problem + "\n"
-    sample_input_ids = tokenizer(
-        problem + "\n",
-        return_tensors="pt",
-        padding=False,
-        truncation=False,
-        add_special_tokens=True,
-        return_attention_mask=False,
-    )["input_ids"]
-    ignore_index = -100
-
-    if split == "train":
-        sample_labels = torch.ones_like(sample_input_ids) * ignore_index
-    elif split == "validation":
-        sample_labels = []
-    else:
-        raise ValueError(f"split should be train or validation but {split}")
-
-    for step_rating in step_ratings:
-        step = step_rating["step"].strip()
-
-        problem_step_ratings_text += step + "\n"
-
-        step_input_ids = tokenizer(
-            "\n" + step + "\n",
-            return_tensors="pt",
-            padding=False,
-            truncation=False,
-            # add_special_tokens=True,
-            add_special_tokens=False,
-            return_attention_mask=False,
-        )["input_ids"]
-        step_input_ids = step_input_ids[:, 2:]  # remove "\n"
-        sample_input_ids = torch.cat((sample_input_ids, step_input_ids), dim=1)
-
-        step_rating_token_id = rating2token_id[step_rating["rating"]]
-        if split == "train":
-            step_labels = torch.ones_like(step_input_ids) * ignore_index
-            step_labels[
-                :, -1
-            ] = step_rating_token_id  # set the label for the last token_id before "\n"
-            sample_labels = torch.cat((sample_labels, step_labels), dim=1)
-            # keep the last token for hugging face to align input_ids and labels
-        elif split == "validation":
-            sample_labels.append(step_rating_token_id)
-        else:
-            raise ValueError(f"split should be train or validation but {split}")
-
-    if split == "validation":
-        sample_labels = torch.tensor(sample_labels)
-
-    if test:
-        sample_input_ids_from_simple_call = tokenizer(
-            problem_step_ratings_text,
-            return_tensors="pt",
-            padding=False,
-            truncation=False,
-            add_special_tokens=True,
-            return_attention_mask=False,
-        )["input_ids"]
-        assert torch.equal(sample_input_ids, sample_input_ids_from_simple_call), (
-            sample_input_ids != sample_input_ids_from_simple_call
-        )
-
-    # attention_mask = torch.ones_like(sample_input_ids)
-    encoded_sample = {
-        "input_ids": sample_input_ids.flatten(),
-        "labels": sample_labels.flatten(),
-        # "attention_mask": attention_mask.flatten(),
-    }
-    return encoded_sample
 
 
 def key_by_problem(samples: List[Dict]):
@@ -621,7 +1035,7 @@ def eval_best_of_n_on_rated_problem_solution_samples(
         "non_negative_probs_minimum",
     ],
     best_of_n_results_jsonl_path=best_of_n_results_jsonl_path,
-    model_name_or_path=model_path,
+    model_name_or_path=default_7b_model_path,
     verbose=False,
     debug_for={},
 ):
@@ -808,7 +1222,7 @@ def extract_step_or_epoch_num(path):
 
 
 def rate_n_samples(
-    model_name_or_path=model_path,
+    model_name_or_path=default_7b_model_path,
     problem_solution_hierarchical_samples_path=gpt4_generated_problem_solution_hierarchical_samples_path_wo_basename
     + ".pkl",
     num_solution_samples_to_rate_per_problem=num_solution_samples_to_rate_per_problem,
@@ -844,7 +1258,7 @@ def rate_n_samples(
                         model_name_or_path,
                         pytorch_model_filepath,
                     ],
-                    cwd=model_path,
+                    cwd=default_7b_model_path,
                 )
                 if zero_to_fp32_result.returncode != 0:
                     raise RuntimeError(
@@ -895,7 +1309,7 @@ def rate_n_samples(
             problem_solution_hierarchical_samples = load_pickle(
                 problem_solution_hierarchical_samples_path
             )
-            print(f"Loaded")
+            print("Loaded")
 
             # extract n valid subsamples
             print(
@@ -910,14 +1324,14 @@ def rate_n_samples(
                     num_total_solution_samples_per_problem,
                     num_solution_samples_to_rate_per_problem,
                 )
-            print(f"Extracted")
+            print("Extracted")
             # construct prompts
             prompts = problem_samples2prompts(problem_solution_hierarchical_samples)
 
             if debug_for.get("prompts"):
                 print(prompts[0])
 
-            llm = get_vllm(model_name_or_path=model_path)
+            llm = get_vllm(model_name_or_path=default_7b_model_path)
             outputs = prm800k_vllm_inference(
                 llm, generation_config=generation_config, prompts=prompts
             )  # 13:28
@@ -929,10 +1343,10 @@ def rate_n_samples(
             problem_solution_hierarchical_samples = load_pickle(
                 problem_solution_hierarchical_samples_path
             )
-            print(f"Loaded")
+            print("Loaded")
             print(f"Resuming vLLM outputs from {vllm_outputs_path}")
             outputs = load_pickle(vllm_outputs_path)
-            print(f"Resumed")
+            print("Resumed")
 
         if debug_for.get("save_vllm_outputs"):
             save_pickle(
@@ -984,7 +1398,7 @@ def rate_n_samples(
 
 
 def eval_model_with_best_of_n(
-    model_name_or_path=model_path,
+    model_name_or_path=default_7b_model_path,
     problem_solution_hierarchical_samples_path=gpt4_generated_problem_solution_hierarchical_samples_path_wo_basename
     + ".pkl",
     num_solution_samples_to_rate_per_problem=num_solution_samples_to_rate_per_problem,
@@ -996,7 +1410,7 @@ def eval_model_with_best_of_n(
     # eval
 
     rated_problem_solution_hierarchical_samples = rate_n_samples(
-        model_name_or_path=model_path,
+        model_name_or_path=default_7b_model_path,
         problem_solution_hierarchical_samples_path=problem_solution_hierarchical_samples_path,
         num_solution_samples_to_rate_per_problem=num_solution_samples_to_rate_per_problem,
         rated_problem_solution_hierarchical_samples_path="default",
@@ -1011,7 +1425,7 @@ def eval_model_with_best_of_n(
         ns=None,
         metrics=metrics,
         best_of_n_results_jsonl_path=best_of_n_results_jsonl_path,
-        model_name_or_path=model_path,
+        model_name_or_path=default_7b_model_path,
         verbose=False,
         debug_for=debug_for,
     )
@@ -1048,7 +1462,7 @@ def get_rating_objs(tokenizer, rating2word=rating2word, verbose=False):
 # LLaMA
 
 
-def get_hf_model(model_name_or_path=model_path, **kwargs):
+def get_hf_model(model_name_or_path=default_7b_model_path, **kwargs):
     """fp16, low_cpu_mem_usage"""
     model = transformers.AutoModelForCausalLM.from_pretrained(
         model_name_or_path,
@@ -1072,6 +1486,16 @@ def check_tokenizer(tokenizer, head=5):
     print(f"tokenizer.vocab_size = {tokenizer.vocab_size}")
     print(f"len(tokenizer.vocab) = {len(tokenizer.vocab)}")
     print(f"tokenizer.special_tokens_map = {tokenizer.special_tokens_map}")
+
+
+def add_pad_token(tokenizer, pad_token="<pad>"):
+    num_added_tokens = tokenizer.add_special_tokens({"pad_token": pad_token})
+
+    assert num_added_tokens == 1, "tokenizer.pad_token already exists"
+
+    local_main_print(f"tokenizer.pad_token = {tokenizer.pad_token}")
+
+    return tokenizer
 
 
 # no default pad token for llama!
@@ -1188,12 +1612,12 @@ def problem_solution2input_ids_list(tokenizer, problem, steps):
 # vllm
 
 
-def get_vllm(model_name_or_path=model_path):
+def get_vllm(model_name_or_path=default_7b_model_path):
     # global llm
 
     # if llm is None:
     llm = vllm.LLM(
-        model=model_path,
+        model=default_7b_model_path,
         tokenizer=tokenizer_name_or_path,
         tokenizer_mode="auto",
         trust_remote_code=True,
@@ -1281,4 +1705,6 @@ def vllm_outputs2rating2prob_list(
     print("len(rating2prob_list) =", len(rating2prob_list))
     print("rating2prob_list[0] =", rating2prob_list[0])
 
+    return rating2prob_list
+    return rating2prob_list
     return rating2prob_list
