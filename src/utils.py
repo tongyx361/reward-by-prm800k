@@ -23,14 +23,15 @@ import ipdb
 import matplotlib.pyplot as plt
 import numpy as np
 import orjson
+
 # import prepare_dataset
 import regex as re
 import torch
 import transformers
-import vllm
 from transformers.tokenization_utils_base import PreTrainedTokenizerBase
 from transformers.utils import PaddingStrategy
 
+import vllm
 import wandb
 
 # global variables
@@ -104,14 +105,14 @@ def get_logger(
     console.setFormatter(formatter)
     logger.addHandler(console)
 
+    print(logger)
+
+    return logger
+
 
 # environmetn variables
 
-data_root = (
-    os.environ["DATA_ROOT"]
-    if os.environ.get("DATA_ROOT")
-    else "/data/users/zhangjunlei/tyx"
-)
+data_root = os.environ.get("DATA_ROOT", "/data/users/zhangjunlei/tyx")
 hf_home = os.path.join(data_root, ".cache/huggingface")
 
 os.environ.update(
@@ -139,7 +140,10 @@ default_13b_model_path = os.path.join(
     "hub/models--meta-llama--Llama-2-13b-hf/snapshots/db6b8eb1feabb38985fdf785a89895959e944936",
 )
 
-tokenizer_name_or_path = "/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--hf-internal-testing--llama-tokenizer/snapshots/99eceeba6e8289bee767f0771166b5917e70e470"
+default_tokenizer_path = os.path.join(
+    data_root,
+    ".cache/huggingface/hub/models--hf-internal-testing--llama-tokenizer/snapshots/99eceeba6e8289bee767f0771166b5917e70e470",
+)
 gpt4_generated_problem_solution_hierarchical_samples_path_wo_basename = os.path.join(
     project_root, "datasets/problem-solution-hierarchical-samples"
 )
@@ -177,7 +181,12 @@ encoded_datasets_path = os.path.join(
 
 # python environment
 
-conda_env_path = "/data/users/zhangjunlei/anaconda3/envs/open-instruct"
+if "zhangjunlei" in data_root:
+    conda_env_path = "/data/users/zhangjunlei/anaconda3/envs/open-instruct"
+elif "tongyx361" in data_root:
+    conda_env_path = "/data/tongyx361/miniconda3/envs/nlp"
+
+
 python_path = os.path.join(conda_env_path, "bin/python")
 
 # PRM800K
@@ -559,10 +568,6 @@ def nvidia_smi(verbose=True):
     return output
 
 
-def reload():
-    importlib.reload(vllm)
-
-
 def set_gpu_ids(gpu_ids=[4, 5, 6, 7]):
     # gpu_ids = [7]
     # gpu_ids = [4, 5, 6, 7]
@@ -723,7 +728,7 @@ def find_all_linear_names(bits: int, model):
 # visualize
 
 
-def visualize_dict_value_nums_distribuition(data_dict):
+def visualize_dict_value_lengths_distribuition(data_dict):
     # Get the lengths of values in the dictionary
     value_lengths = [len(value) for value in data_dict.values()]
 
@@ -742,7 +747,7 @@ def visualize_dict_value_nums_distribuition(data_dict):
 def test_visualize_dict_value_lengths_distribuition():
     data_dict = {"key1": [1, 2, 3, 4], "key2": [1, 2, 3, 4, 5, 6], "key3": [1, 2]}
 
-    visualize_dict_value_nums_distribuition(data_dict)
+    visualize_dict_value_lengths_distribuition(data_dict)
 
 
 def visualize_dict_value_lengths(data_dict):
@@ -1524,7 +1529,7 @@ def complete_four_special_tokens(tokenizer):
     return tokenizer
 
 
-def get_complete_tokenizer(tokenizer_name_or_path=tokenizer_name_or_path):
+def get_complete_tokenizer(tokenizer_name_or_path=default_tokenizer_path):
     global tokenizer
     if tokenizer is None:
         tokenizer = transformers.AutoTokenizer.from_pretrained(
@@ -1533,7 +1538,7 @@ def get_complete_tokenizer(tokenizer_name_or_path=tokenizer_name_or_path):
         tokenizer = complete_four_special_tokens(tokenizer)
 
     print(tokenizer)
-
+    print(tokenizer.special_tokens_map)
     return tokenizer
 
 
@@ -1618,7 +1623,7 @@ def get_vllm(model_name_or_path=default_7b_model_path):
     # if llm is None:
     llm = vllm.LLM(
         model=default_7b_model_path,
-        tokenizer=tokenizer_name_or_path,
+        tokenizer=default_tokenizer_path,
         tokenizer_mode="auto",
         trust_remote_code=True,
         tensor_parallel_size=tensor_parallel_size,

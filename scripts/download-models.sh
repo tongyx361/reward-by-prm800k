@@ -1,4 +1,4 @@
-PROJECT_DIR='/data/users/zhangjunlei/tyx/reward-by-prm800k'
+PROJECT_DIR="${DATA_ROOT}/reward-by-prm800k"
 
 nohup python "${PROJECT_DIR}/src/keep-process.py" \
     --script_path "${PROJECT_DIR}/src/download-from-hf-hub.py" \

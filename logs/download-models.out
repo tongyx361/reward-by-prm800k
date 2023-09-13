@@ -1,16 +1,9 @@
-/data/users/zhangjunlei/anaconda3/lib/python3.9/site-packages/bitsandbytes/cuda_setup/main.py:136: UserWarning: /data/users/zhangjunlei/anaconda3 did not contain libcudart.so as expected! Searching further paths...
-  warn(msg)
-
-===================================BUG REPORT===================================
-Welcome to bitsandbytes. For bug reports, please submit your error trace to: https://github.com/TimDettmers/bitsandbytes/issues
-================================================================================
-CUDA SETUP: CUDA runtime path found: /usr/local/cuda/lib64/libcudart.so
-CUDA SETUP: Highest compute capability among GPUs detected: 8.0
-CUDA SETUP: Detected CUDA version 113
-CUDA SETUP: Loading binary /data/users/zhangjunlei/anaconda3/lib/python3.9/site-packages/bitsandbytes/libbitsandbytes_cuda113.so...
+nohup: ignoring input
+[2023-09-12 17:00:57,544] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+2023-09-12 17:00:59.675 [INFO] Running script with model_name=WizardLM/WizardMath-7B-V1.0
+nohup: failed to run command '/data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/python': No such file or directory
+2023-09-12 17:00:59.677 [WARNING] Failed to run the script for 1 times.
 Traceback (most recent call last):
-  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/src/keep-process.py", line 7, in <module>
-    import utils
-  File "/data/users/zhangjunlei/tyx/reward-by-prm800k/src/utils.py", line 19, in <module>
-    import blobfile as bf
-ModuleNotFoundError: No module named 'blobfile'
+  File "/data/tongyx361/reward-by-prm800k/src/keep-process.py", line 63, in <module>
+    time.sleep(args.trial_interval)
+AttributeError: 'list' object has no attribute 'trial_interval'
