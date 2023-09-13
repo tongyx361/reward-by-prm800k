@@ -1,14 +1,0 @@
-nohup: ignoring input
-[2023-09-13 08:00:52,229] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2023-09-13 08:00:57,997] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-queries_path = /data/tongyx361/reward-by-prm800k/datasets/prm800k-002validation-seed42-openai-api-queries.jsonl
-Traceback (most recent call last):
-  File "/data/tongyx361/reward-by-prm800k/src/openai-api.py", line 139, in <module>
-    prm800k_query_openai_to_analyse_and_rate_dataset(
-  File "/data/tongyx361/reward-by-prm800k/src/openai-api.py", line 120, in prm800k_query_openai_to_analyse_and_rate_dataset
-    lines = f.readlines()
-io.UnsupportedOperation: not readable
-2023-09-13 08:01:00.915 [WARNING] Failed to run the script for 1 times.
-[2023-09-13 08:01:34,746] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-queries_path = /data/tongyx361/reward-by-prm800k/datasets/prm800k-002validation-seed42-openai-api-queries.jsonl
-0it [00:00, ?it/s]1it [00:39, 39.80s/it]

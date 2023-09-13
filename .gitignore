@@ -6,6 +6,7 @@ nohup.out
 eval/rated-samples/*
 tmp/*
 src/*key
+logs/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
