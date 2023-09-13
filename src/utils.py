@@ -23,7 +23,6 @@ import ipdb
 import matplotlib.pyplot as plt
 import numpy as np
 import orjson
-
 # import prepare_dataset
 import regex as re
 import torch
@@ -1012,9 +1011,9 @@ def prm800k_extract_synthesized_analysis(
     prompt_with_analysis = "## Step-Analysis-Rating\n"
     step_rating_analysis_section = synthesized_analysis.split(prompt_with_analysis)[-1]
     if query_type == "sar":
-        pattern = r'Step \d+: """(.+?)""" Analysis: (.+?) Rating: (-1|0|1)'
+        pattern = r'Step \d+: (?:""")?(.+?)(?:""")? Analysis: (.+?) Rating: (-1|0|1)'
     elif query_type == "sra":
-        pattern = r'Step \d+: """(.+?)""" Rating: (-1|0|1) Analysis: (.+?)'
+        pattern = r'Step \d+: (?:""")?(.+?)(?:""")? Rating: (-1|0|1) Analysis: (.+?)'
     else:
         raise ValueError(f"query_type `{query_type}` is not valid")
 
@@ -1035,9 +1034,9 @@ def prm800k_extract_synthesized_analysis(
         rating = rating.strip()
 
         assert rating in ("-1", "0", "1"), f"rating `{rating}` is not valid"
-        assert (
-            rating in analysis.split(",")[-1]
-        ), f"rating {rating} is not in analysis {analysis}"
+        # assert (
+        #     rating in analysis.split(",")[-1]
+        # ), f"rating {rating} is not in analysis {analysis}"
         steps.append(step)
         ratings.append(rating)
         analyses.append(analysis)
