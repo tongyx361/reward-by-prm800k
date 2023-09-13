@@ -1,398 +1,0 @@
-nohup: ignoring input
-[2023-09-07 07:20:55,629] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2023-09-07 07:20:56,924] [WARNING] [runner.py:196:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
-[2023-09-07 07:20:56,925] [INFO] [runner.py:555:main] cmd = /data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMywgNF19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py --model_name_or_path /data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-70B-V1.0/snapshots/e089c3f9d2ad9d1acb62425aec3f4126f498f4c5 --data_path /data/users/zhangjunlei/tyx/reward-by-prm800k/datasets/prm800k-train-direct-prediction-0-02validiation-encoded-datasets --output_dir /data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-70b-lora-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16 --model_max_length 1024 --per_device_train_batch_size 2 --per_device_eval_batch_size 4 --gradient_checkpointing True --gradient_accumulation_steps 16 --num_train_epochs 100 --evaluation_strategy steps --eval_steps 100 --eval_first True --save_strategy steps --save_steps 100 --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type cosine --lora_r 256 --lora_alpha 256 --lora_dropout 0.05 --lora_target_modules all_linear --q_lora True --bf16 True --tf32 True --use_accelerate_lib flash-attn-v2 --logging_strategy steps --logging_steps 1
-[2023-09-07 07:20:58,359] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2023-09-07 07:20:59,516] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 3, 4]}
-[2023-09-07 07:20:59,516] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=4, node_rank=0
-[2023-09-07 07:20:59,516] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
-[2023-09-07 07:20:59,516] [INFO] [launch.py:163:main] dist_world_size=4
-[2023-09-07 07:20:59,516] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,3,4
-[2023-09-07 07:21:01,449] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2023-09-07 07:21:01,449] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2023-09-07 07:21:01,514] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2023-09-07 07:21:01,515] [INFO] [real_accelerator.py:133:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:06<03:14,  6.95s/it]Loading checkpoint shards:   3%|▎         | 1/29 [00:07<03:22,  7.24s/it]Loading checkpoint shards:   3%|▎         | 1/29 [00:07<03:28,  7.45s/it]Loading checkpoint shards:   3%|▎         | 1/29 [00:07<03:26,  7.36s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:12<02:50,  6.31s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:13<02:58,  6.63s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:13<02:59,  6.66s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:13<03:02,  6.76s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:20<02:58,  6.86s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:20<02:53,  6.69s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:20<03:01,  6.98s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:21<03:02,  7.02s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:27<02:55,  7.03s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:27<02:54,  6.99s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:27<02:54,  6.98s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:28<02:55,  7.00s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:34<02:46,  6.94s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:34<02:43,  6.82s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:34<02:44,  6.85s/it]Loading checkpoint shards:  17%|█▋        | 5/29 [00:34<02:44,  6.85s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:40<02:32,  6.65s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:40<02:36,  6.79s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:40<02:33,  6.69s/it]Loading checkpoint shards:  21%|██        | 6/29 [00:41<02:35,  6.74s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:47<02:25,  6.63s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:47<02:28,  6.73s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:47<02:26,  6.65s/it]Loading checkpoint shards:  24%|██▍       | 7/29 [00:47<02:26,  6.67s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:54<02:21,  6.75s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:54<02:22,  6.79s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:54<02:21,  6.72s/it]Loading checkpoint shards:  28%|██▊       | 8/29 [00:54<02:21,  6.72s/it]Loading checkpoint shards:  31%|███       | 9/29 [01:00<02:14,  6.70s/it]Loading checkpoint shards:  31%|███       | 9/29 [01:01<02:15,  6.76s/it]Loading checkpoint shards:  31%|███       | 9/29 [01:00<02:14,  6.71s/it]Loading checkpoint shards:  31%|███       | 9/29 [01:01<02:14,  6.71s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [01:06<02:03,  6.49s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [01:07<02:05,  6.60s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [01:07<02:04,  6.57s/it]Loading checkpoint shards:  34%|███▍      | 10/29 [01:07<02:04,  6.57s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [01:11<01:48,  6.04s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [01:13<01:56,  6.49s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [01:13<01:58,  6.57s/it]Loading checkpoint shards:  38%|███▊      | 11/29 [01:13<01:57,  6.55s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [01:16<01:38,  5.80s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [01:20<01:51,  6.58s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [01:20<01:52,  6.63s/it]Loading checkpoint shards:  41%|████▏     | 12/29 [01:20<01:52,  6.61s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [01:22<01:31,  5.75s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [01:27<01:46,  6.64s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [01:27<01:46,  6.68s/it]Loading checkpoint shards:  45%|████▍     | 13/29 [01:27<01:46,  6.69s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:28<01:26,  5.74s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:33<01:18,  5.63s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:34<01:42,  6.82s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:34<01:42,  6.84s/it]Loading checkpoint shards:  48%|████▊     | 14/29 [01:34<01:41,  6.78s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:38<01:10,  5.45s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:40<01:34,  6.73s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:41<01:33,  6.69s/it]Loading checkpoint shards:  52%|█████▏    | 15/29 [01:41<01:34,  6.74s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:43<01:04,  5.36s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:46<01:23,  6.45s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:47<01:26,  6.67s/it]Loading checkpoint shards:  55%|█████▌    | 16/29 [01:47<01:26,  6.68s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [01:49<01:00,  5.46s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:53<01:18,  6.57s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:54<01:19,  6.60s/it]Loading checkpoint shards:  59%|█████▊    | 17/29 [01:53<01:19,  6.61s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [01:55<00:54,  5.48s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [02:00<00:48,  5.43s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [02:00<01:14,  6.73s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [02:01<01:14,  6.80s/it]Loading checkpoint shards:  62%|██████▏   | 18/29 [02:01<01:14,  6.80s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [02:05<00:42,  5.28s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [02:07<01:06,  6.68s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [02:07<01:07,  6.71s/it]Loading checkpoint shards:  66%|██████▌   | 19/29 [02:07<01:07,  6.73s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [02:10<00:36,  5.26s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [02:14<00:59,  6.64s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [02:14<01:00,  6.67s/it]Loading checkpoint shards:  69%|██████▉   | 20/29 [02:14<00:59,  6.65s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [02:16<00:32,  5.35s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [02:21<00:53,  6.72s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [02:20<00:53,  6.72s/it]Loading checkpoint shards:  72%|███████▏  | 21/29 [02:21<00:53,  6.71s/it]Loading checkpoint shards:  83%|████████▎ | 24/29 [02:21<00:27,  5.41s/it]Loading checkpoint shards:  86%|████████▌ | 25/29 [02:26<00:21,  5.38s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [02:27<00:47,  6.72s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [02:27<00:46,  6.70s/it]Loading checkpoint shards:  76%|███████▌  | 22/29 [02:27<00:47,  6.72s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [02:31<00:15,  5.17s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [02:34<00:39,  6.66s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [02:34<00:40,  6.73s/it]Loading checkpoint shards:  79%|███████▉  | 23/29 [02:34<00:40,  6.71s/it]Loading checkpoint shards:  93%|█████████▎| 27/29 [02:36<00:10,  5.12s/it]Loading checkpoint shards:  83%|████████▎ | 24/29 [02:40<00:33,  6.64s/it]Loading checkpoint shards:  83%|████████▎ | 24/29 [02:41<00:33,  6.66s/it]Loading checkpoint shards:  83%|████████▎ | 24/29 [02:41<00:33,  6.71s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [02:42<00:05,  5.22s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:46<00:00,  4.85s/it]Loading checkpoint shards: 100%|██████████| 29/29 [02:46<00:00,  5.73s/it]
-[DEBUG] lora_args.lora_target_modules = ['all_linear']
-Loading checkpoint shards:  86%|████████▌ | 25/29 [02:47<00:26,  6.61s/it]Loading checkpoint shards:  86%|████████▌ | 25/29 [02:47<00:26,  6.59s/it]Loading checkpoint shards:  86%|████████▌ | 25/29 [02:47<00:26,  6.57s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [02:53<00:19,  6.54s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [02:53<00:19,  6.55s/it]Loading checkpoint shards:  90%|████████▉ | 26/29 [02:53<00:19,  6.52s/it]Loading checkpoint shards:  93%|█████████▎| 27/29 [03:00<00:12,  6.50s/it]Loading checkpoint shards:  93%|█████████▎| 27/29 [03:00<00:13,  6.51s/it]Loading checkpoint shards:  93%|█████████▎| 27/29 [03:00<00:13,  6.55s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [03:06<00:06,  6.53s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [03:07<00:06,  6.53s/it]Loading checkpoint shards:  97%|█████████▋| 28/29 [03:07<00:06,  6.56s/it]Loading checkpoint shards: 100%|██████████| 29/29 [03:11<00:00,  6.04s/it]Loading checkpoint shards: 100%|██████████| 29/29 [03:11<00:00,  6.61s/it]
-Loading checkpoint shards: 100%|██████████| 29/29 [03:11<00:00,  6.02s/it]Loading checkpoint shards: 100%|██████████| 29/29 [03:11<00:00,  6.62s/it]
-Loading checkpoint shards: 100%|██████████| 29/29 [03:11<00:00,  6.05s/it]Loading checkpoint shards: 100%|██████████| 29/29 [03:11<00:00,  6.62s/it]
-trainable params: 3,313,500,160 || all params: 38,064,660,480 || trainable%: 8.704925036021233
-  0%|          | 0/114 [00:00<?, ?it/s]  2%|▏         | 2/114 [00:03<03:15,  1.75s/it]  3%|▎         | 3/114 [00:06<04:33,  2.47s/it]  4%|▎         | 4/114 [00:10<05:12,  2.84s/it]  4%|▍         | 5/114 [00:13<05:33,  3.06s/it]  5%|▌         | 6/114 [00:17<05:44,  3.19s/it]  6%|▌         | 7/114 [00:20<05:50,  3.27s/it]  7%|▋         | 8/114 [00:24<05:52,  3.33s/it]  8%|▊         | 9/114 [00:27<05:53,  3.37s/it]  9%|▉         | 10/114 [00:31<05:53,  3.40s/it] 10%|▉         | 11/114 [00:34<05:51,  3.42s/it] 11%|█         | 12/114 [00:38<05:49,  3.43s/it] 11%|█▏        | 13/114 [00:41<05:47,  3.44s/it] 12%|█▏        | 14/114 [00:45<05:44,  3.45s/it] 13%|█▎        | 15/114 [00:48<05:41,  3.45s/it] 14%|█▍        | 16/114 [00:51<05:38,  3.46s/it] 15%|█▍        | 17/114 [00:55<05:36,  3.47s/it] 16%|█▌        | 18/114 [00:58<05:32,  3.47s/it] 17%|█▋        | 19/114 [01:02<05:29,  3.47s/it] 18%|█▊        | 20/114 [01:05<05:26,  3.47s/it] 18%|█▊        | 21/114 [01:09<05:22,  3.47s/it] 19%|█▉        | 22/114 [01:12<05:19,  3.48s/it] 20%|██        | 23/114 [01:16<05:16,  3.48s/it] 21%|██        | 24/114 [01:19<05:13,  3.48s/it] 22%|██▏       | 25/114 [01:23<05:09,  3.48s/it] 23%|██▎       | 26/114 [01:26<05:07,  3.49s/it] 24%|██▎       | 27/114 [01:30<05:04,  3.50s/it] 25%|██▍       | 28/114 [01:33<05:00,  3.49s/it] 25%|██▌       | 29/114 [01:37<04:57,  3.50s/it] 26%|██▋       | 30/114 [01:40<04:53,  3.49s/it] 27%|██▋       | 31/114 [01:44<04:49,  3.49s/it] 28%|██▊       | 32/114 [01:47<04:45,  3.48s/it] 29%|██▉       | 33/114 [01:51<04:41,  3.48s/it] 30%|██▉       | 34/114 [01:54<04:38,  3.48s/it] 31%|███       | 35/114 [01:58<04:34,  3.48s/it] 32%|███▏      | 36/114 [02:01<04:31,  3.48s/it] 32%|███▏      | 37/114 [02:05<04:27,  3.48s/it] 33%|███▎      | 38/114 [02:08<04:24,  3.48s/it] 34%|███▍      | 39/114 [02:12<04:20,  3.48s/it] 35%|███▌      | 40/114 [02:15<04:17,  3.48s/it] 36%|███▌      | 41/114 [02:19<04:14,  3.48s/it] 37%|███▋      | 42/114 [02:22<04:10,  3.48s/it] 38%|███▊      | 43/114 [02:26<04:07,  3.49s/it] 39%|███▊      | 44/114 [02:29<04:04,  3.49s/it] 39%|███▉      | 45/114 [02:32<04:00,  3.49s/it] 40%|████      | 46/114 [02:36<03:56,  3.48s/it] 41%|████      | 47/114 [02:39<03:53,  3.48s/it] 42%|████▏     | 48/114 [02:43<03:49,  3.48s/it] 43%|████▎     | 49/114 [02:46<03:46,  3.48s/it] 44%|████▍     | 50/114 [02:50<03:42,  3.48s/it] 45%|████▍     | 51/114 [02:53<03:39,  3.48s/it] 46%|████▌     | 52/114 [02:57<03:35,  3.48s/it] 46%|████▋     | 53/114 [03:00<03:32,  3.48s/it] 47%|████▋     | 54/114 [03:04<03:29,  3.48s/it] 48%|████▊     | 55/114 [03:07<03:25,  3.48s/it] 49%|████▉     | 56/114 [03:11<03:21,  3.48s/it] 50%|█████     | 57/114 [03:14<03:18,  3.47s/it] 51%|█████     | 58/114 [03:18<03:14,  3.48s/it] 52%|█████▏    | 59/114 [03:21<03:11,  3.47s/it] 53%|█████▎    | 60/114 [03:25<03:07,  3.47s/it] 54%|█████▎    | 61/114 [03:28<03:04,  3.47s/it] 54%|█████▍    | 62/114 [03:32<03:00,  3.47s/it] 55%|█████▌    | 63/114 [03:35<02:57,  3.47s/it] 56%|█████▌    | 64/114 [03:39<02:54,  3.48s/it] 57%|█████▋    | 65/114 [03:42<02:50,  3.48s/it] 58%|█████▊    | 66/114 [03:46<02:47,  3.48s/it] 59%|█████▉    | 67/114 [03:49<02:43,  3.48s/it] 60%|█████▉    | 68/114 [03:52<02:40,  3.49s/it] 61%|██████    | 69/114 [03:56<02:36,  3.48s/it] 61%|██████▏   | 70/114 [03:59<02:33,  3.48s/it] 62%|██████▏   | 71/114 [04:03<02:29,  3.47s/it] 63%|██████▎   | 72/114 [04:06<02:25,  3.47s/it] 64%|██████▍   | 73/114 [04:10<02:22,  3.48s/it] 65%|██████▍   | 74/114 [04:13<02:18,  3.47s/it] 66%|██████▌   | 75/114 [04:17<02:15,  3.47s/it] 67%|██████▋   | 76/114 [04:20<02:11,  3.47s/it] 68%|██████▊   | 77/114 [04:24<02:08,  3.48s/it] 68%|██████▊   | 78/114 [04:27<02:05,  3.48s/it] 69%|██████▉   | 79/114 [04:31<02:01,  3.48s/it] 70%|███████   | 80/114 [04:34<01:58,  3.47s/it] 71%|███████   | 81/114 [04:38<01:54,  3.47s/it] 72%|███████▏  | 82/114 [04:41<01:50,  3.47s/it] 73%|███████▎  | 83/114 [04:45<01:47,  3.47s/it] 74%|███████▎  | 84/114 [04:48<01:44,  3.47s/it] 75%|███████▍  | 85/114 [04:52<01:40,  3.47s/it] 75%|███████▌  | 86/114 [04:55<01:37,  3.47s/it] 76%|███████▋  | 87/114 [04:58<01:33,  3.47s/it] 77%|███████▋  | 88/114 [05:02<01:30,  3.48s/it] 78%|███████▊  | 89/114 [05:05<01:26,  3.48s/it] 79%|███████▉  | 90/114 [05:09<01:23,  3.47s/it] 80%|███████▉  | 91/114 [05:12<01:19,  3.47s/it] 81%|████████  | 92/114 [05:16<01:16,  3.47s/it] 82%|████████▏ | 93/114 [05:19<01:12,  3.47s/it] 82%|████████▏ | 94/114 [05:23<01:09,  3.47s/it] 83%|████████▎ | 95/114 [05:26<01:05,  3.47s/it] 84%|████████▍ | 96/114 [05:30<01:02,  3.47s/it] 85%|████████▌ | 97/114 [05:33<00:58,  3.47s/it] 86%|████████▌ | 98/114 [05:37<00:55,  3.46s/it] 87%|████████▋ | 99/114 [05:40<00:51,  3.46s/it] 88%|████████▊ | 100/114 [05:44<00:48,  3.47s/it] 89%|████████▊ | 101/114 [05:47<00:45,  3.47s/it] 89%|████████▉ | 102/114 [05:50<00:41,  3.47s/it] 90%|█████████ | 103/114 [05:54<00:38,  3.46s/it] 91%|█████████ | 104/114 [05:57<00:34,  3.46s/it] 92%|█████████▏| 105/114 [06:01<00:31,  3.46s/it] 93%|█████████▎| 106/114 [06:04<00:27,  3.47s/it] 94%|█████████▍| 107/114 [06:08<00:24,  3.47s/it] 95%|█████████▍| 108/114 [06:11<00:20,  3.47s/it] 96%|█████████▌| 109/114 [06:15<00:17,  3.47s/it] 96%|█████████▋| 110/114 [06:18<00:13,  3.47s/it] 97%|█████████▋| 111/114 [06:22<00:10,  3.47s/it] 98%|█████████▊| 112/114 [06:25<00:06,  3.47s/it] 99%|█████████▉| 113/114 [06:29<00:03,  3.46s/it]100%|██████████| 114/114 [06:32<00:00,  3.47s/it](1818, 1024, 3)
-wandb: Currently logged in as: kidrain61. Use `wandb login --relogin` to force relogin
-wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: Tracking run with wandb version 0.15.10
-wandb: Run data is saved locally in /data/users/zhangjunlei/tyx/wandb/wandb/run-20230907_073855-48fdya5c
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run wizardmath-70b-lora-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16-2023-09-07-5
-wandb: ⭐️ View project at https://wandb.ai/kidrain61/step-reward
-wandb: 🚀 View run at https://wandb.ai/kidrain61/step-reward/runs/48fdya5c
-100%|██████████| 114/114 [07:18<00:00,  3.85s/it]
-  0%|          | 0/66500 [00:00<?, ?it/s]Traceback (most recent call last):
-  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py", line 278, in <module>
-  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py", line 254, in train
-    
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
-    return inner_training_loop(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1809, in _inner_training_loop
-    tr_loss_step = self.training_step(model, inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 2665, in training_step
-    self.accelerator.backward(loss)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/accelerator.py", line 1853, in backward
-    loss.backward(**kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/_tensor.py", line 487, in backward
-    torch.autograd.backward(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
-    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/function.py", line 274, in apply
-    return user_fn(self, *args)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 157, in backward
-    torch.autograd.backward(outputs_with_grad, args_with_grad)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/__init__.py", line 200, in backward
-    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/function.py", line 274, in apply
-    return user_fn(self, *args)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 547, in backward
-    if req_gradA: grad_A = torch.matmul(grad_output, F.dequantize_4bit(B, ctx.state).to(grad_output.dtype).t())
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 448.00 MiB (GPU 2; 79.20 GiB total capacity; 72.07 GiB already allocated; 361.31 MiB free; 74.94 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
-Traceback (most recent call last):
-  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py", line 278, in <module>
-  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py", line 254, in train
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
-    return inner_training_loop(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1809, in _inner_training_loop
-    tr_loss_step = self.training_step(model, inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 2654, in training_step
-    loss = self.compute_loss(model, inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 2679, in compute_loss
-    outputs = model(**inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1156, in forward
-    output = self._run_ddp_forward(*inputs, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1110, in _run_ddp_forward
-    return module_to_run(*inputs[0], **kwargs[0])  # type: ignore[index]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 586, in forward
-    return model_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 574, in __call__
-    return convert_to_fp32(self.model_forward(*args, **kwargs))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 14, in decorate_autocast
-    return func(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 586, in forward
-    return model_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 574, in __call__
-    return convert_to_fp32(self.model_forward(*args, **kwargs))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 14, in decorate_autocast
-    return func(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/peft/peft_model.py", line 922, in forward
-    return self.base_model(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 806, in forward
-    outputs = self.model(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 685, in forward
-    layer_outputs = torch.utils.checkpoint.checkpoint(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 249, in checkpoint
-    return CheckpointFunction.apply(function, preserve, *args)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
-    return super().apply(*args, **kwargs)  # type: ignore[misc]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 107, in forward
-    outputs = run_function(*args)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 681, in custom_forward
-    return module(*inputs, output_attentions, None)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 421, in forward
-    hidden_states = self.mlp(hidden_states)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 216, in forward
-    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/peft/tuners/lora.py", line 1123, in forward
-    result = super().forward(x)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/nn/modules.py", line 248, in forward
-    out = bnb.matmul_4bit(x, self.weight.t(), bias=bias, quant_state=self.weight.quant_state)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 579, in matmul_4bit
-    return MatMul4Bit.apply(A, B, out, bias, quant_state)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
-    return super().apply(*args, **kwargs)  # type: ignore[misc]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 516, in forward
-    output = torch.nn.functional.linear(A, F.dequantize_4bit(B, state).to(A.dtype).t(), bias)
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 448.00 MiB (GPU 0; 79.20 GiB total capacity; 75.07 GiB already allocated; 348.31 MiB free; 76.72 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
-Traceback (most recent call last):
-  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py", line 278, in <module>
-  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py", line 254, in train
-    
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
-    return inner_training_loop(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1809, in _inner_training_loop
-    tr_loss_step = self.training_step(model, inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 2654, in training_step
-    loss = self.compute_loss(model, inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 2679, in compute_loss
-    outputs = model(**inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1156, in forward
-    output = self._run_ddp_forward(*inputs, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1110, in _run_ddp_forward
-    return module_to_run(*inputs[0], **kwargs[0])  # type: ignore[index]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 586, in forward
-    return model_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 574, in __call__
-    return convert_to_fp32(self.model_forward(*args, **kwargs))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 14, in decorate_autocast
-    return func(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 586, in forward
-    return model_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 574, in __call__
-    return convert_to_fp32(self.model_forward(*args, **kwargs))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 14, in decorate_autocast
-    return func(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/peft/peft_model.py", line 922, in forward
-    return self.base_model(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 806, in forward
-    outputs = self.model(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 685, in forward
-    layer_outputs = torch.utils.checkpoint.checkpoint(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 249, in checkpoint
-    return CheckpointFunction.apply(function, preserve, *args)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
-    return super().apply(*args, **kwargs)  # type: ignore[misc]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 107, in forward
-    outputs = run_function(*args)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 681, in custom_forward
-    return module(*inputs, output_attentions, None)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 421, in forward
-    hidden_states = self.mlp(hidden_states)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 216, in forward
-    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/peft/tuners/lora.py", line 1123, in forward
-    result = super().forward(x)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/nn/modules.py", line 248, in forward
-    out = bnb.matmul_4bit(x, self.weight.t(), bias=bias, quant_state=self.weight.quant_state)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 579, in matmul_4bit
-    return MatMul4Bit.apply(A, B, out, bias, quant_state)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
-    return super().apply(*args, **kwargs)  # type: ignore[misc]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 516, in forward
-    output = torch.nn.functional.linear(A, F.dequantize_4bit(B, state).to(A.dtype).t(), bias)
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 448.00 MiB (GPU 0; 79.20 GiB total capacity; 75.07 GiB already allocated; 348.31 MiB free; 76.72 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
-wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
-Traceback (most recent call last):
-  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py", line 278, in <module>
-  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py", line 254, in train
-    
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
-    return inner_training_loop(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1809, in _inner_training_loop
-    tr_loss_step = self.training_step(model, inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 2654, in training_step
-    loss = self.compute_loss(model, inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 2679, in compute_loss
-    outputs = model(**inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1156, in forward
-    output = self._run_ddp_forward(*inputs, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1110, in _run_ddp_forward
-    return module_to_run(*inputs[0], **kwargs[0])  # type: ignore[index]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 586, in forward
-    return model_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 574, in __call__
-    return convert_to_fp32(self.model_forward(*args, **kwargs))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 14, in decorate_autocast
-    return func(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 586, in forward
-    return model_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 574, in __call__
-    return convert_to_fp32(self.model_forward(*args, **kwargs))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 14, in decorate_autocast
-    return func(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/peft/peft_model.py", line 922, in forward
-    return self.base_model(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 806, in forward
-    outputs = self.model(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 685, in forward
-    layer_outputs = torch.utils.checkpoint.checkpoint(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 249, in checkpoint
-    return CheckpointFunction.apply(function, preserve, *args)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
-    return super().apply(*args, **kwargs)  # type: ignore[misc]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 107, in forward
-    outputs = run_function(*args)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 681, in custom_forward
-    return module(*inputs, output_attentions, None)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 421, in forward
-    hidden_states = self.mlp(hidden_states)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 216, in forward
-    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/peft/tuners/lora.py", line 1123, in forward
-    result = super().forward(x)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/nn/modules.py", line 248, in forward
-    out = bnb.matmul_4bit(x, self.weight.t(), bias=bias, quant_state=self.weight.quant_state)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 579, in matmul_4bit
-    return MatMul4Bit.apply(A, B, out, bias, quant_state)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
-    return super().apply(*args, **kwargs)  # type: ignore[misc]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 516, in forward
-    output = torch.nn.functional.linear(A, F.dequantize_4bit(B, state).to(A.dtype).t(), bias)
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 448.00 MiB (GPU 1; 79.20 GiB total capacity; 76.26 GiB already allocated; 410.31 MiB free; 77.61 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
-Traceback (most recent call last):
-  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py", line 278, in <module>
-  File "/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py", line 254, in train
-    
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
-    return inner_training_loop(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 1809, in _inner_training_loop
-    tr_loss_step = self.training_step(model, inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 2654, in training_step
-    loss = self.compute_loss(model, inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/trainer.py", line 2679, in compute_loss
-    outputs = model(**inputs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1156, in forward
-    output = self._run_ddp_forward(*inputs, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1110, in _run_ddp_forward
-    return module_to_run(*inputs[0], **kwargs[0])  # type: ignore[index]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 586, in forward
-    return model_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 574, in __call__
-    return convert_to_fp32(self.model_forward(*args, **kwargs))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 14, in decorate_autocast
-    return func(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 586, in forward
-    return model_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/utils/operations.py", line 574, in __call__
-    return convert_to_fp32(self.model_forward(*args, **kwargs))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 14, in decorate_autocast
-    return func(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/peft/peft_model.py", line 922, in forward
-    return self.base_model(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 806, in forward
-    outputs = self.model(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 685, in forward
-    layer_outputs = torch.utils.checkpoint.checkpoint(
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 249, in checkpoint
-    return CheckpointFunction.apply(function, preserve, *args)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
-    return super().apply(*args, **kwargs)  # type: ignore[misc]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 107, in forward
-    outputs = run_function(*args)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 681, in custom_forward
-    return module(*inputs, output_attentions, None)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 421, in forward
-    hidden_states = self.mlp(hidden_states)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/accelerate/hooks.py", line 165, in new_forward
-    output = old_forward(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 216, in forward
-    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/peft/tuners/lora.py", line 1123, in forward
-    result = super().forward(x)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/nn/modules.py", line 248, in forward
-    out = bnb.matmul_4bit(x, self.weight.t(), bias=bias, quant_state=self.weight.quant_state)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 579, in matmul_4bit
-    return MatMul4Bit.apply(A, B, out, bias, quant_state)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/torch/autograd/function.py", line 506, in apply
-    return super().apply(*args, **kwargs)  # type: ignore[misc]
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py", line 516, in forward
-    output = torch.nn.functional.linear(A, F.dequantize_4bit(B, state).to(A.dtype).t(), bias)
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 448.00 MiB (GPU 3; 79.20 GiB total capacity; 76.81 GiB already allocated; 40.31 MiB free; 78.05 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
-[2023-09-07 07:39:13,656] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2332955
-Exception ignored in atexit callback: <function _Manager._atexit_setup.<locals>.<lambda> at 0x7fcc102792d0>
-Traceback (most recent call last):
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_manager.py", line 155, in <lambda>
-    self._atexit_lambda = lambda: self._atexit_teardown()
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_manager.py", line 164, in _atexit_teardown
-    self._teardown(exit_code)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/wandb_manager.py", line 175, in _teardown
-    result = self._service.join()
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/service/service.py", line 258, in join
-    ret = self._internal_proc.wait()
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/subprocess.py", line 1209, in wait
-    return self._wait(timeout=timeout)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/subprocess.py", line 1959, in _wait
-    (pid, sts) = self._try_wait(0)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/subprocess.py", line 1917, in _try_wait
-    (pid, sts) = os.waitpid(self.pid, wait_flags)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/ray/_private/worker.py", line 1723, in sigterm_handler
-    sys.exit(signum)
-  File "/data/users/zhangjunlei/anaconda3/envs/open-instruct/lib/python3.10/site-packages/wandb/sdk/lib/exit_hooks.py", line 36, in exit
-    self._orig_exit(orig_code)  # type: ignore
-SystemExit: 15
-[2023-09-07 07:39:17,134] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2332956
-[2023-09-07 07:39:17,158] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2332957
-[2023-09-07 07:39:17,158] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 2332958
-[2023-09-07 07:39:17,179] [ERROR] [launch.py:321:sigkill_handler] ['/data/users/zhangjunlei/anaconda3/envs/open-instruct/bin/python', '-u', '/data/users/zhangjunlei/tyx/FastChat/fastchat/train/train_all_linear_modules_with_qlora.py', '--local_rank=3', '--model_name_or_path', '/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-70B-V1.0/snapshots/e089c3f9d2ad9d1acb62425aec3f4126f498f4c5', '--data_path', '/data/users/zhangjunlei/tyx/reward-by-prm800k/datasets/prm800k-train-direct-prediction-0-02validiation-encoded-datasets', '--output_dir', '/data/users/zhangjunlei/tyx/reward-by-prm800k/models/wizardmath-70b-lora-prm800k-train-direct-prediction-0-02validiation-bs=128-gas=16', '--model_max_length', '1024', '--per_device_train_batch_size', '2', '--per_device_eval_batch_size', '4', '--gradient_checkpointing', 'True', '--gradient_accumulation_steps', '16', '--num_train_epochs', '100', '--evaluation_strategy', 'steps', '--eval_steps', '100', '--eval_first', 'True', '--save_strategy', 'steps', '--save_steps', '100', '--learning_rate', '2e-5', '--weight_decay', '0.', '--warmup_ratio', '0.03', '--lr_scheduler_type', 'cosine', '--lora_r', '256', '--lora_alpha', '256', '--lora_dropout', '0.05', '--lora_target_modules', 'all_linear', '--q_lora', 'True', '--bf16', 'True', '--tf32', 'True', '--use_accelerate_lib', 'flash-attn-v2', '--logging_strategy', 'steps', '--logging_steps', '1'] exits with return code = 1
