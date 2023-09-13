@@ -259,6 +259,7 @@ class Problem:
 #     "ground_truth_answer": "-2+7i"
 # }
 
+
 # data collate
 
 
@@ -682,6 +683,90 @@ def check_time_cost(code_list):
 # metrics
 
 
+def evaluate_clf_metrics_compute(
+    metrics, flat_preds, flat_refs, labels, token_probs_list=None
+):
+    eval_metrics = {}
+    # ROC
+    # eval_metrics["roc"] = wandb.plot.roc_curve(
+    #     y_true=flat_refs, y_probas=token_rating_probs_list
+    # )
+
+    # nums
+    pred_nums = defaultdict(int)
+    ref_nums = defaultdict(int)
+    for pred, ref in zip(flat_preds, flat_refs):
+        pred_nums[pred] += 1
+        ref_nums[ref] += 1
+
+    # ::DONE:: shorten the following keys
+    for key, value in pred_nums.items():
+        eval_metrics[f"pred_{key}_num"] = value
+
+    for key, value in ref_nums.items():
+        eval_metrics[f"ref_{key}_num"] = value
+
+    if isinstance(metrics, evaluate.CombinedEvaluations):
+        metrics = metrics.evaluation_modules
+    for metric in metrics:
+        if metric.name == "rocauc":  # not roc_auc!
+            if token_probs_list is not None:
+                for average in MULTICLASS_AVERAGINGS:
+                    average_roc_auc = metric.compute(
+                        references=flat_refs,
+                        prediction_scores=token_probs_list,
+                        average=average,
+                        multi_class="ovr",
+                    )[
+                        "roc_auc"
+                    ]  # not metric.name!
+                    eval_metrics[f"roc_auc_{average}"] = average_roc_auc
+                class_roc_aucs = metric.compute(
+                    references=flat_refs,
+                    prediction_scores=token_probs_list,
+                    labels=labels,
+                    average=None,
+                    multi_class="ovr",
+                )["roc_auc"]
+                eval_metrics.update(
+                    {
+                        f"roc_auc_{labels[idx]}": value
+                        for idx, value in enumerate(class_roc_aucs)
+                    }
+                )
+            continue
+
+        if metric.name not in MUL_CLF_METRIC_NAMES:
+            eval_metrics.update(
+                metric.compute(predictions=flat_preds, references=flat_refs)
+            )
+        else:  # metric.name in utils.MUL_CLF_METRIC_NAMES:
+            for average in MULTICLASS_AVERAGINGS:
+                eval_metrics.update(
+                    {
+                        f"{metric.name}_{average}": metric.compute(
+                            predictions=flat_preds,
+                            references=flat_refs,
+                            average=average,
+                        )[metric.name]
+                    }
+                )
+            class_metrics = metric.compute(
+                predictions=flat_preds,
+                references=flat_refs,
+                average=None,
+                labels=labels,
+            )[metric.name]
+            eval_metrics.update(
+                {
+                    f"{metric.name}_{labels[idx]}": value
+                    for idx, value in enumerate(class_metrics)
+                }
+            )
+
+    return eval_metrics
+
+
 def get_mul_clf_metrics(
     clf_metric_names=CLF_METRIC_NAMES, averages=MULTICLASS_AVERAGINGS
 ):
@@ -916,6 +1001,48 @@ def prm800k_compute_metrics(eval_prediction):
 
 
 # PRM800K data processing
+
+
+def prm800k_extract_synthesized_analysis(
+    synthesized_analysis: str, query_type: str = "sar", debug={}
+):
+    steps = []
+    ratings = []
+    analyses = []
+    prompt_with_analysis = "## Step-Analysis-Rating\n"
+    step_rating_analysis_section = synthesized_analysis.split(prompt_with_analysis)[-1]
+    if query_type == "sar":
+        pattern = r'Step \d+: """(.+?)""" Analysis: (.+?) Rating: (-1|0|1)'
+    elif query_type == "sra":
+        pattern = r'Step \d+: """(.+?)""" Rating: (-1|0|1) Analysis: (.+?)'
+    else:
+        raise ValueError(f"query_type `{query_type}` is not valid")
+
+    search_results = re.findall(pattern, step_rating_analysis_section, flags=re.DOTALL)
+
+    if debug.get("search"):
+        print(search_results)
+    for idx, step_rating_analysis in enumerate(search_results):
+        if query_type == "sar":
+            step, analysis, rating = step_rating_analysis
+        elif query_type == "sra":
+            step, rating, analysis = step_rating_analysis
+        else:
+            raise ValueError(f"query_type `{query_type}` is not valid")
+
+        step = step.strip()
+        analysis = analysis.strip()
+        rating = rating.strip()
+
+        assert rating in ("-1", "0", "1"), f"rating `{rating}` is not valid"
+        assert (
+            rating in analysis.split(",")[-1]
+        ), f"rating {rating} is not in analysis {analysis}"
+        steps.append(step)
+        ratings.append(rating)
+        analyses.append(analysis)
+
+    return steps, ratings, analyses
 
 
 def pick_prm800k_samples(x):
