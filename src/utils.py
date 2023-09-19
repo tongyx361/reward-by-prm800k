@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import csv
 import datetime
 import gzip
@@ -487,31 +488,8 @@ class DataCollatorForCausalLM:
             if "labels" in features[0].keys()
             else None
         )
-        # # We have to pad the labels before calling `tokenizer.pad` as this method won't pad them and needs them of the
-        # # same length to return tensors.
-        # if labels is not None:
-        #     max_label_length = max(len(l) for l in labels)
-        #     if self.pad_to_multiple_of is not None:
-        #         max_label_length = (
-        #             (max_label_length + self.pad_to_multiple_of - 1)
-        #             * self.pad_to_multiple_of
-        #         )
 
-        #     padding_side = self.tokenizer.padding_side
-        #     for feature in features:
-        #         remainder = [self.label_pad_token_id] * (max_label_length - len(feature["labels"]))
-        #         if isinstance(feature["labels"], list):
-        #             feature["labels"] = (
-        #                 feature["labels"] + remainder if padding_side == "right" else remainder + feature["labels"]
-        #             )
-        #         elif padding_side == "right":
-        #             feature["labels"] = np.concatenate([feature["labels"], remainder]).astype(np.int64)
-        #         else:
-        #             feature["labels"] = np.concatenate([remainder, feature["labels"]]).astype(np.int64)
-
-        # added
         # truncate
-        # batch_max_length = max(len(f["input_ids"]) for f in features)
         if self.max_length is not None:
             for feature in features:
                 for k, v in feature.items():
@@ -526,11 +504,6 @@ class DataCollatorForCausalLM:
             return_attention_mask=True,
             return_tensors=return_tensors,
         )
-
-        # features = self.tokenizer.prepare_for_model(
-        #     features,
-        #     max_length=self.max_length,
-        # )
 
         # prepare decoder_input_ids
         if (

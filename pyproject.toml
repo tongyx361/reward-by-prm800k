@@ -1,1 +1,2 @@
-/data/tongyx361/dotfiles/.config/black
+[tool.black]
+max-line-length = 88

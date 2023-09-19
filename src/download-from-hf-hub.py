@@ -7,6 +7,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--model_name", type=str, default=None, help="model name")
 args = parser.parse_args()
 
+print("login to huggingface hub...")
 login(token="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")
 
 
