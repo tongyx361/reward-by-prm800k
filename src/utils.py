@@ -28,10 +28,10 @@ import orjson
 import regex as re
 import torch
 import transformers
+import vllm
 from transformers.tokenization_utils_base import PreTrainedTokenizerBase
 from transformers.utils import PaddingStrategy
 
-import vllm
 import wandb
 
 # global variables
@@ -54,6 +54,10 @@ MUL_CLF_METRIC_NAMES = [
 ]
 
 default_max_seq_len = 1024
+
+# random
+
+default_seed = 42
 
 # print
 
@@ -1332,9 +1336,13 @@ def rate_n_samples(
     num_solution_samples_to_rate_per_problem=num_solution_samples_to_rate_per_problem,
     rated_problem_solution_hierarchical_samples_path=None,
     lib="vllm",
-    seed=None,
+    seed=default_seed,
     debug_for={},
 ):
+    """
+    @param: model_name_or_path: path to dir of zero-3 checkpoint or other hf model
+    @param: debug_for: dict of debug options, e.g. {"resume_vllm_outputs": True, "save_vllm_outputs": True}
+    """
     # prepare params
     if debug_for is None:
         debug_for = {}
@@ -1362,7 +1370,7 @@ def rate_n_samples(
                         model_name_or_path,
                         pytorch_model_filepath,
                     ],
-                    cwd=default_7b_model_path,
+                    cwd=model_name_or_path,
                 )
                 if zero_to_fp32_result.returncode != 0:
                     raise RuntimeError(
@@ -1374,8 +1382,9 @@ def rate_n_samples(
             temp_model = transformers.AutoModelForCausalLM.from_pretrained(
                 os.path.join(model_name_or_path, pytorch_model_filename),
                 config=model_config,
+                # torch_dtype=torch.bfloat16,  # bf16 is heard to be prone to positional encoding clash
                 torch_dtype=torch.float16,  # fp16 to accelerate but try to avoid positional encoding clash
-                low_cpu_mem_usage=True,  # memory and time-
+                low_cpu_mem_usage=True,  # memory-and-time-efficient loading
             )
 
             temp_model.save_pretrained(hf_fp16_model_name_or_path)
@@ -1435,7 +1444,7 @@ def rate_n_samples(
             if debug_for.get("prompts"):
                 print(prompts[0])
 
-            llm = get_vllm(model_name_or_path=default_7b_model_path)
+            llm = get_vllm(model_name_or_path=model_name_or_path)
             outputs = prm800k_vllm_inference(
                 llm, generation_config=generation_config, prompts=prompts
             )  # 13:28
@@ -1509,16 +1518,18 @@ def eval_model_with_best_of_n(
     best_of_n_results_jsonl_path=best_of_n_results_jsonl_path,
     metrics=all_metrics,
     num_trials=num_trials,
-    debug_for={},
+    seed=default_seed,
+    debug_for=None,
 ):
     # eval
 
     rated_problem_solution_hierarchical_samples = rate_n_samples(
-        model_name_or_path=default_7b_model_path,
+        model_name_or_path=model_name_or_path,
         problem_solution_hierarchical_samples_path=problem_solution_hierarchical_samples_path,
         num_solution_samples_to_rate_per_problem=num_solution_samples_to_rate_per_problem,
         rated_problem_solution_hierarchical_samples_path="default",
         lib="vllm",
+        seed=seed,
         debug_for=debug_for,
     )
 
@@ -1529,7 +1540,7 @@ def eval_model_with_best_of_n(
         ns=None,
         metrics=metrics,
         best_of_n_results_jsonl_path=best_of_n_results_jsonl_path,
-        model_name_or_path=default_7b_model_path,
+        model_name_or_path=model_name_or_path,
         verbose=False,
         debug_for=debug_for,
     )
@@ -1721,7 +1732,7 @@ def get_vllm(model_name_or_path=default_7b_model_path):
 
     # if llm is None:
     llm = vllm.LLM(
-        model=default_7b_model_path,
+        model=model_name_or_path,
         tokenizer=default_tokenizer_path,
         tokenizer_mode="auto",
         trust_remote_code=True,

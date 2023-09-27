@@ -13,4 +13,5 @@ if __name__ == "__main__":
     utils.eval_model_with_best_of_n(
         model_name_or_path=args.model_name_or_path,
         metrics=[metric for metric in utils.all_metrics if metric != "majority_voting"],
+        seed=42,
     )

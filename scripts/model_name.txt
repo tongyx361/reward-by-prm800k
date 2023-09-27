@@ -1,2 +1,3 @@
-TIGER-Lab/MAmmoTH-13B
-TIGER-Lab/MAmmoTH-70B
+GAIR/GAIRMath-Abel-7b
+GAIR/GAIRMath-Abel-13B
+GAIR/GAIRMath-Abel-70b
