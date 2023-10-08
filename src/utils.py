@@ -28,10 +28,10 @@ import orjson
 import regex as re
 import torch
 import transformers
-import vllm
 from transformers.tokenization_utils_base import PreTrainedTokenizerBase
 from transformers.utils import PaddingStrategy
 
+import vllm
 import wandb
 
 # global variables
@@ -1577,11 +1577,11 @@ def get_rating_objs(tokenizer, rating2word=rating2word, verbose=False):
 # LLaMA
 
 
-def get_hf_model(model_name_or_path=default_7b_model_path, **kwargs):
+def get_hf_model(model_name_or_path=default_7b_model_path, torch_dtype=torch.float16, **kwargs):
     """fp16, low_cpu_mem_usage"""
     model = transformers.AutoModelForCausalLM.from_pretrained(
         model_name_or_path,
-        torch_dtype=torch.float16,
+        torch_dtype=torch_dtype,
         low_cpu_mem_usage=True,
         device_map="auto",
         **kwargs,
@@ -1639,11 +1639,15 @@ def complete_four_special_tokens(tokenizer):
     return tokenizer
 
 
-def get_complete_tokenizer(tokenizer_name_or_path=default_tokenizer_path):
+def get_complete_tokenizer(
+    tokenizer_name_or_path=default_tokenizer_path, padding_side="right"
+):
     global tokenizer
     if tokenizer is None:
         tokenizer = transformers.AutoTokenizer.from_pretrained(
-            tokenizer_name_or_path, model_max_length=model_max_length
+            tokenizer_name_or_path,
+            model_max_length=model_max_length,
+            padding_side=padding_side,
         )
         tokenizer = complete_four_special_tokens(tokenizer)
 
