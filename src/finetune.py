@@ -352,14 +352,12 @@ import pathlib
 import random
 import shutil
 import time
-
 # import subprocess
 from collections import defaultdict
 from functools import partial
 
 import datasets
 import evaluate
-
 # import ipdb
 import torch
 import transformers
@@ -368,31 +366,19 @@ from accelerate import Accelerator, DistributedType, init_empty_weights
 from accelerate.logging import get_logger
 from accelerate.utils import set_seed
 from datasets import load_dataset, load_from_disk  # concatenate_datasets,
-
 # from eval import compute_metrics
 from peft import LoraConfig, TaskType, get_peft_model
 from prepare_dataset import (  # instead of DataCollatorForSeq2Seq,
-    DataCollatorForCausalLM,
-    encode_with_messages_format,
+    DataCollatorForCausalLM, encode_with_messages_format,
     encode_with_problem_step_ratings_format,
-    encode_with_prompt_completion_format,
-)
-
+    encode_with_prompt_completion_format)
 # from prepare_dataset import *
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
-from transformers import (
-    AutoConfig,
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    BitsAndBytesConfig,
-    GPT2Tokenizer,
-    GPTNeoXTokenizerFast,
-    LlamaTokenizer,
-    OPTForCausalLM,
-    SchedulerType,
-    get_scheduler,
-)
+from transformers import (AutoConfig, AutoModelForCausalLM, AutoTokenizer,
+                          BitsAndBytesConfig, GPT2Tokenizer,
+                          GPTNeoXTokenizerFast, LlamaTokenizer, OPTForCausalLM,
+                          SchedulerType, get_scheduler)
 from utils import MUL_CLF_METRIC_NAMES, MULTICLASS_AVERAGINGS
 
 import wandb
@@ -412,19 +398,20 @@ if (
 ):
     if args.use_accelerate_lib == "flash-attn-v2":
         utils.local_main_print("Using flash attention v2")
-        from llama2_flash_attn_monkey_patch import replace_llama_attn_with_flash_attn
+        from llama2_flash_attn_monkey_patch import \
+            replace_llama_attn_with_flash_attn
 
         replace_llama_attn_with_flash_attn()
     elif args.use_accelerate_lib == "flash-attn-v1":
         utils.local_main_print("Using flash attention v1")
-        from llama_flash_attn_monkey_patch import replace_llama_attn_with_flash_attn
+        from llama_flash_attn_monkey_patch import \
+            replace_llama_attn_with_flash_attn
 
         replace_llama_attn_with_flash_attn()
     elif args.use_accelerate_lib == "xformers":
         utils.local_main_print("Using xformers")
-        from llama_xformers_attn_monkey_patch import (
-            replace_llama_attn_with_xformers_attn,
-        )
+        from llama_xformers_attn_monkey_patch import \
+            replace_llama_attn_with_xformers_attn
 
         replace_llama_attn_with_xformers_attn()
 
@@ -479,6 +466,10 @@ def inference_and_compute_metrics(model, eval_dataloader, metrics, steps=None):
         # We can avoid the following line since we set the accelerator with `device_placement=True`.
         # batch.to(accelerator.device)
         inputs = batch
+        # debug
+        if step == 0:
+            for k, v in inputs.items():
+                accelerator.print(f"{k, torch.tensor(v).shape}")
         with torch.no_grad():
             logits = model(**inputs).logits
 
