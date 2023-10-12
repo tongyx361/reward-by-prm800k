@@ -233,12 +233,18 @@ tokenizer = None
 
 model_max_length = 4096
 top_k = 5
+temperature = 0
+logprobs = top_k
+if temperature == 0:
+    top_k = -1
+    top_p = 1
+    logprobs = 5
 generation_config = dict(
-    temperature=1,
-    top_p=1,
+    temperature=temperature,
+    top_p=top_p,
     top_k=top_k,
     max_tokens=1,
-    logprobs=top_k,
+    logprobs=logprobs,
 )
 
 # class
@@ -492,6 +498,7 @@ class DataCollatorForCausalLM:
             if "labels" in features[0].keys()
             else None
         )
+        max_feature_length = max(len(label) for label in labels)
 
         # truncate
         if self.max_length is not None:
@@ -499,6 +506,38 @@ class DataCollatorForCausalLM:
                 for k, v in feature.items():
                     if len(v) > self.max_length:
                         feature[k] = v[: self.max_length]
+            if self.padding == "max_length" or self.padding == PaddingStrategy.MAX_LENGTH:
+                max_feature_length = self.max_length
+
+        # We have to pad the labels before calling `tokenizer.pad` as this method won't pad them and needs them of the
+        # same length to return tensors.
+        if labels is not None:
+            if self.pad_to_multiple_of is not None:
+                max_feature_length = (
+                    (max_feature_length + self.pad_to_multiple_of - 1)
+                    // self.pad_to_multiple_of
+                    * self.pad_to_multiple_of
+                )
+
+            padding_side = self.tokenizer.padding_side
+            for feature in features:
+                remainder = [self.label_pad_token_id] * (
+                    max_feature_length - len(feature["labels"])
+                )
+                if isinstance(feature["labels"], list):
+                    feature["labels"] = (
+                        feature["labels"] + remainder
+                        if padding_side == "right"
+                        else remainder + feature["labels"]
+                    )
+                elif padding_side == "right":
+                    feature["labels"] = np.concatenate(
+                        [feature["labels"], remainder]
+                    ).astype(np.int64)
+                else:  # padding_side == "left"
+                    feature["labels"] = np.concatenate(
+                        [remainder, feature["labels"]]
+                    ).astype(np.int64)
 
         features = self.tokenizer.pad(
             features,

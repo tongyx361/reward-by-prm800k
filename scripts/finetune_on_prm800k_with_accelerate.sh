@@ -1,9 +1,9 @@
 # every run
-export CUDA_VISIBLE_DEVICES="1,3,4,6"
+export CUDA_VISIBLE_DEVICES="0,1,3,5"
 NUM_GPUS=4
 # NUM_GPUS=2
-DATE="2023-09-09"
-IDX=1
+DATE="2023-10-07"
+IDX=3
 # DEBUG_SUFFIX="-debug"
 
 unset RESUME_TRACKING
@@ -19,7 +19,8 @@ unset RESUME_CKPT_PATH
 # every exp
 
 # MODEL_NAME="llama2"
-MODEL_NAME="wizardmath"
+# MODEL_NAME="wizardmath"
+MODEL_NAME='mammoth'
 
 unset PEFT
 # PEFT="lora"
@@ -31,7 +32,8 @@ unset PEFT
 
 MODEL_SIZE_B="13"
 # MODEL_PATH="/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--meta-llama--Llama-2-13b-hf/snapshots/db6b8eb1feabb38985fdf785a89895959e944936"
-MODEL_PATH="/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-13B-V1.0/snapshots/7ef412d2c680ef0fbdcd88d0df31b396d8d3049c"
+# MODEL_PATH="/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--WizardLM--WizardMath-13B-V1.0/snapshots/7ef412d2c680ef0fbdcd88d0df31b396d8d3049c"
+MODEL_PATH="/data/users/zhangjunlei/tyx/.cache/huggingface/hub/models--TIGER-Lab--MAmmoTH-13B/snapshots/722090488fd2fd201877cfb73e831bd7669b6397"
 # MODEL_PATH="WizardLM/WizardMath-13B-V1.0"
 
 
@@ -60,7 +62,7 @@ TOTAL_BATCH_SIZE=128
 # TOTAL_BATCH_SIZE=120
 # TOTAL_BATCH_SIZE=96
 GRADIENT_ACC_STEPS=$(($TOTAL_BATCH_SIZE/$NUM_GPUS/$TRAIN_BATCH_SIZE_PER_GPU))
-NUM_TRAIN_EPOCHS=100
+NUM_TRAIN_EPOCHS=5
 
 # 以能继续训练为同一个实验
 
@@ -86,7 +88,7 @@ EVAL_STEPS=50
 PROJECT_NAME="step-reward"
 
 PROJECT_DIR='/data/users/zhangjunlei/tyx/reward-by-prm800k'
-OP_DIR="${PROJECT_DIR}/open-instruct"
+# OP_DIR="${PROJECT_DIR}/open-instruct"
 
 # DS_CONFIG_PATH="${OP_DIR}/ds_configs/stage3_offloading_accelerate.conf"
 # DS_CONFIG_PATH="${OP_DIR}/ds_configs/stage3_no_offloading.conf"

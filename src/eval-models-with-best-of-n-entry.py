@@ -13,7 +13,7 @@ def parse_args():
     parser = argparse.ArgumentParser(allow_abbrev=True)
 
     # 添加可能出现的命令行参数
-    parser.add_argument('--model_name_or_path', type=str, default=None, gelp="Path to the model to evaluate.")
+    parser.add_argument('--model_name_or_path', type=str, default=None, help="Path to the model to evaluate.")
     parser.add_argument('--models_dirpath', type=str, default=None, help="Metrics to evaluate.")
     parser.add_argument('--gpu_ids', type=str, default="0", help="IDs of GPUs to use.")
 
@@ -52,7 +52,7 @@ else:
 
 
 def extract_step_or_epoch_num(path):
-    return int(re.search(r".*?(?:step|epoch)_([0-9]+)_?", path).group(1))
+    return int(re.search(r".*?(?:step|epoch)[_=-]?([0-9]+)?", path).group(1))
 
 
 if args.model_name_or_path is not None:
